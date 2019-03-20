@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<img id='xiu' src="http://www.daqianduan.com/wp-content/uploads/2014/11/hs-xiu.jpg">
+		<img src="" >
+		<img src="" alt="">
+		<div id="app">
+			
+		</div>
+		
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+			//jquery
+			$('#xiu').load(function(){
+			   // 加载完成 
+			});
+
+		   //原生  onload
+			var xiu = document.getElementById('xiu')
+			xiu.onload = xiu.onreadystatechange = function(){
+			   if(!this.readyState||this.readyState=='loaded'||this.readyState=='complete'){
+				   // 加载完成 
+				   console.log(666)
+			   }
+			};
+
+		})
+		</script>
+		
+		<!--多张图片-->
+		<script type="text/javascript">
+		// var img = [],  
+		let img = document.getElementsByTagName('img')
+		flag = 0, 
+		mulitImg = [
+		'http://www.daqianduan.com/wp-content/uploads/2017/03/IMG_0119.jpg',
+		'http://www.daqianduan.com/wp-content/uploads/2017/01/1.jpg',
+		'http://www.daqianduan.com/wp-content/uploads/2015/11/jquery.jpg',
+		'http://www.daqianduan.com/wp-content/uploads/2015/10/maid.jpg'
+	 ];
+	 var imgTotal = mulitImg.length;
+	 for(var i = 0 ; i < imgTotal ; i++){
+		img[i] = new Image()
+		img[i].src = mulitImg[i]
+		// img[i].setAttribute('src',mulitImg[i])
+
+		// $('#app').appendChild()
+		img[i].onload = function(){
+		   //第i张图片加载完成
+		   flag++
+		   if( flag == imgTotal ){
+			  //全部加载完成
+			  console.log(777)
+		   }
+		}
+	 }
+		</script>
+	</body>
+</html>

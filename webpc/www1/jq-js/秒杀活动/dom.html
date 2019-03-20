@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta content="all" name="robots" />
+<meta name="author" content="" />
+</head>
+<body onload='start()'>
+.
+距活动开始还有：<span id="sk_time"></span> <!-- 这个是倒计时的显示 -->
+.
+<br/>
+<span id="wyz">
+<span class="btn_02">  参加秒杀！！！  </span> <!-- 这个是秒杀按钮，倒计时为0时会变成可以秒杀的样式 -->
+</span>
+.
+<script type="text/javascript">
+var msbegintime = "1323446400000"; //这个是活动开始的时间戳
+var msendtime = "1325174400000"; //这个是活动结束的时间戳
+function start(){
+    callBackServerTime("sk_time", "wyz", msbegintime, msendtime);
+}
+//_showtimediv:时间显示区域，_showqdiv：状态显示区域
+//这个向服务器发送一个ajax请求，服务器返回服务器当前的时间戳，也就是xmlobj.responseText是一个服务器的时间戳
+function callBackServerTime(_showtimediv, _showqdiv, _ms_begintime, _ms_endtime) {
+    var now = new Date();
+    var urlstr = "random=" + Math.round(Math.random() * 10000000);
+    var ajaxobj = new AJAXRequest;    // 创建AJAX对象
+    ajaxobj.method = "GET";   // 设置请求方式为GET
+    ajaxobj.url = "/gz/source/getServerTime.do?" + urlstr; //注意ajax的跨域问题
+    ajaxobj.callback = function(xmlobj) {
+        //ShowQTime(xmlobj.responseText, _showtimediv, _showqdiv, _ms_begintime, _ms_endtime, _tryid,sourceid);
+        ShowQTime( _showtimediv, _showqdiv,"1323158067288", _ms_begintime, _ms_endtime);     // 这里使用静态数字替代 xmlobj.responseText 方便测试
+    }
+    ajaxobj.send();    // 发送请求
+}
+//动态显示”秒杀“时间函数
+function ShowQTime(_showtimediv, _showqdiv, _nowtime, _ms_begintime, _ms_endtime) {
+    _nowtime = Number(_nowtime);
+    var timmer = Math.floor((_ms_endtime - _nowtime) / (1000)); 
+    if (_nowtime >= _ms_begintime && timmer > 0) {;
+        //秒杀进行中
+        document.getElementById(_showtimediv).innerHTML = "<span class='pim_time'>0</span>天<span class='pim_time'>0</span>小时<span class='pim_time'>0</span>分钟<span class='pim_time'>0</span>秒";
+        document.getElementById(_showqdiv).innerHTML = "<span class='btn_01'><a href='/gz/sk/v/'>  秒杀开始了！！！  </a></span>";
+    } else {
+        //秒杀倒计时
+        var nMS = _ms_begintime - _nowtime;  //计算出开始时间和现在时间的时间戳差
+        var nD = Math.floor(nMS / (1000 * 60 * 60 * 24));
+        var nH = Math.floor(nMS / (1000 * 60 * 60)) % 24;
+        var nM = Math.floor(nMS / (1000 * 60)) % 60;
+        var nS = Math.floor(nMS / 1000) % 60;
+        var nMS = Math.floor(nMS / 100) % 10;
+        if (nD >= 0) {
+            var _timestr = "";
+            var snd = nD.toString();
+            if (snd.length == 1) {
+                snd = "0" + snd;
+            }
+            _timestr += "<span class='pim_time'>" + snd.substring(0, 1) + snd.substring(1, 2) +"</span>天";
+            var snH = nH.toString();
+            if (snH.length == 1) {
+                snH = "0" + snH;
+            }
+            _timestr += "<span class='pim_time'>" + snH.substring(0, 1) + snH.substring(1, 2) +"</span>小时";
+            var snM = nM.toString();
+            if (snM.length == 1) {
+                snM = "0" + snM;
+            }
+            _timestr += "<span class='pim_time'>" + snM.substring(0, 1) + snM.substring(1, 2) +"</span>分钟";
+            var snS = nS.toString();
+            if (snS.length == 1) {
+                snS = "0" + snS;
+            }
+            _timestr += "<span class='pim_time'>" + snS.substring(0, 1) + snS.substring(1, 2) +"</span>秒";
+            document.getElementById(_showtimediv).innerHTML = _timestr;
+        }else {
+            //秒杀结束
+             document.getElementById(_showtimediv).innerHTML = "<span class='pim_time'>0</span>天<span class='pim_time'>0</span>小时<span class='pim_time'>0</span>分钟<span class='pim_time'>0</span>秒";
+             document.getElementById(_showqdiv).innerHTML = "<span class='btn_01'><a href='/gz/sk/v/'>  秒杀结束了！！！  </a></span>";
+        }
+    }
+    //注意 (_nowtime + 1000) 增加 1 秒
+    setTimeout("ShowQTime('" + _showtimediv + "','" + _showqdiv + "','" + (_nowtime + 1000) + "','" + _ms_begintime + "','" + _ms_endtime + "')", 1000);
+}
+function AJAXRequest() {
+    var xmlObj = false;
+    var CBfunc,ObjSelf;
+    ObjSelf=this;
+    try { xmlObj=new XMLHttpRequest; }
+    catch(e) {
+        try { xmlObj=new ActiveXObject("MSXML2.XMLHTTP"); }
+        catch(e2) {
+            try { xmlObj=new ActiveXObject("Microsoft.XMLHTTP"); }
+            catch(e3) { xmlObj=false; }
+        }
+    }
+    if (!xmlObj) return false;
+    this.method="POST";
+    this.url;
+    this.async=true;
+    this.content="";
+    this.callback=function(cbobj) {return;}
+    this.send=function() {
+        if(!this.method||!this.url||!this.async) return false;
+        xmlObj.open (this.method, this.url, this.async);
+        if(this.method=="POST") xmlObj.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        xmlObj.onreadystatechange=function() {
+            if(xmlObj.readyState==4) {
+                if(xmlObj.status==200) {
+                    ObjSelf.callback(xmlObj);
+                }
+            }
+        }
+        if(this.method=="POST") xmlObj.send(this.content);
+        else xmlObj.send(null);
+    }
+}
+</script>
+</body>
+</html>

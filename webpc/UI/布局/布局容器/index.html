@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>布局</title>
+	<style type="text/css">
+		/*公共样式*/
+		.d1{
+			margin-bottom: 20px;
+		}
+		.el-container{
+			-ms-flex:1;
+			-ms-flex-direction:row;
+			-ms-flex-preferred-size:auto;
+			-webkit-box-direction:normal;
+			-webkit-box-flex:1;
+			-webkit-box-orient:horizontal;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+			display:-webkit-box;
+			display:-ms-flexbox;
+			display:flex;
+			flex:1;
+			flex-basis:auto;
+			flex-direction:row;
+			min-width:0
+		}
+		.el-container.is-vertical{
+			-ms-flex-direction: column;
+		    -webkit-box-direction: normal;
+		    -webkit-box-orient: vertical;
+		    flex-direction: column;
+		}
+		.el-footer,.el-header{
+			background-color: #b3c0d1;
+		    color: #333;
+		    line-height: 60px;
+		    text-align: center;
+		}
+		.el-footer, .el-main{
+			-webkit-box-sizing: border-box;
+    		box-sizing: border-box;
+    		-webkit-box-sizing: border-box;
+    		overflow: auto;
+		}
+		.el-header{
+			-ms-flex-negative: 0;
+		    -webkit-box-sizing: border-box;
+		    box-sizing: border-box;
+		    flex-shrink: 0;
+		    padding: 0 20px;
+		}
+		.el-main{
+		    background-color: #e9eef3;
+		    color: #333;
+		    line-height: 160px;
+		    text-align: center;		
+		    -ms-flex: 1;
+		    -ms-flex-preferred-size: auto;
+		    -webkit-box-flex: 1;
+		    display: block;
+		    flex: 1;
+		    flex-basis: auto;
+		    padding: 20px;	
+		}
+		.el-footer{
+			-ms-flex-negative: 0;
+		    -webkit-box-sizing: border-box;
+		    box-sizing: border-box;
+		    flex-shrink: 0;
+		    padding: 0 20px;
+		}
+		.el-aside, .el-main{
+			-webkit-box-sizing: border-box;
+    		overflow: auto;
+		}
+		.el-aside{
+			-ms-flex-negative: 0;
+    		flex-shrink: 0;
+    		background-color: #d3dce6;
+		    color: #333;
+		    line-height: 200px;
+		    text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="source">
+		<section class="el-container d1 is-vertical">
+			<header class="el-header" style="height: 60px;">Header</header>
+			<main class="el-main">Main</main>
+		</section>
+		
+		<section class="el-container d1 is-vertical">
+			<header class="el-header" style="height: 60px;">Header</header>
+			<main class="el-main">Main</main>
+			<footer data-v-4adc9ef4="" class="el-footer" style="height: 60px;">底栏</footer>
+		</section>
+		
+		<section class="el-container d1">
+			<aside class="el-aside" style="width: 200px;">Aside</aside>
+			<main class="el-main">Main</main>
+		</section>
+		
+		<section class="el-container d1 is-vertical">
+			<header class="el-header" style="height: 60px;">Header</header>
+		<section class="el-container d1">
+			<aside class="el-aside" style="width: 200px;">Aside</aside>
+			<main class="el-main">Main</main>
+		</section>
+		</section>
+		
+		<section class="el-container d1 is-vertical">
+			<header class="el-header" style="height: 60px;">Header</header>
+		<section class="el-container">
+			<aside class="el-aside" style="width: 200px;">Aside</aside>
+			<section class="el-container  is-vertical">
+				<main class="el-main">Main</main>
+				<footer data-v-4adc9ef4="" class="el-footer" style="height: 60px;">底栏</footer>
+			</section>
+		</section>
+		</section>
+		
+		<section class="el-container d1">
+			<aside class="el-aside" style="width: 200px;">Aside</aside>
+			<section class="el-container  is-vertical">
+				<header class="el-header" style="height: 60px;">Header</header>
+				<main class="el-main">Main</main>
+				<footer data-v-4adc9ef4="" class="el-footer" style="height: 60px;">底栏</footer>
+			</section>
+		</section>
+	</div>
+</body>
+</html>

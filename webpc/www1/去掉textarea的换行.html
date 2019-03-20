@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+</head>
+<body>
+	<textarea class="comment-content open" name="comment_content" id="comment_content" placeholder="想对作者说点什么"></textarea>
+	<input type="button" id="btn" value="按钮" />
+	<script type="text/javascript">
+	var cont =document.getElementById('comment_content');
+	var btn = document.getElementById('btn');
+	btn.addEventListener('click',function(){
+		console.log(cont.value)
+		console.log(ReplaceSeperator(cont.value))
+	})
+	//用中文分号替换英文分号、中英文逗号或者回车    ---去掉换行
+	function ReplaceSeperator(mobiles) {
+	    var i;
+	    var result = "";
+	    var c;
+	    for (i = 0; i < mobiles.length; i++) {
+	        c = mobiles.substr(i, 1);
+	        if (c == ";" || c == "," || c == "，" || c == "\n")
+	            result = result + "; ";
+	        else if (c != "\r")
+	            result = result + c;
+	    }
+	    return result;
+	}
+	</script>
+</body>
+</html>

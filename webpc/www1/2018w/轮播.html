@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JD商城广告轮播</title>
+	<link rel="stylesheet" href="http://welltooall.com/demo_show/JD/css/iconfont.css">
+	<link rel="stylesheet" href="http://welltooall.com/demo_show/JD/css/demo.css">
+</head>
+<body>
+	
+	<div id="box">
+		<ul class="pictures">
+			<li><a href="#"><img src="http://welltooall.com/demo_show/JD/images/01.jpg" alt=""></a></li>
+			<li><a href="#"><img src="http://welltooall.com/demo_show/JD/images/02.jpg" alt=""></a></li>
+			<li><a href="#"><img src="http://welltooall.com/demo_show/JD/images/03.jpg" alt=""></a></li>
+			<li><a href="#"><img src="http://welltooall.com/demo_show/JD/images/04.jpg" alt=""></a></li>
+			<li><a href="#"><img src="http://welltooall.com/demo_show/JD/images/05.jpg" alt=""></a></li>
+			<li><a href="#"><img src="http://welltooall.com/demo_show/JD/images/06.jpg" alt=""></a></li>
+			<li><a href="#"><img src="http://welltooall.com/demo_show/JD/images/07.jpg" alt=""></a></li>
+			<li><a href="#"><img src="http://welltooall.com/demo_show/JD/images/08.jpg" alt=""></a></li>
+		</ul>
+
+		<ul class="dot">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<a href="#" class="pre"><i class="iconfont icon-jiantouzuolunbo"></i></a>
+		<a href="#" class="next"><i class="iconfont icon-right"></i></a>
+	</div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script>
+
+	function init(){
+		$("#box .pictures li").eq(0).css("display","block");
+		$("#box .dot li").eq(0).addClass("active");
+	}
+
+	init();
+
+	var count = $("#box .pictures li").length;
+	var timer = null;
+	var current = 0;
+
+	//让特定索引的图片显示，隐藏其他的图片
+	function _fadeToggle(index,dom,dotDom,count){
+		// if(index < count){
+			//图片轮流显示隐藏
+			$(dom).eq(index).siblings().fadeOut("slow");
+			$(dom).eq(index).fadeIn("slow");
+			//设置小圆点的高亮
+			$(dotDom).eq(index).siblings().removeClass("active");
+			$(dotDom).eq(index).addClass("active");
+			// console.log(current);
+		// 	current++;
+		// }else{
+		// 	current = 0;
+		// }
+	}
+
+	//小圆点点击切换图片
+	function dotShowPicture(dotDom){
+		$(dotDom).click(function(){
+			current = $(dotDom).index($(this));
+			_fadeToggle(current,"#box .pictures li","#box .dot li",count);
+		});
+	}
+	dotShowPicture("#box .dot li");
+
+	//前后切换
+	function preImg(preDom){
+		$(preDom).click(function(){
+			if(current-1 < 0){
+				current = count-1;
+			}else{
+				current--;
+			}
+			_fadeToggle(current,"#box .pictures li","#box .dot li",count);
+			// console.log("preIMg"+current);
+		});
+	}
+	preImg("#box .pre");
+	function nextImg(nextDom){
+		$(nextDom).click(function(){
+			if(current+1 === count){
+				current = 0;
+			}else{
+				current++;
+			}
+			_fadeToggle(current,"#box .pictures li","#box .dot li",count);
+			// console.log("nextImg"+current);
+		});
+	}
+	nextImg("#box .next");
+
+	//启动定时器
+	timer = setInterval(function(){
+			// console.log("setInterval"+current);
+			if(current+1 === count){
+				current = 0;
+			}else{
+				current++;
+			}
+			_fadeToggle(current,"#box .pictures li","#box .dot li",count);
+			
+		},1800);
+
+	function stopPlay(){
+		$("#box").mouseover(function(){
+			$(this).find(".pre , .next").css("display","block");
+			clearInterval(timer);
+		});
+	}
+	function oncePlay(){
+		$("#box").mouseout(function(){
+			$(this).find(".pre , .next").css("display","none");
+			timer = setInterval(function(){
+			if(current+1 === count){
+				current = 0;
+			}else{
+				current++;
+			}
+			_fadeToggle(current,"#box .pictures li","#box .dot li",count);
+				// console.log("setInterval--"+current);
+
+			},1800);
+		});
+	}
+
+	stopPlay();
+	oncePlay();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>投票进度条</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<style>
+	body{
+		font-size: 12px/1.5 arial,宋体;
+	}
+		.long{
+			width: 100px;border:1px solid #7f7f7f;height: 14px;background-color: #d6d6d6;
+		}
+		.short{
+			float: left;
+			height: 14px;
+			background-color: #0ff;
+		}
+		ul,h4,p{margin: 0;padding: 0}
+		/*清除浮动*/
+		.clearfix:after{
+			visibility:hidden;
+			display: block;
+			font-size: 0;
+			content: '';
+			clear: both;
+			height: 0;
+		}
+		/*投票*/
+		.vote-box-list{
+			border:1px solid red;position: absolute;
+		}
+		.vote-box-list li{
+			list-style: none;
+			margin: 10px 0;
+		}
+		.vote-item-wrap h4,.vote-item-wrap .vnum{
+			float: left;font-size: 14px;font-weight: normal;line-height: 16px;
+		}
+		.vote-item-wrap p{float: left;height: 14px;width: 200px;border:1px solid #e2e2e2;background-color: #efefef;margin: 0 10px;}
+		.vote-item-wrap p span{
+			float: left;height: 14px;
+		}
+	</style>
+</head>
+<body>
+<div class="long"><span class="short"></span></div>
+<ul class="vote-box-list clearfix" id="appVoteBox">
+	<li class="vl-itm" id="voteItem0">
+		<div class="vote-item-wrap clearfix">
+			<h4>A:</h4>
+			<p class="litem"><span></span></p>
+			<span class="vnum">79(2%)</span>
+		</div>
+	</li>
+	<li class="vl-itm" id="voteItem1">
+		<div class="vote-item-wrap clearfix">
+			<h4>A:</h4>
+			<p class="litem"><span></span></p>
+			<span class="vnum">79(2%)</span>
+		</div>
+	</li>
+	<li class="vl-itm" id="voteItem2">
+		<div class="vote-item-wrap clearfix">
+			<h4>b:</h4>
+			<p class="litem"><span></span></p>
+			<span class="vnum">1986(2%)</span>
+		</div>
+	</li>
+	<li class="vl-itm" id="voteItem3">
+		<div class="vote-item-wrap clearfix">
+			<h4>c:</h4>
+			<p class="litem"><span></span></p>
+			<span class="vnum">1153(2%)</span>
+		</div>
+	</li>
+	<li class="vl-itm" id="voteItem4">
+		<div class="vote-item-wrap clearfix">
+			<h4>d:</h4>
+			<p class="litem"><span></span></p>
+			<span class="vnum">415(2%)</span>
+		</div>
+	</li>
+</ul>
+	<script>
+	var percent=0.8;
+	var longWidth=100;
+	var shortWidth=percent*longWidth;
+	$(".short").animate({width:shortWidth+"px"},'slow');
+	</script>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+
+var Vote={};
+Vote.ListShow=(function(){
+    var longWidth;
+    var percentArr=[];
+    var shortWidth=[];
+    var spanArr=[];
+    var colorArr=[];
+    
+    /*初始化*/
+    function init(o){
+        voteId=o.id;
+        longWidth=o.width;
+        percentArr=o.percent;
+        shortWidth=calWidth();
+        spanArr=findSpans();
+        colorArr=genColor();
+    }
+    /*根据百分比计每个算span的实际宽度*/
+    function calWidth(){
+        var arr=[];
+        for(var i=0;i<percentArr.length;i++){
+            var tempLength=percentArr[i]*longWidth;
+            arr.push(tempLength);
+        }
+        return arr;
+    }
+    /*将全部span存为一个数组*/
+    function findSpans(){
+        var litems=$("#"+voteId).find(".litem");
+        var arr=[]
+        for(var i=0;i<litems.length;i++){
+            arr.push(litems[i].children[0]);
+        }
+        return arr;
+    }
+    /*o是颜色数组，随机选择length种颜色返回*/
+    function genColor() { 
+        var o = []; 
+        var n = ["#5dbc5b", "#6c81b6", "#9eb5f0", "#a5cbd6", "#aee7f8", "#c2f263", "#d843b3", "#d8e929", "#e58652", "#e7ab6d", "#ee335f", "#fbe096", "#ffc535"]; //彩色进度条
+        var colorsArr = n.slice(); 
+        for (var i = 0;i < percentArr.length; i++){ 
+            //Math.random()返回0.0 ~ 1.0 之间的一个伪随机数。
+            //Math.floor()向下取整
+            var k = Math.floor(Math.random()* colorsArr.length); 
+            o.push(colorsArr[k]); 
+            //取完一种颜色后就从颜色数组中删除
+            colorsArr.splice(k, 1); 
+            if (colorsArr.length == 0){ 
+            colorsArr = n.slice()} 
+        } 
+        return o;
+    } 
+    /*每个span元素设置宽度*/
+    function setWidth(){
+        for(i=0;i<percentArr.length;i++){
+            $(spanArr[i]).animate({width:shortWidth[i]+"px"},'slow');
+            $(spanArr[i]).css({'background-color':colorArr[i]}); 
+        }
+        
+    }
+    return {init:init,set:setWidth};
+})();
+
+/*调用*/
+
+Vote.ListShow.init(
+{
+    id:'appVoteBox',
+    width:200-2 ,
+    percent:[0.30,0.81,0.36,0.13,0.3],
+});
+Vote.ListShow.set();
+
+</script>
+<!-- <script>
+
+var Vote={};
+Vote.ListShow=(function(){
+    var longWidth;
+    var percentArr=[];
+    var shortWidth=[];
+    var spanArr=[];
+    
+    /*初始化*/
+    function init(o){
+        voteId=o.id;
+        longWidth=o.width;
+        percentArr=o.percent;
+        shortWidth=calWidth();
+        spanArr=findSpans();
+    }
+    /*根据百分比计每个算span的实际宽度*/
+    function calWidth(){
+        var arr=[];
+        for(var i=0;i<percentArr.length;i++){
+            var tempLength=percentArr[i]*longWidth;
+            arr.push(tempLength);
+        }
+        return arr;
+    }
+    /*将全部span存为一个数组*/
+    function findSpans(){
+        var litems=$("#"+voteId).find(".litem");
+        var arr=[]
+        for(var i=0;i<litems.length;i++){
+            arr.push(litems[i].children[0]);
+        }
+        return arr;
+    }
+
+    /*每个span元素设置宽度*/
+    function setWidth(){
+        for(i=0;i<percentArr.length;i++){
+            $(spanArr[i]).animate({width:shortWidth[i]+"px"},'slow');
+            $(spanArr[i]).css({'background-color':"#c2f263"}); 
+        }
+        
+    }
+    return {init:init,set:setWidth};
+})();
+
+/*调用*/
+Vote.ListShow.init(
+{
+    id:'appVoteBox',
+    width:200-2 ,
+    percent:[0.02,0.61,0.36,0.13,0.3],
+});
+Vote.ListShow.set();
+
+</script> -->
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body onload="gettime()">
+		<p id="time_txt"></p>
+		<script type="text/javascript">
+			function bytime(i){
+				if(i<10){
+					i='0'+i;
+				}
+				return i;
+			}
+			function gettime(){
+				var todate=new Date();
+				var h=todate.getHours();
+ 	            var m=todate.getMinutes();
+ 	            var s=todate.getSeconds();
+ 	            m=bytime(m);
+ 	            s=bytime(s);
+ 	            document.getElementById('time_txt').innerHTML=h+':'+m+':'+s;
+ 	            t=setTimeout(function(){
+ 	            	gettime()
+ 	            },500)
+ 	            
+			}
+		</script>
+	</body>
+</html>

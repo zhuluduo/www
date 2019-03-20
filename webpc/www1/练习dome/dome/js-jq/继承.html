@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function a(){
+				
+			}
+			a.prototype.say=function(){
+				alert("a_1")
+			}
+			function b(){
+				
+			}
+			b.prototype=new a();
+			var d=b.prototype.say;
+			b.prototype.say=function(){
+				d.call(this);
+				alert("a_2")
+			}
+			var c=new b();
+			c.say();
+		</script>
+	</body>
+</html>

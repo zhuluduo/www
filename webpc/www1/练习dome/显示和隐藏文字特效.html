@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript">
+	function show_hiddendiv(){
+		document.getElementById("hidden_div").style.display='block';
+		document.getElementById("_strHref").href='javascript:hidden_showdiv()';
+		document.getElementById("_strSpan").innerHTML="隐藏部分";
+
+	}
+	function hidden_showdiv(){
+		document.getElementById("hidden_div").style.display='none';
+		document.getElementById("_strHref").href='javascript:hidden_showdiv()';
+		document.getElementById("_strSpan").innerHTML="显示全部";
+	}
+
+
+
+	</script>
+</head>
+<body>
+	<!-- <form>
+		<input type="button" value="后退" onclick="history.back()">
+		<input type="button" value="百度" onclick="http://www.baidu.com">
+		<input type="button" value="前进" onclick="history.forward()"> 
+	</form> -->
+
+	sadjaskldsfdasdsaddasdaadadasdasdasddada撒大大撒打算打算打算的撒的撒打算的撒打算的撒的sadjaskldsfdasdsaddasdaadadasdasdasddada撒大大撒打算打算打算的撒的撒打算的撒打算的撒的sadjaskldsfdasdsaddasdaadadasdasdasddada撒大大撒打算打算打算的撒的撒打算的撒打算的撒的sadjaskldsfdasdsaddasdaadadasdasdasddada撒大大撒打算打算打算的撒的撒打算的撒打算的撒的sadjaskldsfdasdsaddasda<span style="display: none" id="hidden_div">撒大大撒打算打算打算的撒的撒打算的撒打算的撒的sadjaskldsfdasdsaddasdaadadasdasdasddada撒大大撒打算打算打算的撒的撒打算的撒打算的撒的</span>
+	<a id="_strHref" href="javascript:show_hiddendiv();"><span id="_strSpan"> 显示全部</span></span></a>
+</body>
+</html>

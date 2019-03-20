@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WGisSYWHrFFynEUtR8sihaVluQ6ERp8R"></script>
+		<title>百度地图</title>
+		<style type="text/css">
+			#allmap{width: 1600px;height: 600px;margin: auto;}
+		</style>
+	</head>
+	<body>
+		<div id="allmap"></div>
+		<script type="text/javascript">
+			// 百度地图API功能	
+			map = new BMap.Map("allmap");
+			// var point = new BMap.Point(116.400244,39.92556);
+			map.centerAndZoom(new BMap.Point(116.417854,39.921988), 15);
+			map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+			map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+			
+			var data_info = [[116.417854,39.921988,"地址：北京市东城区王府井大街88号乐天银泰百货八层","image/ludeng.png"],
+							 [116.406605,39.921585,"地址：北京市东城区东华门大街","image/ludeng.png"],
+							 [116.412222,39.912345,"地址：北京市东城区正义路甲5号","image/ludeng.png"],
+							 [116.422222,39.922345,"地址：北京市东城区正义路甲6号","image/ludeng.png"],
+							 [116.432222,39.932345,"地址：北京市东城区正义路甲7号","image/ludeng.png"]
+							];
+			var opts = {
+						width : 250,     // 信息窗口宽度
+						height: 80,     // 信息窗口高度
+						title : "信息窗口" , // 信息窗口标题
+						enableMessage:true,//设置允许信息窗发送短息
+						enableAutoPan : true,  //自动平移
+					   };
+		    //未更改图标	   
+// 			for(var i=0;i<data_info.length;i++){
+// 				var marker = new BMap.Marker(new BMap.Point(data_info[i][0],data_info[i][1]));  // 创建标注
+// 				var content = data_info[i][2];
+// 				map.addOverlay(marker);               // 将标注添加到地图中
+// 				addClickHandler(content,marker);
+// 			}
+
+			//创建多个自定义图标
+			for(var i=0;i<data_info.length;i++){
+				var myIcon = new BMap.Icon(data_info[i][3], new BMap.Size(150,100));  //更改默认图标
+				    myIcon.imageSize = new BMap.Size(30,30);//图标所用的图片的大小
+					// myIcon.anchor = new BMap.Size(15,25); //图标偏移位置
+				var marker = new BMap.Marker(new BMap.Point(data_info[i][0],data_info[i][1]),{icon:myIcon});  // 创建标注
+				marker.disableDragging();  //页面加载是否可拖动,默认不可拖动(enableDragging)disableDragging
+				var content = data_info[i][2];
+				map.addOverlay(marker);               // 将标注添加到地图中
+				addClickHandler(content,marker);
+			}
+			
+			
+			
+			//添加点击事件
+			function addClickHandler(content,marker){
+				marker.addEventListener("click",function(e){
+					openInfo(content,e)
+					}
+				);
+				
+				
+				//当图标可拖动时
+				//dragend---mouseup
+				//var x = e.point.lng; 经度
+				//var y = e.point.lat; 纬度
+// 				marker.addEventListener("mouseup",function(e){
+// 					console.log(e.point)
+// 					}
+// 				);
+			}
+			//获取当前点击图标的内容
+			function openInfo(content,e){
+				var p = e.target;
+				var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+				var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象 
+				map.openInfoWindow(infoWindow,point); //开启信息窗口
+			}
+		</script>
+	</body>
+</html>

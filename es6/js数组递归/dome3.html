@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        * {margin: 0; padding: 0;}
+        ul {list-style: none;}
+        header {height: 60px;padding: 0 20px;line-height: 60px;background: #3c8dbc;}
+        .logo{float: left;}
+        .userinfo {float: right}
+        aside {position: fixed;left:0;top:0;width: 230px;height: 100%;margin-top: 60px;padding: 20px;background: #2d2d2d;color: #fff;}
+        .panel {margin-bottom: 0;}
+        aside>ul>li.panel {margin-bottom: 15px;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="logo">logo</div>
+            <div class="userinfo">用户信息</div>
+        </header>
+        <aside id="aside"></aside>
+        <div class="content">
+            <iframe src="" frameborder="0"></iframe>
+        </div>
+    </div>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>-->
+    <script type="text/javascript">
+        //ajax后台请求得到的数据
+        var data = {"data": {"list": [
+            {"id": "no1", "name": "菜单管理", "url": "no1.do", "list": [
+                {"id": "no11", "name": "二级菜单-1", "url": "no11.do", "list": [
+                    {"id": "no111", "name": "三级菜单-1", "url": "no111.do", "list": [
+                        {"id": "no1111", "name": "四级菜单-1", "url": "no1111.do", "list": []},
+                        {"id": "no1112", "name": "四级菜单-2", "url": "no1112.do", "list": []}
+                    ]},
+                    {"id": "no112", "name": "三级菜单-2", "url": "no112.do", "list": [
+                        {"id": "no1121", "name": "四级菜单-1", "url": "no1121.do", "list": []},
+                        {"id": "no1122", "name": "四级菜单-2", "url": "no1122.do", "list": []}
+                    ]}
+                ]},
+                {"id": "no12", "name": "二级菜单-2", "url": "no12.do", "list": [
+                    {"id": "no121", "name": "三级菜单-1", "url": "no121.do", "list": [
+                        {"id": "no1211", "name": "四级菜单-1", "url": "no1211.do", "list": []},
+                        {"id": "no1212", "name": "四级菜单-2", "url": "no1212.do", "list": []}
+                    ]},
+                    {"id": "no122", "name": "三级菜单-2", "url": "no122.do", "list": [
+                        {"id": "no1221", "name": "四级菜单-1", "url": "no1221.do", "list": []},
+                        {"id": "no1222", "name": "四级菜单-2", "url": "no1222.do", "list": []}
+                    ]}
+                ]}
+            ]},
+            {"id": "no2", "name": "一级菜单-2", "url": "no2.do", "list": [
+                {"id": "no21", "name": "二级菜单-1", "url": "no21.do", "list": [
+                    {"id": "no211", "name": "三级菜单-1", "url": "no111.do", "list": [
+                        {"id": "no2111", "name": "四级菜单-1", "url": "no1111.do", "list": []},
+                        {"id": "no2112", "name": "四级菜单-2", "url": "no1112.do", "list": []}
+                    ]},
+                    {"id": "no212", "name": "三级菜单-2", "url": "no212.do", "list": [
+                        {"id": "no2121", "name": "四级菜单-1", "url": "no1121.do", "list": []},
+                        {"id": "no2122", "name": "四级菜单-2", "url": "no1122.do", "list": []}
+                    ]}
+                ]},
+                {"id": "no22", "name": "二级菜单-2", "url": "no22.do", "list": [
+                    {"id": "no221", "name": "三级菜单-1", "url": "no221.do", "list": [
+                        {"id": "no2211", "name": "四级菜单-1", "url": "no2211.do", "list": []},
+                        {"id": "no2212", "name": "四级菜单-2", "url": "no2212.do", "list": []}
+                    ]},
+                    {"id": "no222", "name": "三级菜单-2", "url": "no222.do", "list": [
+                        {"id": "no2221", "name": "四级菜单-1", "url": "no2221.do", "list": []},
+                        {"id": "no2222", "name": "四级菜单-2", "url": "no2222.do", "list": []}
+                    ]}
+                ]}
+            ]}
+        ]}}
+        var res = data.data.list, html;
+        function asideTpl() {
+            var tpl = '<ul id="accordion" class="nav nav-sidbar">';
+            res.forEach(function(val) {
+                tpl += '<li class="panel"><a data-parent="#accordion" href="javascript:;" data-toggle="collapse" data-url="'+val.url+'" data-target="#parent-'+val.id+'" id="parent-a-'+val.id+'" class="parent jumpiframe">'
+                    + val.name + '</a><ul class="nav collapse" id="parent-'+val.id+'">'+createli(val.id, val.list, "")+'</ul></li>';
+            });
+            return tpl + '</ul';
+        }
+        function createli(pid, data, str) {
+            data && data.forEach(function(val) {
+                str += '<li class="panel"><a style="text-indent: 10px" href="javascript:;" data-toggle="collapse" data-parent="#parent-'+pid+'" data-url="'+val.url+'" data-target="#parent-'+val.id+'" id="parent-a-'+val.id+'" class="children jumpiframe">'
+                    + val.name + '</a><ul class="nav collapse" id="parent-'+val.id+'">'+createli(val.id, val.list, "")+'</ul></li>';
+            });
+            return str;
+        }
+        html = asideTpl();
+        document.querySelector('#aside').innerHTML = html;
+        $(".jumpiframe").on('click', function() {
+            var indent = $(this).css('text-indent'),
+                jumpClass = $(this).attr('class');
+            if (/children/.test(jumpClass)) {
+                $(this).next().children('li').children('a').css('text-indent', indent.match(/\d+/g)[0] - 0 + 10 + 'px');
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!--index.wxml-->
+<import src="../common/blockSection.wxml" />
+<view class="feature-area">
+  <view class="switch-project" bindtap="switchProject">
+    <text class="switch-project-text">{{currentProject.name}}</text>
+    <text class="switch-project-btn">切换</text>
+  </view>
+
+  <view class="search">
+    <image src="../../img/search.png"></image>
+    <input type="text" placeholder="搜索" placeholder-class="search-placeholder" />
+  </view>
+
+  <view class="scan" bindtap="scan">
+    <image src="../../img/scan.png"></image>
+  </view>
+
+</view>
+<view class="select-area">
+  <view class="select-area-text {{currentTopItem==idx?'active':''}}" wx:for="{{topTabItems}}" wx:key="idx" wx:for-index="idx" bindtap="switchTab" data-idx="{{idx}}">{{item}}</view>
+</view>
+
+<swiper class="swiper" current="{{currentTopItem}}" bindchange="bindChange" duration="300" style="height:{{swiperHeight}}px">
+  <swiper-item>
+    <!-- <scroll-view class="scroll-view" scroll-y="true"> -->
+      <block wx:for="{{envList}}" wx:key="id" wx:for-item="item">
+        <navigator url="/pages/env/env?id={{item.id}}">
+          <template is="blockSection" data="{{item}}" />
+        </navigator>
+      </block>
+    <!-- </scroll-view> -->
+  </swiper-item>
+  <swiper-item>
+    <block wx:for="{{idcList}}" wx:key="id" wx:for-item="item">
+      <navigator url="/pages/idc/idc?id={{item.id}}">
+        <template is="blockSection" data="{{item}}" />
+      </navigator>
+    </block>
+  </swiper-item>
+</swiper>
+<action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+  <scroll-view class="project-scroll-view" scroll-y="true">
+    <block wx:for="{{projectList}}" wx:key="idx" wx:for-item="item" >
+      <action-sheet-item class="item" data-project="{{item}}" bindtap="chooseProject">
+        <icon type="success" size="20" wx:if="{{currentProject.name==item.name}}"></icon>
+        {{item.name}}
+      </action-sheet-item>
+    </block>
+  </scroll-view>
+  <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+</action-sheet>
+<modal title="扫码结果" confirm-text="确认" cancel-text="返回" hidden="{{modalHidden}}" bindconfirm="confirm" bindcancel="cancelScan">
+{{scanResult}}
+</modal>

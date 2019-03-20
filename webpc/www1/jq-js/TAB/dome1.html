@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>TAB切换</title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;list-style: none;text-decoration: none;}
+			.main{width: 400px;height: 300px;border: 1px solid darkslateblue;}
+			.main .main_top{width: 399px;height: 50px;border: 1px solid blueviolet;position: relative;}
+			.main .main_top ul{position: absolute;}
+			.main .main_top ul li{float: left;text-align: center;}
+			.main .main_top ul .select {background: red;}
+			.main .main_top ul li a{display: block;width: 50px;line-height: 50px;}
+			.main_content{width: 400px;padding: 10px;}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<div class="main_top" id="main_top">
+				<ul>
+					<li class="select"><a href="#">标题1</a></li>
+					<li><a href="#">标题2</a></li>
+					<li><a href="#">标题4</a></li>
+					<li><a href="#">标题5</a></li>
+					<li><a href="#">标题6</a></li>
+				</ul>
+			</div>
+			<div class="main_content" id="main_content">
+				<div class="main_box"  style="display: block;">
+					<ul>
+						<li><a href="#">123</a></li>
+						<li><a href="#">1232</a></li>
+						<li><a href="#">1233</a></li>
+						<li><a href="#">1234</a></li>
+					</ul>
+				</div>
+					<div class="main_box" style="display: none;">
+					<ul>
+						<li><a href="#">123</a></li>
+						<li><a href="#">1232</a></li>
+						<li><a href="#">1666</a></li>
+						<li><a href="#">1234</a></li>
+					</ul>
+				</div>
+								<div class="main_box"  style="display: none;">
+					<ul>
+						<li><a href="#">123</a></li>
+						<li><a href="#">1232</a></li>
+						<li><a href="#">7777</a></li>
+						<li><a href="#">1234</a></li>
+					</ul>
+				</div>
+								<div class="main_box"  style="display: none;">
+					<ul>
+						<li><a href="#">123</a></li>
+						<li><a href="#">1232</a></li>
+						<li><a href="#">0000</a></li>
+						<li><a href="#">1234</a></li>
+					</ul>
+				</div>
+					<div class="main_box"  style="display: none;">
+					<ul>
+						<li><a href="#">123</a></li>
+						<li><a href="#">3332</a></li>
+						<li><a href="#">222</a></li>
+						<li><a href="#">12111</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function $(id){
+			return typeof(id)=="string"?document.getElementById(id):id;
+		}
+		
+		window.onload=function(){
+			var tabOne=document.getElementById('main_top');
+			var btn_top=tabOne.getElementsByTagName('li');
+			var tabOn=document.getElementById('main_content');
+			var btn_box=tabOn.getElementsByTagName('div');
+			
+           for (var i=0;i<btn_top.length;i++) {
+           	    btn_top[i].id=i;
+           	    btn_top[i].onmousemove=function(){
+           	    	for (var j=0;j<btn_box.length;j++) {
+           	    		btn_top[j].className='';
+           	    		btn_box[j].style.display='none';
+           	    	}
+           	    	this.className='select';
+           	    	btn_box[this.id].style.display='block';
+           	    }
+           }
+		}
+	</script>
+</html>

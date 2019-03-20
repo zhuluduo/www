@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数组</title>
+	</head>
+	<body>
+		<script>
+			var zhu = new Array(30,40,50,60,70,90);
+			document.write("数组第一个值为"+zhu[0]+"<br/>");
+			document.write("数组第2个值为"+zhu[1]+"<br/>");
+			document.write("数组第3个值为"+zhu[2]+"<br/>");
+			document.write('数组的长度'+zhu.length+"<br/>");
+			zhu[20]=40;
+			document.write(zhu.length);
+		</script>
+		
+      <!--二维数组-->
+      <script>
+  var zu=new Array();
+  for( var i=0;i<7;i++){
+  	   zu[i]=new Array();
+  	   for (var j=0;j<9;j++) {
+  	   	zu[i][j]=i*j;
+  	   	document.write('i的值为'+zu[i]+'<br/>');
+  	   		document.write('j的值为'+zu[j]+'<br/>');
+  	   }
+  }
+      </script>
+      
+      <script>
+    var  arr = ["*","##","***","&&","****","##*"];
+arr[7] = "**";
+//分割数组删除非“*”的值
+for(i in arr){
+    var newA = arr[i];
+	if(arr[i] != undefined){
+		var newArr = newA.split("");
+		for(j in newArr){
+			if(newArr[j] != "*"){
+				arr.splice(i,1,0);
+				break;
+			}
+		}
+	} 
+}
+
+arr.sort();
+for(i in arr){
+	if(arr[i] != 0){
+        document.write(arr[i]+"<br>");
+	}
+}
+alert(arr.length);
+      </script>
+	</body>
+</html>

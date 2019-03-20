@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>满天星</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, width=device-width;">
+</head>
+ 
+<body style="background: url(bg.jpg) no-repeat; background-size:100% auto;">
+ 
+<script>
+    /**
+     * canvas粒子实现撒金币效果
+     * 2016-09-23
+     */
+    var canvas=document.createElement("canvas");
+    var context=canvas.getContext("2d");
+    var canvasWidth=window.innerWidth;
+    var canvasHeight=window.innerHeight;
+    //初始化一个数组
+    var particles = [];
+    var beauty = new Image();
+    init();
+    function init(){
+        document.body.appendChild(canvas);
+        canvas.width=canvasWidth;
+        canvas.height=canvasHeight;
+        canvas.style.position="fixed";
+        canvas.style.zIndex="100";
+        canvas.style.left="0";
+        canvas.style.right=0;
+        canvas.style.top=0;
+        canvas.addEventListener("touchstart",function(){
+            document.body.removeChild(canvas);
+        })
+        beauty.src = "xls_xing.png";
+        if(beauty.complete){
+            initParticle(3000);
+        }else{
+            beauty.onload = function(){
+                initParticle(3000);
+            };
+            beauty.onerror = function(){
+                window.alert('加载失败，请重试');
+            };
+        };
+    }
+ 
+    function initParticle(downtime){
+        //downtime时间，到期删除画布
+        for(var i=0;i<=100; i++){
+            var x=Math.random()*canvasWidth*0.9;
+            var y=Math.random()*canvasHeight*0.9;
+            var xVel=Math.random();
+            xVel=xVel>0.5?-xVel*4:xVel*4;
+            var yVel=-Math.random()*9;
+            var xscale=Math.random();
+            xscale=xscale>0.5?xscale-0.5:xscale;
+            xscale=xscale<0.2?xscale+0.2:xscale;
+            var particle = new Particle(beauty,x,y,xVel,yVel,xscale);
+            particles.push(particle); //加入数组
+            // 绘制数组中的每一个粒子
+        }
+        if(downtime){
+            setTimeout(function(){
+                clearInterval(runParticle);
+                document.body.removeChild(canvas);
+            },downtime);
+        }
+        var runParticle=setInterval(loop, 1000/80);//这一步就这里啦，
+    }
+ 
+    function loop(){
+        // 清除canvas中的内容
+        context.clearRect(0,0,canvasWidth,canvasHeight);
+        //在一些随机位置产生并画粒子。
+        for (i=0; i<particles.length; i++) {
+            var particle = particles[i];
+            particle.render(context); // 绘制数组中的每一个粒子
+            //// 更新数组中的每一个粒子
+            particle.update();
+        }
+    }
+    function Particle(img,xPos,yPos,xVel,yVel,oScale){
+        this.xPos=xPos;
+        this.yPos=yPos;
+        this.yVel = yVel;//负值，所以粒子向上运动
+        this.xVel = xVel;
+        this.oScale = oScale;
+        //增加重力影响
+        this.gravity = 0.2;
+        this.render = function(c){
+            c.drawImage(img, this.xPos, this.yPos,img.width*oScale,img.height*oScale);
+        }
+        this.update = function(){//绘制自己的方法
+            this.yVel += this.gravity;
+            this.yPos += this.yVel;
+            this.xPos += this.xVel;
+        }
+    }
+</script>
+ 
+</body>
+</html>

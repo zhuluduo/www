@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<style type="text/css">
+		* {
+	margin:0;
+	padding:0;
+	font-family:Microsoft YaHei,serif;
+}
+li {
+	list-style:none;
+}
+#box {
+	width:426px;
+	height:104px;
+	margin:50px auto;
+}
+#tab {
+	width:100px;
+	height:100%;
+	float:left;
+}
+#tab ul li {
+	width:100px;
+	height:50px;
+	margin-bottom:1px;
+	background:#000;
+	font-size:18px;
+	text-align:center;
+	line-height:50px;
+	color:#fff;
+	cursor:default;
+}
+#tab ul li.on {
+	background:#f60;
+}
+#content {
+	position:relative;
+	width:326px;
+	height:203px;
+	float:right;
+}
+#content .pic {
+	display:none;
+}
+#content .pic.on {
+	display:block;
+}
+#content .pic ul li {
+	display:none;
+	width:100%;
+	height:203px;
+	cursor:default;
+}
+#content .pic ul li.on {
+	display:block;
+}
+#content .btn {
+	display:none;
+	position:absolute;
+	bottom:0;
+	right:0;
+	height:35px;
+	width:100%;
+	background:rgba(0,0,0,.5);
+}
+#content .btn.on {
+	display:block;
+}
+#content .btn ul {
+	float:right;
+}
+#content .btn ul li {
+	float:left;
+	width:35px;
+	height:35px;
+	background:#ddd;
+	text-align:center;
+	line-height:35px;
+	margin-left:2px;
+}
+#content .btn ul li.on {
+	background:#f60;
+}
+
+	</style>
+</head>
+<body>
+	<div id="box">
+    <div id="tab">
+        <ul>
+            <li class="on">选项卡一</li>
+            <li>选项卡二</li>
+            <li>选项卡三</li>
+            <li>选项卡四</li>
+        </ul>
+    </div>
+    <div id="content">
+        <div class="pic on">
+            <ul>
+                <li class="on" style="background: url(http://www.jq22.com/img/cs/500x500-1.png);"></li>
+                <li style="background: url(http://www.jq22.com/img/cs/500x500-2.png);"></li>
+                <li style="background: url(http://www.jq22.com/img/cs/500x500-3.png);"></li>
+                <li style="background: url(http://www.jq22.com/img/cs/500x500-4.png);"></li>
+            </ul>
+        </div>
+        <div class="btn on">
+            <ul>
+                <li class="on">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+
+        <div class="pic">
+            <ul>
+                <li class="on" style="background: url(http://www.jq22.com/img/cs/500x500-5.png);"></li>
+                <li style="background: url(http://www.jq22.com/img/cs/500x500-6.png);"></li>
+                <li style="background: url(http://www.jq22.com/img/cs/500x500-7.png);"></li>
+                <li style="background: url(http://www.jq22.com/img/cs/500x500-8.png);"></li>
+                <li style="background: url(http://www.jq22.com/img/cs/500x500-9.png);"></li>
+            </ul>
+        </div>
+        <div class="btn">
+            <ul>
+                <li class="on">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+
+        <div class="pic">
+            <ul>
+                <li class="on" style="background: url(http://www.jq22.com/img/cs/500x300-1.png);"></li>
+                <li style="background: url(http://www.jq22.com/img/cs/500x300-2.png);"></li>
+                <li style="background: url(http://www.jq22.com/img/cs/500x300-3.png);"></li>
+                <li style="background: url(http://www.jq22.com/img/cs/500x300-4.png);"></li>
+            </ul>
+        </div>
+        <div class="btn">
+            <ul>
+                <li class="on">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+
+        <div class="pic">
+            <ul>
+                <li class="on" style="background: url(http://www.jq22.com/img/cs/500x300-5.png);"></li>
+                <li style="background: url(http://www.jq22.com/img/cs/500x300-6.png);"></li>
+                <li style="background: url(http://www.jq22.com/img/cs/500x300-7.png);"></li>
+                <li style="background: url(http://www.jq22.com/img/cs/500x300-8.png);"></li>
+                <li style="background: url(http://www.jq22.com/img/cs/500x300-9.png);"></li>
+            </ul>
+        </div>
+        <div class="btn">
+            <ul>
+                <li class="on">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+    </div></div>
+    <script type="text/javascript">
+    	var tabLi = document.querySelectorAll("#tab li"),
+    pic = document.getElementsByClassName("pic"),
+    btn = document.getElementsByClassName("btn"),
+    index = 0;
+
+for (var i = 0; i < tabLi.length; i++) {
+    var picLi = pic[i].querySelectorAll("li"),
+        btnLi = btn[i].querySelectorAll("li");
+    (function(i) {
+        tabLi[i].onmouseenter = function() {
+            tabLi[index].className = '';
+            pic[index].className = "pic";
+            btn[index].className = "btn";
+            index = i;
+            tabLi[i].className = 'on';
+            pic[i].className = "pic on";
+            btn[i].className = "btn on";
+        }
+    })(i);
+
+    (function(pLi, bLi) {
+        var index = 0;
+        for (var i = 0; i < bLi.length; i++) {
+            (function(i) {
+                bLi[i].onmouseenter = function() {
+                    bLi[index].className = "";
+                    pLi[index].className = "";
+                    index = i;
+                    bLi[i].className = "on";
+                    pLi[i].className = "on";
+                }
+            }(i))
+        }
+    }(picLi, btnLi))
+}
+    </script>
+</body>
+</html>

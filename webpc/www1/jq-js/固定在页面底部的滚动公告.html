@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+<title>固定在页面底部的滚动公告</title>
+<meta http-equiv="content-type" content="text/html;charset=gb2312">
+<style type="text/css">
+html,body,div ul{margin:0;padding:0;border:0;font-size:100%;background:transparent;}
+ul{list-style:none;}
+a{text-decoration:none;}
+body{background:#f2f2f2;font:12px 宋体,Verdana,Tahoma,Lucida Grande,Arial,sans-serif;color:#000;}
+#gg{position:fixed;bottom:0;background:#000;width:100%;height:23px;line-height:23px;z-index:9999;opacity:.60;filter:alpha(opacity=60);_bottom:auto;_width:100%;_position:absolute;_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));}
+#gg a{color:#fff;font-size:13px;letter-spacing:2px;}
+.close a{float:right;margin:0 10px 0 0;padding:0 10px 0 10px;}
+.bulletin{float:left;height:23px;color:#fff;margin:0 0 0 20px;background:url(//ku.shouce.ren/files/images/201601/56a3697c7e454.gif) no-repeat;min-height:23px;overflow:hidden;}
+.bulletin li{height:23px;padding-left:25px;}
+</style>
+<!--[if IE]>
+<style type="text/css">
+/* 修正IE6振动bug */
+html body{background-image:url(about:blank);background-attachment:fixed;}
+</style>
+<![endif]-->
+<script type="text/javascript" src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+(function($){
+	$.fn.extend({
+		Scroll:function(opt,callback){
+		if(!opt) var opt={};
+		var _this=this.eq(0).find("ul:first");
+		var lineH=_this.find("li:first").height(),
+		line=opt.line?parseInt(opt.line,10):parseInt(this.height()/lineH,10),
+		speed=opt.speed?parseInt(opt.speed,10):7000,//卷动速度，数值越大，速度越慢（毫秒）
+		timer=opt.timer?parseInt(opt.timer,10):7000;//滚动的时间间隔（毫秒）
+			if(line==0) line=1;
+			var upHeight=0-line*lineH;
+			scrollUp=function(){
+				_this.animate({
+				marginTop:upHeight
+			},speed,function(){
+				for(i=1;i<=line;i++){
+					_this.find("li:first").appendTo(_this);
+				}
+				_this.css({marginTop:0});
+			});
+		}
+		_this.hover(function(){
+			clearInterval(timerID);
+		},function(){
+			timerID=setInterval("scrollUp()",timer);
+		}).mouseout();
+	}
+	})
+})(jQuery);
+$(document).ready(function(){
+	$(".bulletin").Scroll({line:1,speed:1000,timer:5000});//修改此数字调整滚动时间
+});
+</script>
+</head>
+<body>
+<div style="height:2000px;">预览时若有错误，请刷新一下网页。</div>
+<div id="gg">
+<div class="close"><a href="javascript:void(0)" onclick="$('#gg').slideUp('slow');" title="关闭">不想听你唠叨×</a></div>
+<div class="bulletin">
+<ul>
+<li><a href="/" title="欢迎您" target="_blank">精品源码下载：手册网</a></li>
+<li><a href="/" title="" target="_blank">为中国站长提供各种建站资源、建站资讯及建站交流平台</a></li>
+</ul>
+</div>
+</div>
+</body>
+</html>

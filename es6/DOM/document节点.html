@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+</head>
+<body>
+	<!--文档静态信息属性-->
+	1.document.documentURI，document.URL
+
+	document.documentURI属性和document.URL属性都返回一个字符串，表示当前文档的网址。
+	不同之处是它们继承自不同的接口。
+	documentURI继承自Document接口，可用于所有文档；
+	URL继承自HTMLDocument接口，只能用于 HTML 文档。
+	
+	2、document.domain
+	3、document.location （Location对象是浏览器提供的原生对象）
+	4、document.lastModified  (属性返回一个字符串，表示当前文档最后修改的时间。)
+	5、document.title  （返回当前文档的标题-可改）
+	6、document.readyState
+	返回当前文档的状态：
+	loading：加载 HTML 代码阶段（尚未完成解析）
+	interactive：加载外部资源阶段
+	complete：加载完成
+	<script type="text/javascript">
+	// 轮询检查
+	var interval = setInterval(function() {
+	  if (document.readyState === 'complete') {
+	    clearInterval(interval);
+	    // ...
+	  }
+	}, 100);
+	</script>
+	
+	7、document.designMode  （控制当前文档是否可编辑）
+	<script type="text/javascript">
+		//默认值为off。一旦设为on，用户就可以编辑整个文档的内容。
+		// <iframe id="editor" src="about:blank"></iframe>
+		var editor = document.getElementById('editor');
+		editor.contentDocument.designMode = 'on';
+	</script>
+	
+	document.open()，document.close()
+	<!--document.open方法清除当前文档所有内容，使得文档处于可写状态，供document.write方法写入内容。
+	document.close方法用来关闭document.open()打开的文档。-->
+	
+	7、document.querySelector()，document.querySelectorAll()  （前者多个元素只返回第一个，后者返回全部）
+	
+	<!--// 选中div元素，那些 class 含 ignore 的除外-->
+	document.querySelectorAll('DIV:not(.ignore)');
+	
+	document.createTextNode()
+	<script type="text/javascript">
+	var div = document.createElement('div'); //生成元素节点
+	div.appendChild(document.createTextNode('<span>Foo & bar</span>')); //将文本节点插入到元素节点中
+	console.log(div.innerHTML)
+	</script>
+</body>
+</html>

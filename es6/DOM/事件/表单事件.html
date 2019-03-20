@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+</head>
+<body>
+	<!--input事件当<input>、<select>、<textarea>的值发生变化时触发。
+	对于复选框（<input type=checkbox>）或单选框（<input type=radio>），用户改变选项时，也会触发这个事件。
+	另外，对于打开contenteditable属性的元素，只要值发生变化，也会触发input事件。-->
+	<select id="mySelect">
+	  <option value="1">1</option>
+	  <option value="2">2</option>
+	  <option value="3">3</option>
+	</select>
+	<script type="text/javascript">
+	function inputHandler(e) {
+	  console.log(e.target.value)
+	}
+
+	var mySelect = document.querySelector('#mySelect');
+	mySelect.addEventListener('input', inputHandler);
+	</script>
+	
+	<!--select事件当在<input>、<textarea>里面选中文本时触发。-->
+	<input id="test" type="text" value="Select me!" />
+	<script type="text/javascript">
+		var elem = document.getElementById('test');
+		elem.addEventListener('select', function (e) {
+		  console.log(e.type); // "select"
+		}, false);
+	</script>
+	
+	<!--Change事件-->
+	<select size="1" onchange="changeEventHandler(event);">
+   <option>chocolate</option>
+   <option>strawberry</option>
+   <option>vanilla</option>
+   </select>
+   <script type="text/javascript">
+   	function changeEventHandler(event) {
+  console.log(event.target.value);
+}
+   </script>
+   
+   
+   <!--invalid 事件-->
+   <form>
+  <input type="text" required oninvalid="console.log('invalid input')" />
+  <button type="submit">提交</button>
+</form>
+</body>
+</html>

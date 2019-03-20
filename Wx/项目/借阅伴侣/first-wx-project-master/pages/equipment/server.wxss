@@ -1,0 +1,90 @@
+/* server.wxss */
+@import "../../app.wxss";
+.header-area {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 150rpx;
+  width:100%;
+  margin:50rpx;
+}
+
+.header-area-img {
+  margin:20rpx
+}
+
+.header-area-img image{
+  width:120rpx;
+  height: 120rpx;
+  padding:0rpx 0rpx 0rpx 0rpx
+}
+
+.header-area-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left:40rpx;
+}
+
+.header-area-title {
+  font-size: 16pt;
+}
+
+.header-area-subtitle {
+  font-size:12pt;
+}
+
+.info-body {
+  background-color: white;
+  width:100%;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.info-item-img image{
+  width:60rpx;
+  height: 60rpx;
+  padding:10rpx 10rpx 10rpx 10rpx
+}
+
+.info-item-text {
+  border-bottom: 2rpx solid #f2f2f2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width:100%;
+  padding:30rpx 20rpx 20rpx 20rpx 
+}
+
+.info-item-key {
+  font-size:14pt;
+}
+.info-item-value {
+   font-size:13pt;
+   color:#c1c1c1;
+   display:flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+.info-item-value image {
+  width: 40rpx;
+  height: 40rpx;
+  padding:10rpx 10rpx 10rpx 10rpx;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.radio {
+  margin-top:10rpx;
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			* {
+	margin:0;
+	padding:0;
+}
+li {
+	list-style:none;
+}
+#box1,#box2,#box3 {
+	position:relative;
+	width:500px;
+	height:300px;
+	margin:50px auto;
+}
+.pic li {
+	width:500px;
+	height:300px;
+	display:none;
+	float:left;
+	font-size:100px;
+	line-height:300px;
+	text-align:center;
+	color:#fff;
+}
+.pic li.active {
+	display:block;
+}
+.tab {
+	position:absolute;
+	bottom:20px;
+	left:50%;
+	width:150px;
+	height:14px;
+	padding:5px 0;
+	margin-left:-80px;
+	background:rgba(0,0,0,.5);
+	border-radius:20px;
+	transition:all 0.3s linear;
+}
+.tab:hover {
+	transform:scale(1.2);
+}
+.tab li {
+	float:left;
+	height:14px;
+	width:14px;
+	margin:0 8px;
+	border-radius:50%;
+	background:#fff;
+	cursor:pointer;
+}
+.tab li.active {
+	background:#f60;
+}
+.btn {
+	position:absolute;
+	top:50%;
+	margin-top:-30px;
+	width:30px;
+	height:60px;
+	font-size:30px;
+	line-height:60px;
+	text-align:center;
+	cursor:pointer;
+	background:rgba(0,0,0,.5);
+	color:#fff;
+	cursor:pointer;
+}
+.right {
+	right:0;
+}
+
+		</style>
+	</head>
+	<body>
+
+
+    <div id="box3">
+        <ul class="pic">
+            <li style="background: #7cc9fc">一</li>
+            <li style="background: #f882cb">二</li>
+            <li style="background: #7159f8">三</li>
+            <li style="background: #f9ffc0">四</li>
+            <li style="background: #fcb04d">五</li>
+        </ul>
+        <ul class="tab">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="left btn">
+            &lt;</div>
+                <div class="right btn">&gt;</div>
+        </div>
+		<script type="text/javascript">
+			/* 
+    Fn1是基础类；
+    Fn2继承Fn1，同时扩展左右按钮；
+    Fn3继承Fn2，同时扩展自动轮播
+ */
+
+
+
+// 自动轮播
+var Fn3 = function(obj) {
+    Fn2.call(this, obj)
+    this.parent = obj.parent;
+    this.timer = null;
+    this.auto();
+}
+
+for (var key in Fn2.prototype) {
+    Fn3.prototype[key] = Fn2.prototype[key];
+}
+Fn3.prototype.constructor = Fn3;
+
+Fn3.prototype.auto = function() {
+    var that = this;
+    that.timer = setInterval(function() {
+        that.change(function() {
+            that.index++;
+            that.index %= that.picLi.length;
+        })
+    }, 3000);
+
+    // 鼠标移入清除计时器
+    that.parent.onmouseenter = function() {
+        clearInterval(that.timer);
+    };
+
+    // 鼠标移出恢复自动播放
+    that.parent.onmouseleave = function() {
+        that.timer = setInterval(function() {
+            that.change(function() {
+                that.index++;
+                that.index %= that.picLi.length;
+            })
+        }, 3000);
+    }
+}
+
+
+new Fn3({
+    picLi: document.querySelectorAll("#box3 .pic li"),
+    tabLi: document.querySelectorAll("#box3 .tab li"),
+    btn: document.querySelectorAll("#box3 .btn"),
+    parent: document.getElementById("box3")
+})
+		</script>
+	</body>
+</html>

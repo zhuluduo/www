@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function ajax(json){
+			let type = json.type || 'GET';
+			let url = json.url;
+			let success = json.success;
+			let error = json.error;
+			let data = json.data || '';
+			
+			//创建ajax
+			let oajax;
+			if(window.XMLHttpRequest){
+				oajax = new XMLHttpRequest();
+			}else{
+				oajax = new ActiveXObject('Microsoft.XMLHTTP');
+			}
+			
+			//链接服务器
+			oajax.open(type,url,true) //method：请求的类型；GET 或 POST  url：文件在服务器上的位置   async：true（异步）或 false（同步）
+			
+			//发送请求
+			oajax.send();
+			
+			oajax.onreadystatechange = function(){
+				if(oajax.readyState == 4&&oajax.status==200){
+					let data = oajax.responseText;
+					success(data)
+				}else{
+					error();
+				}
+			}
+		}
+	</script>
+</body>
+</html>

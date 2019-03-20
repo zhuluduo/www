@@ -1,0 +1,3 @@
+<button class="bi-btn btn-primary bi-btn-end detail" v-on:mouseenter="dataDetails($parent.$index)" v-on:mouseleave="hiddenDetail($parent.$index)"></button>
+
+<button class="bi-btn btn-primary bi-btn-end detail"  @mouseover="toggleShow()" @mouseout="toggleShow()"></button>

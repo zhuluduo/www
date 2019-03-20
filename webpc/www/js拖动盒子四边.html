@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽改变DIV的宽度和高度</title>
+</head>
+<body>
+<style>
+    *{margin:0px;padding:0px;}
+    #div1{width:400px;height:400px;position:absolute;left:30%;top:25%;background:red;color:yellow;line-height:400px;text-align:center;}
+</style>
+
+<div id="div1">
+鼠标按住边缘进行拖拽就有发现
+</div>
+<script>
+    drag(document.getElementById("div1"));
+    function drag(obj)
+    {
+       obj.onmousedown = function(e){
+           e = e||event;
+           var dir = "";  //设置好方向
+           var firstX = e.clientX;  //获取第一次点击的横坐标
+           var firstY = e.clientY;   //获取第一次点击的纵坐标
+           var width = obj.offsetWidth;  //获取到元素的宽度
+           var height = obj.offsetHeight;  //获取到元素的高度
+           var Left = obj.offsetLeft;   //获取到距离左边的距离
+           var Top = obj.offsetTop;   //获取到距离上边的距离
+           //下一步判断方向距离左边的距离+元素的宽度减去自己设定的宽度，只要点击的时候大于在这个区间，他就算右边
+           if(firstX>Left+width-30)
+           {
+               dir = "right";
+           }else if(firstX<Left+30)
+           {
+               dir = "left";
+           }
+           if(firstY>Top+height-30)
+           {
+               dir = "down";
+           }else if(firstY<Top+30)
+           {
+               dir = "top";
+           }
+           //判断方向结束
+           document.onmousemove = function(e){
+               e = e||event;
+               switch(dir)
+               {
+                   case "right":
+                         obj.style["width"] = width+(e.clientX-firstX)+"px";
+                        break;
+                   case "left":
+                       obj.style["width"] = width-(e.clientX-firstX)+"px";
+                       obj.style["left"] = Left+(e.clientX-firstX)+"px";
+                        break;
+                   case "top":
+                       obj.style["height"] = height-(e.clientY-firstY)+"px";
+                       obj.style["top"] = Top+(e.clientY-firstY)+"px";
+                       break;
+                   case "down":
+                       obj.style["height"] = height+(e.clientY-firstY)+"px";
+                       break;
+               }
+           }
+           obj.onmouseup = function(){
+               document.onmousemove = null;
+           }
+           return false;
+       }
+    }
+</script>
+</body>

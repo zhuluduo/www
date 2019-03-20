@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .contant-big {
+            margin: 200px;
+            position: relative;
+        }
+        
+        #big {
+            width: 680px;
+            height: 570px;
+            border: solid 1px #ddd;
+        }
+        
+        #sImg {
+            width: 680px;
+            height: 570px;
+        }
+        
+        .small {
+            overflow: hidden;
+            width: 682px;
+            height: 132px;
+            margin-top: 37px;
+            position: relative;
+        }
+        
+        ul {
+            width: 2000px;
+            list-style: none;
+            position: absolute;
+        }
+        
+        li {
+            width: 128px;
+            height: 128px;
+            float: left;
+            border: solid 1px #ddd;
+            padding: 0;
+        }
+        
+        li+li {
+            margin-left: 8px;
+        }
+        
+        .btnMove {
+            cursor: pointer;
+        }
+        
+        .btnLeft {
+            position: absolute;
+            left: 0
+        }
+        
+        .btnRight {
+            position: absolute;
+            right: 0;
+        }
+        
+        .acitve {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contant-big">
+        <div id="big">
+            <img id="sImg" src="http://yanshi.sucaihuo.com/jquery/11/1195/demo/3.jpg" width="100%" alt="">
+        </div>
+        <div class="small">
+            <ul id="simages" style="left:0;">
+                <li><img src="http://yanshi.sucaihuo.com/jquery/11/1195/demo/3.jpg" width="100%" alt=""></li>
+                <li><img src="http://yanshi.sucaihuo.com/jquery/11/1195/demo/2.jpg" width="100%" alt=""></li>
+                <li><img src="http://yanshi.sucaihuo.com/jquery/11/1195/demo/5.jpg" width="100%" alt=""></li>
+                <li><img src="http://yanshi.sucaihuo.com/jquery/11/1195/demo/2.jpg" width="100%" alt=""></li>
+                <li><img src="http://yanshi.sucaihuo.com/jquery/11/1195/demo/5.jpg" width="100%" alt=""></li>
+             
+            </ul>
+        </div>
+        <span class="btnMove btnLeft">左</span>
+        <span class="btnMove btnRight">右</span>
+    </div>
+
+    <script type="text/javascript">
+        var width = 1000;
+        //获取元素
+        var big = document.getElementById('big');
+        var sImg = document.getElementById('sImg');
+        var simages = document.getElementById('simages');
+        var btnMove = document.getElementsByClassName('btnMove');
+        var lis = simages.children;
+        var index = 1;
+        var len = lis.length;
+
+        //初始化
+        function init() {
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].onclick = function() {
+                    var src = this.firstElementChild.getAttribute('src');
+                    sImg.src = src;
+                }
+            }
+        }
+		if(len<=5){
+           btnMove[1].className = 'btnMove btnRight acitve'
+       }
+        function animate(offset) {
+            simages.style.left = parseInt(simages.style.left) + offset + 'px';
+            var sd = lis[len - 1].offsetLeft - Math.abs(parseInt(simages.style.left))
+            if (sd == 552) {
+                btnMove[1].className = 'btnMove btnRight acitve'
+            } else {
+                btnMove[1].className = 'btnMove btnRight'
+            }
+            var lefts = parseInt(simages.style.left);
+			console.log(lefts+'left')
+            if (lefts == 0) {
+                btnMove[0].className = 'btnMove btnLeft acitve'
+            } else {
+                btnMove[0].className = 'btnMove btnLeft'
+            }
+        }
+        btnMove[0].onclick = function() {
+            animate(138);
+        }
+        btnMove[1].onclick = function() {
+            animate(-138);
+        }
+        init();
+    </script>
+</body>
+
+</html>

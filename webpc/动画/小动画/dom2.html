@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+
+
+.isotope, .isotope .isotope-item {
+    /* change duration value to whatever you like */
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}
+.isotope-item {
+    margin-right: -1px;
+    font-size: 12px;
+}
+
+.portfolio-item {
+    margin-bottom: 30px;
+    -webkit-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.portfolio-item:hover {
+    margin-bottom: 30px;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.portfolio-item .hover-bg {
+    height: 260px;
+    overflow: hidden;
+    position: relative;
+}
+.hover-bg .hover-text {
+    position: absolute;
+    text-align: center;
+    margin: 0 auto;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.66);
+    padding: 25% 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.5s;
+}
+.hover-bg .hover-text>h4 {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    transition: all 0.3s;
+}
+.hover-bg:hover .hover-text>h4 {
+    opacity: 1;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+.hover-bg .hover-text>i {
+    opacity: 0;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    transition: all 0.3s;
+}
+.hover-bg:hover .hover-text>i {
+    opacity: 1;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+}
+.hover-bg:hover .hover-text {
+    opacity: 1;
+}
+
+/****************************************************第二瓶********************************************/
+
+@media(max-width:768px){
+    .rotator{
+        width: 140%;
+        margin-top: 30px;
+        left: -50%;
+        margin-left:100px;
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+    }
+}
+img.bg{
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+
+
+
+		</style>
+	</head>
+	<body>
+		<div class="col-sm-6 col-md-3 col-lg-3 web isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
+                            <div class="portfolio-item">
+                                <div class="hover-bg">
+                                    <div class="hover-text">
+                                        <h4><a href="#" target="_blank" title="智能家居"></a>智能家居</h4>
+                                        <small>技术：html+css+js</small>
+                                        <i class="fa fa-search"></i></div>
+                                    <img src="img/01.jpg" class="img-responsive" alt="智能家居">
+                                </div>
+                            </div>
+                        </div>
+	</body>
+</html>

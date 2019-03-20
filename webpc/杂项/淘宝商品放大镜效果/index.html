@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+* {
+	margin:0;
+	padding:0;
+}
+#demo {
+	display:block;
+	width:400px;
+	height:255px;
+	margin:50px;
+	position:relative;
+	border:1px solid #ccc;
+}
+#mark {
+	position:absolute;
+	display:block;
+	width:400px;
+	height:255px;
+	background:#fff;
+	opacity:0;
+	/*兼容处理*/
+	filter:alpha(opacity = 0);
+	z-index:10;
+}
+#small-box {
+	position:absolute;
+	z-index:1;
+}
+#small-box img {
+	width:400px;
+	height:255px;
+}
+#float-box {
+	display:none;
+	width:160px;
+	height:120px;
+	position:absolute;
+	background:#f0f;
+	border:1px solid #ccc;
+	opacity:0.5;
+	filter:alpha(opacity=50);
+	cursor:move;
+}
+#big-box {
+	display:none;
+	position:absolute;
+	top:0;
+	left:460px;
+	height:100px;
+	width:100px;
+	overflow:hidden;
+	border:1px solid #ccc;
+	z-index:1;
+}
+#big-box img {
+	position:absolute;
+	z-index:5;
+}
+
+	</style>
+</head>
+<body>
+	<div id="demo">
+    <div id="small-box">
+
+        <!-- 滑动蒙版 -->
+        <div id="mark"></div>
+        <!-- 滑动图层-->
+        <div id="float-box"></div>
+        <img src="http://www.jq22.com/img/cs/500x300-1.png">
+    </div>
+
+    <div id="big-box">
+        <img src="http://www.jq22.com/img/cs/500x300-1.png">
+    </div>
+</div>
+<script>
+	
+	window.onload = function() {
+    //获取相应的元素
+    var objDemo = document.getElementById("demo")
+    var objSmallBox = document.getElementById("small-box")
+    var objFloatBox = document.getElementById("float-box")
+    var objMark = document.getElementById("mark")
+    var objBigBox = document.getElementById("big-box")
+    var objBigBoxImage = objBigBox.getElementsByTagName("img")[0]
+
+    objMark.onmouseover = function() {
+        objFloatBox.style.display = "block"
+        objBigBox.style.display = "block"
+    }
+    objMark.onmouseout = function() {
+        objFloatBox.style.display = "none"
+        objBigBox.style.display = "none"
+    }
+
+    objMark.onmousemove = function(ev) {
+
+        //兼容事件
+        var Event = ev || window.event
+
+        //获取光标的绝对位置
+        var left = Event.clientX - objSmallBox.offsetLeft - objFloatBox.offsetWidth / 2 - objDemo.offsetLeft
+        var top = Event.clientY - objDemo.offsetTop - objSmallBox.offsetTop - objFloatBox.offsetHeight / 2
+        if (left < 0) {
+
+            left = 0
+        } else if (left > (objMark.offsetWidth - objFloatBox.offsetWidth)) {
+            left = objMark.offsetWidth - objFloatBox.offsetWidth
+        }
+
+
+        if (top < 0) {
+
+            top = 0
+        } else if (top > (objMark.offsetHeight - objFloatBox.offsetHeight)) {
+            top = objMark.offsetHeight - objFloatBox.offsetHeight
+        }
+
+        objFloatBox.style.left = left + 'px'
+        objFloatBox.style.top = top + 'px'
+
+        var prentX = left / (objSmallBox.offsetWidth - objFloatBox.offsetWidth)
+
+        var prentY = top / (objSmallBox.offsetHeight - objFloatBox.offsetHeight)
+        objBigBoxImage.style.left = -prentX * (objBigBoxImage.offsetWidth - objBigBox.offsetWidth) + 'px'
+        objBigBoxImage.style.top = -prentY * (objBigBoxImage.offsetHeight - objBigBox.offsetHeight) + 'px'
+    }
+}
+</script>
+</body>
+</html>

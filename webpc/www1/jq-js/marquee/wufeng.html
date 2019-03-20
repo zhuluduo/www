@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>无缝滚动</title>
+		<style type="text/css">
+			#moocBox{width: 400px;height: 100px;overflow: hidden;}
+			 li{line-height: 27px;display: block;}
+			 li span{float: right;}
+		</style>
+	</head>
+	<body>
+		<div id="moocBox">
+			<ul id="con1">
+				<li><a href="#">1如何实现新手引导效果</a><span>2016</span></li>
+				<li><a href="#">2如何实现新手引导效果</a><span>2016</span></li>
+				<li><a href="#">3如何实现新手引导效果</a><span>2016</span></li>
+				<li><a href="#">4如何实现新手引导效果</a><span>2016</span></li>
+				<li><a href="#">5如何实现新手引导效果</a><span>2016</span></li>
+				<li><a href="#">6如何实现新手引导效果</a><span>2016</span></li>
+				<li><a href="#">7如何实现新手引导效果</a><span>2016</span></li>
+				<li><a href="#">8如何实现新手引导效果</a><span>2016</span></li>
+			</ul>
+			<ul id="con2">
+				
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var area=document.getElementById('moocBox');
+			var con1=document.getElementById('con1');
+			var con2=document.getElementById('con2');
+			con2.innerHTML=con1.innerHTML;
+	        function scrollup(){
+	        if (area.scrollTop>=con1.offsetHeight) {
+			  	area.scrollTop=0;
+			  } else{
+			  	area.scrollTop++
+			  }
+	        }
+			   var time=50;
+			   var myScroll=setInterval('scrollup()',time);
+			   
+			   area.onmousemove=function(){
+			   	clearInterval(myScroll);
+			   }
+			   area.onmouseout=function(){
+			   	myScroll=setInterval('scrollup()',time);
+			   }
+		</script>
+	</body>
+</html>

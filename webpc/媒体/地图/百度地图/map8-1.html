@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>鼠标绘制工具</title>
+		<style type="text/css">
+			body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+			#allmap{height:500px;width:100%;}
+			#r-result{width:100%;}
+		</style>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WGisSYWHrFFynEUtR8sihaVluQ6ERp8R"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script>
+		<link rel="stylesheet" href="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css" />
+	</head>
+	<body>
+		<div id="allmap" style="overflow:hidden;zoom:1;position:relative;">	
+		<div id="map" style="height:100%;-webkit-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;"></div>
+	</div>
+	<div id="result">
+		<input type="button" value="获取绘制的覆盖物个数" onclick="alert(overlays.length)"/>
+		<input type="button" value="清除所有覆盖物" onclick="clearAll()"/>
+		<input type="button" name="" id="" value="开启" onclick="btn()" />
+	</div>
+	<script type="text/javascript">
+	// 百度地图API功能
+	var _this=this;
+	function createMap(){
+		var map = new BMap.Map('map');
+		var point = new BMap.Point(116.404, 39.915);
+		map.centerAndZoom(point, 15);
+		// map.enableScrollWheelZoom(); 
+		map.disableDragging(); //禁用地图拖拽
+		map.disableScrollWheelZoom();  //关闭鼠标滚轮缩放功能
+		map.disableInertialDragging();  //禁用地图惯性拖拽
+		window.map = map;//将map变量存储在全局 
+	}
+	
+
+	
+	
+	
+	
+	var drawingManager;
+	var data;
+	var dataInfo=[];
+	var dataList=[];
+	var hash=[];
+	function setMapEvent(){
+		var styleOptions = {
+			strokeColor:"red",    //边线颜色。
+			fillColor:"red",      //填充颜色。当参数为空时，圆形将没有填充效果。
+			strokeWeight: 3,       //边线的宽度，以像素为单位。
+			strokeOpacity: 0.8,	   //边线透明度，取值范围0 - 1。
+			fillOpacity: 0.6,      //填充的透明度，取值范围0 - 1。
+			strokeStyle: 'solid' //边线的样式，solid或dashed。
+		}
+		//实例化鼠标绘制工具
+		   drawingManager = new BMapLib.DrawingManager(map, {
+			isOpen: false, //是否开启绘制模式
+			enableDrawingTool: true, //是否显示工具栏
+			drawingToolOptions: {
+				anchor: BMAP_ANCHOR_TOP_LEFT, //位置
+				offset: new BMap.Size(30, 5), //偏离值
+				scale:0.8, //缩放值
+				drawingModes:[
+					// BMAP_DRAWING_POLYGON,
+					BMAP_DRAWING_RECTANGLE
+				]
+			},
+			   rectangleOptions: styleOptions //矩形的样式
+		}); 
+		
+		//添加鼠标绘制工具监听事件，用于获取绘制结果
+		 var overlays = [];
+		 var overlaycomplete = function(e){
+			var p=e.target;
+			dataInfo=[];
+			dataList=[];
+			hash=[];
+			drawingManager.close();
+			overlays.push(e.overlay);
+// 			console.log(e.overlay)
+// 			console.log(e.overlay.getPath())//获取矩形数组
+// 			console.log(e.overlay.Ou.Ol)  //西南
+// 			console.log(e.overlay.Ou.xl)  //东北
+			
+			
+			var pt1 = new BMap.Point(e.overlay.Ou.Ol.lng, e.overlay.Ou.Ol.lat);//西南脚点
+
+			var pt2 = new BMap.Point(e.overlay.Ou.xl.lng, e.overlay.Ou.xl.lat);//东北脚点
+
+			var bounds = new BMap.Bounds(pt1, pt2); //测试Bounds对象
+			var sw = bounds.getSouthWest(); //西南角
+			var ne = bounds.getNorthEast(); //东北角
+			var pt = [
+				new BMap.Point(116.387112,39.920977),
+				new BMap.Point(116.385243,39.913063),
+				new BMap.Point(116.394226,39.917988),
+				new BMap.Point(116.401772,39.921364),
+				new BMap.Point(116.41248,39.927893)
+			]
+			console.log(pt)
+			console.log(sw)
+			console.log(ne)
+			for(var i=0;i<data.length;i++){
+				hash.push(i)
+				for(var j=0;j<data[i].ia.length;j++){
+					if(data[i].ia[j].lng >= sw.lng && data[i].ia[j].lng <= ne.lng && data[i].ia[j].lat >= sw.lat && data[i].ia[j].lat <= ne.lat){
+					}else{
+						dataInfo.push(i);
+						var newArr = Array.from(new Set(dataInfo));
+					}
+				}
+			}
+			dataList=hash.concat(newArr)
+			var newArrInfo = unique(dataList);
+			console.log(newArrInfo)//获取框选的数据
+			clearAll(overlays)
+			
+		 };
+		drawingManager.addEventListener('overlaycomplete', overlaycomplete);
+		// console.log(drawingManager.open())
+	}
+	
+	function unique(arr){
+        let hash=[];
+        for (var i = 0; i < arr.length; i++) {
+          if(arr.indexOf(arr[i])==arr.lastIndexOf(arr[i])){
+            hash.push(arr[i]);
+          }
+        }
+        return hash;
+      };
+	
+	//清除所有覆盖物
+    function clearAll(overlays) {
+		for(var i = 0; i < overlays.length; i++){
+            map.removeOverlay(overlays[i-1]);
+        }
+        // overlays.length = 0 
+    }
+	
+	function btn(){
+		drawingManager.open();
+	}
+	
+	function initMap(){
+		createMap();
+		setMapEvent();
+	}
+	initMap()
+// 	var marker = new BMap.Marker(new BMap.Point(116.404, 39.915)); // 创建点
+// 	map.addOverlay(marker);  
+	var polyline = new BMap.Polyline([
+		new BMap.Point(116.399, 39.910),
+		new BMap.Point(116.405, 39.920),
+		new BMap.Point(116.425, 39.900)
+	], {strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5});   //创建折线
+	map.addOverlay(polyline);  
+	// var circle = new BMap.Circle(point,500,{strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5}); //创建圆
+	
+	var polygon = new BMap.Polygon([
+		new BMap.Point(116.387112,39.920977),
+		new BMap.Point(116.385243,39.913063),
+		new BMap.Point(116.394226,39.917988),
+		new BMap.Point(116.401772,39.921364),
+		new BMap.Point(116.41248,39.927893)
+	], {strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5});  //创建多边形
+	map.addOverlay(polygon);  
+	var pStart = new BMap.Point(116.392214,39.918985);
+	var pEnd = new BMap.Point(116.41478,39.911901);
+	var rectangle = new BMap.Polygon([
+		new BMap.Point(pStart.lng,pStart.lat),
+		new BMap.Point(pEnd.lng,pStart.lat),
+		new BMap.Point(pEnd.lng,pEnd.lat),
+		new BMap.Point(pStart.lng,pEnd.lat)
+	], {strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5});  //创建矩形
+	map.addOverlay(rectangle);
+	data=map.getOverlays();
+	// console.log(map.getOverlays())
+</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>鼠标绘制工具</title>
+		<style type="text/css">
+			body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+			#allmap{height:500px;width:100%;}
+			#r-result{width:100%;}
+		</style>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WGisSYWHrFFynEUtR8sihaVluQ6ERp8R"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script>
+		<link rel="stylesheet" href="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css" />
+	</head>
+	<body>
+		<div id="allmap" style="overflow:hidden;zoom:1;position:relative;">	
+		<div id="map" style="height:100%;-webkit-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;"></div>
+	</div>
+	<div id="result">
+		<input type="button" value="获取绘制的覆盖物个数" onclick="alert(overlays.length)"/>
+		<input type="button" value="清除所有覆盖物" onclick="clearAll()"/>
+		<input type="button" name="" id="" value="开启" onclick="btn()" />
+	</div>
+	<script type="text/javascript">
+	// 百度地图API功能
+	var _this=this;
+	function createMap(){
+		var map = new BMap.Map('map');
+		var point = new BMap.Point(116.404, 39.915);
+		map.centerAndZoom(point, 15);
+		// map.enableScrollWheelZoom(); 
+		map.disableDragging(); //禁用地图拖拽
+		map.disableScrollWheelZoom();  //关闭鼠标滚轮缩放功能
+		map.disableInertialDragging();  //禁用地图惯性拖拽
+		window.map = map;//将map变量存储在全局 
+	}
+	
+
+	
+	
+	
+	
+	var drawingManager;
+	var data;
+	var dataInfo=[];
+	function setMapEvent(){
+		var styleOptions = {
+			strokeColor:"red",    //边线颜色。
+			fillColor:"red",      //填充颜色。当参数为空时，圆形将没有填充效果。
+			strokeWeight: 3,       //边线的宽度，以像素为单位。
+			strokeOpacity: 0.8,	   //边线透明度，取值范围0 - 1。
+			fillOpacity: 0.6,      //填充的透明度，取值范围0 - 1。
+			strokeStyle: 'solid' //边线的样式，solid或dashed。
+		}
+		//实例化鼠标绘制工具
+		   drawingManager = new BMapLib.DrawingManager(map, {
+			isOpen: false, //是否开启绘制模式
+			enableDrawingTool: true, //是否显示工具栏
+			drawingToolOptions: {
+				anchor: BMAP_ANCHOR_TOP_LEFT, //位置
+				offset: new BMap.Size(30, 5), //偏离值
+				scale:0.8, //缩放值
+				drawingModes:[
+					// BMAP_DRAWING_POLYGON,
+					BMAP_DRAWING_RECTANGLE
+				]
+			},
+			   rectangleOptions: styleOptions //矩形的样式
+		}); 
+		
+		//添加鼠标绘制工具监听事件，用于获取绘制结果
+		 var overlays = [];
+		 var overlaycomplete = function(e){
+			var p=e.target;
+			dataInfo=[];
+			drawingManager.close();
+			overlays.push(e.overlay);
+// 			console.log(e.overlay)
+// 			console.log(e.overlay.getPath())//获取矩形数组
+// 			console.log(e.overlay.Ou.Ol)  //西南
+// 			console.log(e.overlay.Ou.xl)  //东北
+			
+			
+			var pt1 = new BMap.Point(e.overlay.Ou.Ol.lng, e.overlay.Ou.Ol.lat);//西南脚点
+
+			var pt2 = new BMap.Point(e.overlay.Ou.xl.lng, e.overlay.Ou.xl.lat);//东北脚点
+
+			var bounds = new BMap.Bounds(pt1, pt2); //测试Bounds对象
+			var sw = bounds.getSouthWest(); //西南角
+			var ne = bounds.getNorthEast(); //东北角
+			var pt = [
+				new BMap.Point(116.387112,39.920977),
+				new BMap.Point(116.385243,39.913063),
+				new BMap.Point(116.394226,39.917988),
+				new BMap.Point(116.401772,39.921364),
+				new BMap.Point(116.41248,39.927893)
+			]
+			console.log(pt)
+			console.log(sw)
+			console.log(ne)
+// 			{lng: 116.388549, lat: 39.907141},
+// 			{lng: 116.4229, lat: 39.921917}
+			// dataInfo=data.concat();
+			for(var i=0;i<data.length;i++){
+				for(var j=0;j<data[i].ia.length;j++){
+					if(data[i].ia[j].lng >= sw.lng && data[i].ia[j].lng <= ne.lng && data[i].ia[j].lat >= sw.lat && data[i].ia[j].lat <= ne.lat){
+						// console.log('在')
+					}else{
+// 						console.log('不在')
+						dataInfo.push(i);
+						var newArr = Array.from(new Set(dataInfo));
+						// dataInfo=unique(dataInfo)
+						// dataInfo.splice(1,1)
+					}
+				}
+			}
+			console.log(newArr)
+// 			dataInfo.splice(1,1)
+// 			console.log(dataInfo)
+			// var newArr = Array.from(new Set(dataInfo));
+// 			if(pt.lng >= sw.lng && pt.lng <= ne.lng && pt.lat >= sw.lat && pt.lat <= ne.lat){
+// 				console.log('在')
+// 			}else{
+// 				console.log('不在')
+// 			}
+	// 		console.log(e.target)
+	// 		console.log(p._drawingType)
+	// 		console.log(e.overlay)//获取到矩形四角坐标
+			// Drawing(e.overlay,p._drawingType)
+			clearAll(overlays)
+		 };
+		drawingManager.addEventListener('overlaycomplete', overlaycomplete);
+		// console.log(drawingManager.open())
+	}
+	
+	function unique(arr){
+        var hash=[];
+        for (var i = 0; i < arr.length; i++) {
+          if(arr.indexOf(arr[i])==arr.lastIndexOf(arr[i])){
+            hash.push(arr[i]);
+          }
+        }
+        return hash;
+      };
+	//清除所有覆盖物
+    function clearAll(overlays) {
+		for(var i = 0; i < overlays.length; i++){
+            map.removeOverlay(overlays[i-1]);
+        }
+        // overlays.length = 0 
+    }
+	
+	function btn(){
+		drawingManager.open();
+	}
+	
+	function initMap(){
+		createMap();
+		setMapEvent();
+	}
+	initMap()
+// 	var marker = new BMap.Marker(new BMap.Point(116.404, 39.915)); // 创建点
+// 	map.addOverlay(marker);  
+	var polyline = new BMap.Polyline([
+		new BMap.Point(116.399, 39.910),
+		new BMap.Point(116.405, 39.920),
+		new BMap.Point(116.425, 39.900)
+	], {strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5});   //创建折线
+	map.addOverlay(polyline);  
+	// var circle = new BMap.Circle(point,500,{strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5}); //创建圆
+	
+	var polygon = new BMap.Polygon([
+		new BMap.Point(116.387112,39.920977),
+		new BMap.Point(116.385243,39.913063),
+		new BMap.Point(116.394226,39.917988),
+		new BMap.Point(116.401772,39.921364),
+		new BMap.Point(116.41248,39.927893)
+	], {strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5});  //创建多边形
+	map.addOverlay(polygon);  
+	var pStart = new BMap.Point(116.392214,39.918985);
+	var pEnd = new BMap.Point(116.41478,39.911901);
+	var rectangle = new BMap.Polygon([
+		new BMap.Point(pStart.lng,pStart.lat),
+		new BMap.Point(pEnd.lng,pStart.lat),
+		new BMap.Point(pEnd.lng,pEnd.lat),
+		new BMap.Point(pStart.lng,pEnd.lat)
+	], {strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5});  //创建矩形
+	map.addOverlay(rectangle);
+	data=map.getOverlays();
+	// console.log(map.getOverlays())
+</script>
+	</body>
+</html> -->

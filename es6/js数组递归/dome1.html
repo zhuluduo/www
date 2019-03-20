@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>递归数据dome1</title>
+</head>
+<body>
+	
+	
+	<div class="tree">
+		<div class="treeBox" id="treeBox">
+			
+		</div>
+	</div>
+	<script type="text/javascript">
+		var arr = [{
+    "id": 1,
+    "name": "一级菜单1",
+    "children":[
+        {
+            "id": 2,
+            "name": "1-1二级菜单",
+            "children":[
+                {
+                    "id":3,
+                    "name":"1-1-1三级菜单",
+    
+                },
+                {
+                    "id":4,
+                    "name":"1-1-2三级菜单",
+                    "children":[
+                        {
+                            "id":5,
+                            "name":"1-1-2-1四级菜单",
+                       
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+},{
+    "id": 6,
+    "name": "一级菜单2",
+    "children":[
+        {
+            "id": 7,
+            "name": "2-1二级菜单",
+            "children":[
+                {
+                    "id":8,
+                    "name":"2-1-1三级菜单",
+        
+                },
+                {
+                    "id":9,
+                    "name":"2-1-2三级菜单",
+                    "children":[
+                        {
+                            "id":10,
+                            "name":"2-1-2-1四级菜单",
+           
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}];
+
+
+
+function parseJson(arr){
+    if(arr.length!=0){
+        function pp(arr){
+            for(var i=0;i<arr.length;i++){
+                if(arr[i].children && arr[i].children.length!=0){
+                    console.log(arr[i].name);//父级菜单的样式结构...
+                    pp(arr[i].children);
+                }else{
+                    console.log(arr[i].name);//子级写菜单的样式结构...
+                    
+                }
+            }
+        }
+        pp(arr);
+    }
+}
+parseJson(arr);
+	</script>
+</body>
+</html>

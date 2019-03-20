@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>返回</title>
+    <style>
+        #content {
+            width: 600px;
+            height: 3000px;
+            margin: auto;
+            background: red
+        }
+        
+        #btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            color: #fff;
+            background: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <a href="javascript:;" id="btn" style="display:none">点击返回</a>
+    </div>
+    <script>
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+            var clientHeight = document.documentElement.clientHeight;
+            var trim;
+
+            window.onscroll = function() {
+                var opTop = document.documentElement.scrollTop || document.body.scrollTop;
+                console.log(opTop)
+                console.log(clientHeight)
+                if (opTop > clientHeight) {
+                    btn.style.display = 'block'
+                } else {
+                    btn.style.display = 'none'
+                }
+            }
+
+            btn.onclick = function() {
+                trim = setInterval(function() {
+                    var opTop = document.documentElement.scrollTop || document.body.scrollTop
+                    var ispeed = Math.floor(-opTop / 5);
+                    document.documentElement.scrollTop = document.body.scrollTop = ispeed + opTop;
+                    console.log(opTop)
+                    if (opTop == 0) {
+                        clearInterval(trim)
+                    }
+                }, 100)
+            }
+        }
+    </script>
+</body>
+
+</html>

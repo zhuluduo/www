@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>纯css实现水平下拉导航菜单 - 站长素材</title>
+
+<style type="text/css">
+/* common styling */
+.menu {font-family: arial, sans-serif; width:749px; height:30px; position:relative; margin:0; font-size:11px; margin:50px auto; background:#fff; position:relative;}
+.menu ul {padding:0; margin:0; list-style-type: none;}
+.menu ul li {float:left; border-left:1px solid #eee; width:106px;}
+.menu ul li a, .menu ul li a:visited {display:block; float:left; width:101px; text-decoration:none; padding:0 0 0 5px; height:30px; line-height:30px; color:#000; background:#c9c9a7 url(../../graphics/drop.gif) bottom right no-repeat;}
+.menu ul li ul {display: none;}
+/* specific to non IE browsers */
+.menu ul li:hover a {color:#fff; background:#b3ab79;}
+.menu ul li:hover ul {display:block; position:absolute; width:749px; top:30px; left:0; background:#b3ab79; color:#fff;}
+.menu ul li:hover ul.right_side li {float:right; border:0; border-left:1px solid #eee;}
+.menu ul li:hover ul.left_side li {float:left; border:0; border-left:1px solid #eee;}
+.menu ul li:hover ul li a.hide {background:#bd8d5e url(../../graphics/drop2.gif) bottom right no-repeat; color:#fff;}
+.menu ul li:hover ul li:hover a.hide {background:#b3ab79; color:#fff;}
+.menu ul li:hover ul li ul {display: none;}
+.menu ul li:hover ul li a {display:block; background:##b3ab79; color:#fff;}
+.menu ul li:hover ul li a:hover {background:#dfc184; color:#000;}
+.menu ul li:hover ul li:hover ul {display:block; position:absolute; left:0; top:30px; color:#000; background:#dfc184;}
+.menu ul li:hover ul.right li {float:right;}
+.menu ul li:hover ul li:hover a.hide {background:#dfc184; color:#000;}
+.menu ul li:hover ul li:hover ul li a {background:#dfc184; color:#000;}
+.menu ul li:hover ul li:hover ul li a:hover {background:#bd8d5e; color:#fff;}
+</style>
+<!--[if lte IE 6]>
+<style type="text/css">
+table {border-collapse:collapse; margin:0; padding:0;}
+.menu ul li a.hide, .menu ul li a:visited.hide {display:none;}
+.menu ul li a:hover ul li a.hide {display:none;}
+.menu ul li a, .menu ul li a:visited {background:#c9c9a7 url(../../graphics/drop.gif) 20px right no-repeat;}
+.menu ul li a:hover {color:#fff; background:#b3ab79;}
+.menu ul li a:hover ul {display:block; position:absolute; width:749px; top:30px; left:0; background:#b3ab79; color:#fff;}
+.menu ul li a:hover ul.right_side li {float:right; border-width:0 1px 0 0 0;}
+.menu ul li a:hover ul.left_side li {float:left;}
+.menu ul li a:hover ul li a.sub {background:#bd8d5e url(../../graphics/drop2.gif) 20px right no-repeat; color:#fff;}
+.menu ul li a:hover ul li a {display:block; background:#b3ab79; color:#fff;}
+.menu ul li a:hover ul li a ul {visibility:hidden;}
+.menu ul li a:hover ul li a:hover {background:#dfc184; color:#000;}
+.menu ul li a:hover ul li a:hover ul {visibility:visible; position:absolute; left:0; top:30px; color:#000; background:#dfc184;}
+.menu ul li a:hover ul li a:hover ul li a {background:#dfc184; color:#000;}
+.menu ul li a:hover ul li a:hover ul li a:hover {background:#bd8d5e; color:#fff;}
+</style>
+<![endif]-->
+</head>
+<body>
+<div class="menu">
+	<ul>
+		<li>
+		<a class="hide" href="#">主页</a>
+		<!--[if lte IE 6]>
+		<a href="#">DEMOS
+		<table><tr><td>
+		<![endif]-->
+			<ul>
+				<li><a href="/" title="无">一</a></li>
+				<li><a href="/" title="无">二</a></li>
+				<li><a href="/" title="无">三</a></li>
+				<li><a href="/" title="无">四</a></li>
+				<li>
+					<a class="hide" href="/" title="无">五</a>
+					<!--[if lte IE 6]>
+					<a class="sub" href="#" title="解释">显示
+					<table><tr><td>
+					<![endif]-->
+					<ul class="right_side">
+						<li><a href="/" title="">一</a></li>
+						<li><a href="/" title="">二</a></li>
+						<li><a href="/" title="">三</a></li>
+					</ul>
+					<!--[if lte IE 6]>
+					</td></tr>如上</table>
+					</a>
+					<![endif]-->
+				</li>
+				<li><a href="/" title="">一</a></li>
+				<li><a href="/" title="">二</a></li>
+			</ul>
+			<!--[if lte IE 6]>
+			</td></tr></table>
+			</a>
+			<![endif]-->
+		</li>
+		<li>
+			<a class="hide" href="index.html">一</a>
+			<!--[if lte IE 6]>
+			<a href="#">MENUS
+			<table><tr><td>
+			<![endif]-->
+			<ul>
+				<li><a href="/" title="">1</a></li>
+				<li><a href="/" title="">2</a></li>
+				<li><a href="/" title="">3</a></li>
+				<li><a href="/" title="">4</a></li>
+				<li><a href="/" title="">5</a></li>
+				<li><a href="/" title="">6</a></li>
+				<li><a href="/" title="">7</a></li>
+			</ul>
+			<!--[if lte IE 6]>
+			</td></tr></table>
+			</a>
+			<![endif]-->
+		</li>
+		<li>
+			<a class="hide" href="#">LAYOUTS</a>
+			<!--[if lte IE 6]>
+			<a href="#">LAYOUTS
+			<table><tr><td>
+			<![endif]-->
+			<ul>
+				<li><a href="#" title="Cross browser fixed layout">Fixed 1</a></li>
+				<li><a href="#" title="Cross browser fixed layout">Fixed 2</a></li>
+				<li><a href="#" title="Cross browser fixed layout">Fixed 3</a></li>
+				<li><a href="#" title="Cross browser fixed layout">Fixed 4</a></li>
+				<li><a href="#" title="A simple minimum width layout">minimum width</a></li>
+			</ul>
+			<!--[if lte IE 6]>
+			</td></tr></table>
+			</a>
+			<![endif]-->
+		</li>
+		<li>
+			<a class="hide" href="#">BOXES</a>
+			<!--[if lte IE 6]>
+			<a href="#">BOXES
+			<table><tr><td>
+			<![endif]-->
+			<ul>
+				<li><a href="#" title="a coded list of spies">spies menu</a></li>
+				<li><a href="#" title="a horizontal vertical menu">vertical menu</a></li>
+				<li><a href="#" title="an enlarging unordered list">enlarging list</a></li>
+				<li><a href="#" title="an unordered list with link images">link images</a></li>
+				<li><a href="#" title="non-rectangular links">non-rectangular</a></li>
+				<li><a href="#" title="jigsaw links">jigsaw links</a></li>
+				<li><a href="#" title="circular links">circular links</a></li>
+			</ul>
+			<!--[if lte IE 6]>
+			</td></tr></table>
+			</a>
+			<![endif]-->
+		</li>
+		<li>
+			<a class="hide" href="#">MOZILLA</a>
+			<!--[if lte IE 6]>
+			<a href="#">MOZILLA
+			<table><tr><td>
+			<![endif]-->
+			<ul>
+				<li><a href="#" title="A drop down menu">drop down menu</a></li>
+				<li><a href="#" title="A cascading menu">cascading menu</a></li>
+				<li><a href="#" title="Using content:">content:</a></li>
+				<li><a href="#" title=":hover applied to a div">mozzie box</a></li>
+				<li><a href="#" title="I can build a rainbow">rainbow box</a></li>
+				<li><a href="#" title="Snooker cue">snooker cue</a></li>
+				<li><a href="#" title="Target Practise">target practise</a></li>
+			</ul>
+			<!--[if lte IE 6]>
+			</td></tr></table>
+			</a>
+			<![endif]-->
+		</li>
+		<li>
+			<a class="hide" href="#">EXPLORER</a>
+			<!--[if lte IE 6]>
+			<a href="#">EXPLORER
+			<table><tr><td>
+			<![endif]-->
+			<ul class="right_side">
+				<li><a href="#" title="Example one">example one</a></li>
+				<li><a href="#" title="Weft fonts">weft fonts</a></li>
+				<li><a href="#" title="Vertical align">vertical align</a></li>
+			</ul>
+			<!--[if lte IE 6]>
+			</td></tr></table>
+			</a>
+			<![endif]-->
+		</li>
+		<li>
+			<a class="hide" href="#">OPACITY</a>
+			<!--[if lte IE 6]>
+			<a href="#">OPACITY
+			<table><tr><td>
+			<![endif]-->
+			<ul class="right_side">
+				<li><a href="#" title="colour wheel">opaque colours</a></li>
+				<li><a href="#" title="a menu using opacity">opaque menu</a></li>
+				<li><a href="#" title="partial opacity">partial opacity</a></li>
+				<li><a href="#" title="partial opacity II">partial opacity II</a></li>
+				<li>
+					<a class="hide" href="#" title="Hover/click with no active/focus borders">HOVER/CLICK</a>
+					<!--[if lte IE 6]>
+					<a class="sub" href="#" title="Hover/click with no active/focus borders">HOVER/CLICK
+					<table><tr><td>
+					<![endif]-->
+					<ul class="left_side">
+						<li><a href="#" title="Styling forms">styled form</a></li>
+						<li><a href="#" title="Removing active/focus borders">active focus</a></li>
+						<li><a href="#" title="Hover/click with no active/focus borders">hover/click</a></li>
+					</ul>
+					<!--[if lte IE 6]>
+					</td></tr></table>
+					</a>
+					<![endif]-->
+				</li>
+			</ul>
+			<!--[if lte IE 6]>
+			</td></tr></table>
+			</a>
+			<![endif]-->
+		</li>
+	</ul>
+</div>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+</div>
+</body>
+</html>

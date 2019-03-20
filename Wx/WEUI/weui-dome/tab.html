@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<title></title>
+	<link rel="stylesheet" href="css/weui.css">
+	<link rel="stylesheet" href="css/example.css">
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+	<script>
+		$(function () {
+			$(".btn1").click(function(){
+		     var _html=$('#tpl_tab').html();
+		     $("#container").html(_html)
+		  });
+
+            $("#navbar").click(function(){
+                console.log(44444)
+             var navs=$('#tpl_navbar').html();
+            $("#container").html(navs)
+            $('#container').on('click', '.weui_navbar_item', function () {
+                $(this).addClass('weui_bar_item_on').siblings('.weui_bar_item_on').removeClass('weui_bar_item_on');
+            });
+            })
+		})
+	</script>	
+
+<button class="btn1">按钮</button>
+<div class="container" id="container"></div>
+       <script type="text/html" id="tpl_tab">
+<div class="bd">
+    <div class="weui_cells_title">Tab</div>
+    <div class="weui_cells weui_cells_access">
+        <a class="weui_cell" id="navbar">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>navbar</p>
+            </div>
+            <div class="weui_cell_ft">
+            </div>
+        </a>
+        <a class="weui_cell" href="#tabbar">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>tabbar</p>
+            </div>
+            <div class="weui_cell_ft">
+            </div>
+        </a>
+    </div>
+</div>
+</script>
+    <script type="text/html" id="tpl_navbar">
+<div class="bd" style="height: 100%;">
+    <div class="weui_tab">
+        <div class="weui_navbar">
+            <div class="weui_navbar_item weui_bar_item_on">
+                选项一
+            </div>
+            <div class="weui_navbar_item">
+                选项二
+            </div>
+            <div class="weui_navbar_item">
+                选项三
+            </div>
+        </div>
+        <div class="weui_tab_bd">
+
+        </div>
+    </div>
+</div>
+</script>
+    <script type="text/html" id="tpl_tabbar">
+<div class="weui_tab">
+    <div class="weui_tab_bd">
+
+    </div>
+    <div class="weui_tabbar">
+        <a href="javascript:;" class="weui_tabbar_item weui_bar_item_on">
+            <div class="weui_tabbar_icon">
+                <img src="./images/icon_nav_button.png" alt="">
+            </div>
+            <p class="weui_tabbar_label">微信</p>
+        </a>
+        <a href="javascript:;" class="weui_tabbar_item">
+            <div class="weui_tabbar_icon">
+                <img src="./images/icon_nav_msg.png" alt="">
+            </div>
+            <p class="weui_tabbar_label">通讯录</p>
+        </a>
+        <a href="javascript:;" class="weui_tabbar_item">
+            <div class="weui_tabbar_icon">
+                <img src="./images/icon_nav_article.png" alt="">
+            </div>
+            <p class="weui_tabbar_label">发现</p>
+        </a>
+        <a href="javascript:;" class="weui_tabbar_item">
+            <div class="weui_tabbar_icon">
+                <img src="./images/icon_nav_cell.png" alt="">
+            </div>
+            <p class="weui_tabbar_label">我</p>
+        </a>
+    </div>
+</div>
+</script>
+</body>
+</html>

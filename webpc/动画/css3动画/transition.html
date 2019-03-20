@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	h1{font-size:16px;}
+	.test{overflow:hidden;width:100%;margin:0;padding:0;list-style:none;}
+	.test li{float:left;width:100px;height:100px;margin:0 5px;border:1px solid #ddd;background-color:#eee;text-align:center;
+		-webkit-transition:background-color .5s ease-in;
+		-moz-transition:background-color .5s ease-in;
+		transition:background-color .5s ease-in;
+	}
+	.test li:nth-child(1):hover{background-color:#bbb;}
+	.test li:nth-child(2):hover{background-color:#999;}
+	.test li:nth-child(3):hover{background-color:#630;}
+	.test li:nth-child(4):hover{background-color:#090;}
+	.test li:nth-child(5):hover{background-color:#f00;}
+	</style>
+</head>
+<body>
+<!--  
+ transition-property：检索或设置对象中的参与过渡的属性
+ transition-duration：检索或设置对象过渡的持续时间
+ transition-timing-function：检索或设置对象中过渡的动画类型
+ transition-delay：检索或设置对象延迟过渡的时间 
+ -->
+<!--  
+	例1：拆分
+ 	transition-property: border-color, background-color, color;
+	transition-duration: .5s, .5s, .5s;
+	transition-timing-function: ease-in, ease-in, ease-in;
+	transition-delay: .1s, .1s, .1s;
+	 -->
+	<!--（缩写） transition: all .5s ease-in .1s; -->
+	<ul class="test">
+	<li>背景色过渡</li>
+	<li>背景色过渡</li>
+	<li>背景色过渡</li>
+	<li>背景色过渡</li>
+	<li>背景色过渡</li>
+</ul>
+</body>
+</html>

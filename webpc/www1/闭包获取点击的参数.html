@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<style>
+		*{list-style: none;}
+	</style>
+</head>
+<body>
+	<div id="content-box">
+		<ul id="clickBox">
+			<li>测试机1</li>
+			<li>测试机2</li>
+			<li>测试机3</li>
+			<li>测试机4</li>
+			<li>测试机5</li>
+			<li>测试机6</li>
+			<li>测试机7</li>
+		</ul>
+	</div>
+	<script>
+		var clickBox=document.querySelector("#clickBox");
+		var boxList=clickBox.getElementsByTagName("li")
+		for(var i=0;i<boxList.length;i++){
+			//正常		
+			boxList[i].onclick=function(){
+				console.log(this.innerText)
+			}
+			//闭包
+//			boxList[i].onclick=(function(i){
+//				return function(){
+//					console.log(this)
+//				}
+//			})(i)
+		}
+	</script>
+</body>
+</html>

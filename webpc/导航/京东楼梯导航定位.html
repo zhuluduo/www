@@ -1,0 +1,187 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>DEMO</title>
+<style type="text/css">
+body {
+    font: 12px/150% Arial,Verdana,"宋体";
+    color: #666;
+}
+.root61 #backpanel-floor .backpanel-inner {
+}
+#backpanel-floor .backpanel-inner {
+    margin-bottom: 90px;
+}
+.root61 .backpanel .backpanel-inner {
+    margin-left: 605px;
+}
+.backpanel .backpanel-inner {
+    position: fixed;
+    z-index: 1001;
+    margin-left: 457px;
+    left: 50%;
+    bottom: 0px;
+    padding-bottom: 10px;
+}
+ 
+#backpanel-floor .floor-fore0 {
+    background-position: 0px 0px;
+}
+#backpanel-floor .floor-fore1 {
+    background-position: 0px -55px;
+}
+#backpanel-floor .floor-fore2 {
+    background-position: 0px -110px;
+}
+#backpanel-floor .floor-fore3 {
+    background-position: 0px -165px;
+}
+#backpanel-floor .floor-fore4 {
+    background-position: 0px -220px;
+}
+#backpanel-floor .floor-fore5 {
+    background-position: 0px -275px;
+}
+#backpanel-floor .floor-fore6 {
+    background-position: 0px -330px;
+}
+#backpanel-floor .floor-fore7 {
+    background-position: 0px -385px;
+}
+.backpanel .bp-item {
+    width: 38px;
+    height: 38px;
+    background: none repeat scroll 0% 0% #CCC;
+    margin-top: 5px;
+}
+#backpanel-floor .bp-item .floor-links {
+    border: 1px solid #DEDEDE;
+    height: 31px;
+}
+#backpanel-floor .floor-fore0 {
+    background-position: 0px 0px;
+}
+.backpanel .bp-item a {
+    display: block;
+    background-image: url('http://misc.360buyimg.com/product/skin/2013/i/backpanel20140708.png');
+    background-color: #AAA;
+    background-repeat: no-repeat;
+    padding: 5px 0px 0px 7px;
+    color: #FFF;
+    height: 33px;
+    line-height: 1000px;
+    overflow: hidden;
+}
+a {
+    color: #666;
+    text-decoration: none;
+}
+#backpanel-floor .floor-links:hover, #backpanel-floor .curr a.floor-links, #backpanel-floor .curr .floor-links:hover {
+    background-image: none;
+    background-color: #FDEEEE;
+    color: #ED5759;
+    border: 1px solid #ED5759;
+    line-height: 13px;
+}
+#backpanel-floor .bp-item .floor-links {
+    border: 1px solid #DEDEDE;
+    height: 31px;
+}
+#backpanel-floor .floor-fore0 {
+    background-position: 0px 0px;
+}
+.backpanel .bp-item a:hover {
+    line-height: 14px;
+    color: #FFF;
+    background-image: none;
+}
+.bp-item a:hover, .bp-item a:visited {
+    text-decoration: none;
+}
+.backpanel .bp-item a {
+    display: block;
+    background-image: url('http://misc.360buyimg.com/product/skin/2013/i/backpanel20140708.png');
+    background-color: #AAA;
+    background-repeat: no-repeat;
+    padding: 5px 0px 0px 7px;
+    color: #FFF;
+    height: 33px;
+    line-height: 1000px;
+    overflow: hidden;
+}
+a:hover {
+    color: #E4393C;
+    text-decoration: underline;
+}
+:focus {
+    outline: 0px none;
+}
+a {
+    color: #666;
+    text-decoration: none;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script>
+var step = 153; // 表示每一层153px
+$(function(){
+    $(document).scroll(function(){
+        var top = $(document).scrollTop();
+        if(top > 0){
+            $("#backpanel-floor").fadeIn(200);
+        } else {
+            $("#backpanel-floor").fadeOut(200);
+        }
+        var idx = parseInt(top/step);
+ 
+        $(".backpanel-inner .bp-item").eq(idx).addClass("curr").siblings().removeClass("curr");
+    });
+ 
+    $(".backpanel-inner .bp-item").click(function(){
+        var idx = $(this).index();
+        $(this).addClass("curr").siblings().removeClass("curr");
+        $(document).scrollTop(idx*step+1);
+    });
+});
+</script>
+ 
+</head>
+  
+ <body style="height:2000px" class="root61"> 
+  <div style="display: none;" id="backpanel-floor" class="w backpanel hide">
+   <div class="backpanel-inner">
+    <div class=" bp-item bp-item-floor-links floor-fore0" data-top="0"> 
+     <a href="#none" class="floor-links floor-fore0 curr" target="_self">家电通讯</a>
+     <s></s>
+    </div>
+    <div class=" bp-item bp-item-floor-links floor-fore1" data-top="0"> 
+     <a href="#none" class="floor-links floor-fore1" target="_self">电脑数码</a>
+     <s></s>
+    </div>
+    <div class=" bp-item bp-item-floor-links floor-fore2" data-top="0"> 
+     <a href="#none" class="floor-links floor-fore2 curr" target="_self">服饰鞋包</a>
+     <s></s>
+    </div>
+    <div class=" bp-item bp-item-floor-links floor-fore3" data-top="0"> 
+     <a href="#none" class="floor-links floor-fore3" target="_self">美容珠宝</a>
+     <s></s>
+    </div>
+    <div class=" bp-item bp-item-floor-links floor-fore4" data-top="0"> 
+     <a href="#none" class="floor-links floor-fore4" target="_self">居家生活</a>
+     <s></s>
+    </div>
+    <div class=" bp-item bp-item-floor-links floor-fore5" data-top="0"> 
+     <a href="#none" class="floor-links floor-fore5" target="_self">母婴玩具</a>
+     <s></s>
+    </div>
+    <div class=" bp-item bp-item-floor-links floor-fore6" data-top="0"> 
+     <a href="#none" class="floor-links floor-fore6" target="_self">食品保健</a>
+     <s></s>
+    </div>
+    <div class=" bp-item bp-item-floor-links floor-fore7" data-top="0"> 
+     <a href="#none" class="floor-links floor-fore7" target="_self">图书音像</a>
+     <s></s>
+    </div>
+   </div>
+  </div> 
+ </body>
+</html>

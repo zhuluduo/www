@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* 统一清除浮动 */
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:after {
+    display: block;
+    content: "clear";
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.pull-hidd {
+    overflow: hidden
+}
+
+body {
+    overflow-y: hidden;
+    overflow-y: hidden;
+    background: url(../images/bg.png) center center;
+}
+li{
+    list-style: none;
+}
+
+.bk-cursor{
+   cursor: pointer;
+}

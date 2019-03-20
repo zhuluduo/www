@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<style type="text/css">
+		* {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.container {
+	margin:0 auto;
+}
+.clearfix::before,.clearfix::after {
+	content:".";
+	height:0;
+	line-height:0;
+	display:block;
+	visibility:hidden;
+	clear:both;
+}
+.clearfix::after {
+	clear:both;
+}
+.clearfix {
+	*zoom:1;
+	/*IE/7/6 */
+}
+.wrap {
+	margin-top:20px;
+	width:680px;
+}
+.wrap ul {
+	padding:10px;
+}
+.wrap ul li {
+	position:relative;
+	float:left;
+	width:200px;
+	height:200px;
+	z-index:1;
+	margin:10px;
+	overflow:hidden;
+}
+.wrap ul li div {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:200px;
+	z-index:-1;
+	height:200px;
+	transition:transform 0.3s;
+	transform-origin:left bottom;
+	transform:rotateZ(-90deg);
+}
+.wrap ul img {
+	width:100%;
+	height:100%;
+}
+.wrap ul li div.back_left {
+	transform:rotateZ(0deg);
+	z-index:2;
+}
+.wrap ul li div.back_right {
+	transform-origin:right top;
+	transform:rotateZ(0deg);
+	z-index:2;
+}
+.wrap ul li div.back_top {
+	transform-origin:left top;
+	transform:rotateZ(0deg);
+	z-index:2;
+}
+.wrap ul li div.back_bottom {
+	transform-origin:right bottom;
+	transform:rotateZ(0deg);
+	z-index:2;
+}
+
+	</style>
+</head>
+<body>
+	<div class="container wrap clearfix">
+    <ul class="clearfix">
+        <li class="outer"><img src="http://www.jq22.com/img/cs/500x500-1.png" alt="">
+            <div class="back"><img src="http://www.jq22.com/img/cs/300x500-1.png" alt=""></div>
+        </li>
+        <li class="outer"><img src="http://www.jq22.com/img/cs/500x500-2.png" alt="">
+            <div class="back"><img src="http://www.jq22.com/img/cs/300x500-2.png" alt=""></div>
+        </li>
+        <li class="outer"><img src="http://www.jq22.com/img/cs/500x500-3.png" alt="">
+            <div class="back"><img src="http://www.jq22.com/img/cs/300x500-3.png" alt=""></div>
+        </li>
+        <li class="outer"><img src="http://www.jq22.com/img/cs/500x500-4.png" alt="">
+            <div class="back"><img src="http://www.jq22.com/img/cs/300x500-4.png" alt=""></div>
+        </li>
+        <li class="outer"><img src="http://www.jq22.com/img/cs/500x500-5.png" alt="">
+            <div class="back"><img src="http://www.jq22.com/img/cs/300x500-5.png" alt=""></div>
+        </li>
+        <li class="outer"><img src="http://www.jq22.com /img/cs/500x500-6.png" alt="">
+            <div class="back"><img src="http://www.jq22.com/img/cs/300x500-6.png" alt=""></div>
+        </li>
+    </ul>
+
+</div>
+<script type="text/javascript">
+	var wrap = document.getElementsByClassName('wrap')[0];
+var oUl = wrap.getElementsByTagName('ul')[0];
+var aLi = oUl.getElementsByTagName('li');
+var newAli = Array.prototype.slice.call(aLi);
+
+function getPage(e) {
+    var pageX = e.pageX || e.clientX + getScroll().scrollLeft;
+    var pageY = e.pageY || e.clientY + getScroll().scrollTop;
+    return {
+        pageX: pageX,
+        pageY: pageY
+    }
+};
+for (var i = 0; i < aLi.length; i++) {
+    aLi[i].onmouseenter = direction;
+}
+
+function direction(e) {
+    e = e || window.event;
+    var x;
+    var y;
+    // 鼠标位置是否小于当前li的一半，如果小于  用鼠标位置减去li的位置，如果不小于，用鼠标位置减去li位置再减去li的大小
+    // 当鼠标经过li时，x轴y轴必有大小，最小的值就是鼠标移入的方向
+    x = Math.abs(getPage(e).pageX - this.offsetLeft) > this.offsetWidth / 2 ? getPage(e).pageX - this.offsetLeft - this.offsetWidth : getPage(e).pageX - this.offsetLeft;
+    y = Math.abs(getPage(e).pageY - this.offsetTop) > this.offsetHeight / 2 ? getPage(e).pageY - this.offsetTop - this.offsetHeight : getPage(e).pageY - this.offsetTop;
+    var oDiv = this.getElementsByTagName('div')[0];
+    // 如果鼠标x轴位置减去li的位置小于li宽度的一半，证明鼠标位置在li的左侧，此时比较x与y的大小，小的就是鼠标移入的方向
+    if (Math.abs(getPage(e).pageX - this.offsetLeft) < this.offsetWidth / 2 && Math.abs(x) <= Math.abs(y)) {
+        oDiv.classList.add('back_left');
+    }
+    // 如果鼠标x轴位置减去li位置大于li宽度的一半，证明鼠标在li的右侧，此时比较x与y的大小，小的就是鼠标移入的方向
+    if (Math.abs(getPage(e).pageX - this.offsetLeft) > this.offsetWidth / 2 && Math.abs(x) <= Math.abs(y)) {
+        oDiv.classList.add('back_right');
+    }
+    // 如果鼠标y轴位置减去li的位置大于li高度的一半，证明鼠标在li的下方，此时比较x与y的大小，小的就是鼠标移入的方向
+    if (Math.abs(getPage(e).pageY - this.offsetTop) > this.offsetHeight / 2 && Math.abs(x) >= Math.abs(y)) {
+        oDiv.classList.add('back_bottom');
+    }
+    // 如果鼠标y轴位置减去li的位置小于li高度的一半，证明鼠标在li的上方，此时比较x与y的大小，小的就是鼠标移入的方向
+    if (Math.abs(getPage(e).pageY - this.offsetTop) < this.offsetHeight / 2 && Math.abs(x) >= Math.abs(y)) {
+        oDiv.classList.add('back_top');
+    }
+    this.onmouseleave = function() {
+        oDiv.className = 'back';
+    }
+}
+</script>
+</body>
+</html>

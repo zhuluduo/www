@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>js表格排序</title>
+<script type="text/javascript" src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script charset="gb2312">
+var tableSort = function (table,aClass,trClass){
+	this._table = table,
+	this._class = aClass,
+	this._tr 	= trClass,
+	this.sort	= function(){
+					var a 	= $('#' + table+ ' .' + this._class),
+						tr	= $('#' + table+ ' .' + this._tr),
+						_f = this._comp;
+					tr.hover(
+						function(){$(this).css('background','#ffc');},
+						function(){$(this).css('background','#fff');}
+					);
+					a.each(function(i){
+						var _a = a.eq(i),_index = i;
+						var span = $('<span style="margin-left:4px">&nbsp;&nbsp;</span>');
+							_a.append(span);
+						_a.css({'color':'#333','text-decoration':'none'});
+						flag = true;
+						_a.click(function(){
+							a.children('span').html('&nbsp;&nbsp;');
+							a.css({'color':'#333','text-decoration':'none'});
+							_a.css('color','#00f');
+							_a.blur();_arr = [];
+							tr.each(function(k){
+								_tr 	= tr.eq(k);
+								_td 	= _tr.children('td').eq(_index);
+								_arrTmp = Array(_td.text(),_tr.html());
+								_arr.push(_arrTmp);
+							})
+							if(flag){
+								_arr.sort(_f);
+								flag = false;
+								_a.children('span').html(' ↑');
+							}else{
+								_arr.sort(_f).reverse();
+								flag = true;
+								_a.children('span').html(' ↓');
+							}
+							for(n=0;n<_arr.length;n++){
+								tr.eq(n).html(_arr[n][1]);
+							}
+						})
+					})
+				},
+	this._comp 	= function(a,b){return a[0]-b[0];}
+}
+</script>
+</head>
+<body>
+<h1>zzjnlwb表格排序</h1>
+<table width="540" border="1" cellspacing="0" bordercolor="#cccccc" cellpadding="0" id="tb" style="font-size:12;border-collapse:collapse">
+<tr bgcolor="#f3f3f3"><td height="25" align="center"><a href="#" class="aClass">数字0</a></td><td align="center"><a href="#" class="aClass">数字1</a></td><td align="center"><a href="#" class="aClass">数字2</a></td><td align="center"><a href="#" class="aClass">数字3</a></td></tr>
+<tr class="trClass"><td height="25" align="center">87</td><td align="center">4</td><td align="center">32</td><td align="center">78</td></tr>
+<tr class="trClass"><td height="25" align="center">65</td><td align="center">9</td><td align="center">45</td><td align="center">43</td></tr>
+<tr class="trClass"><td height="25" align="center">58</td><td align="center">2</td><td align="center">21</td><td align="center">87</td></tr>
+<tr class="trClass"><td height="25" align="center">78</td><td align="center">0</td><td align="center">11</td><td align="center">21</td></tr>
+<tr class="trClass"><td height="25" align="center">21</td><td align="center">21</td><td align="center">12.6</td><td align="center">90</td></tr>
+<tr class="trClass"><td height="25" align="center">90</td><td align="center">16</td><td align="center">21</td><td align="center">77</td></tr>
+<tr class="trClass"><td height="25" align="center">66</td><td align="center">10</td><td align="center">9.55</td><td align="center">54</td></tr>
+</table>
+<div style="font-family:Verdana, Geneva, sans-serif;font-size:14px;color:#000;">
+<p><strong>zzjnlwb表格排序</strong></p>
+<p>功能：点击Class为 aClass 的链接后进行排序</p>
+<p>参数：</p>
+<ol>
+  <li> table：所要排序的表格的	id</li>
+  <li> aClass：标签 a 的 class </li>
+  <li>trClass:要排序的表格行的 class</li>
+</ol>
+<p>调用：</p>
+<blockquote>
+<p>1 引入 jQuery()：&lt;script src=&quot;jquery-1.7.2.js&quot;&gt;&lt;/script&gt;；</p>
+<p>2 加入以下代码:</p>
+<p>
+<textarea cols="120" rows="10" onfocus="$(this).select()">
+<script>
+/**
+功能：点击Class为 aClass 的链接后进行排序
+参数：
+	aClass：	标签 a 的 Class
+	trClass:	要排序的表格行的 class
+*/
+var tableSort = function (aClass,trClass){
+	this._class = aClass,
+	this._tr 	= trClass,
+	this.sort	= function(){
+					var a 	= $('.' + this._class),
+						tr	= $('.' + this._tr),
+						_f = this._comp;
+					tr.hover(
+						function(){$(this).css('background','#ffc');},
+						function(){$(this).css('background','#fff');}
+					);
+					a.each(function(i){
+						var _a = a.eq(i),_index = i;
+						var span = $('<span style="margin-left:4px">&nbsp;&nbsp;</span>');
+							_a.append(span);
+						_a.css({'color':'#333','text-decoration':'none'});
+						flag = true;
+						_a.click(function(){
+							a.children('span').html('&nbsp;&nbsp;');
+							a.css({'color':'#333','text-decoration':'none'});
+							_a.css('color','#00f');
+							_a.blur();_arr = [];
+							tr.each(function(k){
+								_tr 	= tr.eq(k);
+								_td 	= _tr.children('td').eq(_index);
+								_arrTmp = Array(_td.text(),_tr.html());
+								_arr.push(_arrTmp);
+							})
+							if(flag){
+								_arr.sort(_f);
+								flag = false;
+								_a.children('span').html(' ↑');
+							}else{
+								_arr.sort(_f).reverse();
+								flag = true;
+								_a.children('span').html(' ↓');
+							}
+							for(n=0;n<_arr.length;n++){
+								tr.eq(n).html(_arr[n][1]);
+							}
+						})
+					})
+				},
+	this._comp 	= function(a,b){return a[0]-b[0];}
+}
+//创建新的对象
+var tb = new tableSort('aClass','trClass');
+//执行表格的排序
+tb.sort();
+</script>
+</textarea>
+</p>
+<p>3 var tb = new tableSort('tb','aClass','trClass');</p>
+<p>4 tb.sort();</p>
+</blockquote>
+</div>
+<script>
+//创建新的对象
+var tb = new tableSort('tb','aClass','trClass');
+tb.sort();
+</script>
+</body>
+</html>

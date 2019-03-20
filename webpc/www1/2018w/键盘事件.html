@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+tr.highlight {
+ background:#08246B;
+ color:white;
+}
+</style>
+</head>
+<body>
+	<table border="1" width="70%" id="ice">
+  <tr onClick="selectTR();return false;">
+    <td>123</td>
+    <td>234</td>
+    <td>abc</td>
+    <td>def</td>
+  </tr>
+  <tr onClick="selectTR();">
+    <td>123</td>
+    <td>234</td>
+    <td>abc</td>
+    <td>def</td>
+  </tr>
+  <tr onClick="selectTR();">
+    <td>123</td>
+    <td>234</td>
+    <td>abc</td>
+    <td>def</td>
+  </tr>
+  <tr onClick="selectTR();">
+    <td>123</td>
+    <td>234</td>
+    <td>abc</td>
+    <td>def</td>
+  </tr>
+  <tr onClick="selectTR();">
+    <td>123</td>
+    <td>234</td>
+    <td>abc</td>
+    <td>def</td>
+  </tr>
+</table>
+<script language="JavaScript"> 
+<!-- 
+var currentLine = -1; 
+document.onkeydown = function(e)    
+{ 
+    e = window.event || e; 
+    switch(e.keyCode)    
+    { 
+        case 38: 
+            currentLine--; 
+            changeItem(); 
+            break; 
+        case 40: 
+            currentLine++; 
+            changeItem(); 
+            break; 
+        default: 
+            break; 
+    } 
+} 
+function selectTR()
+{
+ currentLine=window.event.srcElement.parentElement.rowIndex;
+ //alert(currentLine);
+ changeItem();
+}
+//改变选择项目 
+function changeItem() 
+{ 
+    if(document.all) 
+        var it = document.getElementById("ice").children[0]; 
+    else 
+        var it = document.getElementById("ice");
+
+    for(i=0;i<it.rows.length;i++)    
+    { 
+        it.rows[i].className = ""; 
+    } 
+    if(currentLine < 0) 
+        currentLine = it.rows.length - 1; 
+    if(currentLine == it.rows.length) 
+        currentLine = 0; 
+    it.rows[currentLine].className = "highlight"; 
+} 
+//--> 
+</script>
+</body>
+</html>

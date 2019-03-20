@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>定时器</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style type="text/css">
+			#someDiv{width: 100px;height: 100px;background: red;opacity: 1;}
+		</style>
+	</head>
+	<body>
+		<div id="someDiv">
+			
+		</div>
+		<input type="text" id="textarea" value="" />
+		<input type="text" id="input-box" value="" />
+		<div id="DateTime">
+			
+		</div>
+		<script type="text/javascript">
+			// timer 定时器
+			//setTimeput() 延迟多长时间后执行
+			//setInterval()间隔多长时间执行一次
+			// 将该整数传入clearTimeout和clearInterval函数，就可以取消对应的定时器。
+			
+			// 通过setInterval方法实现网页动画的例子。
+			var div = document.getElementById('someDiv');
+			var opacity = 1;
+			var fader = setInterval(function() {
+			  opacity -= 0.1;
+			  if (opacity >= 0) {
+				div.style.opacity = opacity;
+			  } else {
+				clearInterval(fader);
+			  }
+			}, 100);
+		</script>
+		
+		<script type="text/javascript">
+			// debounce 函数--防抖动(解决大量的 Ajax 通信--回调函数被频繁调用)
+			var textarea=document.getElementById('textarea');
+			textarea.addEventListener('keydown',debounce(ajaxAction, 500))
+			
+			function debounce(fn, delay){ //两次 Ajax 通信的间隔不得小于2500毫秒
+			  var timer = null; // 声明计时器
+			  return function() {
+				var context = this;
+				var args = arguments;
+				clearTimeout(timer);
+				timer = setTimeout(function () {
+				  fn.apply(context, args);
+				}, delay);
+			  };
+			}
+			function ajaxAction(){
+				console.log(6666666)
+			}
+		</script>
+		
+		<!--keypress事件会在浏览器接收文本之前触发-->
+		<!--setTimeout(f, 0)实际上意味着，将任务放到浏览器最早可得的空闲时段执行-->
+		<script type="text/javascript">
+			document.getElementById('input-box').onkeypress = function() {
+			  var self = this;
+			  setTimeout(function() {
+				self.value = self.value.toUpperCase();
+			  }, 0);
+			}
+		</script>
+		
+		<script type="text/javascript">
+			var timer;
+			var i=0x100000;
+
+			function func() {
+			  timer = setTimeout(func, 0);
+			  // div.style.backgroundColor = '#' + i.toString(16);
+			  console.log('#' + i.toString(16))
+			  if (i++ == 0xFFFFFF) clearTimeout(timer);
+			}
+
+			// timer = setTimeout(func, 0);
+		</script>
+		
+		<!--实时获取日期-->
+		<script type="text/javascript">
+			let DateTime=document.getElementById('DateTime')
+			setInterval(dateTime,1000)
+			function dateTime(){
+				let date=new Date();
+				let Y=date.getFullYear();
+				let M=date.getMonth();
+				let D=date.getDate();
+				let DY=date.getDay();
+				let H=date.getHours();
+				let MT=date.getMinutes();
+				let s=date.getSeconds();
+				let Time=date.getMilliseconds();
+				let dateInnerHtml=Y+'年'+M+'月'+D+'日'+'--星期'+DY+'--'+H+'时'+MT+'分'+s+'秒'+Time+'毫秒';
+				DateTime.innerHTML=dateInnerHtml
+			}
+			dateTime()
+		</script>
+	</body>
+</html>

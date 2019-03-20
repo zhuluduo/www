@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//			function tesr(){
+			//				alert("asdasd11")
+			//			}
+			//			tesr();
+
+			function zhu() {
+				return 1;
+			}
+			alert(zhu());
+
+			function ceng(num1, num2) {
+				return num1 + num2;
+
+			}
+			alert(ceng(3, 4)); 
+
+			//参数不能带默认参数
+			//			function calc(num1=1,num2=2){
+			//				return num1+num2;
+			//			}
+			//			alert(calc());
+
+			//         需要默认参数但没传值
+			function cale1(num1,num2){
+//				判断其是否带值有就用默认无就用以定义的
+              num1=num1||1;
+              num2=num2||2;
+              return num1+num2;
+			}
+			alert(cale1(4,5));
+			
+			//获取可变参数的函数 可通过arguments来调用
+			function test(){
+			var paramsNum=arguments.length;//得到传入参数个数
+			var sum=0;
+			for(var i=0;i<paramsNum;i++){
+				sum+=arguments[i];
+			}
+			return sum;
+			}
+			alert(test(1,2,3,45,6));
+		</script>
+	</body>
+
+</html>

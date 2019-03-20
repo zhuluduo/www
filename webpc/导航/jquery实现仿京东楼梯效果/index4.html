@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+		#header{
+			width: 1000px;
+			height: 650px;
+			margin: 0 auto;
+			position: relative;
+		}
+		.fl{
+			width: 1000px;
+			height: 600px;
+			margin: 0 auto;
+			position: relative;
+		}
+		#footer{
+						width: 1000px;
+			height: 600px;
+			margin: 0 auto;
+			position: relative;
+		}
+		#calc{
+			height: 360px;
+			width: 30px;
+			position: fixed;
+			display: none;
+			left: 20px;
+			top: 100px;
+		}
+		#calc ul li{
+			width: 28px;
+			height: 28px;
+			border: dashed 1px lightgray;
+			text-align: center;
+			line-height: 30px;
+			cursor: pointer;
+			position: relative;
+		}
+		#calc ul li span{
+			display: none;
+			width: 28px;
+			height: 28px;
+			position: absolute;
+			z-index: 1;
+			background-color: red;
+			overflow: hidden;
+			top: 0px;
+			left: 0px;
+			font-size: 12px;
+		}
+	</style>
+</head>
+<body>
+<div id="calc">
+	<ul id="ul">
+		<li>1<span>服饰</span></li>
+		<li>2<span>美妆</span></li>
+		<li>3<span>手机</span></li>
+		<li>4<span>家电</span></li>
+		<li>5<span>数码</span></li>
+		<li>6<span>服务</span></li>
+		<li>7<span>图书</span></li>
+		<li>8<span>母婴</span></li>
+		<li>9<span>家具</span></li>
+		<li>10<span>运动</span></li>
+		<li>11<span>食品</span></li>
+		<li>top<span>顶部</span></li>
+	</ul>
+</div>
+<div id="header">
+	<img src="header.png">
+</div>
+<div class="fl">
+	<img src="服饰.png">
+</div>
+<div class="fl">
+	<img src="美妆.png">
+</div>
+<div class="fl">
+	<img src="手机.png">
+</div>
+<div class="fl">
+	<img src="家电.png">
+</div>
+<div class="fl">
+	<img src="数码.png">
+</div>
+<div class="fl">
+	<img src="服务.png">
+</div>
+<div class="fl">
+	<img src="图书.png">
+</div>
+<div class="fl">
+	<img src="母婴.png">
+</div>
+<div class="fl">
+	<img src="居家.png">
+</div>
+<div class="fl">
+	<img src="运动.png">
+</div>
+<div class="fl">
+	<img src="食品.png">
+</div>
+<div id="footer"><img src="footer.png"></div>
+</body>
+</html>
+<script type="text/javascript">
+var header=document.getElementById(‘header‘);
+var fl=document.getElementsByClassName(‘fl‘);
+var footer=document.getElementById("footer");
+var ul=document.getElementById("ul");
+var li=ul.getElementsByTagName(‘li‘);
+var span=ul.getElementsByTagName("span");
+window.addEventListener("scroll",function(){
+	var scrollTop=document.documentElement.scrollTop||window.pageYOffset||document.body.scrollTop;
+	console.log(scrollTop)
+	if(scrollTop>=650){
+		ul.parentNode.style.display="block";
+	}
+	if(scrollTop<650){
+		ul.parentNode.style.display="none";
+	}
+	for(i in fl){
+		if(fl[i].offsetTop-scrollTop>-300){
+			that=span[i];
+			for(var j=0;j<span.length;j++){
+				if (span[j]!=that) {
+					span[j].style.display="none"
+				}
+			}
+			span[i].style.display="block";
+			return false
+		}
+	}
+},0)
+
+
+for(var i=0;i<li.length;i++){
+	(function(index){
+		li[index].addEventListener("mouseover",function(){
+			span[index].style.display="block";
+		},false)
+	})(i)
+}
+for(var i=0;i<li.length;i++){
+	(function(index){
+		li[index].addEventListener("click",function(){
+			span[index].style.display="block";
+			document.body.scrollTop=index*600+650;
+		},false)
+	})(i)
+}
+for(var i=0;i<li.length;i++){
+	(function(index){
+		li[index].addEventListener("mouseout",function(){
+			span[index].style.display="none";
+		},false)
+	})(i)
+}
+</script>

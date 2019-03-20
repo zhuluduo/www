@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            transition-property: all;
+            -ms-transition-property: all;
+            -moz-transition-property: all;
+            -webkit-transition-property: all;
+            -o-transition-property: all;
+        }
+        
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        #content {
+            width: 60%;
+            height: 60px;
+            margin: 0 auto;
+            background: darkgray
+        }
+        
+        .child {
+            width: 120px;
+            height: 60px;
+            line-height: 60px;
+            position: relative;
+            text-align: center;
+        }
+        
+        #content .child {
+            float: left;
+            display: inline-block;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+        
+        .child .childContent {
+            position: absolute;
+            top: 60px;
+            text-align: center;
+            width: 100%;
+            display: none;
+        }
+        
+        .childContent li {
+            height: 38px;
+            line-height: 38px;
+            border-bottom: 1px solid #c6c5c4;
+            background: #ddd;
+        }
+        
+        .child:hover .childContent {
+            display: block
+        }
+        
+        .childContent li:hover {
+            color: #fff;
+            background: rgb(151, 229, 253)
+        }
+        /*animate*/
+        
+        @keyframes rightOpacityShow {
+            0% {
+                transform: translateX(-80px);
+                opacity: 0;
+            }
+            80% {
+                transform: translateX(20px);
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @-moz-keyframes rotateYOpacityAn {
+            0% {
+                -moz-transform: translateX(-80px);
+                opacity: 0;
+            }
+            80% {
+                -moz-transform: translateX(20px);
+            }
+            100% {
+                -moz-transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @-webkit-keyframes rotateYOpacityAn {
+            0% {
+                -webkit-transform: translateX(-80px);
+                opacity: 0;
+            }
+            80% {
+                -webkit-transform: translateX(20px);
+            }
+            100% {
+                -webkit-transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @-o-keyframes rotateYOpacityAn {
+            0% {
+                -o-transform: translateX(-80px);
+                opacity: 0;
+            }
+            80% {
+                -o-transform: translateX(20px);
+            }
+            100% {
+                -o-transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .on {
+            background: red;
+        }
+        /* 竖直导航 */
+        
+        .onBlock {
+            display: none;
+        }
+        
+        .onNone {
+            display: none;
+        }
+        
+        #Snav {
+            width: 150px;
+            border: 1px solid red;
+            margin: 20px auto;
+        }
+        
+        .Schild a {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            display: block;
+            background: rgb(173, 173, 173);
+            border-bottom: 1px solid rgb(190, 190, 190)
+        }
+        
+        .SchildContent {
+            background: rgb(178, 231, 238);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="content">
+            <ul>
+                <li class="child" v-for="(main,index) in cont">
+                    <p :class="classOn" @mouseenter="dataDetails(index)" @mouseleave="hiddenDetail(index)">
+                        <a :href="main.href">{{main.name}}</a>
+                    </p>
+                    <ul class="childContent">
+                        <li :style="animate.style1+((index+4))+animate.style2" v-for="(mianlist,index) in main.child">
+                            {{mianlist.name}} {{main.child.length}}
+                        </li>
+                    </ul>
+                </li>
+                <!-- <li class="child">
+                    <p>公司测绘</p>
+                    <ul class="childContent">
+                        <li style="animation: rightOpacityShow 0.5s ease-in-out 0s both;">公司简介</li>
+                        <li style="animation: rightOpacityShow 0.5s ease-in-out 0s both;">公司信息</li>
+                        <li style="animation: rightOpacityShow 0.5s ease-in-out 0s both;">公司介绍</li>
+                        <li style="animation: rightOpacityShow 0.5s ease-in-out 0s both;">公司部门</li>
+                    </ul>
+                </li>
+                <li class="child">
+                    <p>公司绘画</p>
+                    <ul class="childContent">
+                        <li style="animation: rightOpacityShow 0.5s ease-in-out 0s both;">公司简介</li>
+                        <li style="animation: rightOpacityShow 0.5s ease-in-out 0s both;">公司信息</li>
+                        <li style="animation: rightOpacityShow 0.5s ease-in-out 0s both;">公司介绍</li>
+                        <li style="animation: rightOpacityShow 0.5s ease-in-out 0s both;">公司部门</li>
+                    </ul>
+                </li> -->
+            </ul>
+        </div>
+
+        <div id="Snav">
+            <ul>
+                <li class="Schild">
+                    <a href="#">竖直主导航1</a>
+                    <ul class="SchildContent onNone">
+                        <li>1111111111111</li>
+                        <li>1111111111111</li>
+                        <li>1111111111111</li>
+                        <li>1111111111111</li>
+                    </ul>
+                </li>
+                <li class="Schild">
+                    <a href="#">竖直主导航2</a>
+                    <ul class="SchildContent onNone">
+                        <li>22222222222222</li>
+                        <li>22222222222222</li>
+                        <li>22222222222222</li>
+                        <li>22222222222222</li>
+                    </ul>
+                </li>
+                <li class="Schild">
+                    <a href="#">竖直主导航3</a>
+                    <ul class="SchildContent onNone">
+                        <li>33333333333333</li>
+                        <li>33333333333333</li>
+                        <li>33333333333333</li>
+                        <li>33333333333333</li>
+                    </ul>
+                </li>
+                <li class="Schild">
+                    <a href="#">竖直主导航4</a>
+                    <ul class="SchildContent onNone">
+                        <li>44444444444444</li>
+                        <li>444444444444444</li>
+                        <li>444444444444444</li>
+                        <li>444444444444444</li>
+                    </ul>
+                </li>
+                <li class="Schild">
+                    <a href="#">竖直主导航5</a>
+                    <ul class="SchildContent onNone">
+                        <li>555555555555555</li>
+                        <li>5555555555555555</li>
+                        <li>5555555555555555</li>
+                        <li>5555555555555555</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+<script src="jquery.min.js"></script>
+<script src="vue.js"></script>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                msg: '222222222222222',
+                animate: {
+                    style2: 's ease-in-out 0s both',
+                    style1: 'animation: rightOpacityShow 0.',
+                },
+                classOn: '',
+                cont: [{
+                    name: '主导航1',
+                    href: 'www1',
+                    child: [{
+                        name: '副导航1-1',
+                        href: 'www2'
+                    }, {
+                        name: '副导航2-1',
+                        href: 'www2'
+                    }, {
+                        name: '副导航3-1',
+                        href: 'www2'
+                    }, {
+                        name: '副导航4-1',
+                        href: 'www2'
+                    }, {
+                        name: '副导航5-1',
+                        href: 'www2'
+                    }, {
+                        name: '副导航6-1',
+                        href: 'www2'
+                    }]
+                }, {
+                    name: '主导航2',
+                    href: 'qqq1',
+                    child: [{
+                        name: '副导航1-2',
+                        href: 'qqq2'
+                    }, {
+                        name: '副导航2-2',
+                        href: 'qqq2'
+                    }, {
+                        name: '副导航3-2',
+                        href: 'qqq2'
+                    }, {
+                        name: '副导航4-2',
+                        href: 'qqq2'
+                    }, {
+                        name: '副导航5-2',
+                        href: 'qqq2'
+                    }, {
+                        name: '副导航6-2',
+                        href: 'qqq2'
+                    }]
+                }, {
+                    name: '主导航3',
+                    href: 'eee1',
+                    child: [{
+                        name: '副导航1-3',
+                        href: 'eee2'
+                    }, {
+                        name: '副导航2-3',
+                        href: 'eee2'
+                    }, {
+                        name: '副导航3-3',
+                        href: 'eee2'
+                    }, {
+                        name: '副导航4-3',
+                        href: 'eee2'
+                    }, {
+                        name: '副导航5-3',
+                        href: 'eee2'
+                    }, {
+                        name: '副导航6-3',
+                        href: 'eee2'
+                    }]
+                }]
+            }
+        },
+        methods: {
+            dataDetails(val) {
+                console.log('这是划入' + val)
+                console.log(this)
+
+            },
+            hiddenDetail(val) {
+                console.log('这是滑出' + val)
+                console.log(this)
+
+            },
+            Schild() {
+                let Snav = $("#Snav")
+                $("#Snav .Schild").on('click', function() {
+                    // $(this).find("ul").removeClass("onNone").parent().siblings().find("ul").addClass("onNone");
+                    $('.SchildContent').animate({
+                        display: 'block',
+                    });
+                })
+            }
+        },
+        mounted() {
+            this.Schild()
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>tab切换</title>
+    <meta name="" content="" />
+    <meta name="viewport" content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1,target-densitydpi=device-dpi ">
+    <style>
+        ul li {
+            text-decoration: none;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script>
+        (function() {
+            if (!/mdebug=true/.test(window.location.href) && localStorage.getItem('mdebug') != 'true') return;
+            var script = document.createElement('script')
+            script.src = "https://cdn.bootcss.com/eruda/1.2.6/eruda.min.js"
+            script.async = true
+            document.getElementsByTagName('head')[0].appendChild(script)
+            script.onload = function() {
+                eruda.init()
+            }
+        })()
+    </script>
+</head>
+
+<body>
+    <div id="nav-box">
+        <ul>
+            <li>测试1</li>
+            <li>测试2</li>
+            <li>测试3</li>
+            <li>测试4</li>
+        </ul>
+    </div>
+    <div id="cont-box">
+        <div>这是测试1</div>
+        <div>这是测试2</div>
+        <div>这是测试3</div>
+        <div>这是测试4</div>
+    </div>
+    <script type='text/javascript'>
+        // function $(id){
+        // 	return types id==="string"?document.getElementById(id):id;
+        // }
+        var navs = document.getElementById('nav-box').getElementsByTagName('li');
+        var boxs = document.getElementById('cont-box').getElementsByTagName('div');
+
+        for (var i = 0; i < navs.length; i++) {
+            navs[i].id = i;
+            navs[i].onclick = function() {
+
+                for (var j = 0; j < navs.length; j++) {
+                    navs[j].style.color = ''
+                    boxs[j].style.color = ''
+                }
+                this.style.color = 'red';
+                boxs[this.id].style.color = 'yellow'
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<input type="checkbox" name="hobby"  value="basket">篮球<Br>
+        <input type="checkbox" name="hobby"  value="zuqiu" >足球<Br>
+        <input type="checkbox" name="hobby"  value="paiqiu">排球<Br>
+        <input type="checkbox" name="hobby"  value="wqiu">网球<Br>
+        <input type="checkbox" name="hobby"  value="biqiu">壁球<Br>
+        <input type="checkbox" name="hobby"  value="bpq">乒乓球<Br>
+        <input type="checkbox" name="hobby"  value="ymq">羽毛球<Br>
+        <input type="button" name="all" id="all" value='全选' >
+        <input type="button" name="allNo" id="allNo" value='全不选' >
+        <input type="button" name="noCheck" id="noCheck" value='反选'>
+		
+		<!--多选-->
+		<script type="text/javascript">
+			let all=document.getElementById('all');
+			let allNo=document.getElementById('allNo');
+			let noCheck=document.getElementById('noCheck');
+			var hobby=document.getElementsByName("hobby");
+			all.addEventListener('click',function(){
+				for(let i=0;i<hobby.length;i++){
+					hobby[i].checked=true
+				}
+			})
+			allNo.addEventListener('click',function(){
+				for(let i=0;i<hobby.length;i++){
+					hobby[i].checked=false
+				}
+			})
+			noCheck.addEventListener('click',function(){
+				for(let i=0;i<hobby.length;i++){
+					hobby[i].checked=!hobby[i].checked
+				}
+			})
+			
+			function show(){
+              var selectvalue=new Array();   //  selectvalue为radio中选中的值
+              for(let i=0;i<hobby.length;i++){
+				  hobby[i].addEventListener('click',function(){
+					  	if(hobby[i].checked) {
+							console.log(hobby[i].value)
+					  		selectvalue.push(hobby[i].value);
+					  }
+				  })
+             }
+			 console.log(selectvalue)
+			}
+			show()
+		</script>
+		
+		
+		
+		<!--select-->
+		<script type="text/javascript">
+		// js获取select标签选中的值
+		// var obj = document.getElementByIdx_x(”testSelect”); //定位id
+		// var index = obj.selectedIndex; // 选中索引
+		// var text = obj.options[index].text; // 选中文本
+		// var value = obj.options[index].value; // 选中值
+		// 
+		// jQuery中获得选中select值
+		// 
+		// $('#testSelect option:selected').text();//选中的文本
+		// $('#testSelect option:selected') .val();//选中的值
+		// $("#testSelect ").get(0).selectedIndex;//索引
+		</script>
+	</body>
+</html>

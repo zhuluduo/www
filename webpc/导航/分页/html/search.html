@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>百科搜索</title>
+		<link rel="stylesheet" type="text/css" href="css/pages.css"/>
+		<link rel="stylesheet" type="text/css" href="css/search.css"/>
+	</head>
+	<body>
+		<div id="searchMain">
+			<div class="searchBox">
+				<div class="search-header pull-hidd">
+					<h3 class="search-header-title">3D百科</h3>
+					<div class="search-header-left fl">
+						<img class="icon-arrow-left fl" id="close" src="images/icon-arrow-left.png" alt="">
+						<div class="search fl"><img src="images/icon-search.png" class="fl">
+							<input type="text" name="" placeholder="中心" id="searchInput" value="" class="fl" />
+						</div>
+						<span class="searchBtn">搜索</span>
+					</div>
+					<div class="search-header-right fr">
+						<!-- <img src="images/button.png" id="PersonalData"> -->
+					</div>
+				</div>
+				<div class="search-cont ">
+					<h3 class="cont-title"></h3>
+					<ul class="contList pull-hidd" id="contList"></ul>
+				</div>
+				<div class="search-footer">
+					<div class="footer-page">
+						<div class="page_1 pagination"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="./js/jquery-1.8.3.min.js"></script>
+		<script src="./js/marked.min.js"></script>
+		<script src="js/test.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/toPage.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+					function GetRequest() {
+					var url = window.location.search; //获取url中"?"符后的字串
+					var theRequest = new Object();
+					if (url.indexOf("?") != -1) {
+						var str = url.substr(1);
+						strs = str.split("&");
+						for(var i = 0; i < strs.length; i ++) {
+							theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+						}
+					}
+					return theRequest;
+					}
+					var Request = new Object();
+					Request = GetRequest();
+				// var valToken = Request['token'];
+				var url = 'http://'+decodeURI(Request['server_host'])+'/thinkphp/home/BaiKe/BaliKeList';
+				var pagesInfo = null;
+				var listData = null;
+				var tableData = [];
+				var datasInfo = {
+						"limit":1000,
+						"search_key_item":Request['search']!=''?Request['search']:''
+					};
+					//登陆
+					// $.ajax({
+					// 	url:'http://192.168.1.201/thinkphp/home/user/logininternal',
+					// 	data:''+JSON.stringify(Land)+'',
+					// 	type:'POST',
+					// 	dataType:'json',
+					// 	success:function(data){
+					// 
+					//  },
+					// })
+					// alert(Request['server_host'])
+					//加载数据
+					Initialization(datasInfo)
+					var TotalData =[];
+					function Initialization(datasInfo){
+						$("#searchInput").attr("value",datasInfo.search_key_item);
+						$.ajax({
+								url:url,
+								data:''+JSON.stringify(datasInfo)+'',
+								type:'POST',
+								dataType:'json',
+								success:function(data){
+									var parseData = [];
+									let dataList = data.retdata
+									if(dataList.constructor === Array){
+										dataList.forEach((ele,index) => {
+											let jsons = JSON.parse(ele.ext_field);
+											let DealData = dateFormat(true,{'baike_3d':jsons.baike_3d,'ids':ele.id},dataList,TotalData);
+											DealData[index].name = ele.name;
+											DealData[index].id = ele.id;
+											parseData.push(DealData)
+										});
+										pagefun(parseData[0])
+									}else{
+										pagefun([])
+									}
+
+								},
+								error: function(){ 
+									alert('数据异常')
+								}
+						})
+					}
+					
+					//分页
+					function pagefun(tables){
+						pagesInfo = {
+							obj_box:'.pagination',//翻页容器
+							obj_list:'#contList',
+							total_item:tables.length,//条目总数
+							per_num:10,//每页条目数
+							table : tables,
+							success:function(data){
+								pages(data)
+							}
+						};
+						
+						page_ctrl(pagesInfo);
+					}
+						
+					function pages(data){
+						let htm = '';
+						for(let i=0;i<data.length;i++){
+							 htm +='<li class='+data[i].id+'>'+
+									data[i].img +
+								 '<div class="contItem fl">'+
+									'<h3 class="itemTitle">'+data[i].name+'</h3>'+
+									'<p class="itemCont">'+data[i].data[0]+'</p>'+
+									// '<span class="itemDistance">'+'距离：888米'+'</span>'+
+								 '</div>'+
+							 '</li>';
+						}
+						 $('#contList').html(htm)
+						
+						$('#contList li').on('click', function () {
+							let parseId = $(this).attr('class')
+							let searchUrl = encodeURI("details.html?id=" + parseId); //使用encodeURI编码
+							location.href = searchUrl;
+						})
+					}
+					
+					
+					//离开
+					$('#close').click(()=>{
+						window.history.go(-1);
+					})
+					
+					//搜索
+					$('.searchBtn').click(()=>{
+						var searchText = jQuery.trim($('#searchInput').val());
+						if(searchText!=''){
+							datasInfo.search_key_item = searchText;
+							Initialization(datasInfo)
+						}
+					})
+					
+					//我的百科
+					// $('#PersonalData').click(()=>{
+					// 	alert('我的百科')
+					// })
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>回到顶部</title>
+	<style>
+		#topBg{width: 400px;height: 2000px;margin: 0 auto;background: red;position: relative;}
+		#btnTop{width: 40px;height: 60px;background: blue;color: #fff;position: fixed;bottom: 50px;right: 30px;}
+	</style>
+</head>
+<body>
+	<div id="topBg">
+		<a href="javascript:;" id="btnTop" style="display: none;">返回顶部</a>
+	</div>
+	<!-- jq -->
+	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<!-- 	<script>
+		$(function () {
+			$('#btnTop').click(function() {
+				$('html , body').animate({scrollTop: 0},3000);
+			});
+		})
+	</script> -->
+	<script type='text/javascript'>
+		window.onload=function(){
+			var obtn=document.getElementById('btnTop');
+			var clientHeight=document.documentElement.clientHeight;//当前页面可是区域
+			var timer=null;
+			var isTop=true;
+
+			window.onscroll=function(){
+				var osTop=document.documentElement.scrollTop||document.body.scrollTop;
+				if(osTop>=clientHeight){
+					btnTop.style.display='block'
+				}else {
+					btnTop.style.display='none'
+				}
+				if(!isTop){
+					clearInterval(timer)
+				}
+				isTop=false
+			}
+			obtn.onclick=function(){
+				// 获取滚动条高度
+				timer=setInterval(function(){
+				var osTop=document.documentElement.scrollTop||document.body.scrollTop;
+				console.log(osTop)
+				var ispeed=Math.floor(-osTop/5);
+				document.documentElement.scrollTop=document.body.scrollTop=osTop+ispeed;
+				isTop=true
+				if(osTop==0){
+					clearInterval(timer)
+				}
+				},100)
+			}
+		}
+	</script>
+</body>
+</html>

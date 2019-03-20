@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea rows="10" cols="100" id="myDiv"></textarea>
+    <button id="getFile" onclick="yz()">校验文字</button>
+    <script>
+        let stRs=sessionStorage.getItem('stRs')?sessionStorage.getItem('stRs'):loadXMLDoc();
+        
+        function loadXMLDoc() {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {
+                //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {
+                // IE6, IE5 浏览器执行代码
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {                    
+                    stRs=(xmlhttp.responseText).replace(/\s+/g,'|');                    
+                    sessionStorage.setItem("stRs",stRs);
+                }
+            }
+            xmlhttp.open("GET", "./CensorWords.txt", true);
+            xmlhttp.send();
+        }
+        function yz () {
+            var s=(document.getElementById("myDiv").value).trim();
+            if (s!==''){
+                //console.log(stRs);
+                var re = new RegExp(stRs, "g");
+                if(s.match(re)){                    
+                    console.log("%c敏感词汇将被替换为：","color:red",s.replace(re,'😁'));
+                }else {
+                    console.log(s);
+                }           
+            }else {
+                alert('内容为空怎校验？')
+            }
+        }
+    </script>
+</body>
+
+</html>

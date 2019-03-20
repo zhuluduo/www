@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="table">
+    <table>
+      <tr id="theader">
+      <th>姓名</th>
+      <th>性别</th>
+      <th>联系方式</th>
+    </tr>
+    <tr>
+      <td>客服</td>
+      <td>女</td>
+      <td>161654466</td>
+    </tr>
+    <tr>
+      <td>掌柜</td>
+      <td>男</td>
+      <td>37398378737</td>
+    </tr>
+    <tr>
+      <td>小二</td>
+      <td>男</td>
+      <td>37398378737</td>
+    </tr>
+    <tr>
+      <td>小三</td>
+      <td>女</td>
+      <td>3464653537</td>
+    </tr>
+    <tr>
+      <td>小四</td>
+      <td>女</td>
+      <td>37398378737</td>
+    </tr>
+    </table>
+    <input type="text"></input>
+    <input type="button" value="搜索"></input>
+ 
+  </div>
+ <script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+  	$(function(){
+    $("input[type=button]").click(function(){
+      var txt=$("input[type=text]").val();
+      if($.trim(txt)!=""){
+ 
+        $("table tr:not('#theader')").hide().filter(":contains('"+txt+"')").show().css("background","red");
+      }else{
+        $("table tr:not('#theader')").css("background","#fff").show();
+      }
+    });
+  })
+  </script>
+	</body>
+</html>

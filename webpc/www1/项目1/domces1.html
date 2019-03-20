@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>弹出</title>
+		<style>
+			#boz{
+			width: 100%;
+			height: 1500px;
+		}
+			#longin{
+			width: 60px;
+			height: 30px;
+			border: 1px salmon;
+			background: blue;
+			z-index: 1001;
+			}
+			#mask{
+				background: #000;
+				opacity: 0.75;
+				filter: alpha(opacity=75);
+				height: 1000px;
+				width: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+				
+				
+			}
+			#alogin{
+				position: fixed;
+				left: 30%;
+				top: 30%;
+				
+				
+			}
+		
+			.loginCon{
+				width: 670px;
+				height: 380px;
+				background: blueviolet;
+				position: relative;
+			}
+			#close{
+				width: 30px;
+				height: 20px;
+				background: firebrick;
+				cursor: pointer;
+				position: absolute;
+				right: 5px;
+				top: 5px;
+				
+			}
+		</style>
+	</head>
+	<body>
+			<div id="boz">
+		<div id="longo"><button id="longin">点击</button></div>
+			<!--<div id="mask">
+			<div id="alogin">
+				<div class="loginCon">
+					<div id="close">关闭</div>
+				</div>
+			</div>
+		</div>-->
+		</div>
+		<script type="text/javascript"> 
+			window.onload=function(){
+				var adiv=document.getElementById('longo');
+				adiv.onclick=function(){
+					//获取屏幕宽高
+               var awidth=document.documentElement.scrollWidth;
+               var aheight=document.documentElement.scrollHeight;
+               
+//             获取可视区域高度
+               var bheight=document.documentElement.clientHeight
+              var  bdiv=document.createElement('div');
+                   bdiv.id='mask'
+                   bdiv.style.width=awidth+'px';
+                   bdiv.style.height=aheight+'px';
+                   document.body.appendChild(bdiv);
+                   
+               var cdiv=document.createElement('div');
+                 cdiv.id='alogin';
+                 cdiv.innerHTML="<div class='loginCon'><div id='close'>关闭</div></div>";
+                 document.body.appendChild(cdiv);
+                 
+                var dwidth=cdiv.offsetWidth;
+                var dheight=cdiv.offsetHeight;
+                
+                cdiv.style.width=(awidth-dwidth)/2+'px';
+                cdiv.style.height=(bheight-dheight)/2+'px';
+                
+                var close=document.getElementById('close');
+                close.onclick=bdiv.onclick=function(){
+                	document.body.removeChild(bdiv);
+                	document.body.removeChild(cdiv);
+                }
+				}
+//				
+			}
+		</script>
+	</body>
+</html>

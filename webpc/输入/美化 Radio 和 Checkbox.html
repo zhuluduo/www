@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style type="text/css">
+			/* radio */
+label.bui-radios-label input {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden; }
+label.bui-radios-label .bui-radios {
+  display: inline-block;
+  position: relative;
+  width: 13px;
+  height: 13px;
+  background: #FFFFFF;
+  border: 1px solid #979797;
+  border-radius: 50%;
+  vertical-align: -2px; }
+label.bui-radios-label input:checked + .bui-radios:after {
+  position: absolute;
+  content: "";
+  width: 7px;
+  height: 7px;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px; }
+label.bui-radios-label input:checked + .bui-radios {
+  background: #00B066;
+  border: 1px solid #00B066; }
+label.bui-radios-label input:disabled + .bui-radios {
+  background-color: #e8e8e8;
+  border: solid 1px #979797; }
+label.bui-radios-label input:disabled:checked + .bui-radios:after {
+  background-color: #c1c1c1; }
+label.bui-radios-label.bui-radios-anim .bui-radios {
+  -webkit-transition: background-color ease-out .3s;
+  transition: background-color ease-out .3s; }
+
+/* checkbox */
+label.bui-checkbox-label input {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+}
+
+label.bui-checkbox-label .bui-checkbox {
+  display: inline-block;
+  position: relative;
+  width: 13px;
+  height: 13px;
+  background: #FFFFFF;
+  border: 1px solid #979797;
+  border-radius: 2px;
+  vertical-align: -2px;
+}
+
+label.bui-checkbox-label input:checked + .bui-checkbox:after {
+  color: #FFFFFF;
+  font-family: iconfont;
+  content: "\e600";
+  width: 13px;
+  height: 13px;
+  font-size: 13px;
+  line-height: 13px;
+  position: absolute;
+  top: 1px;
+  left: 0;
+}
+
+label.bui-checkbox-label input:checked + .bui-checkbox {
+  background: #00B066;
+  border: 1px solid #00B066;
+}
+
+label.bui-checkbox-label input:disabled + .bui-checkbox {
+  background-color: #e8e8e8;
+  border: solid 1px #979797;
+}
+
+label.bui-checkbox-label input:disabled:checked + .bui-checkbox:after {
+  color: #c1c1c1;
+}
+
+label.bui-checkbox-label.bui-checkbox-anim .bui-checkbox {
+  -webkit-transition: background-color ease-out .3s;
+  transition: background-color ease-out .3s;
+}
+
+label.bui-switch-label input {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden; }
+label.bui-switch-label input:checked {
+  border-color: #64bd63;
+  box-shadow: #64bd63 0 0 0 16px inset;
+  background-color: #64bd63; }
+  label.bui-switch-label input:checked:before {
+    left: 27px; }
+label.bui-switch-label input:disabled + .bui-switch {
+  background-color: #e8e8e8;
+  border: solid 1px #dfdfdf; }
+  label.bui-switch-label input:disabled + .bui-switch:before {
+    background-color: #c1c1c1; }
+label.bui-switch-label input:disabled:checked + .bui-switch {
+  background-color: #e8e8e8;
+  box-shadow: #e8e8e8 0 0 0 16px inset;
+  border: solid 1px #dfdfdf; }
+  label.bui-switch-label input:disabled:checked + .bui-switch:before {
+    background-color: #c1c1c1; }
+label.bui-switch-label .bui-switch {
+  width: 50px;
+  height: 25px;
+  position: relative;
+  border: 1px solid #dfdfdf;
+  background-color: #fdfdfd;
+  box-shadow: #dfdfdf 0 0 0 0 inset;
+  border-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-clip: content-box;
+  display: inline-block;
+  -webkit-appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none; }
+  label.bui-switch-label .bui-switch:before {
+    content: '';
+    width: 23px;
+    height: 23px;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); }
+label.bui-switch-label input:checked + .bui-switch {
+  border-color: #64bd63;
+  box-shadow: #64bd63 0 0 0 16px inset;
+  background-color: #64bd63; }
+  label.bui-switch-label input:checked + .bui-switch:before {
+    left: 27px; }
+label.bui-switch-label.bui-switch-anim {
+  -webkit-transition: border cubic-bezier(0, 0, 0, 1) 0.4s, box-shadow cubic-bezier(0, 0, 0, 1) 0.4s;
+  transition: border cubic-bezier(0, 0, 0, 1) 0.4s, box-shadow cubic-bezier(0, 0, 0, 1) 0.4s; }
+  label.bui-switch-label.bui-switch-anim .bui-switch:before {
+    -webkit-transition: left 0.3s;
+    transition: left 0.3s; }
+  label.bui-switch-label.bui-switch-anim input:checked + .bui-switch {
+    box-shadow: #64bd63 0 0 0 16px inset;
+    background-color: #64bd63;
+    -webkit-transition: border ease 0.4s, box-shadow ease 0.4s, background-color ease 1.2s;
+    transition: border ease 0.4s, box-shadow ease 0.4s, background-color ease 1.2s; }
+    label.bui-switch-label.bui-switch-anim input:checked + .bui-switch:before {
+      -webkit-transition: left 0.3s;
+      transition: left 0.3s; }
+label.bui-switch-label.bui-switch-animbg {
+  -webkit-transition: background-color ease 0.4s;
+  transition: background-color ease 0.4s; }
+  label.bui-switch-label.bui-switch-animbg .bui-switch:before {
+    -webkit-transition: left 0.3s;
+    transition: left 0.3s; }
+  label.bui-switch-label.bui-switch-animbg input:checked + .bui-switch {
+    box-shadow: #dfdfdf 0 0 0 0 inset;
+    background-color: #64bd63;
+    -webkit-transition: border-color 0.4s, background-color ease 0.4s;
+    transition: border-color 0.4s, background-color ease 0.4s; }
+    label.bui-switch-label.bui-switch-animbg input:checked + .bui-switch:before {
+      -webkit-transition: left 0.3s;
+      transition: left 0.3s; }
+
+/*# sourceMappingURL=radio-checkbox.css.map */
+		</style>
+	</head>
+	<body>
+		<!--有简单的背景动画：-->
+<label class="bui-radios-label bui-radios-anim">
+    <input type="radio" name="sex"/><i class="bui-radios"></i> 男
+</label>
+<label class="bui-radios-label bui-radios-anim">
+    <input type="radio" checked="" name="sex"/><i class="bui-radios"></i> 女
+</label>
+<!--无动画：-->
+<label class="bui-radios-label">
+    <input type="radio" name="sex"/><i class="bui-radios"></i> 男
+</label>
+<label class="bui-radios-label">
+    <input type="radio" name="sex"/><i class="bui-radios"></i> 女
+</label>
+<!--禁用状态（disabled）：-->
+<label class="bui-radios-label">
+    <input type="radio" disabled="" name="sex"/><i class="bui-radios"></i> 不男不女
+</label>
+<label class="bui-radios-label">
+    <input type="radio" checked="" disabled="" name="ddd"/><i class="bui-radios"></i> 不男不女
+</label>
+
+
+<!--有简单的背景动画：-->
+<label class="bui-checkbox-label  bui-checkbox-anim">
+    <input type="checkbox" checked="" name="sex"/><i class="bui-checkbox"></i> 男
+</label>
+<label class="bui-checkbox-label  bui-checkbox-anim">
+    <input type="checkbox" name="sex"/><i class="bui-checkbox"></i> 女
+</label>
+<!--无动画：-->
+<label class="bui-checkbox-label">
+    <input type="checkbox" checked="" name="sex"/><i class="bui-checkbox"></i> 男
+</label>
+<label class="bui-checkbox-label">
+    <input type="checkbox" name="sex"/><i class="bui-checkbox"></i> 女
+</label>
+<!--禁用状态（disabled）：-->
+<label class="bui-checkbox-label">
+    <input type="checkbox" disabled="" name="sex"/><i class="bui-checkbox"></i> 不男不女
+</label>
+<label class="bui-checkbox-label">
+    <input type="checkbox" checked="" disabled="" name="ddd"/><i class="bui-checkbox"></i> 不男不女
+</label>
+
+<!--简单的过渡动画：-->
+<label class="bui-switch-label bui-switch-anim">
+    <input type="checkbox" name="s"/><i class="bui-switch"></i>
+</label>
+<label class="bui-switch-label bui-switch-anim">
+    <input type="checkbox" checked="" name="s"/><i class="bui-switch"></i>
+</label>
+<!--简单的背景动画：-->
+<label class="bui-switch-label bui-switch-animbg">
+    <input type="checkbox" name="s"/><i class="bui-switch"></i>
+</label>
+<label class="bui-switch-label bui-switch-animbg">
+    <input type="checkbox" checked="" name="s"/><i class="bui-switch"></i>
+</label>
+<!--无动画：-->
+<label class="bui-switch-label ">
+    <input type="checkbox" name="s"/><i class="bui-switch"></i>
+</label>
+<label class="bui-switch-label ">
+    <input type="checkbox" checked="" name="s"/><i class="bui-switch"></i>
+</label>
+<!--禁用状态（disabled）：-->
+<label class="bui-switch-label">
+    <input type="checkbox" disabled="" name="sex"/><i class="bui-switch"></i> 不男不女
+</label>
+<label class="bui-switch-label">
+    <input type="checkbox" checked="" disabled="" name="ddd"/><i class="bui-switch"></i> 不男不女
+</label>
+	</body>
+</html>

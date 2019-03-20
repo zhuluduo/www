@@ -1,0 +1,5 @@
+*{margin: 0;padding: 0;}
+#main .pin{width: 225px;height: auto;padding: 15px 0px 0px 15px;float: left;}
+#main .pin .box{width: 205px;height: auto;padding: 10px ;background: #fff;border: 1px solid #ddd;
+ box-shadow: 0px 0px 6px #ccc;border-radius: 5px ;}
+#main .pin .box img{width: 205px;}

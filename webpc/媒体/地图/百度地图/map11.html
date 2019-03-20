@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>设置线、面可编辑</title>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WGisSYWHrFFynEUtR8sihaVluQ6ERp8R"></script>
+		<style type="text/css">
+			#allmap{width: 1600px;height: 600px;margin: auto;}
+		</style>
+	</head>
+	<body>
+		<div id="allmap"></div>
+		<button onclick = "Polygon.enableEditing();">开启线、面编辑功能</button>
+		<button onclick = "Polygon.disableEditing();">关闭线、面编辑功能</button>
+		<script type="text/javascript">
+			// 百度地图API功能
+			var map = new BMap.Map("allmap");
+			var point = new BMap.Point(116.387112,39.920977);
+			map.centerAndZoom(point, 12);
+			map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+			
+			var data_info = [
+				[116.387112,39.920977],
+				[116.385243,39.913063],
+				[116.394226,39.917988],
+				[116.401772,39.921364],
+				[116.41248,39.927893]
+				];
+				
+				var polylinePointsArray = [];  
+			    for(var i = 0;i<data_info.length;i++){  
+			      polylinePointsArray.push(new BMap.Point(data_info[i][0],data_info[i][1]));  
+			    }  
+			    Polygon = new BMap.Polygon(polylinePointsArray, {strokeColor:"#4B0082", strokeWeight:3, strokeOpacity:0.8,fillOpacity: 0.6, strokeStyle: 'solid'});
+				map.addOverlay(Polygon);               // 将标注添加到地图中
+				
+		</script>
+	</body>
+</html>

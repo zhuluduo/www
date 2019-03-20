@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{margin: 150px auto auto 100px;}
+			.checkboxControl{
+				position: relative;
+				width: 30px;
+				height: 30px;
+				background: #ded;
+			}
+			.checkboxControl label{position: absolute;width: 28px;height: 28px;
+			background: deepskyblue;left: 1px;top: 1px;}
+			.checkboxControl label:before{
+				content: " ";
+				width: 10px;
+				height: 10px;
+				top: 5px;
+				left: 10px;
+				position: absolute;
+				border: 3px solid #fff;
+				border-top: none;
+				border-right: none;
+				transform: rotate(-45deg);
+				opacity: 0;
+			}
+			/*.checkboxControl input[type="checkbox"]:checked+label:before{
+				opacity: 1;
+			}*/
+			label.aa:before{
+				opacity: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="checkboxControl">
+			<input type="checkbox" name="checkbox1" id="checkbox1" value="" />
+		    <label for="checkbox1" class=""></label>
+		</div>
+		<script src="jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('input:checkbox').click(function(){
+				ifchecked=$(this).prop("checked");
+//				if(ifchecked==true){
+//					$(this).next().addClass("aa");
+//				}else{
+//					$(this).next().removeClass("aa");
+//				}
+$(this).next().toggleClass("aa");
+			})
+		})
+		
+	</script>
+	</body>
+</html>

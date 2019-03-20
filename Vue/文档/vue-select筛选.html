@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>iview example</title>
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+  
+</head>
+<body>
+<div id="test">
+  <select v-model="selectedDepartment">
+   <option v-for="department in msg">
+        {{department.name}}
+   </option>
+  </select>
+  <select>
+    <option v-for="major in subCategories">
+        {{major.name}}
+    </option>
+  </select>
+</div>
+<script>
+new Vue({
+  el: '#test',
+  data: function() {
+    return {
+      msg: [
+        {
+        name: 'Dpt 1',
+         subCategories: [
+           {
+          "id": "428",
+          "createTime": "2017-05-27 15:20:22",
+          "updateTime": "2017-05-27 15:20:22",
+          "deleteStatus": 0,
+          "name": "碳酸饮料",
+          "status": 1,
+          "parentId": "414",
+          "subCategories": null
+        },
+        {
+          "id": "429",
+          "createTime": "2017-05-27 15:20:22",
+          "updateTime": "2017-05-27 15:20:22",
+          "deleteStatus": 0,
+          "name": "饮用水",
+          "status": 1,
+          "parentId": "414",
+          "subCategories": null
+        }
+        ]},
+        {name: 'Dpt 2', subCategories: [
+           {
+          "id": "431",
+          "createTime": "2017-05-27 15:20:22",
+          "updateTime": "2017-05-27 15:20:22",
+          "deleteStatus": 0,
+          "name": "功能饮料",
+          "status": 1,
+          "parentId": "414",
+          "subCategories": null
+        },
+        {
+          "id": "432",
+          "createTime": "2017-05-27 15:20:22",
+          "updateTime": "2017-05-27 15:20:22",
+          "deleteStatus": 0,
+          "name": "茶饮",
+          "status": 1,
+          "parentId": "414",
+          "subCategories": null
+        }
+        ]}
+      ],
+      selectedDepartment: ''
+    };
+  },
+  computed: {
+    subCategories() {
+      let subCategories = [], selectedDepart = this.$data.selectedDepartment;
+       console.log(this.$data.selectedDepartment)
+      this.$data.msg.forEach(function(d) {
+        if(d.name == selectedDepart){
+          subCategories = d.subCategories;
+        }
+ 
+      });
+      return subCategories;
+    }
+  }
+})
+  </script>
+</body>
+</html>

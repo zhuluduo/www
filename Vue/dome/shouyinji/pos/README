@@ -1,0 +1,24 @@
+编译主题：et -c theme-variables.css
+
+配置操作系统环境变量：SASS_BINARY_PATH=E:\cache\node\offline-package\win32-x64-57_binding.node
+
+
+发布步骤：
+1、进入web目录，运行命令：npm run build
+2、把dist目录下生成的文件使用7-zip打包成gzip压缩文件
+3、上传至服务器目录：/usr/share/nginx/html
+4、解压命令：zip
+    cd /usr/share/nginx/html
+    tar -xvf dist.tar.gz
+
+
+
+
+'D6C82C29A1FC476595ED9ECF914C968E',
+'BDAECCA46BEE45E19431BF4EC4049AA9',
+'9B8ED79C7B964C13A88684E94A12D061',
+'66C87593BA944F738F45A5958ACE2971',
+'579C2596697842509D5CDBC64F294BA3',
+'39C66D66DFB74785BE18B2264C75763B',
+'133E8DFEECB240B28F31B21D7A073DF6',
+'121C4653C4BD4388B955195A55FC7601'

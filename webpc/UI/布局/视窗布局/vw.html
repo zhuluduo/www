@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>视窗布局vw</title>
+	<style type="text/css">
+		@charset"UTF-8";
+
+		/* stylelint-disable */
+		
+		/* function_v2 no need to  check */
+		 .mod_slide_list_item, .mod_qu_list .mod_qu_item, .mod_qu_item {
+		    font-family: -apple-system, Helvetica, sans-serif;
+		}
+		.mod_qu_item_price {
+		    font-family: arial;
+		}
+		.mod_slide_list::-webkit-scrollbar, .mod_qu_list::-webkit-scrollbar {
+		    width: 0;
+		    height: 0;
+		    display: none;
+		}
+		/* stylelint-enable */
+		
+		/* 重置样式 */
+		 * {
+		    -webkit-tap-highlight-color: transparent;
+		    outline: 0;
+		}
+		body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+		    margin: 0;
+		    padding: 0;
+		    vertical-align: baseline;
+		}
+		img {
+		    border: 0 none;
+		    vertical-align: top;
+		}
+		i, em {
+		    font-style: normal;
+		}
+		ol, ul {
+		    list-style: none;
+		}
+		input, select, button, h1, h2, h3, h4, h5, h6 {
+		    font-size: 100%;
+		    font-family: inherit;
+		}
+		table {
+		    border-collapse: collapse;
+		    border-spacing: 0;
+		}
+		a, a:visited {
+		    text-decoration: none;
+		    color: #333;
+		}
+		body {
+		    margin: 0 auto;
+		    background: #e8e8ed;
+		    font-size: 14px;
+		    font-family: -apple-system, Helvetica, sans-serif;
+		    line-height: 1.5;
+		    color: #666;
+		    -webkit-text-size-adjust: 100% !important;
+		    /*-webkit-user-select: none;
+		  user-select: none;*/
+		}
+		.mod_slide {
+		    position: relative;
+		}
+		.mod_slide_inner {
+		    overflow: hidden;
+		}
+		.mod_slide_list {
+		    font-size: 0;
+		    font-family: none;
+		    white-space: nowrap;
+		    -webkit-overflow-scrolling: touch;
+		    overflow: hidden;
+		    overflow-x: auto;
+		}
+		.mod_slide_list_item {
+		    display: inline-block;
+		    vertical-align: top;
+		}
+		.mod_slide_list_item {
+		    width: 100%;
+		    position: relative;
+		    height: 0;
+		    overflow: hidden;
+		    padding-top: 45.33333%;
+		}
+		.mod_slide_list_item img {
+		    width: 100%;
+		    height: auto;
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		}
+		.mod_slide_indexs {
+		    position: absolute;
+		    left: 50%;
+		    transform: translate(-50%, 0);
+		    bottom: 2.66667vw;
+		    font-size: 0;
+		    font-family:"Helvetica";
+		}
+		.mod_slide_indexs_item {
+		    display: inline-block;
+		    width: 1.06667vw;
+		    height: 1.06667vw;
+		    background-color: rgba(0, 0, 0, 0.3);
+		    border-radius: 1.06667vw;
+		}
+		.mod_slide_indexs_item:not(:last-child) {
+		    margin-right: 1.33333vw;
+		}
+		.mod_slide_indexs_item.cur {
+		    background-color: #e4393c;
+		}
+		.mod_banner {
+		    position: relative;
+		    height: 0;
+		    overflow: hidden;
+		    padding-top: 13.33333%;
+		}
+		.mod_banner img {
+		    width: 100%;
+		    height: auto;
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		}
+		.mod_nav {
+		    background-color: #fff;
+		}
+		.mod_nav_list {
+		    display: flex;
+		    padding: 4vw 2.66667vw 2.66667vw;
+		}
+		.mod_nav_list_item {
+		    flex: 1;
+		    text-align: center;
+		    font-size: 2.66667vw;
+		}
+		.mod_nav_list_item_logo {
+		    display: block;
+		    margin: 0 auto;
+		    width: 10.66667vw;
+		    height: 10.66667vw;
+		}
+		.mod_nav_list_item_logo img {
+		    display: block;
+		    margin: 0 auto;
+		    max-width: 100%;
+		}
+		.mod_nav_list_item_name {
+		    margin-top: 0.53333vw;
+		}
+		.mod_sale {
+		    position: relative;
+		    height: 0;
+		    overflow: hidden;
+		    padding-top: 38.13333%;
+		}
+		.mod_sale img {
+		    width: 100%;
+		    height: auto;
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		}
+		.mod_sale_countdown {
+		    position: absolute;
+		    bottom: 2.66667vw;
+		    font-size: 3.2vw;
+		    width: 100%;
+		    text-align: center;
+		    color: #333;
+		}
+		.mod_sale_countdown_num {
+		    display: inline-block;
+		    vertical-align: middle;
+		    margin-top: -2px;
+		    width: 4.8vw;
+		    height: 6.4vw;
+		    font-size: 3.73333vw;
+		    line-height: 6.4vw;
+		    text-align: center;
+		    color: #fff;
+		    background-color: #000;
+		    border-radius: 0.53333vw;
+		    margin-right: 0.53333vw;
+		}
+		.mod_sign {
+		    position: relative;
+		    display: inline-block;
+		    vertical-align: middle;
+		    margin-right: 1.33333vw;
+		    margin-top: -2px;
+		    color: #fff;
+		    padding: 0 0.53333vw;
+		    font-size: 2.66667vw;
+		    border-radius: 0.26667vw;
+		    background-color: #e4393c;
+		}
+		.mod_sign::before {
+		    content:'';
+		    display: inline-block;
+		    vertical-align: middle;
+		    width: 0;
+		    height: 100%;
+		    margin-top: 1px;
+		}
+		.mod_sign.bor {
+		    color: #e4393c;
+		    background-color: #fff;
+		}
+		.mod_sign.bor::after {
+		    content:'';
+		    position: absolute;
+		    z-index: 1;
+		    pointer-events: none;
+		    background-color: #e4393c;
+		    border: 1px solid #ddd;
+		    top: 0;
+		    bottom: 0;
+		    left: 0;
+		    right: 0;
+		    background: none;
+		    border-color: #e4393c;
+		    border-radius: 2px;
+		}
+		@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+		    .mod_sign.bor::after {
+		        right: -100%;
+		        bottom: -100%;
+		        -webkit-transform: scale(0.5);
+		        -webkit-transform-origin: 0% 0%;
+		        border-radius: 4px;
+		    }
+		}
+		.mod_bbs {
+		    margin-bottom: 2.66667vw;
+		    background-color: #fff;
+		    overflow: hidden;
+		}
+		.mod_bbs_msg {
+		    position: relative;
+		    padding-left: 13.6vw;
+		    margin: 2.66667vw;
+		    border-radius: 4vw;
+		    padding: 1.33333vw 2.66667vw 1.33333vw 16.26667vw;
+		    background-color: #f5f5fa;
+		}
+		.mod_bbs_msg::before {
+		    position: absolute;
+		    left: 2.66667vw;
+		    content:'';
+		    width: 12.26667vw;
+		    height: 10.13333vw;
+		    background: url(data:image/png;base64,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) center no-repeat;
+		    background-size: 100%;
+		}
+		.mod_bbs_msg_list {
+		    height: 10.13333vw;
+		    overflow: hidden;
+		}
+		.mod_bbs_msg_text {
+		    color: #333;
+		    font-size: 3.73333vw;
+		}
+		.mod_bbs_msg_text_em {
+		    display: block;
+		    font-size: 3.2vw;
+		    color: #e4393c;
+		}
+		.mod_bbs_banner {
+		    margin: 2.66667vw;
+		    position: relative;
+		    height: 0;
+		    overflow: hidden;
+		    padding-top: 12.67606%;
+		}
+		.mod_bbs_banner img {
+		    width: 100%;
+		    height: auto;
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		}
+		.mod_section {
+		    position: relative;
+		    margin-bottom: 2.66667vw;
+		    overflow: hidden;
+		    background-color: #fff;
+		}
+		.mod_section_title {
+		    position: relative;
+		    display: block;
+		    padding: 0 2.66667vw;
+		    height: 10.66667vw;
+		    line-height: 10.66667vw;
+		}
+		.mod_section_title::after {
+		    content:'';
+		    position: absolute;
+		    z-index: 1;
+		    pointer-events: none;
+		    background-color: #ddd;
+		}
+		.mod_section_title_name {
+		    font-size: 3.73333vw;
+		    display: inline-block;
+		}
+		.mod_section_title_desc {
+		    float: right;
+		    font-size: 3.2vw;
+		    color: #999;
+		}
+		.mod_section_title_desc_img {
+		    display: inline-block;
+		    vertical-align: middle;
+		    margin-top: -2px;
+		    width: 13.33333vw;
+		}
+		.mod_section_title_desc_img img {
+		    display: block;
+		    margin: 0 auto;
+		    max-width: 100%;
+		}
+		.mod_section_title_desc_arrow {
+		    position: relative;
+		    display: inline-block;
+		    vertical-align: middle;
+		    margin: -2px 0 0 1.06667vw;
+		    width: 4vw;
+		    height: 4vw;
+		    border-radius: 4vw;
+		    background-color: #999;
+		}
+		.mod_section_title_desc_arrow::after {
+		    content:'';
+		    display: block;
+		    width: 1.6vw;
+		    height: 1.6vw;
+		    border-top: 1px solid #fff;
+		    border-left: 1px solid #fff;
+		    transform-origin: 50%;
+		    transform: rotate(135deg);
+		    position: absolute;
+		    top: 50%;
+		    margin-top: -1.06667vw;
+		    margin-left: 0.8vw;
+		}
+		.mod_qu {
+		    position: relative;
+		    background-color: #ffe7eb;
+		}
+		.mod_qu_head {
+		    width: 9.33333vw;
+		    height: 40vw;
+		    font-size: 3.73333vw;
+		    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAAEsCAMAAABJ6DU+AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABUUExURf/M1cwGKcwGKcwGKf/K08wGKcwGKf+3xMwGKQAAAP/G0P/BzP+5xf++yv/I0v+7x/+4xf+9yP/DzswGKcwHKv/K0/ept/Sgrvmzv/Wksvq3w/q6xXVdSSQAAAAcdFJOU+YTCxrmDwjmBADm5ubm5ubm5uYWIeVeZXpskJ52mMPWAAADhklEQVR42u3cXVfjIBAGYLQola+E1FrX/f//c22rhjQMzJA5uz1nJ5dePA3D8EJTT5TacD0+P+/3+5fPa4uinh7PzH4zc3W2Mg9czNO5OhsZfbjezp0wu3tk9sIII4wwwggjjDDC/DPGhiG5uJGxg7lcQW9gdDDfV+hmtBvNfNlOxnqTX6GPcWZ5DV2MNSxMumVSD6NvFTP1MHE1Js1xNwOp/aK1X30/5MjoNGExXDt/uDTalLdMJCzN+D05o11M1WAJK1xn7TZq9fMHD89QgZkWne+uhXLBWaAoUxrNeB1sziA79iY+LsOHGV9F4hwfZ6fvbpbxkWoMnFE3RTRGV5jYKkqeZiDj2pmafSLAjBOmKHOLlRloD7jJ1LmKJcYDnR9TCTFel5lyIJSKclEi0H4OW5Q5PkpMxEzyMj5KjEYWJYsPxN1oBxRlKudNuTbOl5VFphYnXLeLkiKYfutV2S5Kjfn6LGiS/XqPgJZmCm7CFKXBfH4mqihNBleUHgbeOCkM8ghZR5JF7po1xFv05ts3HgITKId9eESahSnGobXZEQHFTIVM9YuSoRgLZqqP/YPK4yMRmKGSqZYw4RY+TTgC89PD60wNlC6+rm0boLrhl+YweLgZiLEFNfhGZrSKgfnuvk1MlqkbmDyDupllpnYyt19Gupj1RtPDFIKZzhQ3TioDfEOjMeDuS2JS3L75Vr+2EvZwhs239aWRMKjIw0w8TOBhPA9jNA9jeRjHwwQeJvEwnocxmoeJPIy9K2biYZwwwiyZF572e+FZDH+TqQTFgcBoFmaEQ/R4/vevPY6BnyAf37J/RuveYPSvA4EBu+997uENm+/77kBhgPn+2O3mAncfTD5eFzfTeUz6/UpkXHmSqEy5wvpEY0bonH8iMXDznSgzVcmsN0LfVA6Q+ZJqMNXfmfBL01UfkR2xTONhG5JJjQd2n0V+RqSfbTOIEPXIh5kNxikWRrMw6EerdSayPFpt3gyOiSxM+2YwzKhZGKc4GK9ZGKs4mKQ4GEx9EcykOJigOBivWRirOBinOJigOJikOZiBoMCMpygg46NiYEarGBhPVMoMcUTQ7+FkpcSQZhpkQoeyZpxS2xnyFBWZnrKsGacUAxMVC6OEEUYYYYQRRhhhhBFGGGGEEUYYYYQRRhhhhBFGGGGEEea/ZO7kVXh39ZpApncfcr2Jkem9kPNbKv8AIAXOw4/giH8AAAAASUVORK5CYII=) no-repeat 0 0;
+		    background-size: 100%;
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    z-index: 2;
+		}
+		.mod_qu_head_name {
+		    display: inline-block;
+		    width: 1em;
+		    color: #df0126;
+		    font-weight: 700;
+		    line-height: 1.3em;
+		    position: absolute;
+		    top: 50%;
+		    left: 8px;
+		    transform: translateY(-50%);
+		}
+		.mod_qu_list {
+		    font-size: 0;
+		    font-family: none;
+		    white-space: nowrap;
+		    -webkit-overflow-scrolling: touch;
+		    overflow: hidden;
+		    overflow-x: auto;
+		    height: 34.66667vw;
+		    padding: 2.66667vw 0 2.66667vw 9.33333vw;
+		}
+		.mod_qu_list .mod_qu_item {
+		    display: inline-block;
+		    vertical-align: top;
+		}
+		.mod_qu_item {
+		    position: relative;
+		    width: 80vw;
+		    margin-left: 1.33333vw;
+		}
+		.mod_qu_item_tag {
+		    position: absolute;
+		    left: 0;
+		    color: #fff;
+		    top: 2.66667vw;
+		    font-size: 2.66667vw;
+		    background: #3985ff;
+		    height: 4.8vw;
+		    padding: 0 2.66667vw 0 1.6vw;
+		    border-radius: 0 4.8vw 4.8vw 0;
+		    z-index: 1;
+		}
+		.mod_qu_item_tag::before {
+		    content:'';
+		    display: inline-block;
+		    vertical-align: middle;
+		    width: 0;
+		    height: 100%;
+		    margin-top: 1px;
+		}
+		.mod_qu_item_url {
+		    display: block;
+		    height: 34.66667vw;
+		    background-color: #fff;
+		    position: relative;
+		    padding: 2.66667vw 2.66667vw 2.66667vw 37.33333vw;
+		    box-sizing: border-box;
+		}
+		.mod_qu_item_cover {
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    width: 34.66667vw;
+		    height: 34.66667vw;
+		}
+		.mod_qu_item_cover img {
+		    display: block;
+		    margin: 0 auto;
+		    max-width: 100%;
+		}
+		.mod_qu_item_name {
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+		    font-size: 4.26667vw;
+		    color: #333;
+		}
+		.mod_qu_item_desc {
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    display: -webkit-box;
+		    -webkit-line-clamp: 2;
+		    -webkit-box-orient: vertical;
+		    height: 3em;
+		    line-height: 1.5em;
+		    font-size: 3.2vw;
+		    color: #999;
+		    white-space: normal;
+		    margin-bottom: 1.33333vw;
+		}
+		.mod_qu_item_price {
+		    position: absolute;
+		    top: 25.33333vw;
+		    font-size: 2.66667vw;
+		    color: #e4393c;
+		}
+		.mod_qu_item_price_int {
+		    font-weight: normal;
+		    font-size: 4.8vw;
+		}
+		.mod_qu_item_like {
+		    position: absolute;
+		    right: 0;
+		    bottom: 0;
+		    font-size: 2.66667vw;
+		    color: #fff;
+		    background-color: #ef8284;
+		    border-radius: 5.33333vw 0 0 5.33333vw;
+		    height: 5.33333vw;
+		    line-height: 5.33333vw;
+		    padding: 0 2.66667vw;
+		}
+		.mod_qu_item_like::before {
+		    content:'';
+		    display: inline-block;
+		    vertical-align: middle;
+		    width: 0;
+		    height: 100%;
+		    margin-top: 1px;
+		}
+		.mod_qu_item_like::after {
+		    position: absolute;
+		    right: 0;
+		    top: -1.06667vw;
+		    content:"";
+		    width: 1.06667vw;
+		    height: 1.06667vw;
+		    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIBAMAAAA2IaO4AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAVUExURQAAAPOIm/OIm/OIm/OIm/OIm/OIm2f15esAAAAGdFJOUwAGWBrDarNe/xEAAAAfSURBVAjXY2CAAkYQwQwimEAEC4gIA2LWNAZGI7c0AAjEAatq7mZ0AAAAAElFTkSuQmCC) no-repeat 100% 100%;
+		    background-size: 100%;
+		}
+		.mod_qu_more {
+		    width: 13.33333vw;
+		    height: 34.66667vw;
+		    position: relative;
+		}
+		.mod_qu_more .mod_qu_item_url {
+		    padding: 0;
+		    height: auto;
+		    background-color: transparent;
+		    position: absolute;
+		    top: 50%;
+		    left: 5.86667vw;
+		    transform: translateY(-50%);
+		    color: #999;
+		    display: block;
+		    width: 3.2vw;
+		    font-size: 3.2vw;
+		    white-space: normal;
+		}
+		.mod_qu_more .mod_qu_item_url::before {
+		    content:'';
+		    display: block;
+		    width: 1.6vw;
+		    height: 1.6vw;
+		    border-top: 1px solid #999;
+		    border-left: 1px solid #999;
+		    transform-origin: 50%;
+		    transform: rotate(-45deg);
+		    top: 50%;
+		    margin-top: -3px;
+		    left: -8px;
+		    position: absolute;
+		}
+		.mod_qu_more .mod_qu_item_url::after {
+		    content:'';
+		    display: block;
+		    width: 1.6vw;
+		    height: 1.6vw;
+		    border-top: 1px solid #999;
+		    border-left: 1px solid #999;
+		    transform-origin: 50%;
+		    transform: rotate(-45deg);
+		    top: 50%;
+		    margin-top: -3px;
+		    left: -14px;
+		    position: absolute;
+		}
+		.mod_group_item {
+		    float: left;
+		    width: 50vw;
+		    height: 23.33333vw;
+		    display: block;
+		    position: relative;
+		    overflow: hidden;
+		}
+		.mod_group_item:nth-child(1) {
+		    color: #de500a;
+		    background-color: #fff4e6;
+		}
+		.mod_group_item:nth-child(2) {
+		    color: #1547a2;
+		    background-color: #ecf0ff;
+		}
+		.mod_group_item_info {
+		    position: absolute;
+		    top: 2.66667vw;
+		    left: 2.66667vw;
+		    z-index: 1;
+		}
+		.mod_group_item_name {
+		    font-size: 3.73333vw;
+		    font-weight: bold;
+		}
+		.mod_group_item_desc {
+		    font-size: 3.2vw;
+		}
+		.mod_group_item_img {
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    width: 24vw;
+		    height: 24vw;
+		}
+		.mod_group_item_img img {
+		    display: block;
+		    margin: 0 auto;
+		    max-width: 100%;
+		}
+		.mod_grid {
+		    position: relative;
+		}
+		.mod_grid::after {
+		    content:'';
+		    position: absolute;
+		    z-index: 1;
+		    pointer-events: none;
+		    background-color: #ddd;
+		    height: 1px;
+		    left: 0;
+		    right: 0;
+		    top: 0;
+		}
+		@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+		    .mod_grid::after {
+		        -webkit-transform: scaleY(0.5);
+		        -webkit-transform-origin: 50% 0%;
+		    }
+		}
+		.mod_grid::before {
+		    content:'';
+		    position: absolute;
+		    z-index: 1;
+		    pointer-events: none;
+		    background-color: #ddd;
+		}
+		.mod_grid_item {
+		    display: block;
+		    width: 49.86667vw;
+		}
+		.mod_grid_item:nth-child(1) {
+		    position: relative;
+		    height: 46.66667vw;
+		}
+		.mod_grid_item:nth-child(1)::after {
+		    content:'';
+		    position: absolute;
+		    z-index: 1;
+		    pointer-events: none;
+		    background-color: #ddd;
+		    width: 1px;
+		    top: 0;
+		    bottom: 0;
+		    right: 0;
+		}
+		@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+		    .mod_grid_item:nth-child(1)::after {
+		        -webkit-transform: scaleX(0.5);
+		        -webkit-transform-origin: 100% 50%;
+		    }
+		}
+		.mod_grid_item:nth-child(2) {
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    height: 23.33333vw;
+		}
+		.mod_grid_item:nth-child(2)::after {
+		    content:'';
+		    position: absolute;
+		    z-index: 1;
+		    pointer-events: none;
+		    background-color: #ddd;
+		    height: 1px;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+		}
+		@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+		    .mod_grid_item:nth-child(2)::after {
+		        -webkit-transform: scaleY(0.5);
+		        -webkit-transform-origin: 50% 100%;
+		    }
+		}
+		.mod_grid_item:nth-child(3) {
+		    position: absolute;
+		    top: 23.33333vw;
+		    right: 0;
+		    height: 23.33333vw;
+		}
+	</style>
+</head>
+<body>
+	  <script>document.body.addEventListener('touchmove', function(){}, false)</script>
+    <div class="wx_wrap">
+        <div class="mod_slide">
+        	<div class="mod_slide_inner">
+        		<ul class="mod_slide_list">
+        			<li class="mod_slide_list_item">
+        				<img src="http://jdc.jd.com/img/750x340">
+        			</li>
+        			<li class="mod_slide_list_item">
+        				<img src="http://jdc.jd.com/img/750x340">
+        			</li>
+        			<li class="mod_slide_list_item">
+        				<img src="http://jdc.jd.com/img/750x340">
+        			</li>
+        		</ul>	
+        	</div>
+        	<div class="mod_slide_indexs">
+        		<span class="mod_slide_indexs_item"></span>
+        		<span class="mod_slide_indexs_item cur"></span>
+        		<span class="mod_slide_indexs_item"></span>
+        	</div>
+        </div>
+
+        <div class="mod_banner">
+        	<img src="http://jdc.jd.com/img/750x100?color=eeeeee">
+        </div>
+
+        <div class="mod_nav">
+        	<nav class="mod_nav_list">
+        		<a href="#" class="mod_nav_list_item">
+        			<span class="mod_nav_list_item_logo">
+        				<img src="http://jdc.jd.com/img/80">
+        			</span>
+        			<p class="mod_nav_list_item_name">导航入口</p>
+        		</a>
+        		<a href="#" class="mod_nav_list_item">
+        			<span class="mod_nav_list_item_logo">
+        				<img src="http://jdc.jd.com/img/80">
+        			</span>
+        			<p class="mod_nav_list_item_name">导航入口</p>
+        		</a>
+        		<a href="#" class="mod_nav_list_item">
+        			<span class="mod_nav_list_item_logo">
+        				<img src="http://jdc.jd.com/img/80">
+        			</span>
+        			<p class="mod_nav_list_item_name">导航入口</p>
+        		</a>
+        		<a href="#" class="mod_nav_list_item">
+        			<span class="mod_nav_list_item_logo">
+        				<img src="http://jdc.jd.com/img/80">
+        			</span>
+        			<p class="mod_nav_list_item_name">导航入口</p>
+        		</a>
+        		<a href="#" class="mod_nav_list_item">
+        			<span class="mod_nav_list_item_logo">
+        				<img src="http://jdc.jd.com/img/80">
+        			</span>
+        			<p class="mod_nav_list_item_name">导航入口</p>
+        		</a>
+        	</nav>
+        </div>
+
+        <div class="mod_sale">
+        	<img src="http://jdc.jd.com/img/750x286?color=eeeeee">
+        	<div class="mod_sale_countdown">
+        		倒计时
+        		<span class="mod_sale_countdown_num">0</span><span class="mod_sale_countdown_num">0</span>分
+        		<span class="mod_sale_countdown_num">0</span><span class="mod_sale_countdown_num">0</span>秒
+        		结束
+        	</div>
+        </div>
+
+        <div class="mod_bbs">
+        	<div class="mod_bbs_msg">
+        		<ul class="mod_bbs_msg_list">
+        			<li class="mod_bbs_msg_item">
+        				<p class="mod_bbs_msg_text">
+        					<i class="mod_sign">拼便宜</i>海南木瓜最低价 富含维生素C抗氧化
+        					<small class="mod_bbs_msg_text_em">4人成团 9.9包邮</small>
+        				</p>
+        			</li>
+        			<li class="mod_bbs_msg_item">
+        				<p class="mod_bbs_msg_text">
+        					<i class="mod_sign">拼便宜</i>海南木瓜最低价 富含维生素C抗氧化
+        					<small class="mod_bbs_msg_text_em">4人成团 9.9包邮</small>
+        				</p>
+        			</li>
+        			<li class="mod_bbs_msg_item">
+        				<p class="mod_bbs_msg_text">
+        					<i class="mod_sign">拼便宜</i>海南木瓜最低价 富含维生素C抗氧化
+        					<small class="mod_bbs_msg_text_em">4人成团 9.9包邮</small>
+        				</p>
+        			</li>
+        		</ul>
+        	</div>
+        	<div class="mod_bbs_banner">
+        		<img src="http://jdc.jd.com/img/710x90">
+        	</div>
+        </div>
+
+
+        <div class="mod_section">
+        	<a href="#" class="mod_section_title">
+        		<h2 class="mod_section_title_name">趣好货</h2>
+        		<p class="mod_section_title_desc">
+        			<span class="mod_section_title_desc_img">
+        				<img src="http://jdc.jd.com/img/100x70?color=eeeeee">
+        			</span>
+        			今日上新90个特价商品
+        			<i class="mod_section_title_desc_arrow"></i>
+        		</p>
+        	</a>
+        	<div class="mod_qu">
+        		<div class="mod_qu_head">
+        			<span class="mod_qu_head_name">最好货</span>
+        		</div>
+        		<ul class="mod_qu_list">
+        			<li class="mod_qu_item">
+        				<a href="#" class="mod_qu_item_url">
+        					<i class="mod_qu_item_tag">四字文案</i>
+        					<div class="mod_qu_item_cover">
+        						<img src="http://jdc.jd.com/img/260">
+        					</div>
+    						<p class="mod_qu_item_name">三星笔记本散热快超级薄什么都好好</p>
+    						<p class="mod_qu_item_desc">描述描述描述描述描述描述描述描述描述描述描述描述</p>
+    						<div class="mod_qu_item_sale">
+    							<i class="mod_sign bor">可领券</i>
+    							<i class="mod_sign bor">可领取</i>
+    						</div>
+							<p class="mod_qu_item_price">
+								&yen; <b class="mod_qu_item_price_int">2999</b>.00
+							</p>
+							<p class="mod_qu_item_like">129999人说好</p>
+        				</a>
+        			</li>
+        			<li class="mod_qu_item">
+        				<a href="#" class="mod_qu_item_url">
+        					<i class="mod_qu_item_tag">四字文案</i>
+        					<div class="mod_qu_item_cover">
+        						<img src="http://jdc.jd.com/img/260">
+        					</div>
+    						<p class="mod_qu_item_name">三星笔记本散热快超级薄什么都好好</p>
+    						<p class="mod_qu_item_desc">描述描述描述描述描述描述描述描述描述描述描述描述</p>
+    						<div class="mod_qu_item_sale">
+    							<i class="mod_sign bor">可领券</i>
+    							<i class="mod_sign bor">可领取</i>
+    						</div>
+							<p class="mod_qu_item_price">
+								&yen; <b class="mod_qu_item_price_int">2999</b>.00
+							</p>
+							<p class="mod_qu_item_like">129999人说好</p>
+        				</a>
+        			</li>
+        			<li class="mod_qu_item mod_qu_more">
+        				<a href="#" class="mod_qu_item_url">
+        					查看更多
+        				</a>
+        			</li>
+        		</ul>
+        	</div>
+        	<div class="mod_group">
+        		<a href="#" class="mod_group_item">
+        			<dl class="mod_group_item_info">
+        				<dt class="mod_group_item_name">趣主题</dt>
+        				<dd class="mod_group_item_desc">上班必买神器</dd>
+        				<dd class="mod_group_item_desc">每满千减百</dd>
+        			</dl>
+        			<div class="mod_group_item_img">
+        				<img src="http://jdc.jd.com/img/180?color=ffe8e3">
+        			</div>
+        		</a>
+        		<a href="#" class="mod_group_item">
+        			<dl class="mod_group_item_info">
+        				<dt class="mod_group_item_name">趣主题</dt>
+        				<dd class="mod_group_item_desc">上班必买神器</dd>
+        				<dd class="mod_group_item_desc">每满千减百</dd>
+        			</dl>
+        			<div class="mod_group_item_img">
+        				<img src="http://jdc.jd.com/img/180?color=ffe8e3">
+        			</div>
+        		</a>
+        	</div>
+        </div>
+
+
+        <div class="mod_section">
+            <a href="#" class="mod_section_title">
+                <h2 class="mod_section_title_name">品牌特卖</h2>
+                <p class="mod_section_title_desc">
+                    今日上新90个特价商品
+                    <i class="mod_section_title_desc_arrow"></i>
+                </p>
+            </a>
+            <div class="mod_grid">
+                <a href="#" class="mod_grid_item">
+                    <img src="http://jdc.jd.com/img/374x350">
+                </a>
+                <a href="#" class="mod_grid_item">
+                    <img src="http://jdc.jd.com/img/374x175">
+                </a>
+                <a href="#" class="mod_grid_item">
+                    <img src="http://jdc.jd.com/img/374x175">
+                </a>
+            </div>
+        </div>
+
+</div>
+</body>
+</html>

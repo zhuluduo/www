@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>练习top</title>
+		<style>
+		*{margin: 0 ;padding: 0;}
+			.index-container-list{
+				width: 1000px;
+				height: 2600px;
+				background: blue;
+				margin: 0 auto;
+				position: relative;
+			}
+			#btn{
+				width: 30px;
+				height: 60px;
+				background: green;
+				position: fixed;
+				left: 50%;
+				margin-left: 510px;
+				bottom: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="inde-container">
+			<div class="index-container-list"></div>
+		</div>
+		<a id="btn" href="javascript:;" style="display: none;"></a>
+		<script type="text/javascript">
+			window.onload=function(){
+//				1.获取id值
+            var btnid=document.getElementById('btn');
+            var time=null;
+            var btnheight=document.documentElement.clientHeight;
+            
+            window.onscroll=function(){
+					var btnbox=document.body.scrollTop;
+					if(btnbox>=btnheight){
+						btnid.style.display='block';
+					}else{
+						btnid.style.display='none';
+					}
+				}
+            
+            btnid.onclick=function(){
+            	time=setInterval(function(){
+            		var btnbox=document.body.scrollTop;
+            		var seepn=btnbox/5;
+            		document.body.scrollTop=btnbox-seepn;
+            		if(btnbox==0){
+            			clearInterval(time);
+            		}
+            		
+            	},30)
+            }
+            
+            
+            
+                
+			}
+		</script>
+	</body>
+</html>

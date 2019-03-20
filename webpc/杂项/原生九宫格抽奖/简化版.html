@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <title></title>
+ <style>
+ *{margin:0;padding:0;}
+ #container{width:310px;height:310px;margin:30px auto;}
+ #ul1{width:310px;height:310px;list-style:none;}
+ #ul1 li,#ul1 a{width:100px;height:100px;border:1px solid #565656;float:left;text-align:center;line-height:100px;}
+ #ul1 a:hover{cursor:pointer;color:orange;font-size:18px;}
+ #ul1 .active{background:red;color:#fff;}
+ #pp{line-height:32px;color:#9a9a9a;text-align:center;}
+ </style>
+</head>
+<body>
+<div id="container">
+ <ul id="ul1">
+ <li>一等奖</li>
+ <li>二等奖</li>
+ <li>三等奖</li>
+ <li>四等奖</li>
+ <a>开始</a>
+ <li>五等奖</li>
+ <li>六等奖</li>
+ <li>七等奖</li>
+ <li>八等奖</li>
+ </ul>
+ <p id="pp"></p>
+</div>
+<script>
+ var container = document.getElementById('container'),
+ li = container.getElementsByTagName('li'),
+ aa = container.getElementsByTagName('a')[0],
+ pp = document.getElementById('pp'),
+ timer = null;
+ function start(){
+ var i = 0;
+ var num = Math.floor(Math.random() * li.length) + 20;
+ if(i<num){
+ timer = setInterval(function(){
+ for(var j=0;j<li.length;j++){
+  li[j].className = '';
+ }
+ li[i%li.length].className = 'active';
+ i++;
+ if(i === num){
+  clearInterval(timer);
+  if(num%li.length === 0){
+  pp.innerHTML += "恭喜您中了：8 等奖" + '<br/>';
+  }else{
+  pp.innerHTML += "恭喜您中了："+ parseInt(num%li.length) + " 等奖"+ '<br/>';
+  }
+ }
+ },130);
+ }
+ }
+ aa.onclick = function(){
+ start();
+ }
+</script>
+</body>
+</html>

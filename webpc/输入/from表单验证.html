@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			form{width: 500px;overflow: hidden;margin: 50px auto;}
+			div{line-height: 40px;}
+			input{width: 250px;padding-left: 10px;height: 30px;
+			line-height: 30px;color: #333;font-size: 14px;
+			border: 1px solid #666;outline: none;margin-bottom: 10px;display: inline-block;}
+			span{display: inline-block;float: left;}
+			.submit{width: 120px;background: #666;color: #fff;margin-left: 70px;cursor: pointer;}
+		</style>
+	</head>
+	<body>
+		<form action="" method="post" class="form" onsubmit="return check(this)">
+			<div><span>姓名：</span><input type="text" name="name" id="name" placeholder="姓名" /><br /></div>
+			<div><span>电话：</span><input type="text" name="phone" id="phone" placeholder="电话" /><br /></div>
+			<div><span>密码：</span><input type="password" name="pwd1" id="pwd1" placeholder="输入密码" /><br /></div>						
+			<div><span>确认：</span><input type="password" name="pwd2" id="pwd2" placeholder="确认密码" /><br />	</div>					
+			<div><span>邮箱：</span><input type="text" name="email" id="email" placeholder="邮箱" /><br /></div>
+			<div><span>地址：</span><input type="text" name="address" id="address" placeholder="地址" /><br /></div>
+			<input type="submit" value="提交" class="submit" />
+		</form>
+		<script type="text/javascript">
+		function check(){
+//			姓名
+				var name = document.getElementById("name");			
+				if(name.value==''){
+					alert('姓名不能为空');
+					name.focus();
+					return false;
+				}else{
+					var vname=(/^[a-zA-Z\u4e00-\u9fa5]{2,10}$/);
+				    if (!vname.test(name.value)) {
+					    alert('姓名2-10个字，只能是中文或英文');
+					    name.focus();
+					    return false; 
+				    }
+				}					 					
+			
+//			电话
+				var phone = document.getElementById('phone');
+				if(phone.value==''){
+					alert('电话不能为空');
+					phone.focus();
+					return false;
+				}else{
+					var phone_reg = /^13[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}|17[0-9]{1}[0-9]{8}$|14[0-9]{1}[0-9]{8}/;
+        			var tel_reg = /^([0-9]{3,4}-)?[0-9]{7,8}$/;
+					if(!phone_reg.test(phone.value) && !tel_reg.test(phone.value)){
+						alert('手机或电话号码格式不正确。如果是固定电话，必须形如(xxxx-xxxxxxxx)');
+						phone.focus();
+						return false;
+					}
+				}
+				
+//			密码
+				var pwd1 = document.getElementById('pwd1');
+				if(pwd1.value==''){
+					alert('密码不能为空');
+					pwd1.focus();
+					return false;
+				}else{
+					var vpwd = /^[A-Za-z0-9]+$/;
+					if(!vpwd.test(pwd1.value)){
+						alert('密码错误，密码由数字和字母组成');
+						pwd1.focus();
+						return false;
+					}else{
+						if(pwd1.value.length<6){
+							alert('密码不能少于6位');
+							pwd1.focus();
+							return false;
+						}
+					}
+				}
+//			验证密码
+				var pwd2 = document.getElementById('pwd2');
+				if(!(pwd2.value==pwd1.value)){
+					alert('确认密码与第一次输入不同，请重新输入');
+					pwd2.focus();
+					return false;
+				}
+			
+//			邮箱
+				var email = document.getElementById('email');
+				if(email.value==''){
+					alert('邮箱不能为空');
+					email.focus();
+					return false;
+				}else{
+					var vemail = /^[0-9a-zA-Z]+(?:[\_\.\-][a-z0-9\-]+)*@[a-zA-Z0-9]+(?:[-.][a-zA-Z0-9]+)*\.[a-zA-Z]+$/i;
+					if(!vemail.test(email.value)){
+						alert('邮箱格式错误');
+						email.focus();
+						return false;
+					}
+				}
+//			地址
+				var address = document.getElementById('address');
+				if(address.value==''){
+					alert('地址不能为空');
+					address.focus();
+					return false;
+				}else{
+					if(address.value.length<8){
+						alert('不能少于8个字');
+						address.focus();
+						return false;
+					}
+				}
+				
+		}
+			
+		</script>
+	</body>
+</html>

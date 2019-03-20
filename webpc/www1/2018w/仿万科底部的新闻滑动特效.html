@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仿万科的底部的新闻滑动特效</title>
+     <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+ 
+        #subject {
+            position: relative;
+            width: 80%;
+            height: 165px;
+            background: skyblue;
+            margin: 200px auto;
+            overflow: hidden;
+        }
+ 
+        #subject > ul > li {
+            position: absolute;
+            float: left;
+            list-style: none;
+            width: 40%;
+            height: 165px;
+            font-size: 48px;
+            text-align: center;
+            color: #fff;
+            line-height: 165px;
+            transition: 0.5s;
+        }
+ 
+        .item1 {
+            background: orange;
+            left: 0;
+            z-index: 1;
+        }
+ 
+        /*hover:item1*/
+        #subject.state-1 .item2,
+        .item2 {
+            background: deepskyblue;
+            left: 40%;
+            z-index: 2;
+        }
+ 
+        /*hover:item2*/
+        #subject.state-4 .item2,
+        #subject.state-3 .item2,
+        #subject.state-2 .item2 {
+            left: 20%;
+        }
+ 
+        /*hover:item3*/
+        #subject.state-4 .item3,
+        #subject.state-3 .item3 {
+            left: 40%;
+        }
+        /*hover:item4*/
+        #subject.state-4 .item4{
+            left: 60%;
+        }
+ 
+        #subject.state-1 .item3,
+        .item3 {
+            background: mediumseagreen;
+            left: 60%;
+            z-index: 3;
+        }
+ 
+        #subject.state-3 .item4,
+        #subject.state-2 .item4,
+        #subject.state-1 .item4,
+        .item4 {
+            background: pink;
+            left: 80%;
+            z-index: 4;
+        }
+ 
+    </style>
+</head>
+<body>
+<div id="subject" class="wrapper">
+    <ul>
+        <li class="item item1">1</li>
+        <li class="item item2">2</li>
+        <li class="item item3">3</li>
+        <li class="item item4">4</li>
+    </ul>
+</div>
+<script>
+    $(function () {
+        $('.item').hover(function () {
+            if ($(this).hasClass('item1')) {
+                $('#subject').removeClass().addClass('state-1');
+ 
+            }
+            if ($(this).hasClass('item2')) {
+                $('#subject').removeClass().addClass('state-2');
+            }
+            if ($(this).hasClass('item3')) {
+                $('#subject').removeClass().addClass('state-3');
+            }
+            if ($(this).hasClass('item4')) {
+                $('#subject').removeClass().addClass('state-4');
+            }
+ 
+        });
+ 
+        $('#subject').mouseleave(function () {
+            $('#subject').removeClass();
+        });
+ 
+    });
+</script>
+</body>
+</html>

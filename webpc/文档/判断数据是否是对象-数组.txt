@@ -1,0 +1,10 @@
+if(JSON.stringify(data) == "{}")   判断是否是对象
+
+if(data.constructor !=Array)     判断是否是数组
+
+判断数组通用方法
+var ary = [1,23,4];
+function isArray(o){
+return Object.prototype.toString.call(o)=='[object Array]';
+}
+console.log(isArray(ary));

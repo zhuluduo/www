@@ -1,0 +1,8 @@
+<a href="" onclick='btnscroll('tab-7')'>锚点</a>
+
+<script>
+    function  btnscroll(val){  //val传入的id
+       var _id = document.getElementById(val);
+　　　　window.scrollTo(0,_id.offsetTop+230); //offsetTop 距上多少
+      },
+</script>

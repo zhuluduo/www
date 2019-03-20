@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dom6大案例</title>
+	<style>
+select{width: 100px;height: 200px}
+	</style>
+}
+</head>
+<body>
+	<!-- dome1点击变色: -->
+	<h1>0001</h1>
+	<h1>0002</h1>
+	<h1>0003</h1>
+	<!-- dome1点击变色: -->
+
+	<!-- 展开收起 -->
+	<p>linux</p>
+	<span>11111111111111111111111111</span>
+	<p>web</p>
+	<span>22222222222222222222222222</span>
+	<p>java</p>
+	<span>333333333333333333333333333</span>
+	<!-- 展开收起 -->
+
+
+	<!-- 多选 -->
+<form action="">
+	<label >
+		<input type="checkbox" name="" id="">1
+	</label>
+	<label >
+		<input type="checkbox" name="" id="">21
+	</label>
+	<label >
+		<input type="checkbox" name="" id="">31
+	</label>
+	<label >
+		<input type="checkbox" name="" id="">41
+	</label>
+	<label >
+		<input type="checkbox" name="" id="">51
+	</label>
+</form>
+   <p>
+   	<button id="all">全选</button>
+   	<button id="notall">全不选</button>
+   	<button id="unall">反选</button>
+   </p>
+
+	<!-- 多选 -->
+
+
+<!-- 选水果 -->
+<form action="">
+	<p>我选择了：</p>
+	<select name="" id="s1" size="2">
+		<option value="">--1</option>
+		<option value="">20</option>
+		<option value="">30</option>
+		<option value="">40</option>
+	</select>
+	<input type="button" value=">>" id="btn">
+	<select name="" id="s2" size="2">
+		
+	</select>
+</form>
+
+
+<!-- 选水果 -->
+</body>
+<script>
+		// dome1点击变色
+	objs=document.getElementsByTagName("h1");
+	for(var i=0;i<objs.length;i++){
+		objs[i].setAttribute('num',0);
+		objs[i].onclick=function(){
+			num=parseInt(this.getAttribute('num'));
+				if(num%2==0){
+					this.style.background='#ccc';
+				}else{
+					this.style.background='#fff'
+				}
+			this.setAttribute('num',parseInt(num)+1)
+		}
+	}
+	// dome1点击变色
+
+	// 展开收起
+	// objss=document.getElementsByTagName("p");
+	// pss=document.getElementsByTagName("span");
+	// for(var i=0;i<objss.length;i++){
+	// 	objss[i].setAttribute('line',i);
+	// 	objss[i].setAttribute('num',0);
+	// 	pss[i].id=i;
+	// 	objss[i].onclick=function(){
+	// 		num=parseInt(this.getAttribute('num'));
+	// 		line=this.getAttribute('line');
+	// 		np=document.getElementById(line)
+	// 		if(num%2==0){
+	// 			np.style.display='none';
+	// 		}else{
+	// 			np.style.display='block'
+	// 		}
+	// 		this.setAttribute('num',num+1)
+	// 	}
+
+	// }
+	// 展开收起
+
+
+	// 多选
+
+all=document.getElementById('all');
+notall=document.getElementById('notall');
+unall=document.getElementById('unall');
+inobjs=document.getElementsByTagName('input')
+
+all.onclick=function(){
+	for(var i=0;i<inobjs.length;i++){
+		inobjs[i].checked=true;
+	}
+}
+notall.onclick=function(){
+	for(var i=0;i<inobjs.length;i++){
+		inobjs[i].checked=false;
+	}
+}
+unall.onclick=function(){
+	for(var i=0;i<inobjs.length;i++){
+		// if(inobjs[i].checked){
+		// 	inobjs[i].checked=false;
+		// }else{
+		// 	inobjs[i].checked=true;
+		// }
+		inobjs[i].checked=inobjs[i].checked?false:true;
+	}
+}
+
+	// 多选
+
+
+	// 选水果
+   	btn=document.getElementById('btn')
+	s1=document.getElementById('s1')
+	s2=document.getElementById('s2')
+	opts=s1.options;
+
+	btn.onclick=function(){
+		idx=s1.selectedIndex;
+		console.log(opts[idx])
+		// s2.add(opts[idx])  左边全部移到右边 add方法
+
+		// s2.innerHTML=opts[idx].outerHTML;  //直接这样会导致右边始终只有一个数据
+		s2.innerHTML+=opts[idx].outerHTML;
+	}
+	// 选水果
+</script>
+</html>

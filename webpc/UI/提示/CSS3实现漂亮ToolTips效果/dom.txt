@@ -1,0 +1,8 @@
+transform
+功能：向元素应用2d或3d转换
+语法：transform:none/transform-functions
+
+参数：
+-tanslate3d(x,y,z) 定义三d转化
+-rotate3d(x,y,z,angle) 定义3d旋转
+-scale3d(x,y,z,flec) 定义3d缩放

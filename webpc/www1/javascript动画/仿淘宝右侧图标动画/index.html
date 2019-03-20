@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+*{margin:0;padding:0;}
+span{left:32px;top:20px;position:absolute;opacity:1;filter:alpha(opacity:100);}
+img{width:40px;height:40px;}
+a{float:left;display:block;height:100px;width:100px;border:1px solid #CCC;font-family:"微软雅黑";font-size:14px;color:#999;text-align:center;margin:10px;position:relative;text-decoration:none;}
+a:hover{color:#060;}
+p{top:60px;left:36px;position:absolute;}
+</style>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript"></script>
+<script>
+$(document).ready(function(e) {
+$("a").mouseenter(function(){
+$(this).find("span").animate({top:"-20px",opacity:"0"},200,
+function(){$(this).css({top:"50px"});
+$(this).animate({top:"20px",opacity:"1"},300)})
+})
+})
+</script>
+
+	</head>
+	<body>
+		<a href=""><span><img src="img/1.jpg" /></span><p>网络</p></a>
+<a href=""><span><img src="img/1.jpg" /></span><p>娱乐</p></a>
+<a href=""><span><img src="img/1.jpg" /></span><p>酒店</p></a>
+	</body>
+</html>
+
+

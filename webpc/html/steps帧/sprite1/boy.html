@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .boy{
+            /*background: url('boy.png');*/
+            /*width: 110px;*/
+            /*height:278px;*/
+            /*background-size:1200px 800px;*/
+            -webkit-animation: demo 2s steps(1) infinite;
+            width: 1200px;
+            height:800px;
+            background-size:1200px 800px;
+            background: url(boy.png)  -151px -291px no-repeat;
+            position: absolute;
+            /* 设置一个元素的坐标 */
+            left:40%;
+            top: 25%;
+        }
+        .box{
+            width: 151px;
+            height:291px;
+            border: red solid;
+
+        }
+        @-webkit-keyframes demo{
+            0%{
+            background-position: -0px -291px;
+            }
+            25%{
+            background-position: -603px -0px;
+        }
+           50%{
+           background-position: -302px -291px;
+        }
+          75%{
+         background-position: -151px -291px;
+        }
+         100%{
+         background-position: -0px -291px;
+         }
+        }
+    </style>
+</head>
+<body>
+<div class="boy">
+    <div class="box"></div>
+</div>
+</body>
+</html>

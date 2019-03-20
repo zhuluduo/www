@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		DOM EnventListener
+		<button id="btn">按钮</button>
+		<script type="text/javascript">
+			var x=document.getElementById('btn');
+//			x.addEventListener('click',function(){
+//				alert("1");
+//			});
+//			
+             x.addEventListener("click",hello);
+             x.addEventListener("click",word);
+             function hello(){
+             	alert("a");             	
+             }
+             function word(){
+             alert("b");
+             }
+		</script>
+		<script type="text/javascript">
+			if(btn.addEventListener){
+				btn.addEventListener('click',deome)
+			}else if(btn.attachEvent){
+				btn.attachEvent('click',dome);
+			}else{
+				btn.onclick=dome();
+			}
+		</script>
+	</body>
+</html>

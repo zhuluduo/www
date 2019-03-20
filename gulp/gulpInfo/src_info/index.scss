@@ -1,0 +1,13 @@
+
+
+$color:red;
+@function px2rem($px){
+    $rem:37.5px;
+    @return ($px/$rem) + rem;
+}
+
+p{
+	width:100%;
+	height:px2rem(500px);
+	color:$color;
+}

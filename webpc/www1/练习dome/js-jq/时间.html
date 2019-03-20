@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>日期</title>
+	</head>
+	<body onload="starTime()">
+		<script type="text/javascript">
+//			var date=new Date();
+//			document.write(date);
+//			document.write(date.getFullYear());
+//时钟
+ function starTime(){
+ 	var todate=new Date();
+ 	var h=todate.getHours();
+ 	var m=todate.getMinutes();
+ 	var s=todate.getSeconds();
+ 	m=checkTime(m);
+ 	s=checkTime(s);
+ 	document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+    t=setTimeout(function(){
+    	starTime();
+    },500);
+ }
+ 
+ function checkTime(i){
+ 	if(i<10){
+ 		i="0"+i;
+ 	}
+ 	return i;
+ }
+		</script>
+		<div id="txt"> </div>
+	</body>
+</html>

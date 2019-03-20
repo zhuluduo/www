@@ -1,0 +1,268 @@
+
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.content-container {
+    flex: 1;
+    padding: 20px;
+}
+.warp-bottom {
+    padding: 20px;
+    width: 100%;
+    margin-top: 5%;
+    text-align: center;
+}
+.warp{margin:0 10px;}
+.el-badge__content{margin-right: 10px}
+.search li{float: left;margin-right: 15px}
+.el-button+.el-button{margin-left:0; }
+.warp-breadcrum ul{padding: 0;}
+
+/*admin-logo*/
+.login-containers{width: 800px;margin: 200px auto;position: relative;box-sizing: border-box;}
+@media screen and (max-width: 1367px) {
+    .login-containers {
+        margin: 150px auto;
+    }
+}
+.login-body{background-image:url(../images/adico.png);background-repeat: no-repeat;width: 800px;height: 460px;}
+.admin_login{
+    width: 270px;
+    height: 220px;
+    position: absolute;
+    right: 65px;
+    top: 9rem;
+}
+.acc_icon:before{
+   content:url(../images/adico1.png);
+}
+.paw_icon:before{
+   content:url(../images/adico2.png);
+}
+.admin_login .el-checkbox__input.is-checked .el-checkbox__inner{
+    background-color: #fe7952;
+    border-color: #fe7952;
+}
+.icon_attribute:before{
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 20px;
+}
+.icon_attribute input{text-indent: 20px}
+.submit_btn{
+    width: 100%;
+    border: none;
+    height: 56px;
+    color: #fff;
+    margin-top:20px;
+    background-image: url(../images/adico3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.submit_btn span{line-height: 20px;}
+.el-button:focus, .el-button:hover{color: #fff;}
+/*.login-body{width: 100%;margin: 24px 0;box-sizing: border-box;box-shadow:0px 0px 30px 5px rgba(247, 231, 225, 1);height: 200px}*/
+/*.login-body .login-L{width: 360px;position: absolute;margin-top: -24px}
+.login-body .login-R{width: 340px;float: right;box-sizing: border-box;}*/
+/*Home-loge*/
+.topbar-loge{
+    height: 50px;
+    line-height: 50px;
+    width: 180px;
+    float: left;
+}
+.topbar-loge a{display: block;color: #fff;text-decoration: none;text-align: center}
+.topbar-loge a img{width: 130px;}
+
+/*am-topbar-nav*/
+.am-topbar #topbar-collapse{overflow: hidden}
+.am-topbar .am-topbar-nav{
+    float: right;
+    margin-right: 15px;
+}
+.am-nav-pills>li{
+    float: left;
+}
+.am-nav>li{
+    position: relative;
+    display: block;
+}
+.am-nav>li>a{
+    position: relative;
+    display: block;
+    border-radius: 0;
+}
+.tpl-header-list li:hover{
+    background: #6b6c6f;
+}
+.am-topbar-nav>li>a{
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 10px;
+}
+.am-nav li a .am-img-bell-o{
+    display: inline-block;
+    vertical-align: sub;
+}
+.am-badge{
+    display: inline-block;
+    min-width: 10px;
+    padding: .20em 0.625em;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-align: center;
+}
+.am-badge.am-round{border-radius: 100px}
+.tpl-badge-success{background-color: #ed6b75!important}
+.am-active{padding: 0 10px}
+/*update*/
+.search-list li span{font-size: 14px;}
+.el-button+.el-button{margin-left:0; }
+.shaop-tit{color: #a9a9a9}
+.el_right{padding-right: 10px}
+.shelves{overflow: hidden;height: auto;}
+.shelves li{float: left;width: 240px;}
+.shelves li input{width: 100px;}
+.Shop_Img img{width: 200px;height: 200px;border:1px solid #efefef}
+
+/*shelves*/
+.el-loading-mask{z-index: 999}
+.itable .el-form-item__content ,.itable .el-form-item{width: 100%}
+
+/*create*/
+.search-list li span{font-size: 14px;}
+.shaop-tit{color: #a9a9a9}
+.shelves li{float: left;}
+.el-message-box__message p ,.el-message-box__btns{text-align: center;}
+.el-message-box__header{display: none;}
+.center{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.center img{width: 250px;height: 250px;}
+.center .btn{
+    display: inline-block;
+    line-height: 30px;
+    padding: 0 15px;
+    border-radius: 2px;
+    background: #2ecc71;
+    border: 1px solid #e7eaec;
+    min-width: 46px;
+    color: #fff;
+    text-align: center;
+    transition: all .15s ease;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none!important;
+    box-shadow: 0 1px 2px -1px hsla(0,0%,100%,.1);
+    transition: all .25s ease;
+    border-radius: 3px;
+}
+.btn-primary, .btn.active, .submit-btn{
+    color: #fff;
+    background: #2ecc71;
+    border-color: #2ecc71;
+}
+.btn-primary:hover, .btn.active:hover, .submit-btn:hover{
+    background: #27ae60;
+    border-color: #27ae60;
+}
+.center .btn:hover{
+    box-shadow:0 2px 4px -2px hsla(0,0%,100%,.2)
+}
+
+
+
+/*settin*/
+.datatit{display: inline-block;float: left}
+.tab_Setup .el-tabs .el-tabs__header{float: right;border-bottom:0}
+.tab_Setup .el-tabs .el-tabs__content{width: 100%}
+
+/*shops*/
+.sales_cont .data_screen {
+    margin-right: 30px
+}
+.main_cont ul.shop_txt {
+    margin-left: 2%
+}
+.shop_txt li span {
+    display: inline-block
+}
+.shop_txt li .shop-item-name {
+    width: 105px;
+}
+.shop_txt li .shop-item-description {
+    padding-right: 20px;
+}
+.shop-money {
+    width: 230px;
+    height: 100%;
+    text-align: center;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 15px 0;
+    margin-left: 10%;
+}
+.shop-money strong {
+    font-size: 30px;
+}
+.shop-money strong, .shop-money span {
+    display: block
+}
+.shop_bottom {
+    text-align: center;
+    margin-top: 5%
+}
+.shop_bottom span i {
+    color: #0066FF
+}
+
+/*cashe*/
+.sales_cont .data_screen {
+    margin-right: 30px
+}
+.btn-bottom {
+    width: 120px;
+    margin: auto;
+    margin-top: 8%;
+}
+
+/*print*/
+.printInfo .printit{font-size: 20px;color: #000000}
+.Smallticket_info ,.Price_info{margin-bottom: 30px}
+.Smallticket_Detail .section_title span{display: block}
+.section_img .img_up{width: 251px;}
+.section_deck i{font-size: 20px;display:inline-block;padding: 0 5px;}
+.section_deck .deck-txt{display: inline-block;padding-left: 10px}
+.section_ck_cont{width: 500px}
+.section_ck_cont .el-form-item__content{margin-left: 70px;}
+/*adver*/
+.sales_cont .data_screen {
+    margin-right: 30px
+}
+.shop_cont .advert{height: 250px}
+.shop_cont .advert span{display: inline-block;padding: 0 20px;height: 230px;line-height: 230px;float: left;margin-right: 100px}
+.shop_cont .advert .center1{float: left;padding-bottom: 0;padding-top: 15px}
+.shop_cont .advert .center1 img{width: 300px;height: 200px}
+.shop_cont .advert .center{line-height: 240px;margin-left: 100px;float: left;  }
+
+
+.warp_stor .stor-btn{margin-top: -10px}
+
+.confirm_btn {text-align: center;margin-top: 5%;}
+.confirm_btn button{width: 120px}
+
+/*login*/
+.footer_txt{height: 50px;line-height:50px;color:#666;position:fixed;bottom:0;padding: 0 15px;text-align: center;  }
+

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>图片展示</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .contant-big {
+			width: 700px;
+            margin: 200px;
+            position: relative;
+        }
+        
+        #big {
+            width: 680px;
+            height: 570px;
+            border: solid 1px #ddd;
+        }
+        
+        #sImg {
+            width: 680px;
+            height: 570px;
+        }
+        
+        .small {
+            overflow: hidden;
+            width: 682px;
+            height: 132px;
+            margin-top: 37px;
+            position: relative;
+        }
+        
+        ul {
+            width: 2000px;
+            list-style: none;
+            position: absolute;
+        }
+        
+        li {
+            width: 128px;
+            height: 128px;
+            float: left;
+            border: solid 1px #ddd;
+            padding: 0;
+        }
+        
+        li+li {
+            margin-left: 8px;
+        }
+        
+        .btnMove {
+            cursor: pointer;
+						top: 90%;
+        }
+        
+        .btnLeft {
+            position: absolute;
+            left:-35px;
+        }
+        
+        .btnRight {
+            position: absolute;
+            right: -35px;
+        }
+        
+        .acitve {
+           opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contant-big">
+        <div id="big">
+            <img id="sImg" src="http://yanshi.sucaihuo.com/jquery/11/1195/demo/3.jpg" width="100%" alt="">
+        </div>
+        <div class="small">
+            <ul id="simages" style="left:0;">
+                <li><img src="http://yanshi.sucaihuo.com/jquery/11/1195/demo/3.jpg" width="100%" alt=""></li>
+                <li><img src="http://yanshi.sucaihuo.com/jquery/11/1195/demo/2.jpg" width="100%" alt=""></li>
+                <li><img src="http://yanshi.sucaihuo.com/jquery/11/1195/demo/5.jpg" width="100%" alt=""></li>
+                <li><img src="http://yanshi.sucaihuo.com/jquery/11/1195/demo/2.jpg" width="100%" alt=""></li>
+                <li><img src="http://yanshi.sucaihuo.com/jquery/11/1195/demo/5.jpg" width="100%" alt=""></li>
+				<li><img src="http://yanshi.sucaihuo.com/jquery/11/1195/demo/3.jpg" width="100%" alt=""></li>
+				<li><img src="http://yanshi.sucaihuo.com/jquery/11/1195/demo/2.jpg" width="100%" alt=""></li>
+				<li><img src="http://yanshi.sucaihuo.com/jquery/11/1195/demo/5.jpg" width="100%" alt=""></li>
+				<li><img src="http://yanshi.sucaihuo.com/jquery/11/1195/demo/2.jpg" width="100%" alt=""></li>
+				<li><img src="http://yanshi.sucaihuo.com/jquery/11/1195/demo/5.jpg" width="100%" alt=""></li>
+            </ul>
+        </div>
+        <span class="btnMove btnLeft acitve">左</span>
+        <span class="btnMove btnRight acitve">右</span>
+    </div>
+
+    <script type="text/javascript">
+        var width = 1000;
+        //获取元素
+        var big = document.getElementById('big');
+        var sImg = document.getElementById('sImg');
+        var simages = document.getElementById('simages');
+        var btnMove = document.getElementsByClassName('btnMove');
+        var lis = simages.children;
+        var index = 1;
+        var len = lis.length;
+
+        //初始化
+        function init() {
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].onclick = function() {
+                    var src = this.firstElementChild.getAttribute('src');
+                    sImg.src = src;
+                }
+            }
+        }
+    if(len >5){
+        btnMove[1].addEventListener("click",fn2);
+        btnMove[1].className = 'btnMove btnRight'
+    }
+        function animate(offset) {
+            simages.style.left = parseInt(simages.style.left) + offset + 'px';
+            var sd = lis[len - 1].offsetLeft - Math.abs(parseInt(simages.style.left))
+            if (sd == 552) {
+				btnMove[1].removeEventListener("click",fn2);
+                btnMove[1].className = 'btnMove btnRight acitve'
+            } else {
+				btnMove[1].addEventListener("click",fn2);
+                btnMove[1].className = 'btnMove btnRight'
+            }
+            var lefts = parseInt(simages.style.left);
+            if (lefts == 0) {
+				btnMove[0].removeEventListener("click",fn1);
+                btnMove[0].className = 'btnMove btnLeft acitve'
+            } else {
+				btnMove[0].addEventListener("click",fn1);
+                btnMove[0].className = 'btnMove btnLeft'
+            }
+        }
+        function fn1(){
+            animate(138);
+        }
+        function fn2(){
+            animate(-138);
+        }
+        init();
+    </script>
+</body>
+
+</html>

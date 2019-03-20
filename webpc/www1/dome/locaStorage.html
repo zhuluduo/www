@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>locaStorage缓存</title>
+	<script src="http://localhost:8484/scms/resources/vendor/jquery/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+	<input type="text" class="aa">
+	<p class="shu"></p>
+	<input type="submit" value="点击" class="submit">
+	<input type="submit" value="点击2" class="submits">
+
+	<p>第<span></span>次访问次页面</p>
+	<script>
+	$('.submit').click(function () {
+		sessionStorage.setItem("yijian", $('aa').val())
+	})
+	$('.submits').click(function() {
+		var aj=sessionStorage.getItem("u2586467_0")
+		console.log(aj)
+		$('.shu').innerHTML=aj
+	});
+		if(localStorage.counts){
+			localStorage.counts=parseInt(localStorage.counts)+1;
+		}else {
+			localStorage.counts=1;
+		}
+		// if(localStorage.counts==100){
+		// 	alert(6333336666666666)
+		// }
+		// document.getelementbytagname("span")[0].innerText=localStorage.counts;
+		   document.getElementsByTagName("span")[0].innerText=localStorage.counts;
+	</script>
+</body>
+</html>

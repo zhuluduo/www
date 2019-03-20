@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM案例弹力球</title>
+	<style>
+	#borderid{width: 100px;height:100px;border-radius: 50%;background: red;position: absolute;top: 0;left: 0;}
+	</style>
+</head>
+<body>
+	<div id="borderid"></div>
+	<script>
+		 brdid=document.getElementById('borderid');
+		 imgheight=100;
+		 screenHeight=document.documentElement.clientHeight;
+		 diffHeight=screenHeight-imgheight;
+
+		 screenWidth=document.documentElement.clientWidth;
+		 diffWidth=screenWidth-imgheight;
+
+
+		 ys=0;
+		 yv=10;
+
+		 xs=0;
+		 xv=10;
+
+		 setInterval(function  () {
+		 	ys+=yv;
+		 	if(ys>=diffHeight){
+		 		ys=diffHeight;
+		 		yv=-yv
+		 	}
+		 	if(ys<=0){
+		 		yv=-yv
+		 		console.log('yv2:'+yv)
+		 	}
+		 	borderid.style.top=ys+'px';
+
+		 	xs+=xv;
+		 	if(xs>=diffWidth){
+		 		xs=diffWidth;
+		 		xv=-xv
+		 	}
+		 	if(xs<=0){
+		 		xv=-xv
+		 	}
+		 	borderid.style.left=xs+'px';
+
+		 },40)
+	</script>
+</body>
+</html>

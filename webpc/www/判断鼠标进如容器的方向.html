@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>判断鼠标进入容器的方向</title>
+	<style type="text/css">
+		#main{
+			width: 100%;
+			height: 100%;
+			position: relative;
+		}
+		.box-list{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #DDDDDD;
+			float: left;
+			text-align: center;
+			line-height: 100px;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+<!--
+	mouseenter/mouseover---进入
+	mouseleave/mouseout---离开
+	mouseover和mouseout在父元素和其子元素都可以触发，当鼠标穿过一个元素时，触发次数得依子元素数量而言。
+	mouseenter和mouseleave只在父元素触发，当鼠标穿过一个元素时，只会触发一次。
+	mouseover和mouseout比mouseenter和mouseleave先触发
+	因此一般mouseover和mouseout一起使用，mouseenter和mouseleave一起使用
+	
+s = " 网页可见区域宽：" document.body.clientWidth; 
+s = " 网页可见区域高：" document.body.clientHeight; 
+s = " 网页可见区域宽：" document.body.offsetWidth " (包括边线和滚动条的宽)"; 
+s = " 网页可见区域高：" document.body.offsetHeight " (包括边线的宽)"; 
+s = " 网页正文全文宽：" document.body.scrollWidth; 
+s = " 网页正文全文高：" document.body.scrollHeight; 
+s = " 网页被卷去的高(ff)：" document.body.scrollTop; 
+s = " 网页被卷去的高(ie)：" document.documentElement.scrollTop; 
+s = " 网页被卷去的左：" document.body.scrollLeft; 
+s = " 网页正文部分上：" window.screenTop; 
+s = " 网页正文部分左：" window.screenLeft; 
+s = " 屏幕分辨率的高：" window.screen.height; 
+s = " 屏幕分辨率的宽：" window.screen.width; 
+s = " 屏幕可用工作区高度：" window.screen.availHeight; 
+s = " 屏幕可用工作区宽度：" window.screen.availWidth;
+-->
+
+	<div id="main">
+		<div class="box-list">1</div>
+		<div class="box-list">2</div>
+		<div class="box-list">3</div>
+		<div class="box-list">4</div>
+		<div class="box-list">5</div>
+		<div class="box-list">6</div>
+</div>
+	<script type="text/javascript">
+//		function mouseHover(){
+//			let boxLists = document.getElementsByClassName('box-list');
+//			for(let i=0;i<boxLists.length;i++){
+//				myAddEvent(boxLists[i],'mouseenter',function(e){
+//					mouseToggle(e,boxLists[i])
+//				});
+//				myAddEvent(boxLists[i],'mouseleave',function(e){
+//					mouseToggle(e,boxLists[i])
+//				})
+////				boxLists[i].addEventListener("mouseenter",function(e){
+////					mouseToggle(e,boxLists[i])
+////				})
+////				boxLists[i].addEventListener("mouseleave",function(e){
+////					mouseToggle(e,boxLists[i])
+////				})
+//				
+//			}
+//		};
+//		mouseHover();
+//		
+//		//兼容ie不支持addEventListener改为attachEvent
+//		function myAddEvent(obj,ev,fn)    //obj为要绑定事件的元素，ev为要绑定的事件，fn为绑定事件的函数
+//          {
+//            if(obj.attachEvent){obj.attachEvent("on" + ev,fn);}
+//            else{obj.addEventListener(ev,fn,false);}
+//          } 
+//		
+//		function mouseToggle(e,obj){
+//			let w = obj.clientWidth||obj.offsetWidth; //获取div可视区域宽度
+//			let h = obj.clientWidth||obj.offsetWidth; //获取div可视区域高度
+//			let x = (e.pageX - obj.offsetLeft - (w / 2)) * (w >h ? (h / w) : 1);
+//			let y = (e.pageY - obj.offsetTop - (h / 2)) * (h >w ? (w / h) : 1);
+//			let direction = Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4; //direction的值为“0,1,2,3”分别对应着“上，右，下，左”  
+//			let eventType = e.type; //获取鼠标属性
+//			let dirName = new Array('top','right','down','left');  
+//			if(eventType == 'mouseenter'){
+//				obj.innerHTML=dirName[direction]+'进入';
+//			}else{
+//				obj.innerHTML=dirName[direction]+'离开';
+//			}
+//		}
+
+	</script>
+</body>
+</html>

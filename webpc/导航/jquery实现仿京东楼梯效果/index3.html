@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商城楼梯效果</title>
+	<style>
+		* {
+	margin:0;
+	padding:0;
+	border:none;
+}
+ul,li {
+	list-style:none;
+}
+#loutiNav {
+	position:fixed;
+	left:40px;
+	top:25%;
+	width:30px;
+	border:1px solid black;
+}
+#loutiNav li {
+	border-bottom:1px dashed #ddd;
+	width:28px;
+	height:29px;
+	line-height:29px;
+	text-align:center;
+	font-size:14px;
+	cursor:pointer;
+	position:relative;
+}
+#loutiNav li span {
+	display:none;
+	position:absolute;
+	left:0;
+	top:0;
+	width:30px;
+	height:30px;
+	font-size:12px;
+	text-align:center;
+	background-color:darkred;
+	color:white;
+}
+#loutiNav li:hover span {
+	display:block;
+}
+#loutiNav li span.active {
+	display:block;
+	background-color:white;
+	color:red;
+}
+#head,#foot,#main {
+	width:1000px;
+	text-align:center;
+	font-size:40px;
+	margin:0 auto;
+}
+#head,#foot {
+	background:green;
+	height:300px;
+	line-height:300px;
+}
+#main div {
+	height:500px;
+	line-height:500px;
+}
+
+	</style>
+</head>
+<body>
+	<div id="loutiNav">
+    <ul>
+        <li>1F<span class="active">服饰</span></li>
+        <li>2F<span>美妆</span></li>
+        <li>3F<span>手机</span></li>
+        <li>4F<span>家电</span></li>
+        <li>5F<span>数码</span></li>
+        <li>6F<span>运动</span></li>
+        <li>7F<span>居家</span></li>
+        <li>8F<span>母婴</span></li>
+        <li>9F<span>食品</span></li>
+        <li>10F<span>图书</span></li>
+        <li>11F<span>服务</span></li>
+    </ul>
+</div>
+
+<div id="head">头部</div>
+
+<div id="main">
+    <div class="louti" style="background: #ff99cc;">1F服饰</div>
+    <div class="louti" style="background: #6699cc;">2F美妆</div>
+    <div class="louti" style="background: #779911;">3F手机</div>
+    <div class="louti" style="background: #ff9933;">4F家电</div>
+    <div class="louti" style="background: #33ddcc;">5F数码</div>
+    <div class="louti" style="background: #dd88cc;">6F运动</div>
+    <div class="louti" style="background: #ff11cc;">7F居家</div>
+    <div class="louti" style="background: #6699cc;">8F母婴</div>
+    <div class="louti" style="background: #cc99cc;">9F食品</div>
+    <div class="louti" style="background: #aa33cc;">10F图书</div>
+    <div class="louti" style="background: #bb5555;">11F服务</div>
+</div>
+
+<div id="foot">尾部</div>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script>
+	$(function() {
+    var istop = true
+    $('#loutiNav li').click(function() {
+        istop = false
+        $("li span").removeClass("active")
+
+        $(this).find("span").addClass("active")
+
+        var index = $(this).index()
+
+        var target = $("#main div").eq(index).offset().top //当前点击的对象相对于页面的高度就是滚动条的高度
+
+        //滚动条动画 达到目标值
+        $('body,html').stop().animate({
+            'scrollTop': target
+        }, 300, function() {
+            istop = true
+        })
+    })
+
+    $(window).scroll(function() {
+
+        if (istop) {
+            var top = $(window).scrollTop()
+
+            var index = 0
+            //利用每次循环作比较  用一个变量来接收当前的下标值	
+            $("#main div").each(function(ind, obj) {
+                if (top >= $(obj).offset().top - 100) {
+                    index = ind
+                }
+            })
+            $("li span").removeClass("active")
+            $("li span").eq(index).addClass("active")
+        }
+    })
+})
+</script>
+</body>
+</html>

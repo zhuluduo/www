@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            // h获取元素
+            var list = document.getElementById('list');
+            var inputs = list.getElementsByTagName('input');
+            var ret = document.getElementById('ret');
+            var ok = document.getElementById('ok');
+
+            // 添加按钮点击事件
+            ok.onclick = function () {
+                var i = 0,
+                    len = inputs.length,
+                    checked = 0;
+
+                // 遍历所有的勾选框，计算出已选总数,存放在变量checked
+                while(i < len) {
+                    if (inputs[i].checked) {
+                        checked++;
+                    }
+                    i++;
+                }
+
+                //根据checked值更新结果
+                if (checked>0) {
+                    ret.innerHTML = '已选：' + checked;
+                    ret.style.display = 'block';
+                }
+                else {
+                    ret.innerHTML = '';
+                    ret.style.display = 'none';
+                }
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+<ul id="list">
+    <li><label><input type="checkbox"/>1</label></li>
+    <li><label><input type="checkbox"/>2</label></li>
+    <li><label><input type="checkbox"/>3</label></li>
+    <li><label><input type="checkbox"/>4</label></li>
+    <li><label><input type="checkbox"/>5</label></li>
+</ul>
+<button id="ok">确定</button>
+<p id="ret" style="display: none"></p>
+</body>
+</html>

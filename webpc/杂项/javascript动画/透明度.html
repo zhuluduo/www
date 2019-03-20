@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style>
+		div{
+	width: 200px;
+	height: 200px;
+	background: red;
+	margin: 10px;
+	float: left;
+	filter: alpha(opacity:30);
+	opacity: 0.3;
+}
+	</style>
+	<!--<script>
+window.onload=function(){
+	//    透明度	
+// var adiv2=document.getElementById('div2');
+// adiv2.onmousemove=function(){
+// 	   amove(100);
+// }
+//    	adiv2.onmouseout=function(){
+//    		amove(30);
+//    	}  	
+var div2=document.getElementsByTagName('div');
+for(var i=0;i<div2.length;i++){
+	div2[i].alpha=30;
+	div2[i].onmousemove=function(){
+		amove(this,100)
+	}
+	div2.onmouseout=function(){
+		amove(this,30)
+	}
+}
+}
+// 1.关闭定时器
+//var itime=null;
+//var alpha=30;
+  function amove(obj,itarget){
+//	  var adiv2=document.getElementById('div2');
+//	  2.清除定时器
+  	  clearInterval(obj.itime);
+//	  3.开一个定时器
+obj.itime=setInterval(function(){
+	var speen=0;
+	if(obj.alpha>itarget){
+		speed=-10;
+	}else{
+		speed=10;
+	}
+	if(obj.alpha==itarget){
+		clearInterval(obj.itime);
+	}else{
+		obj.alpha+=speed;
+		obj.style.filter='alpha(opactiy:'+obj.alpha+')';
+		obj.style.opacity=alpha/100;
+	}
+},30)
+  }
+	</script>-->
+	<script> 
+window.onload=function(){
+var adiv=document.getElementsByTagName("div");
+for(var i=0;i<adiv.length;i++){
+adiv[i].alpha=30;
+adiv[i].onmouseover=function(){
+startMove(this,100);
+}
+adiv[i].onmouseout=function(){
+startMove(this,30);
+}
+}
+}
+//var alpha=30;
+function startMove(obj,target){
+clearInterval(obj.timer);
+obj.timer=setInterval(function(){
+var speed=0;
+if(obj.alpha>target){
+speed=-10;
+}else{
+speed=10;
+}
+
+
+if(obj.alpha==target){
+clearInterval(obj.timer);
+}else{
+obj.alpha+=speed;
+obj.style.filter='alpha(opacity:'+obj.alpha+')';
+obj.style.opacity=obj.alpha/100;	
+}
+
+},30)	
+}
+
+</script>
+	</head>
+	<body>
+		<div id="div1"></div>
+			<div id="div2"></div>
+				<div id="div3"></div>
+					<div id="div4"></div>
+	</body>
+</html>

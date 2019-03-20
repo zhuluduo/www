@@ -1,0 +1,3 @@
+*{ margin:0; padding:0; }
+body{background:#333; color:#ff0; font-size:46px;}
+.linear2{ background: #C03333; height:100vh; width:100%; background-image:repeating-linear-gradient(30deg,hsla(0,0%,100%,0.2) 20px,hsla(0,0%,100%,0.2) 40px,transparent 40px,transparent 80px); }

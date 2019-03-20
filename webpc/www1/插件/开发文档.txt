@@ -1,0 +1,12 @@
+sectionsColor:
+可以为每一个section 设置backgrou属性
+
+2.controlArrows:
+ 定义是否通过箭头控制slide幻灯片，在移动设备上可以通过滑动来操作 
+ 
+3.looptop:
+滚动到最顶部后是否连续滚动到底部，默认为false
+loopBottom:
+滚动到最底部后是否连续滚回顶部,默认为false
+
+4.固定导航定位fixedElements:#header

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>localstorage-sessionstorage</title>
+</head>
+
+<body>
+    <input type="text" id="name">
+    <input type="text" id="password">
+    <button id="btn">存储</button>
+    <button id="cont">获取</button>
+    <script>
+        window.onload = function() {
+            var btn = document.getElementById('btn')
+            var name = document.getElementById('name')
+            var password = document.getElementById('password')
+            var cont = document.getElementById('cont')
+
+            btn.onclick = function() {
+                sessionStorage.setItem('name', name.value)
+                localStorage.setItem('password', password.value)
+            }
+            cont.onclick = function() {
+                name.value = sessionStorage.getItem('name')
+                password.value = localStorage.getItem('password')
+            }
+        }
+    </script>
+</body>
+
+</html>

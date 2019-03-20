@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<style>
+        body{
+            background: #141519;
+        }
+        .circleBox{position: relative;width: 133px;height: 78px;margin: auto;}
+        .top{top:-1px;clip:rect(0,auto,65px,auto);width:99pt;height:99pt;background:#434345;transition:5s ease-out;transform:rotate(0)}
+        .mask,.top{position:absolute;overflow:hidden;border-radius:50%}
+        .mask{top:4px;left:4px;clip:rect(0,auto,62px,auto);width:124px;height:124px;background:#141519;}
+        .circle{position:absolute;top:0;left:0;clip:rect(0,auto,65px,auto);width:99pt;height:99pt;border-radius:50%;background:#cc4941;z-index: 0;}
+        #num{position:relative;z-index:4;margin-top:13px;color:#cc4941;text-align:center;font-size:48px}
+        .numL,.numR{position: absolute; font-size: 12px;color: #fff;bottom: -2px;}
+        .numL{left: -3px;}
+        .numR{right: -3px;}
+    </style>
+	</head>
+	<body>
+	<div class="circleBox">
+        <div class="numR font12">10</div>
+        <div class="numL font12">0</div>
+        <div class="circle">
+            <div id="top-score" class="top"></div>
+            <div id="num"></div>
+            <div class="mask"></div>
+        <div>
+    </div>
+	<script type="text/javascript">
+// 		$(function () {
+//             var textScore = 50;
+//             textScore = 'rotate' + '(' + ((textScore / 100) * 180 + 'deg') + ')';
+//             $('#top-score').css('transform', textScore);
+//             $('#num').html('50%')
+//         });
+	function ScoreList(rotateData){
+		var topScore=document.getElementById('top-score');
+		var nums=document.getElementById('num');
+		let textScores = rotateData||30;
+		textScore = 'rotate' + '(' + ((textScores / 100) * 180 + 'deg') + ')';
+		topScore.style.transform=textScore;
+		nums.innerText=textScores+'%';
+	}
+		ScoreList(100)
+	</script>
+	</body>
+</html>

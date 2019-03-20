@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="author" content="helang.love@qq.com">
+<title>移动端(小程序)弹性布局盒子</title>
+<style type="text/css">
+	body {
+    margin:0;
+    padding:0;
+    background-color:#fff;
+    font-size:.28rem;
+    font-family:Helvetica, helvetica neue, Arial, sans-serif;
+    letter-spacing:0;
+    word-wrap:break-word;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    user-select:none
+}
+input, select, textarea {
+    font-size:.28rem;
+    font-family:helvetica neue, Helvetica, Arial, sans-serif
+}
+.flex_col {
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    align-items:center;
+    align-content:center;
+    display:-webkit-flex;
+    -webkit-flex-direction:row;
+    -webkit-flex-wrap:nowrap;
+    -webkit-justify-content:flex-start;
+    -webkit-align-items:center;
+    -webkit-align-content:center
+}
+.flex_row {
+    display:flex;
+    flex-direction:column;
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    align-items:flex-start;
+    align-content:flex-start;
+    display:-webkit-flex;
+    -webkit-flex-direction:column;
+    -webkit-flex-wrap:nowrap;
+    -webkit-justify-content:flex-start;
+    -webkit-align-items:flex-start;
+    -webkit-align-content:flex-start
+}
+.flex_col .flex_grow {
+    width:0;
+    flex-grow:1;
+    -webkit-flex-grow:1
+}
+.flex_row .flex_grow {
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
+    flex-grow:1;
+    -webkit-flex-grow:1
+}
+.flex_col.flex_wrap {
+    flex-wrap:wrap;
+    -webkit-flex-wrap:wrap
+}
+.flex_col.flex_center, .flex_row.flex_center {
+    justify-content:center;
+    -webkit-justify-content:center
+}
+.flex_col.flex_col_2>div {
+    width:50%
+}
+.flex_col.flex_col_3>div {
+    width:33.33333%
+}
+.flex_col.flex_col_4>div {
+    width:25%
+}
+.flex_col.flex_col_5>div {
+    width:20%
+}
+.flex_col.flex_col_6>div {
+    width:16.66666%
+}
+a {
+    text-decoration:none;
+    -webkit-tap-highlight-color:transparent
+}
+.color_333 {
+    color:#333
+}
+.color_666 {
+    color:#666
+}
+.color_999 {
+    color:#999
+}
+.color_fff {
+    color:#fff
+}
+.color_6dc {
+    color:#6dca6d
+}
+.color_d51 {
+    color:#d51917
+}
+.color_09f {
+    color:#09f
+}
+.bg_fff {
+    background-color:#fff
+}
+        .container{
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .bg_red{
+            background-color: #f04c37;
+        }
+        .bg_green{
+            background-color: #52f065;
+        }
+        .bg_blue{
+            background-color: #2684f0;
+        }
+        .bg_yellow{
+            background-color: #f0ad4e;
+        }
+        .box_1>div{
+            height: 1rem;
+            text-align: center;
+            line-height: 1rem;
+        }
+        .box_2{
+            height: 2rem;
+            padding: 0 0.5rem;
+            background-color: #c0bfc4;
+            text-align: center;
+        }
+        .box_3{
+            height: 7rem;
+            text-align: center;
+        }
+        .box_3>div{
+            width: 100%;
+        }
+        .box_3>div:first-child,.box_3>div:last-child{
+            height: 1rem;
+            line-height: 1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<h2 class="color_333">移动端(小程序)弹性布局盒子</h2>
+<h4 class="color_666">
+<div>如果您是一个优秀的前端开者，您一定会喜欢本款布局盒子。</div>
+<div>该盒子是作者集合大量项目得出的使用率最高的盒子布局之一，希望对大家有所帮助。</div>
+<div>
+<div>同时推荐大家在使用本款盒子的同时，使用另一个本人封装的jQuery功能集</div>
+<div>下载地址：<a href="http://www.jq22.com/jquery-info18675" target="_blank" class="color_09f">http://www.jq22.com/jquery-info18675</a></div>
+</div>
+</h4>
+<p class="color_999">本示例已经符合大部分布局情况，作者本人也有查阅过其它框架源码，要么就是修改繁琐，布局属性不明确，所以自己手写一个适合自己和广大开发者的基本布局盒子</p>
+<p class="color_d51">使用本布局盒子最好搭配 flexible.js 一起使用，写出优秀的移动端布局代码。偷偷告诉你，默认字体大小为0.28rem也就是大部分手机都是14px的大小了;</p>
+<p class="color_6dc">使用在小程序中的话，将 rem 换算为 rpx 即可，这里不重复写，请使用者自行修改</p>
+<h3>布局盒子示例</h3>
+<hr />
+<h4>水平分栏 (flex_col)</h4>
+<p>平均分栏 (flex_col_3)</p>
+<div class="flex_col flex_col_3 color_fff box_1">
+<div class="bg_red">1</div>
+<div class="bg_green">2</div>
+<div class="bg_blue">3</div>
+</div>
+<p>弹性分栏 (flex_grow)</p>
+<div class="flex_col color_fff box_1">
+<div class="bg_red" style="width: 3rem;">这是固定盒子</div>
+<div class="bg_yellow flex_grow">这是弹性盒子</div>
+</div>
+<p>分栏居中对齐 (flex_center)</p>
+<div class="flex_col color_fff box_1 flex_center">
+<div class="bg_red" style="width: 2.5rem;">我被居中了</div>
+<div class="bg_yellow" style="width: 2.5rem;">我被居中了</div>
+</div>
+<p>分栏允许换行 (flex_wrap)</p>
+<div class="flex_col flex_col_3 color_fff box_1 flex_wrap">
+<div class="bg_red">1</div>
+<div class="bg_green">2</div>
+<div class="bg_blue">3</div>
+<div class="bg_yellow">4</div>
+<div class="bg_red">5</div>
+</div>
+<h4>水平分栏默认垂直居中</h4>
+<div class="flex_col flex_col_3 box_2 color_fff">
+<div class="bg_red">
+<div>单行文本</div>
+</div>
+<div class="bg_green">
+<div>多行文本</div>
+<div>多行文本</div>
+</div>
+<div class="bg_blue">
+<div>我就要居中</div>
+<div>我就要居中</div>
+<div>我就要居中</div>
+</div>
+</div>
+<hr />
+<h4>垂直分栏 (flex_row)</h4>
+<div class="flex_row box_3 color_fff">
+<div class="bg_red">我是头部1</div>
+<div class="bg_green flex_grow">
+<div style="height: 10rem;">我是中间弹性<br />我还能滚动哦！</div>
+</div>
+<div class="bg_yellow">我是尾部</div>
+</div>
+<div class="color_999">垂直与水平其它对齐类一致，细微差别请阅读样式源码。</div>
+</div>
+</body>
+</html>

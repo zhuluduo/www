@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="UTF-8">
+		<title>选项卡</title>
+		<style type="text/css">
+			.active {background-color: #890; color: #FFF;}
+			#div1 div {
+				border: 1px solid #000;
+				width: 200px;
+				height: 200px;
+				background-color: #ddd;
+				display: none;
+				
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+		/*这里定义oDiv.get...是为了定义className作用对象为id为div1下的所有文本div*/	
+				var oDiv = document.getElementById("div1");
+				var aBtn = oDiv.getElementsByTagName("input");
+				var aDiv = oDiv.getElementsByTagName("div");
+				
+				for(var i=0; i<aBtn.length; i++) {
+				/*定义一个index属性对aBtn进行编号*/	
+					aBtn[i].index = i;
+					aBtn[i].onclick =function() {
+						/*这里是相对于未被点击的部分的样式*/
+						for(var i=0; i<aBtn.length; i++) {
+							aBtn[i].className = "";
+							aDiv[i].style.display = "none";
+						}	
+						this.className = "active";
+						/*通过之前的index编号绑定指定的div文本*/
+						aDiv[this.index].style.display = "block";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<input class="active" type="button" value="教育"/>
+			<input type="button" value="培训"/>
+			<input type="button" value="招生"/>
+			<input type="button" value="出国"/>
+			<div style="display: block;">111111111</div>
+			<div>2222222222</div>
+			<div>333333333</div>
+			<div>444444444</div>
+		</div>
+	</body>
+</html>

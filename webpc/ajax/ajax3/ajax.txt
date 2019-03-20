@@ -1,0 +1,53 @@
+1.Http请求
+XMLHttpRequest
+
+2.XMLHttpRequest对象
+ request=new XMLHttpRequest()
+ firfox,opera,safari
+ 
+ xmlhttp=new ActiveXObject('Mxsml2.XMLHTTP')
+ie6+
+
+xmlhttp=new ActiveXObject('Microsoft,XMLHTTP')
+ 
+ 2.1创建XMLHttpRequest对象
+
+2.2请求服务器
+2.20 onreadystatechange
+request.onreadystatechange=function(){
+//这里要写一下代码
+if(request.readyState==4){
+ alert(request.responseText)
+}
+
+}
+2.2.1 readyState属性
+0
+1
+2
+3
+4
+
+2.2.2  responseText 属性(获取返回值)
+
+
+eval
+
+open：初始化当前的一些信息
+
+send:请求的发送
+
+		<!--<script type="text/javascript">
+			var xhr;
+			if (window.XMLHttpRequest) {
+				xhr=new XMLHttpRequest();//ie7以后
+			} else{
+				xhr=new ActiveXObject('Microsoft.XMLHTTP')//ie5,ie5
+			}
+			alert(xhr);
+		</script>-->
+		
+		
+//......................................//
+
+

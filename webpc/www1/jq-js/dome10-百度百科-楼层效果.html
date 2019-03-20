@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>scroll滚动，LI随滚动条自动变化</title>
+<style>
+.sub_menu_frame {
+position: fixed;
+top: 50px;
+width: 280;
+height:400px;
+right:20px;
+overflow:auto;
+background: rgb(221, 221, 255);
+color: red;
+}
+h2 {color: green;margin-top:350px;}
+span {color: red;display: none;}
+.avtive{background: rgb(211, 211, 211);color: rgb(88, 88, 88);border: 1px solid rgb(190, 190, 190);}
+</style>
+<script type="text/javascript" src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+<div class="sub_menu_frame">
+	<ul class="sub_menu">
+		<li class='icbtn'><a href="#h1">11111111111</a></li>
+                <li class='icbtn'><a href="#h2">222222222222222</a></li>
+                <li class='icbtn'><a href="#h3">333333333</a></li>
+                <li class='icbtn'><a href="#h4">444444444444</a></li>
+                <li class='icbtn'><a href="#h5">555555555555</a></li>
+                 <li class='icbtn'><a href="#h6">66666666666</a></li>
+                 <li class='icbtn'><a href="#h7">77777777777777</a></li>
+                 <li class='icbtn'><a href="#h8">88888888888888</a></li>
+                 <li class='icbtn'><a href="#h9">9999999999999</a></li>
+	</ul>
+</div>
+</div>
+<h2 id='h1'>
+	hello1
+</h2>
+ <h2 id='h2'>
+	hello2
+</h2 ><h2 id='h3'>
+	hello3
+</h2><h2 id='h4'>
+	hello4
+</h2><h2 id='h5'>
+	hello5
+</h2><h2 id='h6'>
+	hello6
+</h2>
+</h2><h2 id='h7'>
+	hello7
+</h2>
+</h2><h2 id='h8'>
+	hello8
+</h2>
+</h2><h2 id='h9'>
+	hello9
+</h2>
+<script>
+$(function(){
+		$(".sub_menu li a").click(function(){
+		$(".sub_menu li a").removeClass('avtive');
+		$(this).addClass('avtive');
+	});
+	});
+$( window ).scroll(function() {
+	var hh=$( 'h2' );
+	var sctop = $(this).scrollTop();
+	hh.each(function(){	
+		var park=$(this).offset().top-sctop;
+		if(park<350 && park>0)
+			{
+			$(".sub_menu li a").removeClass('avtive');
+			var inde=$(this).index()-1;
+			$(".sub_menu li:eq("+inde+") a").addClass('avtive');
+				console.log($(this).index()+$(this).html());
+			}
+	});
+});
+</script>
+</body>
+</html>

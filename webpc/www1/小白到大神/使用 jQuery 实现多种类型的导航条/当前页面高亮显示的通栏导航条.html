@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">  
+<HTML>  
+<HEAD>  
+<TITLE> New Document </TITLE>  
+<META NAME="Generator" CONTENT="EditPlus">  
+<META NAME="Author" CONTENT="">  
+<META NAME="Keywords" CONTENT="">  
+<META NAME="Description" CONTENT="">  
+  
+<script>  
+function formatMoneyWith6digts2( obj ){  
+	console.log(obj)
+    var p1 = /[^\d\.]/g;    // 过滤非数字及小数点 /g :所有范围中过滤  
+    var p2 = /(\.\d{2})\d*$/g;  
+    var p4 = /(\.)(\d*)\1/g;  
+    obj.value = obj.value.replace(p1, "").replace(p2, "$1").replace(p4,"$1$2"); 
+
+    // obj.value=obj.value.replace(/[^0-9.]/g, '');  
+  
+  
+    // // fix bug: many char'.'  
+    // var p5 = /\.+/g;    //多个点的话只取1个点，屏蔽1....234的情况  
+    // obj.value = obj.value.replace(p5, ".")  
+  
+    // var p6 = /(\.+)(\d+)(\.+)/g; //屏蔽1....234.的情况  
+    // obj.value = obj.value.replace(p6, "$1$2")// 屏蔽最后一位的.
+    console.log(obj.value)  
+    // end fix bug: many char'.'  
+}  
+/* testing  
+var p5 = /\.+/g;  
+var testStr = '1....234.'  
+matchStr = testStr.match(p5);  
+//alert(matchStr);  
+  
+num = testStr.replace(p5, ".")  
+//alert(num);  
+  
+//   
+var p6 = /(\.+)(\d+)(\.+)/g;  
+matchStr = testStr.match(p6);  
+alert(matchStr);  
+  
+num = testStr.replace(p6, "$1$2")  
+alert(num);  
+*/  
+</script>  
+</HEAD>  
+  
+<BODY>  
+    至多只能输入6位小数：<input type='text'  onkeyup="formatMoneyWith6digts2(this);"  />  
+</BODY>  
+</HTML> 

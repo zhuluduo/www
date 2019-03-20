@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body {margin:0; padding:0; font:16px/1 arial,"Microsoft yahei";background-color: #eaeaea;}
+		div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{padding:0; margin:0;}
+		ol,ul {list-style:none;}
+		li{list-style-type:none;}
+		img{vertical-align:top;border:0;}
+		h1,h2,h3,h4,h5,h6{font-size:inherit; font-weight:normal;}
+		address,cite,code,em,th,i{font-weight:normal; font-style:normal;}
+		.clearfix{*zoom:1;}
+		.clearfix:after{display:block; overflow:hidden; clear:both; height:0; visibility:hidden; content:"";}
+		a:link,a:visited
+		{
+			color:#000;
+			text-decoration: none;
+		}
+		input
+		{
+			outline: 0;
+		}
+
+		 .swiper_wrap{
+			position: relative;
+			width: 695px;
+			height: 30px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		 ul{
+			position: relative;
+			top: 0;
+			left: 0;
+			width: 695px;
+			float: right;
+		  	color: #444;
+		 	font-size: 14px;
+		 	margin-top: 1px;
+		}
+		 ul li{
+			line-height: 30px;
+			padding-left: 24px;
+		}
+		 .lt{
+			position: absolute;
+			left: -1px;
+			top: 7px;
+			font-family: "宋体";
+			font-weight: bold;
+			color: #AAAAAA;
+		}
+		 .gt{
+			position: absolute;
+			right: 26px;
+			top: 7px;
+			font-family: "宋体";
+			font-weight: bold;
+			color: #AAAAAA;
+		}
+		 .swiper_wrap .font_inner a{
+			color: #444;
+		}
+		 .swiper_wrap a:hover{
+			color: #FA9101;
+	}
+	</style>
+</head>
+<body>
+	<div class="swiper_wrap">
+		<ul class="font_inner">
+			<li>
+				<a href="###">1调用两条新闻并设定时间上下切换（切换时间3秒，点击左右的按钮亦可切换）</a>
+			</li>
+			<li>
+				<a href="###">2调用两条新闻并设定时间上下切换（切换时间3秒，点击左右的按钮亦可切换）</a>
+			</li>
+			<li>
+				<a href="###">3调用两条新闻并设定时间上下切换（切换时间3秒，点击左右的按钮亦可切换）</a>
+			</li>
+			<li>
+				<a href="###">4调用两条新闻并设定时间上下切换（切换时间3秒，点击左右的按钮亦可切换）</a>
+			</li>
+		</ul>
+		<a href="javascript:void(0)" class="lt">&lt;</a>
+		<a href="javascript:void(0)" class="gt">&gt;</a>
+	</div>
+	<!-- js -->
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		//1文字轮播(2-5页中间)开始
+	
+	$(".font_inner li:eq(0)").clone(true).appendTo($(".font_inner"));//克隆第一个放到最后(实现无缝滚动)
+	var liHeight = $(".swiper_wrap").height();//一个li的高度
+	//获取li的总高度再减去一个li的高度(再减一个Li是因为克隆了多出了一个Li的高度)
+	var totalHeight = ($(".font_inner li").length *  $(".font_inner li").eq(0).height()) -liHeight;
+	$(".font_inner").height(totalHeight);//给ul赋值高度
+	var index = 0;
+	var autoTimer = 0;//全局变量目的实现左右点击同步
+	var clickEndFlag = true; //设置每张走完才能再点击
+
+	function tab(){
+		$(".font_inner").stop().animate({
+			top: -index * liHeight
+		},400,function(){
+			clickEndFlag = true;//图片走完才会true
+			if(index == $(".font_inner li").length -1) {
+				$(".font_inner").css({top:0});
+				index = 0;
+			}
+		})
+	}
+
+	function next() {
+		index++;
+		if(index > $(".font_inner li").length - 1) {//判断index为最后一个Li时index为0
+			index = 0;
+		}
+		tab();
+	}
+	function prev() {
+		index--;
+		if(index < 0) {
+			index = $(".font_inner li").size() - 2;//因为index的0 == 第一个Li，减二是因为一开始就克隆了一个LI在尾部也就是多出了一个Li，减二也就是_index = Li的长度减二
+			$(".font_inner").css("top",- ($(".font_inner li").size() -1) * liHeight);//当_index为-1时执行这条，也就是走到li的最后一个
+		}
+		tab();
+	}
+	//切换到下一张
+	$(".swiper_wrap .gt").on("click",function() {
+		if(clickEndFlag) {
+			next();
+			clickEndFlag = false;
+		}
+	});
+	//切换到上一张
+	$(".swiper_wrap .lt").on("click",function() {
+		if(clickEndFlag) {
+			prev();
+			clickEndFlag = false;
+		}
+	});
+	//自动轮播
+	autoTimer = setInterval(next,3000);
+	$(".font_inner a").hover(function(){
+		clearInterval(autoTimer);
+	},function() {
+		autoTimer = setInterval(next,3000);
+	})
+
+	//鼠标放到左右方向时关闭定时器
+	$(".swiper_wrap .lt,.swiper_wrap .gt").hover(function(){
+		clearInterval(autoTimer);
+	},function(){
+		autoTimer = setInterval(next,3000);
+	})
+	//1文字轮播(2-5页中间)结束
+	})
+	</script>
+</body>
+</html>

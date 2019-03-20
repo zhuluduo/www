@@ -1,0 +1,59 @@
+更改浏览器tite名称：doument.title='';
+
+1.有效高度(屏幕可视高度)
+document.documentElement.clienHeight
+
+2.屏幕的总高度
+document.documentElemnt.scrollHeight
+
+3.滚动高度
+document.documentElement.scrollTop
+
+document.body.scrollTop(chrome)
+
+
+事件：
+ondblclick  双击
+onmouseenter  移入
+onmouseleave  移除
+onmousemove 移入
+
+键盘事件
+onkeydown
+onkeyup
+
+
+表单事件：
+onfocus 焦点事件
+onblue 失去焦点
+onchange  内容发生变化
+onselect  内容选中时
+
+
+//区分浏览器内核：
+navigator.userAgent
+
+历史对象：
+location:
+  href:获取当前url地址
+  host:主机名
+  pathname：页面名称
+  protocol：协议
+
+
+获取dome属性：
+<p id='1'  class='2'> </p>
+
+obj=document.getElementById('1')
+obj.getAttribute('1')   方法返回指定属性名的属性值(getAttribute)。
+
+
+
+直接获取dome元素对象集合：
+
+document.links;
+document.images;
+tableobj:rows;
+tableobj:cells;
+selectobj:options;
+selectobj:selectedIndex   获取下拉菜单中选中元素在第几个

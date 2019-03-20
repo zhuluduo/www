@@ -1,0 +1,7 @@
+html, body, ul, li, div, input, ol, h1, h2, h3, h4,p,label,i {
+  padding: 0;
+  margin: 0;
+}
+html{
+  font-family: "微软雅黑";
+}

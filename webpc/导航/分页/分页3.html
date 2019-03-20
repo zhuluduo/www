@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.page_ctrl{
+  text-align: center;
+  margin: 10px auto;
+  box-sizing: border-box;
+}
+.page_ctrl *{
+  line-height: 26px;
+}
+.page_ctrl button{
+  margin:0 3px;
+  min-width:30px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  color: #5e5e5e;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+}
+.page_ctrl button:hover{
+  background: #0eb0d2;
+  color: #ffffff;
+}
+.page_ctrl .btn_dis{
+  cursor: default;
+  opacity: .7;
+  background: #eeeeee;
+  color: #5e5e5e;
+}
+.page_ctrl .btn_dis:hover{
+  background: #eeeeee;
+  color: #5e5e5e;
+}
+.page_ctrl .current_page{
+  background: #0eb0d2;
+  color: #ffffff;
+}
+.page_ctrl .input_page_num{
+  width:30px;
+  height: 26px;
+  margin:0 3px;
+  padding: 0;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  color: #5e5e5e;
+  outline: none;
+}
+.page_ctrl .page_total,.page_ctrl .page_text{
+  color: #2b2b2b;
+  font-size: 13px;
+}
+		</style>
+		<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="toPage.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="page_1"></div>
+		<script>
+		let data= [
+			
+			    {
+			
+			        "id": "21",
+			
+			        "name": "演唱会",
+			
+			        "parent_id": "15",
+			
+			        "url": "http://www.acfun.cn/v/list99/index.htm/v/list140/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "22",
+			
+			        "name": "舞蹈·彼女",
+			
+			        "parent_id": "0",
+			
+			        "url": "http://www.acfun.cn/v/list123/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "23",
+			
+			        "name": "宅舞",
+			
+			        "parent_id": "22",
+			
+			        "url": "http://www.acfun.cn/v/list134/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "24",
+			
+			        "name": "综合舞蹈",
+			
+			        "parent_id": "22",
+			
+			        "url": "http://www.acfun.cn/v/list135/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "25",
+			
+			        "name": "爱豆",
+			
+			        "parent_id": "22",
+			
+			        "url": "http://www.acfun.cn/v/list129/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "26",
+			
+			        "name": "手作",
+			
+			        "parent_id": "22",
+			
+			        "url": "http://www.acfun.cn/v/list130/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "27",
+			
+			        "name": "造型",
+			
+			        "parent_id": "22",
+			
+			        "url": "http://www.acfun.cn/v/list127/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "28",
+			
+			        "name": "游戏",
+			
+			        "parent_id": "0",
+			
+			        "url": "http://www.acfun.cn/v/list59/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "29",
+			
+			        "name": "主机单机",
+			
+			        "parent_id": "28",
+			
+			        "url": "http://www.acfun.cn/v/list84/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "30",
+			
+			        "name": "游戏集锦",
+			
+			        "parent_id": "28",
+			
+			        "url": "http://www.acfun.cn/v/list83/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "31",
+			
+			        "name": "电子竞技",
+			
+			        "parent_id": "28",
+			
+			        "url": "http://www.acfun.cn/v/list145/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "32",
+			
+			        "name": "英雄联盟",
+			
+			        "parent_id": "28",
+			
+			        "url": "http://www.acfun.cn/v/list85/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "33",
+			
+			        "name": "守望先锋",
+			
+			        "parent_id": "28",
+			
+			        "url": "http://www.acfun.cn/v/list170/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "34",
+			
+			        "name": "桌游卡牌",
+			
+			        "parent_id": "28",
+			
+			        "url": "http://www.acfun.cn/v/list165/index.htm/"
+			
+			        },
+			
+			    {
+			
+			        "id": "35",
+			
+			        "name": "Mugen",
+			
+			        "parent_id": "28",
+			
+			        "url": "http://www.acfun.cn/v/list72/index.htm/"
+			
+			        },
+			
+			    {
+			
+			        "id": "36",
+			
+			        "name": "游戏中心",
+			
+			        "parent_id": "28",
+			
+			        "url": "http://www.acfun.cn/gamecenter"
+			
+			        },
+			
+			    {
+			
+			        "id": "37",
+			
+			        "name": "娱乐",
+			
+			        "parent_id": "0",
+			
+			        "url": "http://www.acfun.cn/v/list59/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "38",
+			
+			        "name": "生活娱乐",
+			
+			        "parent_id": "37",
+			
+			        "url": "http://www.acfun.cn/v/list84/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "39",
+			
+			        "name": "鬼畜调教",
+			
+			        "parent_id": "37",
+			
+			        "url": "http://www.acfun.cn/v/list83/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "40",
+			
+			        "name": "萌宠",
+			
+			        "parent_id": "37",
+			
+			        "url": "http://www.acfun.cn/v/list145/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "41",
+			
+			        "name": "美食",
+			
+			        "parent_id": "37",
+			
+			        "url": "http://www.acfun.cn/v/list85/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "42",
+			
+			        "name": "科技",
+			
+			        "parent_id": "0",
+			
+			        "url": "http://www.acfun.cn/v/list59/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "43",
+			
+			        "name": "科学技术",
+			
+			        "parent_id": "42",
+			
+			        "url": "http://www.acfun.cn/v/list84/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "44",
+			
+			        "name": "教程",
+			
+			        "parent_id": "42",
+			
+			        "url": "http://www.acfun.cn/v/list83/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "45",
+			
+			        "name": "数码",
+			
+			        "parent_id": "42",
+			
+			        "url": "http://www.acfun.cn/v/list145/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "46",
+			
+			        "name": "广告",
+			
+			        "parent_id": "42",
+			
+			        "url": "http://www.acfun.cn/v/list85/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "47",
+			
+			        "name": "影视",
+			
+			        "parent_id": "0",
+			
+			        "url": "http://www.acfun.cn/v/list59/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "48",
+			
+			        "name": "国产剧",
+			
+			        "parent_id": "47",
+			
+			        "url": "http://www.acfun.cn/v/list84/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "49",
+			
+			        "name": "网络剧",
+			
+			        "parent_id": "47",
+			
+			        "url": "http://www.acfun.cn/v/list83/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "50",
+			
+			        "name": "纪录片",
+			
+			        "parent_id": "47",
+			
+			        "url": "http://www.acfun.cn/v/list145/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "51",
+			
+			        "name": "综艺",
+			
+			        "parent_id": "47",
+			
+			        "url": "http://www.acfun.cn/v/list85/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "52",
+			
+			        "name": "文章",
+			
+			        "parent_id": "0",
+			
+			        "url": "http://www.acfun.cn/v/list59/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "53",
+			
+			        "name": "游记·涂鸦",
+			
+			        "parent_id": "52",
+			
+			        "url": "http://www.acfun.cn/v/list84/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "54",
+			
+			        "name": "综合",
+			
+			        "parent_id": "52",
+			
+			        "url": "http://www.acfun.cn/v/list83/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "55",
+			
+			        "name": "工作·情感",
+			
+			        "parent_id": "52",
+			
+			        "url": "http://www.acfun.cn/v/list145/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "56",
+			
+			        "name": "动漫文化",
+			
+			        "parent_id": "52",
+			
+			        "url": "http://www.acfun.cn/v/list85/index.htm"
+			
+			        },
+			
+			    {
+			
+			        "id": "57",
+			
+			        "name": "漫画·文学",
+			
+			        "parent_id": "52",
+			
+			        "url": "http://www.acfun.cn/v/list170/index.htm"
+			
+			        }
+			
+			];
+			console.log(data.length)
+		  /*容器1参数*/
+		  var obj_1={
+			obj_box:'.page_1',//翻页容器
+			total_item:9,//条目总数
+			per_num:10,//每页条目数
+			/*current_page:8//当前页*/
+			table : data,
+		  };
+
+		  page_ctrl(obj_1);
+		</script>
+	</body>
+</html>

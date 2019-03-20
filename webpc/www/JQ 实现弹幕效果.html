@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <style type="text/css" media="screen">
+    html,body{
+      background:#efefef;
+      height:100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .mask{
+      margin: 30px auto;
+      position:relative;
+      width:700px;
+      height:400px;
+      background:rgba(0,0,0,0.8);
+      opacity:0.5;
+      top:0px;
+      left:0px;
+      overflow: hidden;
+    }
+    .notice{
+      display: block;
+      padding: 0 10px;
+      position: absolute;
+      color: #fff;
+      font-size: 26px;
+      word-break:keep-all;
+      white-space:nowrap;
+    }
+    .bottom{
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+<div class="mask">
+  <!--<div class="notice">
+    <img class="noticeImg" src="../img/0VVJU8PX368%7BJ3(M0F%7DTI19_03.png">
+    <div class="noticeName">徐文</div>
+    <div class="noticeWord">徐文混蛋</div>
+  </div>-->
+</div>
+<!-- 底部发言框前端 -->
+<div class="bottom">
+  <input class="content">
+  <button class="send">发表言论</button>
+</div>
+<script>
+
+  $(".send").click(function(){
+    var val=$(".content").val();
+    if(val.length == 0){
+      alert('不能为空')
+    }else if(val.length > 31){
+      alert('内容长度不能超出30个')
+    }
+    else{
+      var content=$('<div class="notice">'+val+'</div></div>');
+      /* 随机高度 */
+      var top=Math.random()*($('.mask').height()-$('.notice').height())+"px";
+      var left =$('.mask').width();
+      content.css({top:top,left:left,color:getRandomColor()});
+      $(".mask").append(content);
+      var masksRight = -$('.mask').width()
+      console.log(masksRight)
+      content.animate({left:masksRight},8000,function(){
+        $(this).remove();
+      })
+    }
+  });
+  /* 随机颜色 */
+  function getRandomColor(){
+    var colorArr = ['1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
+    var color = "";
+    for(var i=0;i<6;i++){
+      color += colorArr[Math.floor(Math.random()*16)];
+    }
+    return "#"+color;
+  }
+</script>
+</body>

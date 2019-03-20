@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+</head>
+<body>
+	<div id="d1">hello world</div>
+	<script type="text/javascript">
+		var div = document.getElementById('d1');
+		div.nodeName // "DIV"属性返回节点的名称
+	</script>
+	
+	<div id="d1">hello world</div>
+	<script type="text/javascript">
+		var div = document.getElementById('d1');
+		div.nodeValue // null
+		div.firstChild.nodeValue // "hello world"
+	</script>
+	
+	<!--textContent 属性自动忽略当前节点内部的 HTML 标签，返回所有文本内容。-->
+	<div id="divA">This is <span>some</span> text</div>
+	<script type="text/javascript">
+		document.getElementById('divA').textContent 
+		// This is some text 
+	</script>
+	
+	<!--appendChild末尾插入数据-->
+	<!--createElement 创建p标签插入body中-->
+	<!--removeChild 移除-->
+	<script type="text/javascript">
+		var p = document.createElement('p');
+		document.body.appendChild(p);
+	</script>
+	
+	<!--insertBefore方法用于将某个节点插入父节点内部的指定位置。-->
+	<script type="text/javascript">
+//		var insertedNode = parentNode.insertBefore(newNode, referenceNode);
+//insertBefore方法接受两个参数，第一个参数是所要插入的节点newNode，第二个参数是父节点parentNode内部的一个子节点referenceNode
+	
+	var p = document.createElement('p');
+	document.body.insertBefore(p, document.body.firstChild);
+	
+//	如果insertBefore方法的第二个参数为null，则新节点将插在当前节点内部的最后位置，即变成最后一个子节点
+	var p = document.createElement('p');
+	document.body.insertBefore(p, null);
+	</script>
+	
+	
+	<!--hasChildNodes方法返回一个布尔值，表示当前节点是否有子节点-->
+	<script type="text/javascript">
+		var foo = document.getElementById('foo');
+
+		if (foo.hasChildNodes()) {
+		  foo.removeChild(foo.childNodes[0]);
+		}
+	</script>
+	
+	<!--replaceChild方法用于将一个新的节点，替换当前节点的某一个子节点。-->
+	<script type="text/javascript">
+//		var replacedNode = parentNode.replaceChild(newChild, oldChild);
+
+//		上面代码中，replaceChild方法接受两个参数，第一个参数newChild是用来替换的新节点，第二个参数oldChild是将要替换走的子节点。返回值是替换走的那个节点oldChild
+		var divA = document.getElementById('divA');
+		var newSpan = document.createElement('span');
+		newSpan.textContent = 'Hello World!';
+		divA.parentNode.replaceChild(newSpan, divA);
+	</script>
+</body>
+</html>

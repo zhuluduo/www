@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script>
+			for (var i=1;i<=10;i++) {
+				document.write(i+"<br/>")
+			}
+//			alert(i)
+document.write(i);
+document.write("<hr color='aqua'/>")
+
+//循环输出 1-100间的基数
+for(var i = 1; i <= 100; i += 2) {
+	document.write(i);
+}
+document.write("<hr color='bisque'/>")
+var sum = 0;
+for(var i = 1; i < 100; i++) {
+	sum += i;
+}
+document.write(sum);
+		
+		document.write("<hr color='black'>")
+		//求1-100基数的和
+		var sum=0;
+		for(var i=1;i<100;i++){
+			if(i%2==1){
+				sum+=i;
+			}
+			
+		}
+		document.write(sum);
+		
+		
+		document.write("<hr color='black'>")
+		//求1-100偶数的和
+		var sum=0;
+		for(var i=1;i<100;i++){
+			if(i%2==0){
+				sum+=i;
+			}
+			
+		}
+		document.write(sum);
+		
+		
+		
+		document.write("<hr color='black'>")
+		//通过break结束for循环
+		for (var i=1;i<=100;i++) {
+			if(i>60){
+				break;
+			}
+			document.write(i+"<br/>")
+		}
+		
+		
+		
+		</script>
+		<script type="text/javascript">
+			
+			document.write("<hr color='black'/>")
+			document.write("<table border='1' cellpadding='0' cellspacing='0' bgcolor='aqua' width='100%'>")
+			for (var i=1;i<=9;i++) {
+				document.write("<tr>")
+				for(var j=1;j<=i;j++){
+					document.write("<td>"+i+"x"+j+"="+(i*j)+"</td>")
+				}
+				document.write("</tr>")
+			}
+			
+			
+			
+			document.write("</table>")
+		</script>
+		<script>
+		var a=5;
+			var b=100%7;
+			var sund=( (++a) + 3 ) / (2 - (--b) ) * 3;
+			document.write(sund);
+		</script>
+	</body>
+</html>

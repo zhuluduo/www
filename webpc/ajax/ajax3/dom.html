@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ajax</title>
+		<script src="jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--<script type="text/javascript">
+			var xhr;
+			if (window.XMLHttpRequest) {
+				xhr=new XMLHttpRequest();//ie7以后
+			} else{
+				xhr=new ActiveXObject('Microsoft.XMLHTTP')//ie5,ie5
+			}
+			alert(xhr);
+		</script>-->
+		<!--<script type="text/javascript">
+			var xhr;
+			if (XMLHttpRequest) {
+				xhr=new XMLHttpRequest
+			} else{
+				xhr=new ActiveXObject('Microsoft.XMLHTP')
+			}
+			alert(xhr);
+		</script>-->
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#btn").on("click",function(){
+					$.post("Server.php",{name:$("#namevalue").val()},function(date){
+						$("#result").text(date);
+					});
+				});
+				
+			});
+		</script>
+		<input type="text" name="namevalue" id="namevalue" value="" />
+	   <br />
+	   <button id="btn">Send</button>
+	   结果：<span id="result"></span>
+	</body>
+</html>

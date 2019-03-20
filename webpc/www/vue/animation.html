@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>关于Vue.js的v-for，key的顺序改变，影响过渡动画表现</title>
+		<script src="https://cdn.bootcss.com/vue/2.5.21/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	<style>
+		.itemlist-enter-active,
+		.itemlist-leave-active {
+		  transition: all 1s;
+		}
+
+		.itemlist-enter,
+		.itemlist-leave-active {
+		  opacity: 0;
+		}
+	</style>
+	</head>
+	<body>
+	<div id="vue_det">
+			<transition-group name="itemlist" >
+				<div class="list-item" v-for="(item,index) in noteContent" :key="item" class="list-item" @click="click(index)">
+					{{ item }}
+				</div>
+			</transition-group>
+	</div>
+	<script type="text/javascript">
+		var vm = new Vue({  //实例化 Vue 
+			el: '#vue_det',
+			data: {
+				noteContent: [1,2,3,4,5,6,7,8,9],
+				nextNum: 10
+			},
+			methods: {
+				click: function(index) {
+				  this.noteContent.splice(index, 1);
+				}
+			}
+		})
+	</script>
+	
+	<!-- 这样写出来的fadeout动画永远作用于最后一个元素而不是被点击元素 -->
+	<!-- 
+		当 Vue.js 用 v-for 正在更新已渲染过的元素列表时，它默认用 “就地复用” 策略。
+		如果数据项的顺序被改变，Vue将不是移动 DOM 元素来匹配数据项的顺序， 而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。
+		如果用index当key，v-for会重新渲染（但是不知道为什么动画一定作用于最后一个元素），所以，请保持key的唯一性，而且！不能改变！
+		 -->
+	</body>
+</html>

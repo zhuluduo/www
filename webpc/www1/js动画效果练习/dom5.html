@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div2 {
+				width: 200px;
+				height: 200px;
+				background: red;
+				filter: alpha(opacity: 30);
+				opacity: 0.3;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div2"></div>
+		<script type="text/javascript">
+			window.onload = function() {
+				var adiv = document.getElementById('div2');
+				adiv.onmousemove = function() {
+					azhu(100);
+				}
+				adiv.onmouseout = function() {
+					azhu(30);
+				}
+			}
+			var itime = null;
+			var alpha = 30;
+			function azhu(august) {
+				var adiv = document.getElementById('div2');
+				clearInterval(itime);
+				itime = setInterval(function() {
+					var speend = 0;
+					if(alpha>august) {
+						apeend = -10;
+					} else {
+						apeend = 10;
+					}
+					if(alpha == august) {
+						clearInterval(itime);
+					} else {
+//						
+                        alpha+=speend;
+						adiv.style.filter='alpha(opacity:'+alpha+')';
+						adiv.style.opacity=alpha/100;
+					}
+				}, 30)
+			}
+		</script>
+	</body>
+
+</html>

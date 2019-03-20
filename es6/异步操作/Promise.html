@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+</head>
+<body>
+	Promise 对象是 JavaScript 的异步操作解决方案，为异步操作提供统一接口。它起到代理作用（proxy），充当异步操作与回调函数之间的中介，使得异步操作具备同步操作的接口。
+	Promise 可以让异步操作写起来，就像在写同步操作的流程，而不必一层层地嵌套回调函数。
+	上面三种状态里面，fulfilled和rejected合在一起称为resolved（已定型）。
+	这三种的状态的变化途径只有两种。
+	从“未完成”到“成功”
+	从“未完成”到“失败”
+	一旦状态发生变化，就凝固了，不会再有新的状态变化。这也是 Promise 这个名字的由来，它的英语意思是“承诺”，一旦承诺成效，就不得再改变了。这也意味着，Promise 实例的状态变化只可能发生一次。
+	因此，Promise 的最终结果只有两种。
+	异步操作成功，Promise 实例传回一个值（value），状态变为fulfilled。
+	异步操作失败，Promise 实例抛出一个错误（error），状态变为rejected。
+	
+	
+	<script type="text/javascript">
+		const y = new Error('I was constructed via the "new" keyword!');
+		
+		//封装提示框
+		function errors(val){
+			return new Error('<div>'+val+'</div>');
+		}
+		console.log(errors('这是错误的'))
+//		console.log(`当前是第${i}次等待..`);
+
+		function avbs(){
+			let dateList={
+				name:1,
+				age:2
+			}
+			return dateList;
+		}
+		console.log(avbs().name)
+	</script>
+</body>
+</html>

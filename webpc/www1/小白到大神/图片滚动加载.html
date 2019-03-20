@@ -1,0 +1,117 @@
+<!doctype html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>jquery scrolling</title>  
+   <style>
+   	*{  
+    margin: 0;  
+    padding: 0;  
+}  
+/*wrapper*/  
+.wrapper{  
+    width: 500px;  
+    height: 5000px;  
+    margin: auto;  
+}  
+.img-box{  
+    width: 100%;  
+    margin-bottom: 20px;  
+    padding-bottom: 10px;  
+    height: 260px;  
+    text-align: center;  
+    border-bottom: 2px dashed #ccc;  
+}
+   </style>
+</head>  
+<body>  
+    <!--imgbox-->  
+    <div class="wrapper">  
+        <div class="img-box">  
+            <img src="https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=3cf9b0d50e082838770dda148898a964/d62a6059252dd42a33b21a610a3b5bb5c8eab844.jpg" />  
+        </div>  
+        <div class="img-box">  
+            <img src="https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=3cf9b0d50e082838770dda148898a964/d62a6059252dd42a33b21a610a3b5bb5c8eab844.jpg" />  
+        </div>  
+        <div  class="img-box">  
+            <img src="https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=3cf9b0d50e082838770dda148898a964/d62a6059252dd42a33b21a610a3b5bb5c8eab844.jpg" />  
+        </div>  
+        <div class="img-box">  
+            <img data-url="https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=854d1cce3d9b033b3388fada25cf3620/77c6a7efce1b9d16ac9d9babfadeb48f8d5464a5.jpg" src="img/pix.png" />  
+        </div>  
+        <div class="img-box">  
+            <img data-url="https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=854d1cce3d9b033b3388fada25cf3620/77c6a7efce1b9d16ac9d9babfadeb48f8d5464a5.jpg" src="img/pix.png" />  
+        </div>  
+        <div class="img-box">  
+            <img data-url="https://ss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=7579e0d02134349b6b066885f9eb1521/91ef76c6a7efce1bcd42c900a651f3deb58f658a.jpg" src="img/pix.png" />  
+        </div>  
+        <div class="img-box">  
+            <img data-url="https://ss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=7579e0d02134349b6b066885f9eb1521/91ef76c6a7efce1bcd42c900a651f3deb58f658a.jpg" src="img/pix.png" />  
+        </div>  
+        <div class="img-box">  
+            <img data-url="https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=a41f47f405f3d7ca13f63976c21ebe3c/2fdda3cc7cd98d103dd40cfb283fb80e7aec90f3.jpg" src="img/pix.png" />  
+        </div>  
+        <div class="img-box">  
+            <img data-url="https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=a41f47f405f3d7ca13f63976c21ebe3c/2fdda3cc7cd98d103dd40cfb283fb80e7aec90f3.jpg" src="img/pix.png" />  
+        </div>  
+        <div class="img-box">  
+            <img data-url="https://ss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=b58927092234349b6b066885f9eb1521/91ef76c6a7efce1b0db20ed9a551f3deb48f650c.jpg" src="img/pix.png" />  
+        </div>  
+        <div class="img-box">  
+            <img data-url="https://ss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=b58927092234349b6b066885f9eb1521/91ef76c6a7efce1b0db20ed9a551f3deb48f650c.jpg" src="img/pix.png" />  
+        </div>  
+        <div class="img-box">  
+            <img data-url="https://ss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=cbf0ac2b6bd9f2d33f1122ef99ed8a53/3bf33a87e950352a7658b6c25a43fbf2b2118b3b.jpg" src="img/pix.png" />  
+        </div>  
+        <div class="img-box">  
+            <img data-url="https://ss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=cbf0ac2b6bd9f2d33f1122ef99ed8a53/3bf33a87e950352a7658b6c25a43fbf2b2118b3b.jpg" src="img/pix.png" />  
+        </div>  
+        <div class="img-box">  
+            <img data-url="https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=79c9e83e58da81cb51e685cd6264d0a4/4bed2e738bd4b31c53a694718ed6277f9f2ff866.jpg" src="img/pix.png" />  
+        </div>  
+        <div class="img-box">  
+            <img data-url="https://ss2.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=f0287bd02134349b6b066885f9eb1521/91ef76c6a7efce1b48135200a651f3deb58f65c4.jpg" src="img/pix.png" />  
+        </div>  
+        <div class="img-box">  
+            <img data-url="https://ss3.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=886133f221381f3081198ba999004c67/6159252dd42a283422d537c152b5c9ea14cebf8c.jpg" src="img/pix.png" />  
+        </div>  
+        <div class="img-box">  
+            <img data-url="http://img0.imgtn.bdimg.com/it/u=365838049,1155045605&fm=27&gp=0.jpg" src="img/pix.png" />  
+        </div>  
+        <div class="img-box">  
+            <img data-url="http://img4.imgtn.bdimg.com/it/u=2164991854,3638595814&fm=27&gp=0.jpg" src="img/pix.png" />  
+        </div>  
+        <div class="img-box">  
+            <img data-url="http://img3.imgtn.bdimg.com/it/u=1845430766,3531971867&fm=27&gp=0.jpg" src="img/pix.png" />  
+        </div>  
+        <div class="img-box">  
+            <img data-url="http://img0.imgtn.bdimg.com/it/u=2818926284,1193855458&fm=27&gp=0.jpg" src="img/pix.png" />  
+        </div>  
+    </div>  
+  
+   <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+    	$(function(){  
+    var $wd = $(window),  
+        $img = $('img'),  
+        imgTop,          //图片距离顶部高度  
+        scTop,             //滚动条高度  
+        wH;           //窗口高度  
+    wH = $wd.height();         //获得可视浏览器的高度  
+    $wd.scroll( function() {  
+        scTop = $wd.scrollTop();       //获取滚动条到顶部的垂直高度  
+        $img.each(function(){  
+            imgTop =  $(this).offset().top;  
+            if(imgTop - wH < scTop &&     //图片必须出现在窗口底部上面  
+                imgTop - wH > 0 &&        //排除首页图片  
+                $(this).attr('src') != $(this).data('url')){          //排除已经加载过的图片  
+                   $(this).attr({  
+                       src: $(this).data('url')  
+                   });  
+            }  
+        });  
+    });  
+});  
+    </script>
+</body>  
+</html>  

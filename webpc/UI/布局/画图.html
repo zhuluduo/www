@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		.transparent-border {
+		  width: 100px;
+		  height: 100px;
+		  border: 10px solid rgba(0,0,0,0.2);
+		  background-color: blue;
+		  background-clip: padding-box; // border-box | padding-box
+		
+		}
+		.multiple-border {
+			width: 100px;
+			height: 100px;
+			margin: 20px;
+			box-shadow: 0 0 0 5px #655, 0 0 0 10px deeppink;
+			border-radius: 5px;
+		}
+			.22 {
+			  width: 100px;
+			  height: 100px;
+			  background: linear-gradient(#fb3 33.3%,#58a 0, #58a 66.6%, yellowgreen 0);
+			  background-size: 100% 45px;
+			  margin: 20px;
+			}
+			/* 方法一 */
+			.button { display: inline-block; background-color:#fb3; transform: skewX(-45deg); }
+			.button > span { display: inline-block; transform: skewX(45deg); }
+			/* 方法二	 */
+			.button {
+				position: relative;
+			/* 其他的文字颜色、内边距等样式…… */
+			}
+			.button::before {
+				content: ''; /* 用伪元素来生成一个矩形 */
+				position: absolute;
+				top: 0; right: 0; bottom: 0; left: 0;
+				z-index: -1;
+				background: #58a;
+				transform: skew(-45deg);
+			}
+			
+			.picture {
+				width: 25px;
+				height: 25px;
+				transform: rotate(45deg);
+				overflow: hidden;
+				margin: 20px;
+				background: #58a;
+			}
+			.picture > span {
+				display: inline-block;
+				transform: rotate(-45deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="transparent-border"></div> 
+		<!-- 多重边框 -->
+		<div class="multiple-border"></div> 
+		<!-- 条纹背景 -->
+		<div class="22"></div>
+		
+		<!-- 平行四边形 -->
+		<a href="#yolo" class="button">
+			<span>Click me</span>
+		</a>
+		
+		<!-- 菱形 -->
+		<div class="picture">
+			<span>Pic</span>
+		</div>
+	</body>
+</html>

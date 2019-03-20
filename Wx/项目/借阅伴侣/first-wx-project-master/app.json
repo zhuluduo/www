@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/alarm/alarm",
+    "pages/profile/profile",
+    "pages/logs/logs",
+    "pages/project/project",
+    "pages/common/blockSection",
+    "pages/env/env",
+    "pages/idc/idc",
+    "pages/equipment/equipment-add",
+    "pages/equipment/server"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#3366cc",
+    "navigationBarTitleText": "运维助手",
+    "navigationBarTextStyle": "#ffffff"
+  },
+  "tabBar": {
+    "color": "#BEBEBE",
+    "selectedColor": "#3366cc",
+    "backgroundColor": "#f2f2f2",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "img/home.png",
+        "selectedIconPath": "img/home-selected.png"
+      },
+      {
+        "pagePath": "pages/alarm/alarm",
+        "text": "告警",
+        "iconPath": "img/alert.png",
+        "selectedIconPath": "img/alert-selected.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我",
+        "iconPath": "img/me.png",
+        "selectedIconPath": "img/me-selected.png"
+      }
+    ]
+  }
+}

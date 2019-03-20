@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>delogin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #delogin {
+            position: relative;
+            z-index: 99;
+        }
+        
+        #mask {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #000;
+            filter: alpha(opacity=50);
+            -moz-opacity: 0.5;
+            -khtml-opacity: 0.5;
+            opacity: 0.5;
+        }
+        
+        #login {
+            position: fixed;
+            left: 30%;
+            top: 30%;
+            z-index: 1001;
+            border: 1px solid red;
+        }
+        
+        #login,
+        .loginCon {
+            width: 100px;
+            height: 100px;
+            border: 1px solid blue;
+        }
+        
+        #close {
+            background: red;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="delogin">打开弹框</button>
+
+    <script type="text/javascript">
+        var delogin = document.getElementById('delogin');
+
+        function cont() {
+            //获取页面宽高
+            var sHeight = document.documentElement.scrollHeight;
+            var sWidth = document.documentElement.scrollWidth;
+
+            //可视区域
+            var wHeight = document.documentElement.clientHeight;
+            var wWidth = document.documentElement.clientWidth;
+
+            //建立遮罩层
+            var oMask = document.createElement('div');
+            oMask.id = 'mask';
+            oMask.style.height = sHeight + 'px';
+            oMask.style.width = sWidth + 'px';
+            document.body.appendChild(oMask)
+
+            //登陆
+            var oLogin = document.createElement('div');
+            oLogin.id = 'login';
+            oLogin.innerHTML = "<div class='loginCon'><div id='close'>111</div></div>";
+            document.body.appendChild(oLogin);
+
+            //获取弹框宽高
+            var dHeight = oLogin.offsetHeight;
+            var dWidth = oLogin.offsetWidth;
+            oLogin.style.left = (sWidth - dWidth) / 2 + 'px';
+            oLogin.style.top = (wHeight - dHeight) / 2 + 'px';
+
+            var oClose = document.getElementById('close');
+            oMask.onclick = oClose.onclick = function() {
+                document.body.removeChild(oMask)
+                document.body.removeChild(oLogin)
+            }
+        }
+        delogin.onclick = function() {
+            cont()
+        }
+    </script>
+</body>
+
+</html>

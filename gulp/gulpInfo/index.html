@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rem</title>
+</head>
+
+<body>
+    <script>
+        //获取视窗宽度
+        let htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+        console.log(htmlWidth)
+
+        //获取视窗高度
+        let htmlDome = document.getElementsByTagName('html')[0];
+        htmlDome.style.fontSize = htmlWidth / 10 + 'px'
+    </script>
+</body>
+
+</html>

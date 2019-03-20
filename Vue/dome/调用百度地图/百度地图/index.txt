@@ -1,0 +1,77 @@
+var point = new BMap.Point(116.404, 39.915);
+
+1.new BMap.Marker(new BMap.Point(116.404, 39.915)) ------标注
+
+2.new BMap.Polyline([
+		new BMap.Point(116.399, 39.910),
+		new BMap.Point(116.405, 39.920),
+		new BMap.Point(116.425, 39.900)
+	], {strokeColor:"blue", strokeWeight:6, strokeOpacity:0.5})) ----折线图
+
+2-2.new BMap.Polygon([
+		new BMap.Point(116.387112,39.920977),
+		new BMap.Point(116.385243,39.913063),
+		new BMap.Point(116.394226,39.917988),
+		new BMap.Point(116.401772,39.921364),
+		new BMap.Point(116.41248,39.927893)
+	], {strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5}); ----多边形
+
+3.new BMap.Circle(point,100)  -----圆(100表示半径)
+
+
+map.addOverlay(polygon);   ---增加图形
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <el-container>
+      <!-- <v-header></v-header> -->
+      <el-header id="header">智慧地球管理后台</el-header>
+      <el-container>
+          <!-- 左侧导航Start -->
+          <!-- $router.options.routes -->
+        <div id="nav">
+          <div class="nav_L">
+           <div id="navToggle" @click="collapseToggle(isCollapse)" ></div>
+            <el-menu :unique-opened="true" :default-active="$route.path" theme="dark" router  class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+              <template v-for="(parent,index) in $router.options.routes" v-if="parent.menuShow">
+                <el-submenu  v-if="!parent.leaf" :index="index+''"  class="navSelect">
+                <template slot="title">
+                  <i class="el-icon-location"></i>
+                  <span slot="title">{{parent.name}}</span>
+                </template>
+                <el-menu-item-group class="navSelectBox">
+                  <el-menu-item v-for="child in parent.children" :key="child.path"  :index="child.path" v-if="child.menuShow">{{child.name}}</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
+              <!-- 设置leaf: true后只会显示一个导航栏 -->
+              <el-menu-item  v-if="parent.leaf" :index="index">
+                <i class="el-icon-menu"></i>
+                <span slot="title">导航二</span>
+              </el-menu-item>
+              </template>
+            </el-menu>
+          </div>
+        </div>
+          <!-- 左侧导航End -->
+        <el-container class="content_box">
+          <el-main>
+              <router-view></router-view>
+          </el-main>
+          <el-footer id="footer">Copyright © 2014 - 2018  <span>深圳爱致科技有限公司</span> 版权所有</el-footer>
+        </el-container>
+      </el-container>
+    </el-container>

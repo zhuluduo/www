@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>switch</title>
+<script type="text/JavaScript">
+
+
+function b(){
+ var myweek =document.getElementById("a").value;//myweek表示星期几变量
+if(myweek==1||myweek==2){
+  alert("学习理念知识");  
+}
+else if(myweek==3||myweek==4){
+    alert("到企业实践");
+}
+else if(myweek==5){
+    alert("总结经验");
+}
+else if(myweek==6||myweek==7){
+    alert("周六、日休息和娱乐");
+}
+ else{
+     alert("放假");
+ }
+ }
+
+
+
+/*
+var myweek=3
+ switch (myweek)
+{
+ case 1:
+ case 2:
+ document.write("学习理念知识");
+ break;
+ case 3:
+ case 4:
+ document.write("到企业实践");
+ break;
+  case 5:
+ document.write("总结经验");
+ break;
+ case 6:
+ case 7:
+ document.write("周六、日休息和娱乐");
+ break;
+ default:
+ document.write("出现错误了哦！")
+*/
+
+</script>
+</head>
+<body>
+<div>情输入工作日：</div>
+<input type="text" id="a">
+<input type="button" value="查看工作安排" onclick="b()">
+
+<script type="text/javascript">
+var infos = [
+    ['小A','女',21,'大一'],
+	['小B','男',23,'大三'],
+	['小C','男',24,'大四'],
+	['小C','男',24,'大四'],
+	['小D','女',21,'大一'],
+	['小E','女',22,'大四'],
+	['小F','男',21,'大一'],
+	['小G','女',22,'大二'],
+	['小H','女',20,'大三'],
+	['小I','女',20,'大一'],
+	['小J','男',20,'大三']
+];
+for(var i = 0; i < infos.length; i++) {
+	if(infos[i][3] === "大一") {
+		document.write(infos[i]+ "<br />");
+	}
+}
+for(var i = 0; i < infos.length; i++) {
+	if(infos[i][1] === "女"&&infos[i][3] === "大一") {
+		document.write(infos[i]+ "<br />");
+	}
+}
+
+</script>
+<hr/>
+<script type="text/javascript">
+
+var infos=[['小A','女','21','大一'],['小B','男','23','大三'],['小C','男','24','大四'],['小D','女','21','大一'],
+           ['小E','女','22','大二'],['小F','男','21','大一'],['小G','女','22','大二'],['小H','女','20','大三'],
+           ['小I','女','20','大一'],['小J','男','20','大三']];//第一步把之前的数据写成一个数组的形式,定义变量为 infos
+var arr=new Array();
+var n=0;
+for(var i=0;i<infos.length;i++){
+   if(infos[i][3]=='大一'){
+     document.write(infos[i]+"<br />");  //第一次筛选，找出都是大一的信息
+     arr[n]=infos[i];
+     n++;
+   }
+}
+document.write("<br>"+"第二次筛选："+"<br>");
+for(var n=0;n<arr.length;n++){ 
+    	if(arr[n][1]=='女'){ 
+          document.write(arr[n][0]+"<br/>");
+        }
+}     
+
+//第二次筛选，找出都是女生的信息
+</script>
+</body>
+</html>
+</html>

@@ -1,0 +1,126 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery带二级下拉子栏目导航 - 站长素材</title>
+
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".mainlevel:has(div)").hover(function(){
+		$(this).children("div").stop(true,true).slideDown(300)
+	},function(){
+		$(this).children("div").stop(true,true).slideUp(1)
+	})
+});
+</script>
+
+</head>
+<body>
+
+<div class="content">
+
+	<div id="header">
+	
+		<div class="language"><a href="http://www.17sucai.com">返回首页</a><span>|</span><a href="http://www.17sucai.com">简体中文</a><span>|</span><a href="http://www.17sucai.com">English</a></div>
+		<div class="logo"><a href="http://www.17sucai.com"><img src="images/logo.png"></a></div>
+		
+		<div id="nav" class="nav">
+			<ul>
+				<li id="mainlevel_01" class="first-crl mainlevel">
+					<a class="nav-a" href="http://www.17sucai.com">走进西王</a> 
+					<div id="sub_01">
+						<ol>
+							<li><a href="http://www.17sucai.com">集团概况</a><a href="http://www.17sucai.com">组织架构</a><a href="http://www.17sucai.com">领导关怀</a></li>
+							<li><a href="http://www.17sucai.com">董事长风采</a><a href="http://www.17sucai.com">公司管理</a><a href="http://www.17sucai.com">社会关注</a></li>
+							<li><a href="http://www.17sucai.com">高管团队</a><a href="http://www.17sucai.com">发展历程</a><a href="http://www.17sucai.com">荣誉风采</a></li>
+						</ol>
+						<span class="nav-img"><img src="images/nav-img-01.jpg"></span>
+					</div>
+				</li>
+				<li id="mainlevel_02" class="mainlevel">
+					<a class="nav-a" href="http://www.17sucai.com">新闻资讯</a> 
+					<div id="sub_02">
+						<ol>
+							<li><a href="http://www.17sucai.com">通知公告</a><a href="http://www.17sucai.com">媒体播报</a></li>
+							<li><a href="http://www.17sucai.com">集团新闻</a><a href="http://www.17sucai.com">市场信息</a></li>
+							<li><a href="http://www.17sucai.com">企业动态</a></li>
+						</ol>
+						<span class="nav-img"><img src="images/nav-img-02.jpg"></span>
+					</div>
+				</li>
+				<li id="mainlevel_03" class="mainlevel">
+					<a class="nav-a" href="http://www.17sucai.com">产业领域</a> 
+					<div id="sub_03">
+						<ol>
+							<li><a href="http://www.17sucai.com">西王置业</a><a href="http://www.17sucai.com">西王特钢</a><a href="http://www.greatidc.com">禾城数码</a></li>
+							<li><a href="http://www.17sucai.com">西王药业</a><a href="http://www.17sucai.com">西王国贸</a><a href="http://www.17sucai.com">建站工具箱</a></li>
+						</ol>
+						<span class="nav-img"><img src="images/nav-img-03.jpg"></span>
+					</div>
+				</li>
+				<li id="mainlevel_04" class="mainlevel"><a class="nav-a" href="http://www.17sucai.com">发展战略</a> 
+					<div id="sub_04">
+						<ol>
+							<li><a href="http://www.17sucai.com">发展规划</a><a href="http://www.17sucai.com">战略合作</a></li>
+							<li><a href="http://www.17sucai.com">科技创新</a><a href="http://www.17sucai.com">品牌建设</a></li>
+							<li><a href="http://www.17sucai.com">桐乡网站建设</a></li>
+						</ol>
+						<span class="nav-img"><img src="images/nav-img-05.jpg"></span>
+					</div>
+				</li>
+				<li id="mainlevel_05" class="mainlevel">
+					<a class="nav-a" href="http://www.17sucai.com">企业文化</a> 
+					<div id="sub_05">
+						<ol>
+							<li><a href="http://www.17sucai.com">文化理念</a><a href="http://www.17sucai.com">新西王人报</a></li>
+							<li><a href="http://www.17sucai.com">文化建设</a><a href="http://www.17sucai.com">图画西王</a></li>
+							<li><a href="http://www.17sucai.com">文化活动</a><a href="http://www.17sucai.com">影像西王</a></li>
+						</ol>
+						<span class="nav-img"><img src="images/nav-img-04.jpg"></span>
+					</div>
+				</li>
+				<li id="mainlevel_06" class="mainlevel">
+					<a class="nav-a" href="http://www.17sucai.com">社会责任</a> 
+					<div id="sub_06">
+						<ol>
+						<li><a href="http://www.17sucai.com">新农村建设</a><a href="http://www.17sucai.com">循环经济</a></li>
+						<li><a href="http://www.17sucai.com">党团建设</a></li>
+						<li><a href="http://www.17sucai.com">公益事业</a></li>
+						</ol>
+						<span class="nav-img"><img src="images/nav-img-06.jpg"></span>
+					</div>
+				</li>
+				<li id="mainlevel_07" class="mainlevel">
+					<a class="nav-a" href="http://www.17sucai.com">人力资源</a> 
+					<div id="sub_07">
+						<ol>
+							<li><a href="http://www.17sucai.com">人才理念</a><a href="http://www.17sucai.com">招聘信息</a></li>
+							<li><a href="http://www.17sucai.com">人才建设</a></li>
+							<li><a href="http://www.17sucai.com">员工关爱</a></li>
+						</ol>
+						<span class="nav-img"><img src="images/nav-img-07.jpg"></span>
+					</div>
+				</li>
+				<li id="mainlevel_08" class="end-crl mainlevel">
+					<a class="nav-a" href="http://www.17sucai.com">投资者关系</a> 
+					<div id="sub_08">
+						<ol>
+							<li><a href="http://www.17sucai.com">西王食品</a><a href="http://www.17sucai.com">西王特钢</a></li>
+							<li><a href="http://www.17sucai.com">西王糖业</a></li>
+						</ol>
+						<span class="nav-img"><img src="images/nav-img-08.jpg"></span>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+
+</div>
+
+</body>
+</html>

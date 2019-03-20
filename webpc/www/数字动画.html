@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<style type="text/css">
+		#timeNumber{
+			width: 100px;
+			height:50px;
+			line-height: 50px;
+			border: 1px solid #03A9F4;
+			box-sizing: border-box;
+			display: block;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<span id="timeNumber">123</span>
+	<script type="text/javascript">
+		class times {
+			timesInfo(tim){
+				let timeNumber = document.getElementById('timeNumber');
+				let index = 0;
+				let tims = setInterval(()=>{
+					index++
+					timeNumber.innerText = index;
+					timeNumber.style.background = '#'+Math.floor(Math.random()*16777215).toString(16); //获取随机颜色
+					if(index==tim){
+						clearInterval(tims)
+					}
+				},10)
+				
+			}
+		}
+		let dataTime =new times();
+		dataTime.timesInfo(1000);
+	</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<style type="text/css">
+		body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 100vh;
+  perspective-origin: calc(50% + 10rem) calc(50% - 10rem);
+  perspective: 32em;
+  background: radial-gradient(#e5e5e5, #ddd);
+}
+
+[type='checkbox'] {
+  position: absolute;
+  left: -100vw;
+}
+[type='checkbox'] + label {
+  --s: 0;
+  position: relative;
+  border: solid 0.625rem #f0f0f0;
+  width: 10rem;
+  height: 5rem;
+  border-radius: 5rem;
+  transform-style: preserve-3d;
+  transform: rotatex(90deg) rotate(22.5deg) rotatey(22.5deg);
+  box-shadow: 0.5rem 0.875rem 0 -0.25rem #e0e0e0, 0.625rem 0.625rem 0 -0.25rem #e0e0e0, 0.5rem 0.875rem 0.625rem -0.125rem rgba(191, 191, 191, 0.75), inset 0.125rem -0.125rem 0.5rem rgba(245, 245, 245, 0.5), inset 0.75rem 0.75rem #dfdfdf, inset 0.75rem 0.75rem 0.75rem rgba(191, 191, 191, 0.85), inset 0 1rem 0.75rem rgba(191, 191, 191, 0.65);
+  color: transparent;
+  font-size: 0;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+[type='checkbox'] + label:before, [type='checkbox'] + label:after {
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  transition: 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+  content: "";
+}
+[type='checkbox'] + label:before {
+  top: calc(50% + .875rem);
+  transform-origin: 100% 0;
+  transform: translate(calc(var(--s)*(100% + 1rem))) scale(0.8) skewx(-22.5deg);
+  background: radial-gradient(at 50% 25%, rgba(160, 160, 160, 0.65), transparent 70%);
+  filter: blur(3px);
+}
+[type='checkbox'] + label:after {
+  top: .875rem;
+  left: .75rem;
+  transform: translate(calc(var(--s)*(100% + 1rem))) rotatey(-22.5deg) rotate(-22.5deg) rotatex(-90deg) translatey(-50%) rotate(45deg);
+  box-shadow: -1px 1px 0.125rem rgba(206, 255, 206, 0.5);
+  background: radial-gradient(at 0 50%, #52a066, transparent 2.5rem) 0 50%/65% 50% no-repeat, radial-gradient(at 50% 0%, #88d1a0 15%, #68b47d 35%, #66b47b, #77c28e 65%) 50%/200%;
+  filter: Grayscale(calc(1 - var(--s)));
+}
+[type='checkbox']:checked + label {
+  --s: 1 ;
+}
+
+	</style>
+</head>
+<body>
+	<input type='checkbox' id='c3d'/>
+<label for='c3d'>light</label>
+</body>
+</html>

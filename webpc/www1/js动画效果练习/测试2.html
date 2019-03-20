@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+						<style>
+body,div,span{
+margin:0;
+padding:0;
+}
+#div1{
+width: 200px;
+height: 200px;
+background:red;
+position:relative;
+left:-200px;
+top:0;
+}
+#div1 span{
+width: 20px;
+height: 50px;
+background: blue;
+position: absolute;
+left: 200px;
+top: 75px;
+}
+</style>
+	</head>
+	<body>
+		<div id="div1"><span id="share"></span></div>
+		<script type="text/javascript">
+			window.onload=function(){
+				var bdiv=document.getElementById('div1');
+				   bdiv.onmousemove=function(){
+				   	        august(0);
+				   }
+				   bdiv.onmouseout=function(){
+				   	     august(-200);
+				   }
+			}
+			var atim=null;
+			function august(itime){
+				clearInterval(atim);
+				var bdiv=document.getElementById('div1');
+				atim=setInterval(function(){
+					var speen=0;
+					if(bdiv.offsetLeft>itime){
+						speed=-5;
+					}else{
+						speed=5;
+					}
+					if(bdiv.offsetLeft==itime){
+						clearInterval(atim);
+					}else{
+						bdiv.style.left=bdiv.offsetLeft+speed+'px';
+					}
+					
+				})
+			}
+		</script>
+	</body>
+</html>

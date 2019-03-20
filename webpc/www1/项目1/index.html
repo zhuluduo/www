@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>单个练习</title>
+		<style>
+			/*input[type=checkbox]{
+				visibility: hidden;
+			}*/
+			#index-box{
+				width: 50px;
+				height: 25px;
+			}
+			.checkboxFour input[type=checkbox]:checked+label{
+				border: 1px solid darkblue;
+			}
+			.checkboxFour label{
+			  display: block;
+              width: 50px;
+              height: 25px;
+              border: 1px solid red;
+              top: 5px;
+              left: 5px;
+			}
+			.checkboxFour{float: left;}
+		</style>
+	</head>
+	<body>
+		<!--九九乘法表-->
+		<script type="text/javascript">
+			document.write("<table border='1' cellpadding='0' cellspacing='0'>")
+			 for (var i=1;i<=9;i++) {
+			 	document.write("<tr>");
+			      for (var j=1;j<=i;j++) {
+			  	    document.write("<td>"+i+"x"+j+"="+(i*j)+"</td>")
+			  }
+			 	document.write("</tr>");
+			 }
+			
+			document.write("</table>");
+		</script>
+		<hr/>
+		<!--选中效果-->
+		<label id="index-radio">选取理由</label><br/>
+		<div class="cateration">
+			<div class="checkboxFour">
+           <input type="checkbox" name="box" value="" onclick="pitch()" id="index-box">
+           <label for="index-box">1</label>
+            </div>
+		<div class="checkboxFour">
+           <input type="checkbox" name="box" value="" onclick="pitch()" id="index-box">
+           <label for="index-box">2</label>
+            </div>
+            <div class="checkboxFour">
+           <input type="checkbox" name="box" value="" onclick="pitch()" id="index-box">
+           <label for="index-box">3</label>
+            </div>
+            <div class="checkboxFour">
+           <input type="checkbox" name="box" value="" onclick="pitch()" id="index-box">
+           <label for="index-box">4</label>
+            </div>
+            <div class="checkboxFour">
+           <input type="checkbox" name="box" value="" onclick="pitch()" id="index-box">
+           <label for="index-box">5</label>
+            </div>
+		
+		</div>
+		<script type="text/javascript">
+			function pitch(){
+				var pitchon=0;
+				var onpitch=document.getElementsByName('box');
+				for (var i=0;i<onpitch.length;i++) {
+					if(onpitch[i].checked){
+						pitchon++;
+					}
+				}
+				document.getElementById('index-radio').innerHTML="你选择了"+pitchon+"项";
+				if(pitchon==""){
+					document.getElementById('index-radio').innerHTML="选取理由";
+				}
+			}
+		</script>
+	</body>
+</html>

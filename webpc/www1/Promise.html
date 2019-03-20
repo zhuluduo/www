@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function wash(data){
+		    console.log('开始洗碗：' + data);
+		    var p = new Promise(function(resolve, reject){        //做一些异步操作
+		        setTimeout(function(){
+		            console.log('洗碗完毕!');
+		            resolve('干净的碗筷');
+//		            reject('烧焦的米饭');
+		        }, 2000);
+		    });
+		    return p;
+		}
+		wash('qweqqwqw').then((res)=>{
+			console.log(res)
+			throw new Error('米饭被打翻了！');
+//			new Error 
+		}).catch((data)=>{
+			console.log('223'+data)
+		})
+	</script>
+</body>
+</html>

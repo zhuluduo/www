@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			#NoticeCont{
+			   width: 1600px;
+			   height: 30px;
+			   position: relative;
+			   overflow: hidden;
+			}
+			#NoticeCont ul{
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			#NoticeCont li{
+				float: left;
+				list-style: none;
+				display: inline-block;
+				margin-right:100px;
+				height: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="Notice-cont" id="NoticeCont">
+			<ul>
+				<li>1111111111</li>
+				<li>2222222222</li>
+				<li>3333333333</li>
+				<li>4444444444</li>
+				<li>5555555555</li>
+				<li>6666666666</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+		function scrollLeft(ID,times){
+			var oDiv = document.getElementById(ID);
+			var oUl = oDiv.getElementsByTagName("ul")[0];
+			var aLi = oUl.getElementsByTagName("li");
+			var timeInfo=times!=undefined?times:64;
+			var speed=3;
+			setTimeout(function(){
+				if(aLi[0]!=undefined){
+					oUl.innerHTML += oUl.innerHTML;
+					oUl.style.width = aLi[0].offsetWidth * aLi.length + "px";
+					function move() {
+					  if (oUl.offsetLeft < -oUl.offsetWidth / 2) {
+						oUl.style.left = 0
+					  }
+					  if (oUl.offsetLeft > 0) {
+						oUl.style.left = oUl.offsetWidth / 2 + "px"
+					  }
+					  oUl.style.left = oUl.offsetLeft - speed + "px"
+					}
+					var timer = setInterval(move, timeInfo)
+					oDiv.onmousemove = function () {
+					  clearInterval(timer)
+					}
+					oDiv.onmouseout = function () {
+					  timer = setInterval(move, timeInfo)
+					}
+				}
+			},800)
+		}
+		scrollLeft('NoticeCont')
+		</script>
+	</body>
+</html>

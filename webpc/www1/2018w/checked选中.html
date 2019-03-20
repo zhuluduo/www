@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js">
+</script>
+<style>
+*{margin: 0 auto;}
+</style>
+	</head>
+	<body>
+		<input type="checkbox" name="checkbox[]" value="" onClick="fun()"> 选项1
+<input type="checkbox" name="checkbox[]" value="" onClick="fun()"> 选项2
+<input type="checkbox" name="checkbox[]" value="" onClick="fun()"> 选项3<br>
+<input type="checkbox" name="checkbox[]" value="" onClick="fun()"> 选项4
+<input type="checkbox" name="checkbox[]" value="" onClick="fun()"> 选项5
+<input type="checkbox" name="checkbox[]" value="" onClick="fun()"> 选项6<br>
+ <input name="textfield" id="hj2" type="text" size="5" value="">项
+
+<script type="text/javascript">
+	function fun(){
+		var n = 0;
+	var checks = document.getElementsByName("checkbox[]");
+	for(var i=0;i<checks.length;i++){
+		if(checks[i].checked)
+			n++;
+	}
+//	alert("选中项目数为："+n);
+//document.write('<div class=zhu>'+n+'</div>')
+document.getElementById('hj2').value =n;
+}
+</script>
+
+<hr color="#B8860B"/>
+<script>
+function count() 
+{
+var nums = 0;
+var chk = document.getElementsByName('xz');
+for (var i = 0; i < chk.length; i++) {
+if(chk[i].checked){
+nums++;	
+}
+}
+document.getElementById('hj').value = nums;
+}
+</script>
+<form name="form" method="post" action="">
+您选择了 <input  id="hj" >项
+<input type="checkbox" name="xz" value="" onClick="count()" >A
+<input type="checkbox" name="xz" value="" onClick="count()">B
+<input type="checkbox" name="xz" value="" onClick="count()">C
+<input type="checkbox" name="xz" value="" onClick="count()">D
+</form>
+
+
+<!--<ul>
+ <li><input type="checkbox" name="test" />看电视</li>
+ <li><input type="checkbox" name="test" />看电影</li>
+ <li><input type="checkbox" name="test" />上网</li>
+ <li><input type="checkbox" name="test" />爬山</li>
+ <li><input type="checkbox" name="test" />游乐场</li>
+ <li><input type="checkbox" name="test" />逛街</li>
+ <li><input type="checkbox" name="test" />聚会</li>
+</ul>
+<p>
+<input type="button" id="count" value="有多少CheckBox被选中了？" />
+<script type="text/javascript">
+$(document).ready(function(){
+  $('input[type=checkbox]').click(function(){
+    $(this).attr('disabled','disabled');
+    if($("input[name='test']:checked").length >= 3)
+    {
+      $("input[name='test']").attr('disabled','disabled');
+    }
+  });
+  $("#count").click(function(){
+    $('input').live('click',function(){ 
+      alert($('input:checked').length); 
+    });
+  })
+})
+</script>-->
+<!--<input type="checkbox" checked="checked">python<br> 
+<input type="checkbox" checked="checked">java<br> 
+<input type="checkbox" >jquery<br> 
+<input type="checkbox" >phpddt.com<br> 
+<script src="jquery.js"></script> 
+<script> 
+$(function(){ 
+$("input[type='checkbox']").bind("click",function(){document.write($("input[type='checkbox']:checked").length);}); 
+}); 
+</script>  -->
+
+ <hr color="aquamarine"/>
+ <div class="man" style="width: 100%;height: 60px;border: 1px solid blueviolet;">
+ 	<label id="shu" style="width: 30%;height: 20px;border: 1px solid firebrick;">是否取消</label>
+ 	<label id="su" style="width: 30%;height: 20px;border: 1px solid firebrick;float: right;">不感兴趣</label>
+ 	<div class="man2" style="width: 70%;border: 1px solid burlywood;margin: auto;">
+ 		
+ 		<input type="checkbox" name="zhu" value="" onclick="calea()">数组1
+ 		<input type="checkbox" name="zhu" value="" onclick="calea()">数组2
+ 		<input type="checkbox" name="zhu" value="" onclick="calea()">数组3
+ 		<input type="checkbox" name="zhu" value="" onclick="calea()">数组4
+ 		<input type="checkbox" name="zhu" value="" onclick="calea()">数组5
+ 		<input type="checkbox" name="zhu" value="" onclick="calea()">数组6
+ 	</div>
+   
+
+<script>
+function calea() 
+{
+var nus = 0;
+var ch = document.getElementsByName('zhu');
+for (var i = 0; i < ch.length; i++) {
+if(ch[i].checked){
+nus++;	
+}
+}
+document.getElementById('shu').innerHTML ="你选取了"+ nus+"项";
+if(nus>=1){
+	document.getElementById('su').innerHTML ="<div style='background: blueviolet;'>我确定不感兴趣</div>";
+}else if(nus==" "){
+	document.getElementById('shu').innerHTML ="是否取消!";
+	document.getElementById('su').innerHTML ="不感兴趣!";
+}
+
+}
+</script>
+
+
+
+
+	</body>
+</html>

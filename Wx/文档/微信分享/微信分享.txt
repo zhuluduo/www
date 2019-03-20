@@ -1,0 +1,121 @@
+<?php
+include_once('../php/Share.class.php');
+$share=new share();
+$result_signa=$share->getSigna();
+$signa_arr=array();
+$signa_arr=unserialize($result_signa);
+//print_r($signa_arr);
+$str=$signa_arr['str'];
+$signature=$signa_arr['signature'];
+?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>测试你是情场高手吗？</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=0.3, user-scalable=no, minimum-scale=0.3, maximum-scale=0.3"/> 
+    
+
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+	
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	
+	
+	<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+	<!-- <link rel="stylesheet" href="css/bootstrap-theme.min.css" type="text/css"></link> -->
+
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件-->
+
+	<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script><!--引入微信JS-->
+	<script type="text/javascript" src="../js/weixin.js"></script>
+	
+	</div>
+	
+  </head>
+  <body>
+
+  </body>
+  
+ <script type="text/javascript">
+	/*function GetQueryString(name)
+	{
+		var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if(r!=null)return  unescape(r[2]); return null;  
+	}
+	
+    if( GetQueryString("from") != "vhi99.com")
+    {
+		window.open('./0.html','_self','','true');
+	}*/
+	wx.config({
+		debug: false,
+		appId: "wx311eec75c3a873f4",
+		timestamp: "<?php echo time() ?>",
+		nonceStr: "<?php echo $str ?>",
+		signature: "<?php echo $signature ?>",
+		jsApiList: [
+			'checkJsApi',
+			'onMenuShareTimeline',
+			'onMenuShareAppMessage',
+			'onMenuShareQQ',
+			'onMenuShareWeibo'
+		]
+	});
+	var imgcontent=document.getElementById("imgcontent").src;
+	//alert(imgcontent);
+	wx.ready(function () {
+		var pcontent=$('p').eq(1).text();
+		
+		wx.checkJsApi({
+			jsApiList: [
+				'onMenuShareTimeline',
+				'onMenuShareAppMessage',
+			]
+		});
+		wx.onMenuShareTimeline({					
+			title: pcontent,
+			link: 'http://game.vhi99.com/thyy/html',
+			imgUrl: imgcontent,
+			trigger: function (res) {
+				//alert('用户点击分享到朋友圈');
+			},
+			success: function (res) {
+				//alert('已分享');
+			},
+			cancel: function (res) {
+				//alert('已取消');
+			},
+			fail: function (res) {
+				alert('wx.onMenuShareTimeline:fail: '+JSON.stringify(res));
+			}
+		});
+		wx.onMenuShareAppMessage({
+			title: '谈恋爱时我只会被撩，容易被勾引', // 分享标题
+			desc: '现在撩妹子或者撩汉子之风盛行，有的人是情场老手，不经意间的言行举止，就能撩动人的心间，如果专心专意去撩一个人，那也是没有会失手的。你也来测一测', // 分享描述
+			link: 'http://game.vhi99.com/thyy/html/B.php', // 分享链接
+			imgUrl: imgcontent, // 分享图标
+			type: 'link', // 分享类型,music、video或link，不填默认为link
+			dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+			trigger: function () { 
+			// 用户确认分享后执行的回调函数
+			},
+			success: function () { 
+			// 用户确认分享后执行的回调函数
+			},
+			cancel: function () { 
+			// 用户取消分享后执行的回调函数
+			}
+		});
+	});
+	wx.error(function (res) {
+		alert('wx.error: '+JSON.stringify(res));
+	});
+	</script>
+</html>

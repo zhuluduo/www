@@ -1,0 +1,108 @@
+<view class="main">
+    <view class="video-box">
+
+        <view class="player">
+            <video id="myVideo" src="{{playerUrl}}" controls autoplay="{{true}}" bindended="{{next}}" bindended="{{next}}" bindpause="{{stop}}">
+            </video>
+        </view>
+
+        <view class="options-box">
+            <view class="watch-num">
+                <image src="/images/options/c-icon-playAmount.png" bindtap="openDesc"></image>
+                <text>1.0亿</text>
+            </view>
+
+            <view class="share">
+                <image src="/images/options/c-icon-share.png"></image>
+                <text>分享</text>
+            </view>
+            <view class="collect">
+                <image src="/images/options/collect.png"></image>
+                <text>收藏</text>
+            </view>
+        </view>
+    </view>
+    <block wx:if="{{isLoading}}">
+        <view class="lodingIcon">
+            <image src="/images/c-icon-loading.gif"></image>
+        </view>
+    </block>
+    <block wx:if="{{!isLoading}}">
+        <view class="video-info">
+            <view class="title-box">
+                <view class="title">{{mediaList.title}}</view>
+                <image class="fr {{isDescHidden?'topIcon':''}}" src="../../../images/c-icon-bottom.png"></image>
+                <view class="video-desc">{{mediaList.updateTime}}</view>
+
+            </view>
+
+            <view class="series">
+                <view class="series-hd">
+                    <view class="fl">剧集</view>
+                    <image class="fr" src="../../../images/c-icon-arrow.png"></image>
+                    <view class="fr update-info" bindtap="openList">更新至{{mediaList.drama_num.length}}集/共{{mediaList.update}}集</view>
+
+                </view>
+
+                <scroll-view scroll-x="true">
+                    <view class="video-num" wx:for="{{mediaList.drama_num}}" wx:key="{{drama_num}}">
+                        <text bindtap="changenum" data-num="{{index}}" style="display:inline-block;width: 100%;height: 100%;" wx:if="{{!item.selected}}">{{index+1}}</text>
+                        <image src="../../../images/c-icon-play-s.png" wx:if="{{item.selected}}"></image>
+                    </view>
+                </scroll-view>
+            </view>
+
+            <view class="actor">
+                <view class="actor-hd">
+                    <view class="fl">参演明星</view>
+                    <image class="fr" src="../../../images/c-icon-arrow.png"></image>
+                    <view class="fr update-info">明星up榜</view>
+                </view>
+
+                <scroll-view scroll-x="true">
+                    <view class="actor-pic" wx:for="{{mediaList.actor}}" wx:key="{{actor}}">
+                        <image src="{{item.actor_pic}}"></image>
+                        <text>{{item.name}}</text>
+                    </view>
+                </scroll-view>
+            </view>
+
+            <view class="recommend">
+                <view class="recommend-hd">
+                    <view class="fl">精彩看点</view>
+                </view>
+
+                <scroll-view scroll-x="true">
+                    <view class="recommend-video" wx:for="{{mediaList.recommend_video}}" wx:key="{{recommend_video}}">
+                        <image src="{{item.thumbnail}}" bindtap="changevideo" data-num="{{index}}"></image>
+                        <image src="../../../images/c-icon-selectedPlay.png" wx:if="{{item.selected}}" class="playIcon"></image>
+                        <view class="{{item.selected?'pick':''}}">{{item.desc}}</view>
+                    </view>
+                </scroll-view>
+
+            </view>
+        </view>
+    </block>
+    <!-- 剧集 -->
+
+    <view class="series-all {{isListHidden?'hidden':''}}">
+        <view class="series-all-hd">
+            <view class="fl">剧集</view>
+            <image class="fr" bindtap="closeList" src="../../../images/c-icon-close.png"></image>
+        </view>
+        <scroll-view scroll-y="true">
+            <view class="series-list">
+                <view class="video-num " wx:for="{{mediaList.drama_num}}">
+                    <text bindtap="changenum" data-num="{{index}}" wx:if="{{!item.selected}}">{{index+1}}</text>
+                    <image src="../../../images/c-icon-play-s.png" wx:if="{{item.selected}}"></image>
+                </view>
+            </view>
+        </scroll-view>
+
+    </view>
+    <view class="desc-all {{isDescHidden?'hidden':''}}">
+        <text>主演</text><text>唐嫣、罗晋</text>
+        <text>看点</text><text>偶像剧</text>
+        <text>本集简介</text><text>偶像剧、科幻剧</text>
+    </view>
+</view>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>css动画里的steps帧</title>
+	<style type="text/css">
+	.hi {
+    width: 50px;
+    height: 72px;
+    background-image: url("http://s.cdpn.io/79/sprite-steps.png");
+    
+    -webkit-animation: play .8s steps(10,end) infinite;
+       -moz-animation: play .8s steps(10,end) infinite;
+        -ms-animation: play .8s steps(10,end) infinite;
+         -o-animation: play .8s steps(10,end) infinite;
+            animation: play .8s steps(10,end) infinite;
+	}
+	
+	@-webkit-keyframes play {
+	   from { background-position:    0px; }
+	     to { background-position: -500px; }
+	}
+	
+	@-moz-keyframes play {
+	   from { background-position:    0px; }
+	     to { background-position: -500px; }
+	}
+	
+	@-ms-keyframes play {
+	   from { background-position:    0px; }
+	     to { background-position: -500px; }
+	}
+	
+	@-o-keyframes play {
+	   from { background-position:    0px; }
+	     to { background-position: -500px; }
+	}
+	
+	@keyframes play {
+	   from { background-position:    0px; }
+	     to { background-position: -500px; }
+	}
+	</style>
+</head>
+<body>
+	<img src="http://s.cdpn.io/79/sprite-steps.png" />
+	<div class="hi"></div>
+</body>
+</html>

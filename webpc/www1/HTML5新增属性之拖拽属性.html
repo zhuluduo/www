@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+<body>
+
+<p class="container">
+
+     container
+
+</p>
+
+<p class="boxList">
+
+    <p class="box" draggable="true">box-1</p>
+
+    <p class="box" draggable="true">box-2</p>
+
+    <p class="box" draggable="true">box-3</p>
+
+    <p class="box" draggable="true">box-4</p>
+
+    <p class="box" draggable="true">box-5</p>
+
+    <p class="box" draggable="true">box-6</p>
+
+    <p class="box" draggable="true">box-7</p>
+
+</p>
+
+<p class="alert"/>
+
+ <script>
+
+    var container = document.getElementsByClassName('container')[0];
+
+    var boxList = document.getElementsByClassName('boxList')[0];
+
+    var boxes =  document.getElementsByClassName('box');
+
+    var listLength = boxes.length;
+
+    var targetDropEle=null;
+
+    (function () {
+
+        for(let i=0;i<listLength;i++){
+
+            boxes[i].ondragstart = function (ev) {
+
+                ev.dataTransfer.effectAllowed = "move";
+
+                ev.dataTransfer.setDragImage(ev.target, 0, 0);
+
+                ev.dataTransfer.setData("Text",i+1);
+
+//                dataTransfer.setData() 方法设置被拖数据的数据类型和值
+
+//                数据类型是text，值是可拖动元素的innerHTML
+
+                targetDropEle = ev.target;
+
+                showAlter("ondragstart")
+
+            }
+
+            boxes[i].ondragend = function(ev) {
+
+                /*拖拽结束*/
+
+                ev.dataTransfer.clearData("Text");
+
+                targetDropEle = null;
+
+                showAlter("ondragend");
+
+                return false
+
+            };
+
+            boxes[i].ondragover = function () {
+
+                /*拖拽元素进入目标元素上移动*/
+
+                showAlter("ondragover");
+
+                event.preventDefault();
+
+//            默认地，无法将数据/元素放置到其他元素中。如果需要设置允许放置，我们必须阻止对元素的默认处理方式;
+
+ 
+
+            }
+
+            boxes[i].ondragenter = function (ev) {
+
+                showAlter("ondragenter");
+
+                /*拖拽元素进入目标元素*/
+
+            }
+
+            boxes[i].ondrop = function (ev) {
+
+                /*拖拽元素进入目标元素头上，同时鼠标松开的时候*/
+
+                if(targetDropEle){
+
+                    ev.preventDefault();
+
+//                调用 preventDefault() 来避免浏览器对数据的默认处理（drop 事件的默认行为是以链接形式打开）
+
+                    showAlter("ondrop");
+
+                    ev.target.parentNode.insertBefore(targetDropEle,ev.target);
+
+                }
+
+            }
+
+ 
+
+        }
+
+        container.ondragover = function () {
+
+            /*拖拽元素进入目标元素上移动*/
+
+            showAlter("ondragover");
+
+            event.preventDefault();
+
+//            默认地，无法将数据/元素放置到其他元素中。如果需要设置允许放置，我们必须阻止对元素的默认处理方式;
+
+ 
+
+        }
+
+        container.ondragenter = function (ev) {
+
+            showAlter("ondragenter");
+
+            /*拖拽元素进入目标元素*/
+
+            ev.target.style.opacity=0.5
+
+ 
+
+        }
+
+        container.ondrop = function (ev) {
+
+            /*拖拽元素进入目标元素头上，同时鼠标松开的时候*/
+
+            if(targetDropEle){
+
+                ev.preventDefault();
+
+//                调用 preventDefault() 来避免浏览器对数据的默认处理（drop 事件的默认行为是以链接形式打开）
+
+                showAlter("ondrop");
+
+//                let number=ev.dataTransfer.getData("Text");
+
+//                if(number%2==0){
+
+//                    return false;
+
+//                }
+
+                targetDropEle.parentNode.removeChild(targetDropEle);
+
+                container.appendChild(targetDropEle);
+
+                ev.target.style.opacity=1;
+
+            }
+
+        }
+
+    })();
+
+    function showAlter(content) {
+
+        setTimeout(function () {
+
+            document.getElementsByClassName('alert')[0].style.display="none"
+
+        },1000)
+
+        document.getElementsByClassName('alert')[0].innerHTML=content;
+
+        document.getElementsByClassName('alert')[0].style.display="block"
+
+        console.log(content);
+
+    }
+
+</script>
+
+</body>
+</html>

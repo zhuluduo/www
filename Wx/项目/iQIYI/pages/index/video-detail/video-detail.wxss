@@ -1,0 +1,265 @@
+page {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    font-size: 25rpx;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.player {
+    height: 422rpx;
+}
+
+.player video {
+    width: 100%;
+    height: 100%;
+}
+
+.options-box {
+    height: 115rpx;
+    border-bottom: none;
+    box-sizing: border-box;
+}
+
+.options-box view {
+    display: inline-block;
+    font-size: 24rpx;
+    color: #999;
+    height: 100%;
+}
+
+.options-box .watch-num {
+    padding-top: 37rpx;
+    padding-left: 30rpx;
+}
+
+.options-box .share,
+.options-box .collect {
+    margin: 0 31rpx;
+    float: right;
+    height: 60rpx;
+    width: 40rpx;
+    font-size: 18rpx;
+    padding-top: 27rpx;
+}
+
+.options-box .share text,
+.options-box .collect text {
+    display: block;
+    /* height: 18rpx; */
+}
+
+.watch-num image {
+    height: 24rpx;
+    width: 24rpx;
+    margin: 2rpx 14rpx 0 2rpx;
+}
+
+.collect image,
+.share image {
+    height: 40rpx;
+    width: 40rpx;
+}
+
+.lodingIcon {
+    width: 100%;
+    text-align: center;
+}
+
+.lodingIcon image {
+    height: 50rpx;
+    width: 50rpx;
+}
+
+
+/* .video-info {
+    height: 418rpx;
+} */
+
+.title-box {
+    height: 153rpx;
+    border-bottom: 2px solid #e6e6e6;
+}
+
+.title-box .title {
+    font-size: 33rpx;
+    color: #333333;
+    font-weight: 900;
+    /* letter-spacing: 7rpx; */
+    padding: 31rpx 35rpx 0;
+    display: inline-block;
+}
+
+.title-box image {
+    height: 21rpx;
+    width: 50rpx;
+    padding: 50rpx 35rpx 0;
+}
+
+.title-box .video-desc {
+    color: #999;
+    padding: 10rpx 35rpx 0;
+}
+
+.series {
+    height: 270rpx;
+    border-bottom: 2px solid #e6e6e6;
+}
+
+.series .series-hd,
+.series-all .series-all-hd,
+.actor .actor-hd,
+.recommend .recommend-hd {
+    height: 104rpx;
+    padding: 0 31rpx;
+    line-height: 104rpx;
+    color: #333333;
+    font-weight: 900;
+    /* letter-spacing: 7rpx; */
+}
+
+.series .series-hd view,
+.series-all .series-all-hd view,
+.actor .actor-hd view,
+.recommend .recommend-hd view {
+    display: inline-block;
+}
+
+.series .series-hd view.update-info {
+    color: #666;
+}
+
+.series .series-hd image,
+.series-all .series-all-hd image,
+.actor .actor-hd image,
+.recommend .recommend-hd image {
+    height: 25rpx;
+    width: 20rpx;
+    margin-top: 40rpx;
+}
+
+.video-num {
+    height: 108rpx;
+    width: 108rpx;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    background: #f5f5f5;
+    margin-left: 20rpx;
+    line-height: 108rpx;
+}
+
+.video-num image {
+    width: 40rpx;
+    height: 40rpx;
+    position: relative;
+    top: 10rpx;
+}
+
+.series scroll-view,
+.actor scroll-view,
+.recommend scroll-view {
+    white-space: nowrap;
+    display: flex
+}
+
+.actor {
+    height: 310rpx;
+    width: 100%;
+    border-bottom: 2px solid #e6e6e6;
+}
+
+.actor-pic {
+    height: 162rpx;
+    width: 122rpx;
+    display: inline-block;
+    text-align: center;
+    margin: 0 31rpx 20rpx;
+}
+
+.actor .actor-pic image {
+    height: 122rpx;
+    width: 122rpx;
+    border-radius: 50%;
+}
+
+.actor .actor-pic text,
+.recommend .recommend-video view {
+    width: 100%;
+    display: block;
+    /* overflow: hidden; */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.recommend .recommend-video {
+    height: 231rpx;
+    width: 260rpx;
+    display: inline-block;
+    margin-left: 20rpx;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.recommend .recommend-video image:first-child {
+    height: 146rpx;
+    width: 100px;
+}
+
+.recommend .recommend-video image.playIcon {
+    width: 40rpx;
+    height: 40rpx;
+    position: relative;
+    top: -51rpx;
+    bottom: 50rpx;
+    right: 120rpx;
+}
+
+.series-all,
+.desc-all {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 422rpx;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.series-list scroll-view {
+    display: flex;
+    white-space: pre-wrap;
+}
+
+.series-list .video-num {
+    flex: 1;
+    margin: 20rpx
+}
+
+.hidden {
+    display: none;
+}
+
+.pick {
+    color: #0bbe06;
+}

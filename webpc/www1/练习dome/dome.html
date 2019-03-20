@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+     .m_img{width: 180px;overflow: hidden;margin: 20px 10px ;float: left;}
+     img{cursor: all-scroll;}
+     select{width: 100px;height: 500px}
+	</style>
+</head>
+<body>
+	<div class="m_img">
+	<img src="http://img08.jiuxian.com/bill/2015/0901/2a3b253d4b45470e93f543887dafd475.jpg">
+	</div>
+		<div class="m_img">
+	<img src="http://img08.jiuxian.com/bill/2015/0901/2a3b253d4b45470e93f543887dafd475.jpg">
+	</div>
+		<div class="m_img">
+	<img src="http://img08.jiuxian.com/bill/2015/0901/2a3b253d4b45470e93f543887dafd475.jpg">
+	</div>
+
+	<h1>水果选择</h1>
+	<form action="javascript:">
+    <select name="" id="s1" size="2">
+	<option value="">西瓜1</option>
+	<option value="">西瓜2</option>
+	<option value="">西瓜3</option>
+	<option value="">西瓜4</option>
+    </select>
+    <input type="button" name="" value=">>" id="btn">
+
+    <select id="s2" size="2">
+    </select>
+	</form>
+
+
+	<h1>标题</h1>
+	<p>cessssssssssssssssssssssssssssssss</p>
+
+	<h1>标题</h1>
+	<p>cessssssssssssssssssssssssssssssss</p>
+
+	<h1>标题</h1>
+	<p>cessssssssssssssssssssssssssssssss</p>
+</body>
+<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+<script type="text/javascript">
+ window.onload=function(){
+ 	$('img').hover(
+ 	function(){
+       $(this).stop().animate({
+       	'margin-left':'-100px'
+       },500)
+ 	},
+ 	function(){
+       $(this).stop().animate({
+       	'margin-left':'0px'
+       },500)
+ 	})
+ }
+</script>
+<script type="text/javascript">
+$('#btn').click(function(){
+	$('#s1 option:selected').clone().appendTo('#s2');
+})
+</script>
+<script type="text/javascript">
+$('h1').click(function(){
+	$(this).next().toggle(1000)
+})
+</script>
+<script type="text/javascript">
+   $('h1').each(function(i){
+   	   $(this).attr({'id':i})
+   })
+   $('h1').click(function(){
+   	  $(this).html($(this).attr('id'));
+   })
+</script>
+</html>

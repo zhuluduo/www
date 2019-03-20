@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        td {
+            word-wrap: break-word;
+            /*//在长单词或 URL 地址内部进行换行*/
+            word-break: break-all;
+            /*//允许在单词内换行*/
+            overflow: hidden;
+        }
+        
+        #cks {
+            transition: display 2s;
+            -moz-transition: display 2s;
+            /* Firefox 4 */
+            -webkit-transition: display 2s;
+            /* Safari 和 Chrome */
+            -o-transition: display 2s;
+            /* Opera */
+        }
+        
+        #cks li {
+            cursor: pointer;
+            position: absolute;
+        }
+        
+        #cks li img {
+            width: 100%;
+            height: 200px;
+        }
+        
+        .on {
+            background: red;
+            color: #fff;
+            display: block
+        }
+        
+        .non {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <table class="table">
+        <caption>基本的表格布局</caption>
+        <thead>
+            <tr>
+                <th>名称</th>
+                <th>城市</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tanmay</td>
+                <td>Bangalore</td>
+            </tr>
+            <tr>
+                <td>22222222222 2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222</td>
+                <td>111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</td>
+            </tr>
+        </tbody>
+    </table>
+    <button id="rig">向左</button>
+
+    <ul id="cks">
+        <li class="on"><img src="http://taobao.90sheji.com/58pic/18/08/93/55d02de1a59c7.jpg" alt=""></li>
+        <li class="non"><img src="http://b.hiphotos.baidu.com/image/pic/item/5243fbf2b2119313999ff97a6c380cd790238d1f.jpg" alt=""></li>
+        <li class="non"><img src="http://g.hiphotos.baidu.com/image/pic/item/4bed2e738bd4b31c512492718ed6277f9f2ff8e4.jpg" alt=""></li>
+        <li class="non"><img src="http://b.hiphotos.baidu.com/image/pic/item/574e9258d109b3def5ebe5a2c5bf6c81810a4ca7.jpg" alt=""></li>
+        <li class="non"><img src="http://b.hiphotos.baidu.com/image/pic/item/0bd162d9f2d3572cf8579c168313632763d0c347.jpg" alt=""></li>
+    </ul>
+
+
+
+
+
+
+    <form enctype="multipart/form-data" action="" method="post">
+        <input type="file" name="imageUpload" />
+        <div id="preview" style="width: 300px;height:300px;border:1px solid gray;"></div>
+    </form>
+
+
+
+    <script src="https://cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
+    <script>
+        window.onload = function() {
+            var cks = document.getElementById('cks').getElementsByTagName('li')
+            var rig = document.getElementById("rig")
+            var index = 1;
+            var ckslength = cks.length - 1
+            console.log(cks.length + '-----')
+
+            function clasnams() {
+                for (var j = 0; j < cks.length; j++) {
+                    if (cks[j].className == "on") {
+                        cks[j].className = " non"
+                        break;
+                    }
+                }
+                cks[index - 1].className = "on"
+            }
+            rig.onclick = function() {
+                if (index == ckslength) {
+                    index = 1
+                } else {
+                    index++
+                }
+                clasnams()
+            }
+
+            // for(var i=0;i<cks.length;i++){
+            //    (function(i){
+            //       console.log(i)
+            //      cks[i].onclick=function(){
+            //         console.log(this.innerHTML)
+            //     }
+            //    })(i)
+            // }
+
+        }
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            $('[type="file"]').change(function(e) {
+                var file = e.target.files[0];
+                preview(file);
+            });
+        })
+
+        function preview(file) {
+            var img = new Image();
+            url = img.src = URL.createObjectURL(file);
+            var $img = $(img);
+            img.onload = function(e) {
+                URL.revokeObjectURL(url);
+                $('#preview').empty().append($img);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>   
+  <style type="text/css">
+     body{text-align: center;}
+ 	table{border-spacing:0;}
+	#table{text-align: center;margin: 0 auto;margin-top: 2em;border: 1px solid #630cd6;}
+	#table a{color: #ea0ccd}
+	#table tr td,#table tr th{border-bottom: 1px solid #630cd6;line-height: 2;}
+	#table tr:last-child td{border-bottom: none;}
+	input[type="button"]{margin-top: 2em;text-align: center;padding: 0.5em 1em;background: #630cd6;border: 1px solid #630cd6;color: #fff}
+	input[type="button"]:hover{background: #fff;color: #630cd6;cursor: pointer;}
+  </style>
+  <script type="text/javascript"> 
+  
+      window.onload = function(){
+                  
+     // 鼠标移动改变背景,可以通过给每行绑定鼠标移上事件和鼠标移除事件来改变所在行背景色。
+     var tr=document.getElementsByTagName("tr");
+		for(i=0;i<tr.length;i++){
+    	 bgchange(tr[i]);  
+		}        
+	 }
+      function bgchange(ob){
+            ob.onmouseover=function(){
+                ob.style.backgroundColor="#ac9af5";
+                ob.style.color="#fff";
+            }
+            ob.onmouseout=function(){
+                ob.style.backgroundColor="#fff";
+                ob.style.color="#000";
+            }
+        }
+     
+      // 编写一个函数，供添加按钮调用，动态在表格的最后一行添加子节点；
+
+     function add(){     	
+       var nub=prompt('请输入学号：','');
+       var name=prompt('请输入姓名：','');
+       if(nub!=null && nub!="" && name!=null && name!=""){
+       		var newtr=document.createElement("tr");
+       		var newtd=newtr.innerHTML="<td>"+nub+"</td>"+"<td>"+name+"</td>"+"<td>"+"<a href='javascript:;' onclick='dele(this)'>删除</a></td>";
+       		var lastC=document.getElementById("table").lastChild;
+       		lastC.appendChild(newtr);
+       }else{
+       		alert("请重新输入！");
+       }
+       //重新加上鼠标经过的方法
+       var tr=document.getElementsByTagName("tr");
+		for(i=0;i<tr.length;i++){
+    	 bgchange(tr[i]);  
+		} 
+         
+     }
+    		
+   	 
+     // 创建删除函数
+     function dele(obj){
+     	//方法一
+         // var tb=obj.parentNode.parentNode.parentNode;//获取最外层节点table
+         // var tr=obj.parentNode.parentNode;//获取第二层节点TR，TR里有3个TD，为一行
+         // tb.removeChild(tr);//利用父节点table删除子节点TR
+         //方法二         
+         var tr=obj.parentNode.parentNode;//获取子节点tr
+         //console.log(tr);
+         tr.parentNode.removeChild(tr);//获取父节点 利用父节点删除子节点
+     }
+
+  </script> 
+ </head> 
+ <body> 
+	   <table width="50%" id="table">
+	   <tr>
+		<th>学号</th>
+		<th>姓名</th>
+		<th>操作</th>
+	   </tr>  
+
+	
+
+	   </table>
+	   <input type="button" value="添加一行" onclick="add()"/>   <!--在添加按钮上添加点击事件  -->
+ </body>

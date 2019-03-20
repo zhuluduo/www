@@ -1,0 +1,8 @@
+<template name="footer">
+<block wx:if="{{!hasMore}}">
+    <view class="isEnd">
+        <image src="../../images/footer.png"></image>
+    </view>
+
+</block>
+</template>

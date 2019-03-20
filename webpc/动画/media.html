@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>媒体查询</title>
+		<style type="text/css">
+			*{
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			.fr{float: right;}
+			.content{
+				width: 100%;
+			}
+			.con-part{
+				width: 100%;
+				overflow: hidden;
+			}
+			.con-part img{
+				width: 50%;
+			}
+			.con-part .move{
+				animation-play-state: running;
+				-webkit-animation-play-state: running;
+			}
+			.con-part .con-part-float{
+				opacity: 1;
+				animation: move 2s forwards;
+				-webkit-animation: move 2s forwards;
+				animation-play-state: paused;
+				-webkit-animation-play-state: paused;
+			}
+			.con-part div{
+				width: 50%;
+				padding: 186px 0 0 80px;
+			}
+			.con-part div p{
+				line-height: 32px;
+				margin: 20px 0 40px 0;
+				width: 63%;
+				color: #666666;
+			}
+			.con-part div a{
+				color: #2b9dd3;
+				border-radius: 2px;
+				border: 1px #2b9dd3 solid;
+				font-size: 16px;
+				padding: 13px 27px;
+			}
+			@media screen and (max-width: 755px) and (min-width: 100px){
+				html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, span, a, img, div, section, p, i{
+					font-family: PingFang Medium;
+				}
+				.con-part img{
+					width: 100%;
+				}
+				.con-part div{
+					width: 100%;
+					text-align: center;
+				}
+				.con-part-float h3{
+					color: #333333;
+					margin: 0;
+				}
+				.con-part div a{
+					color: #2b9dd3;
+					border-radius: 2px;
+				}
+			}
+			@media screen and (max-width: 420px) and (min-width: 100px){
+				.con-part div{
+					padding: 36px 0;
+				}
+				.con-part-float h3{
+					font-size: 18px;
+				}
+				.con-part div p {
+					margin: 16px auto;
+					width: 86%;
+					font-size: 15px;
+					line-height: 28px;
+				}
+				.con-part div a{
+					border: 1px #2b9dd3 solid;
+					font-size: 14px;
+					padding: 9px 21px;
+					margin-top: 6px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<div class="con-part">
+				<img src="http://www.unisol.cn/images/UNICAD.jpg" >
+				<div class="fr con-part-float move">
+					<h3>UNICAD实时三维渲染工具</h3>
+					<p id="con-part1-clamp" style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 4;">一款面向CAD用户的高端实时3D渲染软件，凭借电影级PBR物理渲染与轻量化处理，带来无可企及的CAD可视化效果。可轻松应对规模庞大的CAD模型的渲染与评审，同时惊喜地提供强大的VR交互功能，为便于用户快捷的完成产品造型评审与样机功能展示，适用于机械设计、建筑设计等具体应用情景。</p>
+					<a href="javascript:;">即将上线</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>展开收起</title>
+		<style>
+			body{
+				margin: a auto;
+				padding: 0;
+			}
+			#pn{
+				background: #e8e8e8;
+				width: 600px;
+				display: block;
+				margin: 0 auto;
+				padding: 5px;
+				font-size: 9px;
+				height: auto;
+			}
+			.sdile{
+				margin: 0 auto;
+				padding: 0px;
+				width: 600px;
+				border-top: solid 4px gray;
+			}
+			.btn-solid{
+				background: gray;
+				width: 120px;
+				height: 30px;
+				text-align: center;
+				margin: 0 auto;
+				display: block;
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="pn">
+			<p> 手机</p>
+			<p> 手机2</p>
+			<p> 手机3</p>
+			<p> 手机4</p>
+			<div id="hpn" style="display: none;">
+				<p>5</p>
+				<p>5</p>
+				<p>5</p>
+			</div>
+		</div>
+		<p class="sdile"> <a href="javascript:showdiv();" id="strherf" class="btn-solid">更多》》</a></p>
+	<script type="text/javascript">
+		function showdiv(){
+			document.getElementById('hpn').style.display='block';
+		    document.getElementById('strherf').innerHTML='收起-';
+//		    document.getElementById('strherf').style.display='none';
+		    document.getElementById('strherf').href='javascript:hidediv()';
+		}
+		function hidediv(){
+			document.getElementById('hpn').style.display='none';
+			document.getElementById('strherf').innerHTML='更多》》';
+		 document.getElementById('strherf').href='javascript:showdiv()';
+		}
+	</script>
+	
+	</body>
+</html>

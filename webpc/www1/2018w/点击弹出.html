@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>弹出层</title>
+		<style type="text/css">
+		body{height: 1000px;}
+			.button{display: block;padding: 10px;background: dodgerblue;color: #fff;text-align: center;}
+		    #main_box{;position: absolute;left: 0;top: 0;width: 100%;height: 800px;background: #000;opacity: 0.7;}
+		#box_content{position:relative;width: 300px;height: 300px;background: blue;}
+		#btn_x{z-index: 99999;color: #fff;position: absolute;right: 10px;top: 10px;}
+		</style>
+	</head>
+	<body>
+		<a href="#" class="button" id="button">登录</a>
+<!--		<div id="main_box"></div>-->
+		<!--<div id="box_content">
+			<a href="#" id="btn_x">#</a>
+		</div>-->
+	</body>
+    <script type="text/javascript">
+    	window.onload=function(){
+    		var btn=document.getElementById('button');
+    		btn.onclick=function(){
+    			btnon()
+    		}
+    	}
+    	function btnon(){
+    		var swidth=document.documentElement.scrollWidth;
+    		var sheight=document.documentElement.scrollHeight;
+    		var wheight=document.documentElement.clientHeight;
+    		var oMsk=document.createElement('div');
+    		    oMsk.id="main_box";
+    		    oMsk.style.width=swidth+'px';
+    		    oMsk.style.height=sheight+'px';
+    		    document.body.appendChild(oMsk);
+    		    
+    		var oCont=document.createElement('div');
+    		    oCont.id='box_content';
+    		    oCont.innerHTML="<a href='#' id='btn_x'>#</a>";
+    		    document.body.appendChild(oCont);
+    		    
+    		    var dwidth=oCont.offsetWidth;
+    		    var dheight=oCont.offsetHeight;
+    		    
+    		    oCont.style.left=(swidth-dwidth)/2+'px';
+    		    oCont.style.top=(wheight-dheight)/2+'px';
+    		    
+    		    var Oclick=document.getElementById('btn_x');
+    		        Oclick.onclick=oMsk.onclick=function(){
+    		        	document.body.removeChild(oCont);
+    		        	document.body.removeChild(oMsk);
+    		        }
+    		    
+    		    
+    		    
+    	}
+    </script>
+</html>

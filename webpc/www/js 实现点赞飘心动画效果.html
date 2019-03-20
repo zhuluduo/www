@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+
+  <title></title>
+  <style>
+    html,body{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .demos{
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      bottom: 100px;
+      left: 50px;
+    }
+    .demo  {
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    .demoImg{
+      font-size: 16px;
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .endorse {
+      width: 80px;
+      height: 80px;
+      border: 0;
+      background: red;
+      color: #fff;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      font-size: 16px
+    }
+
+  </style>
+</head>
+<body>
+<div class="demos">
+  <div class="demo">
+    <img class="demoImg" src="../img/icon_float_1.png" style="bottom: 0.00487377rem; opacity: 0.998375; left: 0.15921px;"   >
+  </div>
+
+  <div id="endorse" class="endorse" >变化</div>
+
+</div>
+
+<script>
+
+  $(function () {
+    $("#endorse").click(function(){
+
+      var x = 50;
+
+      var y = 200;
+      /* 生成随机数 */
+      var num = Math.floor(Math.random() * 4 + 1);
+      var index=$('.demo').children('img').length;
+
+      var rand = parseInt(Math.random() * (x - y + 1) + y);
+      console.log(rand)
+
+      $(".demo").append("<img class='demoImg' src=''>");
+
+      $('img:eq(' + index + ')').attr('src','../img/icon_float_'+num+'.png')
+      console.log(123)
+      $("img").animate({
+        bottom:"300px",
+        opacity:"0",
+        left: rand
+      },3000,function(){
+        $(this).remove();
+      })
+    })
+  })
+
+</script>
+</body>
+</html>

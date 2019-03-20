@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#proimgbox{width: 400px;border: 1px solid red;height: 200px;}
+			#proimgbox #bigimgbox{width: 400px;height: 150px;}
+			#proimgbox #bigimgbox img{width: 400px;height: 150px;}
+			#smallimglist div{width: 40px;height: 40px;float: left;border: 1px solid black;padding: 0 10px;}
+			#smallimglist div img{width: 40px;height: 40px;cursor: pointer;}
+		</style>
+		<script type="text/javascript">
+			function changimg(){
+				var bigimg=document.getElementById("bigimg");
+					bigimg.src=event.srcElement.src;
+			}
+		</script>
+	</head>
+	<body>
+		<div id="proimgbox">
+			<div id="bigimgbox">
+				<img src="http://www.sucaihuo.com/jquery/11/1195/demo/3.jpg"/ id="bigimg">
+			</div>
+			<div id="smallimglist">
+				<div><img src="http://www.sucaihuo.com/jquery/11/1195/demo/3.jpg" onmousemove="changimg()"/></div>
+				<div><img src="http://www.sucaihuo.com/jquery/11/1195/demo/2.jpg" onmousemove="changimg()"/></div>
+				<div><img src="http://www.sucaihuo.com/jquery/11/1195/demo/5.jpg" onmousemove="changimg()"/></div>
+			</div>
+		</div>
+	</body>
+</html>

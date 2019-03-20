@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/style.css" />
+		<script>
+			function $(id){
+//				当id=string?返回id否则返回id本身
+				return typeof id==='string'?document.getElementById(id):id;
+			}
+			window.onload=function(){
+				//获取鼠标滑过的标签和药切换的内容元素
+				var titles=$('notice-tit').getElementsByTagName('li');
+				divs=$('notice-con').getElementsByTagName('div');
+			if(titles.length!=divs.length)
+			return;
+			//遍历titles所有的li
+			//添加索引
+			for(var i=0;i<titles.length;i++){
+				titles[i].id=i;
+				titles[i].onmousemove=function(){
+//					通过下面的for循环清除class为select
+					for(var j=0;j<titles.length;j++){
+						titles[j].className='';
+						divs[j].style.display='none';
+					}
+//					设置当前为高亮显示
+					this.className='select';
+					
+					divs[this.id].style.display='block';
+				}
+			}
+			
+			}
+		</script>
+	</head>
+	<body>
+		<div id="notice" class="notice">
+			<div id="notice-tit" class="notice-tit">
+				<ul>
+					<li class="select"><a href="#">1</a></li>
+					<li ><a href="#">2</a></li>
+					<li ><a href="#">3</a></li>
+					<li ><a href="#">4</a></li>
+					<li ><a href="#">15</a></li>
+				</ul>
+			</div>
+			<div class="notice-con" id="notice-con"> 
+			<div class="mod" style="display:block;">
+				<ul>
+				<li>
+					<a href="#">12313130</a>
+				</li>
+				<li>
+					<a href="#">1231313</a>
+				</li>
+				<li>
+					<a href="#">1231313</a>
+				</li>
+				<li>
+					<a href="#">1231313</a>
+				</li>
+				</ul>
+			</div>
+			<div class="mod" style="display: none;">
+				<ul>
+				<li>
+					<a href="#">1231313111</a>
+				</li>
+				<li>
+					<a href="#">1231313</a>
+				</li>
+				<li>
+					<a href="#">1231313</a>
+				</li>
+				<li>
+					<a href="#">1231313</a>
+				</li>
+				</ul>
+			</div>
+			<div class="mod" style="display: none;">
+				<ul>
+				<li>
+					<a href="#">1231313222</a>
+				</li>
+				<li>
+					<a href="#">1231313</a>
+				</li>
+				<li>
+					<a href="#">1231313</a>
+				</li>
+				<li>
+					<a href="#">1231313</a>
+				</li>
+				</ul>
+			</div>
+			<div class="mod" style="display: none;">
+				<ul>
+				<li>
+					<a href="#">1231313333</a>
+				</li>
+				<li>
+					<a href="#">1231313</a>
+				</li>
+				<li>
+					<a href="#">1231313</a>
+				</li>
+				<li>
+					<a href="#">1231313</a>
+				</li>
+				</ul>
+			</div>
+			<div class="mod" style="display: none;">
+				<ul>
+				<li>
+					<a href="#">12313134444</a>
+				</li>
+				<li>
+					<a href="#">1231313</a>
+				</li>
+				<li>
+					<a href="#">1231313</a>
+				</li>
+				<li>
+					<a href="#">1231313</a>
+				</li>
+				</ul>
+			</div>
+			</div>
+		</div>
+	</body>
+</html>

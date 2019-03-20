@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery1.42.min.js"></script>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+		border: 0;
+		list-style: none;
+	}
+		.roll{
+			width: 700px;
+			height: 200px;
+			border: 1px solid #ccc;
+			margin: 0 auto;
+		}
+		.roll .prev,.roll .next{
+			width: 100px;
+			height: 200px;
+			background: gray;
+			float: left;
+		}
+		.roll .list{
+			width: 490px;
+			height: 200px;
+			float: left;
+			padding-left: 10px;
+			overflow: hidden;
+		}
+		.roll .list ul{margin-top:10px;width: 9999999px;}
+		.roll .list li{
+			width: 100px;
+			height: 180px;
+			background: #eee;
+			float: left;
+			margin-left: 10px;
+		}
+	</style>
+	</head>
+	<body>
+		<div class="roll">
+			<div  class="prev">
+				
+			</div>
+			<div class="list">
+				<ul>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>6</li>
+					<li>57</li>
+					<li>8</li>
+				</ul>
+			</div>
+			<div class="next"></div>
+		</div>
+		<script>
+			$(function(){
+				$('.roll .next').click(function(){
+					$('.roll ul').animate({'margin-left':-110},'normal',function(){
+                       //抓取li的第一个,并将其放到最后一个li后面
+						$('.roll li:first').appendTo($('.roll ul'));
+						$('.roll ul').css('margin-left',0);
+					});
+				})
+				$('.roll .prev').click(function(){
+//					抓取li标签最前一个
+ $('.roll li:last').prependTo('.roll ul');
+ $('.roll ul').css('margin-left',-110);
+ $('roll ul').animate({'margin-left':0},'normal');
+				})
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<style>
+	.cropped{width: 400px;height: 400px;display: none;position: initial;right: 0}
+	.cropped_info ,.cropped_file{    display: none;
+    width: 410px;
+    position: initial;
+    right: 0;
+    padding: 5px;
+    height: 310px;}
+    .cropped_info img ,.cropped_file img{width: 410px;height: 310px;
+    }
+</style>
+</head>
+<body>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script> 
+<script type="text/javascript" src="js/cropbox_file.js"></script>
+<script type="text/javascript" src="js/cropbox_info.js"></script>
+<div class="img_1">
+	<div class="container_file">
+<div class="imaglist_file">
+  <div class="imageBox_file">
+    <div class="thumbBox_file"></div>
+  </div>
+  </div>
+  <div class="cropped_file"></div>
+  <div class="action_file"> 
+    <!-- <input type="file" id="file" style=" width: 200px">-->
+    <div class="new-contentarea_file tc_file"> <a href="javascript:void(0)" class="upload-img_file">
+      <label for="upload-file_file">上传图像</label>
+      </a>
+      <input type="file" class="" name="upload-file_file" id="upload-file_file" />
+    </div>
+    <input type="button" id="btnCrop_file"  class="Btnsty_peyton_file" value="裁切">
+    <input type="button" id="btnZoomIn_file" class="Btnsty_peyton_file" value="+"  >
+    <input type="button" id="btnZoomOut_file" class="Btnsty_peyton_file" value="-" >
+  </div>
+</div>
+</div>
+<div class="img2">
+	<div class="container_info">
+<div class="imaglist_info">
+  <div class="imageBox_info">
+    <div class="thumbBox_info"></div>
+  </div>
+  </div>
+  <div class="cropped_info"></div>
+  <div class="action_info"> 
+    <!-- <input type="file" id="file" style=" width: 200px">-->
+    <div class="new-contentarea_info tc_info"> <a href="javascript:void(0)" class="upload-img_info">
+      <label for="upload-file_info">上传图像</label>
+      </a>
+      <input type="file" class="" name="upload-file_info" id="upload-file_info" />
+    </div>
+    <input type="button" id="btnCrop_info"  class="Btnsty_peyton_info" value="裁切">
+    <input type="button" id="btnZoomIn_info" class="Btnsty_peyton_info" value="+"  >
+    <input type="button" id="btnZoomOut_info" class="Btnsty_peyton_info" value="-" >
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+  $(function () {
+  	// $('#upload-file_info').on('click',function(){
+  	// 	img_info1()
+  	// })
+  	img_info1()
+  	img_info2()
+  	// 	$('#upload-file').on('click',function(){
+  	// 	img_info2()
+  	// })
+  })
+function img_info1(){
+  	var options_info =
+	{
+		thumbBox_info: '.thumbBox_info',
+		spinner_info: '.spinner_info',
+		imgSrc_info: 'images/avatar.png'
+	}
+	var cropper_info = $('.imageBox_info').cropbox_info(options_info);
+	$('#upload-file_info').on('change', function(){
+		$('.imaglist_info').attr('style','display:block')
+		$('.cropped_info').attr('style','display:none')
+		var reader = new FileReader();
+		reader.onload = function(e) {
+			options_info.imgSrc_info = e.target.result;
+			cropper_info = $('.imageBox_info').cropbox_info(options_info);
+		}
+		reader.readAsDataURL(this.files[0]);
+		this.files = [];
+
+	})
+	$('#btnCrop_info').on('click', function(){
+		var img_info = cropper_info.getDataURL_info();
+		$('.cropped_info').html('');
+		$('.cropped_info').append('<img src="'+img_info+'" align="absmiddle" style="width:100%;margin-top:0px;border-radius:0;">');
+		$('.cropped_info').attr('style','display:block')
+		$('.imaglist_info').attr('style','display:none')
+	})
+	$('#btnZoomIn_info').on('click', function(){
+		cropper_info.zoomIn_info();
+	})
+	$('#btnZoomOut_info').on('click', function(){
+		cropper_info.zoomOut_info();
+	})
+  }
+function img_info2(){
+	var options_file =
+	{
+		thumbBox_file: '.thumbBox_file',
+		spinner_file: '.spinner_file',
+		imgSrc_file: 'images/avatar.png'
+	}
+	var cropper_file = $(' .imageBox_file').cropbox_file(options_file);
+	$('#upload-file_file').on('change', function(){
+		$(' .imaglist_file').attr('style','display:block')
+		$('.cropped_file').attr('style','display:none')
+		var reader = new FileReader();
+		reader.onload = function(e) {
+			options_file.imgSrc_file = e.target.result;
+			cropper_file = $(' .imageBox_file').cropbox_file(options_file);
+		}
+		reader.readAsDataURL(this.files[0]);
+		this.files = [];
+
+	})
+	$('#btnCrop_file').on('click', function(){
+		var img_file = cropper_file.getDataURL_file();
+		$(' .cropped_file').html('');
+		$(' .cropped_file').append('<img src="'+img_file+'" align="absmiddle" style="width:100%;margin-top:0px;border-radius:0;">');
+		$(' .cropped_file').attr('style','display:block')
+		$('.imaglist_file').attr('style','display:none')
+	})
+
+	$('#btnZoomIn_file').on('click', function(){
+		cropper_file.zoomIn_file();
+	})
+	$('#btnZoomOut_file').on('click', function(){
+		cropper_file.zoomOut_file();
+	})
+
+};
+
+</script>
+
+</body>
+</html>

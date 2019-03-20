@@ -1,0 +1,8 @@
+一，网站添加X-UA-Compatible标签
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+	X-UA-Compatible是IE8的一个专有<meta>属性，它告诉IE8采用何种IE版本去渲染网页
+
+	建议：
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	IE=edge告诉IE使用最新的引擎渲染网页，chrome=1则可以激活Chrome Frame

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>javascript数组</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var i=0;
+	// var arr=[['香山','北京','北京1','北京2'],['北京3','北京4','北京7'],['北京京京','北京京京']];
+	var arr=[1,20,10,5,4];
+	console.log(Math.max.apply(null,arr));
+
+	for (var i = 0;i<arr.length; i++) {
+		console.log(Math.max(arr[i]));
+	}
+	console.log(arr[1][2]);
+	// document.write("<br/>")
+	// var arr=['香山','北京','北京1','北京2','北京3','北京4','北京7','北京京京','北京京京'];
+	// var j=0;
+	// while(j<arr.length){
+	// 	console.log(arr[j]);
+	// 	j++;
+	// }
+	</script>
+	<!-- 排序 -->
+	<script type="text/javascript">
+    var a=[1,20,4,10,5];
+    a.sort(function(a,b){
+   return a-b;
+    });
+    console.log(a);
+	</script>
+	<script type="text/javascript">
+     for (var i = 1; i <=5; i++) {
+     	 for (var y= 0; y<5-i; y++) {
+     	 	document.write('&nbsp;');
+     	 }
+     	 for (var z = 0; z<i*2-1; z++) {
+     	 	document.write('*');
+     	 }
+     	 document.write('<br/>')
+     }
+	</script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width;">
+    <title>顶部下拉图片变大</title>
+    <script src="js/tween.js"></script>
+</head>
+<style>
+*{ margin:0;padding:0; }
+html{width:100%; overflow-x:hidden}
+body{background:#eee;width:100%; overflow-x:hidden}
+.topCont{ position: absolute; width:100%; overflow: hidden; text-align: center; background: #fff;top:-75px}
+.top{position:relative; width:100%; height:60vmin;background:url(images/top_bg.jpg) no-repeat; background-size: cover; background-position:center center; overflow:hidden;}
+.user{width:30vmin; margin:0 auto; margin-top:5%;}
+.tx{ width:100%;height:30vmin; overflow:hidden; border-radius: 50%;}
+.tx img{ width:100%;height:100%;}
+.name{ text-align: center; color:#ff0; line-height:10vmin; font-size:6vmin;}
+.nav{overflow:hidden; margin-bottom:10px;}
+.nav a{ display:block; box-sizing: border-box; width:33.333%; padding-top:33.333%; position:relative; background:#fff; float:left; border-right:1px solid #eaeaea; font-size:16px; color:#323232; text-align:center;overflow:hidden;}
+.nav a:last-child{border:none;}
+.nav a:active{ background:#eaeaea;}
+.tb{width:50%; padding-top: 50%; position:absolute; left:25%; top:14%; text-align: center; border-radius: 50%; overflow:hidden;}
+.tb1{ background-color:#ff8d36;}
+.tb2{ background-color:#a378ff;}
+.tb3{ background-color:#ff5e5e;}
+.ico{ display:inline-block; position:absolute; top:50%; left:50%; transform: translate(-50%,-50%); background:url(images/personalCenter.png) no-repeat; vertical-align: middle; background-size: 20px auto;}
+.ico-1{background-position:0 0; width:20px; height:15px;}
+.ico-2{background-position:0 -16px; width:20px; height:15px;}
+.ico-3{background-position:0 -33px; width:20px; height:18px;}
+.ttx{ position: absolute; bottom:10%; left: 0; right:0; text-align: center; font-size:4vmin; }
+.list{}
+.list li{ padding:12px; background:#fff; overflow: hidden; border-bottom: 1px solid #ddd; }
+.list li a{ text-decoration: none; color:#333; display: inline-block; }
+
+</style>
+<body>
+<div class="topCont" id="loading" style=" ">
+	<img src="images/loading.gif" style="height:75px;">
+</div>
+
+<div class="cont" id="bodyBox">
+	<div class="top" id="top"><div class="user"><div class="tx"><img src="images/shareimg.jpg"></div><div class="name">碧瑶</div></div></div>
+	<nav class="nav">
+	  <a href="#">
+	     <div class="tb tb1"><i class="ico ico-1"></i></div>
+	     <div class="ttx">收藏夹</div>
+	  </a>
+	  <a href="#">
+	     <div class="tb tb2"><i class="ico ico-2"></i></div>
+	     <div class="ttx">学员卡</div>
+	  </a>
+	  <a id="ico-03">
+	     <div class="tb tb3"><i class="ico ico-3"></i></div>
+	     <div class="ttx">优惠券</div>
+	  </a>
+	</nav><div id="out"></div>
+	<nav class="list">
+		<ul><li><a href="#"><p>未缴费班级</p><i></i></a></li>
+			<li><a href="#"><p>我的班级</p><i></i></a></li>
+			<li><a href="#"><p>预约补课班级</p><i></i></a></li>
+			<li><a href="#"><p>未缴费班级</p><i></i></a></li>
+			<li><a href="#"><p>我的班级</p><i></i></a></li>
+			<li><a href="#"><p>预约补课班级</p><i></i></a></li>
+			<li><a href="#"><p>未缴费班级</p><i></i></a></li>
+			<li><a href="#"><p>我的班级</p><i></i></a></li>
+			<li><a href="#"><p>预约补课班级</p><i></i></a></li>
+			<li><a href="#"><p>未缴费班级</p><i></i></a></li>
+			<li><a href="#"><p>我的班级</p><i></i></a></li>
+			<li><a href="#"><p>预约补课班级</p><i></i></a></li>
+		</ul>
+	</nav>
+</div>
+
+<script>
+
+var startTop,endTop,//开始结束scrollTop
+startX,//点击X
+startY;//点击Y
+var endX, endY;  //滑动结束X,Y
+var box=document.getElementById("loading");//需要缩放的元素
+var bodybox=document.getElementById("bodyBox");
+var boxheight=75; //box高度，用来计算translate
+var transy=0;//Y轴位移量
+var changeX=0;//box缩放值
+var easestart = 0, easeduring = 10;//requestAnimationFrame开始结束
+var animationID=null;
+
+document.addEventListener("touchstart",function(e){// 
+	startTop=document.documentElement.scrollTop || document.body.scrollTop;;
+	startX=e.changedTouches[0].pageX;
+	startY=e.changedTouches[0].pageY;
+	reset();
+	
+})
+document.addEventListener("touchmove",function(e){
+	endTop=document.documentElement.scrollTop || document.body.scrollTop;;
+	endX=e.changedTouches[0].pageX;
+	endY=e.changedTouches[0].pageY;
+	var dPos=Math.abs(endX-startX)-Math.abs(endY-startY);//滑动方向
+	transy=Math.abs(endY-startY);
+	/*if(transy>150){
+		transy=150
+	}*/
+	if((endY-startY)>0){
+		if(dPos<0){
+			if((endY-startY-startTop)>0){
+				e.preventDefault();
+				changeX=transy;
+				box.style.transform="translate(0,"+changeX+"px)";
+				bodybox.style.transform="translate(0,"+changeX+"px)";
+			}
+		}
+	}
+},false);
+
+function reset(){
+	easestart = 0;
+	changeX=0;
+	transy=0;
+	box.style.transform="translate(0,"+0+"px)";
+	bodybox.style.transform="translate(0,"+0+"px)";
+	cancelAnimationFrame(animationID)
+}
+
+window.cancelAnimationFrame = (function(){
+  return  window.cancelAnimationFrame       ||
+          window.webkitCancelAnimationFrame ||
+          window.mozCancelAnimationFrame 
+})();
+window.requestAnimationFrame = (function(){
+  return  window.requestAnimationFrame       ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame 
+})();
+
+var resetObj=function(){
+	if(changeX > boxheight/2&&easestart<=easeduring){
+		easestart++;
+		var newscale = Tween.Circ.easeInOut(easestart, changeX,boxheight-changeX, easeduring);
+		if(newscale>74){
+			newscale=75
+		}
+		box.style.transform="translate(0,"+newscale+"px)";
+		bodybox.style.transform="translate(0,"+newscale+"px)";
+		animationID=requestAnimationFrame(resetObj);
+	}else if(changeX <= boxheight/2&&easestart<=easeduring){
+		easestart++;
+		var newscale = Tween.Circ.easeInOut(easestart, changeX,-changeX, easeduring);
+		if(newscale>0&&newscale<1){
+			newscale=0
+		}
+		box.style.transform="translate(0,"+newscale+"px)";
+		bodybox.style.transform="translate(0,"+newscale+"px)";
+		animationID=requestAnimationFrame(resetObj);
+	}
+	
+}
+
+document.addEventListener("touchend",function(e){
+	resetObj();
+})
+
+</script>
+</body>
+</html>

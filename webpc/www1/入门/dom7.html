@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>浏览器对象</title>
+	</head>
+	<body>
+		<!--计时器-->
+		<script>
+	   function zhu(){
+	   	var a=new Date();
+	   	document.getElementById('clock').value=a;
+	   }
+	   var b=setInterval(zhu,90);
+		</script>
+		<input type="text" id="clock" size="50"  />
+		<input type="button" value="取消"  onclick="clearInterval(b)"/>
+		
+	 <script type="text/javascript">
+        function GoForward() {
+            window.history.forward();
+        }
+    </script>
+      <form>
+       <input type="button"  value="返回下一个页面" onclick="GoForward()" />        
+    </form>
+	</body>
+</html>

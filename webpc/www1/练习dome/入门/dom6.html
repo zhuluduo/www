@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>javascript内置对象</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+var mydate=new Date(); 
+document.write("年份："+mydate.getFullYear()+'<br>' );
+document.write("月份："+mydate.getMonth()+'<br>');
+document.write("日期："+mydate.getDay()+'<br>');
+document.write("时："+mydate.getHours()+'<br>');
+document.write("分："+mydate.getMinutes()+'<br>');
+document.write("秒："+mydate.getSeconds()+'<br>');
+</script>
+<script>
+	var bai=new Date();
+	var yue=bai.getMonth();
+	document.write(yue);
+</script>
+<hr/>
+<!--获取星期-->
+<script>
+	var sj=new Date();
+	var xq=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+	var xq1=sj.getDay();  //获取星期值
+	
+	document.write(sj+'<br/>');
+	document.write(xq1+'<br/>');
+	document.write('今天是'+xq[xq1]);
+	
+	
+</script>
+<hr/>
+<script>
+	var a=new Date();
+	var b=a.getFullYear();
+	var c=a.getMonth();
+	var d=a.getMinutes();
+	var e=a.getTime();
+	document.write(e+'<br/>');
+</script>
+
+<script>
+	var mystr = "I love JavaScript!";
+	var b=mystr.length;
+	document.write(b);
+</script>
+	</body>
+</html>

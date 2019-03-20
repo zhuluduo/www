@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		*{margin: 0;padding: 0;}
+			#divs{
+              width: 200px;
+              height: 200px;
+              background: red;
+              position: relative;
+              left: -200px;
+			}
+			#divs span{
+				width: 30px;
+				height: 40px;
+				background: blueviolet;
+				position: absolute;
+				left: 200px;
+				top: 70px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--缓冲运动：
+1、速度的定义：
+var speed=(目标值-当前值（offset）)/20；
+2、取整函数：
+向下取整：Math.floor(3.55);//3.55是取整的数值，结果为：3
+向上取整：Math.ceil(3.35);//结果为：4
+3、由于运算出现浮点数，而px无法显示小数值，所以需要取整
+速度的取整判断：
+speed=speed>0?Math.ceil(speed):Math.floor(speed);//
+
+条件操作位 这个表达式的意思是如果speed大于0（关系表达式返回true），
+则将Math.ceil(speed)向下去整赋值给 speed，反之则将Math.floor(speed)向上去整赋值给 speed缓冲与bug，
+只需把speed改成speed=（目标值-当前值）//20；就可实现缓冲
+speed=speed>0?Math.ceil(speed):Math.floor(speed); //解决不是整数的bug-->
+    <div id="divs"><span>1223</span></div>
+    <script type="text/javascript">
+    	window.onload=function(){
+    var adiv=document.getElementById('divs');
+	    adiv.onmousemove=function(){
+	    	august(0);
+	    }
+	    adiv.onmouseout=function(){
+	    	august(-200);
+	    }
+}
+      var itime=null;
+      function august(iaugs){
+      	clearInterval(itime);
+      	var adiv=document.getElementById('divs');
+      	itime=setInterval(function(){
+//    		var speen=0;
+//    		if(adiv.offsetLeft>iaugs){
+//    			speen=-20
+//    		}else{
+//    			speen=20;
+//    		}
+            var speen=(iaugs-adiv.offsetLeft)/20;
+            speen=speen>0?Math.ceil(speen):Math.floor(speen);
+      		if(adiv.offsetLeft==iaugs){
+      				clearInterval(itime);
+      		}else{
+      			adiv.style.left=adiv.offsetLeft+speen+'px';
+      		}
+      		
+      	},30)
+      	
+    		
+    	}
+    </script>
+	</body>
+</html>

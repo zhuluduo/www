@@ -1,0 +1,45 @@
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;text-decoration:none;}
+body{font:12px/180% "ÐÂËÎÌå","Î¢ÈíÑÅºÚ";}
+
+
+.content{margin:0px auto;width:1400px;height:364px;overflow:hidden;background:url(../images/ban-relations.jpg) no-repeat;}
+#header{width:1020px;margin:40px auto 0 auto;}
+#header .logo{float:left}
+#header .nav{float:right;margin-top:10px;width:815px;position:relative;}
+#header .nav ul .mainlevel{background:url(../images/fgf-bg.png) no-repeat 0px 0px;float:left;padding-left:2px;line-height:33px}
+* html .nav ul .mainlevel{background:0px 0px;position:relative}
+.language{right:22px;position:absolute;color:#ffffff;z-index:999;top:-30px}
+.language a{color:#ffffff;line-height:26px}
+.language a:hover{color:#eeeeee}
+.language span{height:5px;margin:0px 5px;width:1px}
+#header .nav ul{display:table}
+#header .nav ul li .nav-a{font-size:13px;height:33px;background:url(../images/repeat2-bg.png) repeat-x 0px 0px;color:#ffffff;padding-bottom:0px;padding-top:0px;padding-left:20px;text-decoration:none;display:inline-block;line-height:33px;padding-right:20px}
+#header .nav ul li .current.nav-a{background:url(../images/repeat-bg.png) repeat-x 0px 0px}
+#header .nav ul li .nav-a:hover{height:33px;background:url(../images/repeat-bg.png) repeat-x 0px 0px;color:#ffffff;padding-bottom:0px;padding-top:0px;padding-left:20px;line-height:33px;padding-right:20px}
+#header .nav ul li .nav-a{font-size:13px;height:33px;background:url(../images/repeat2-bg.png) repeat-x 0px 0px;color:#ffffff;padding-bottom:0px;padding-top:0px;padding-left:20px;text-decoration:none;display:inline-block;line-height:33px;padding-right:20px}
+#header .nav ul li .current.nav-a{background:url(../images/repeat-bg.png) repeat-x 0px 0px}
+#header .nav ul li .nav-a:hover{height:33px;background:url(../images/repeat-bg.png) repeat-x 0px 0px;color:#ffffff;padding-bottom:0px;padding-top:0px;padding-left:20px;line-height:33px;padding-right:20px}
+#header .nav ul li.first-crl{background:0px 0px}
+#header .nav ul li.first-crl .nav-a{height:38px;background:url(../images/yj-bg2.png) no-repeat left top;padding-left:45px}
+#header .nav ul li.first-crl .nav-a .current{height:38px;background:url(../images/yj-bg.png) no-repeat left top;padding-left:45px}
+#header .nav ul li.first-crl .nav-a:hover{height:38px;background:url(../images/yj-bg.png) no-repeat left top;padding-left:45px}
+#header .nav ul li.end-crl .nav-a{height:38px;background:url(../images/yj-bg2.png) no-repeat right -41px;padding-right:45px}
+#header .nav ul li.end-crl .current.nav-a{height:38px;background:url(../images/yj-bg.png) no-repeat right -41px;padding-right:45px}
+#header .nav ul li.end-crl .nav-a:hover{height:38px;background:url(../images/yj-bg.png) no-repeat right -41px;padding-right:45px}
+.mainlevel div{height:85px;background:url(../images/nav-bg-09.png) 0px 0px;position:absolute;padding-bottom:15px;padding-top:15px;padding-left:20px;display:none;top:33px;padding-right:20px;width:430px}
+#sub_01{left:25px}
+#sub_02{left:121px}
+#sub_03{left:215px}
+#sub_04{left:310px}
+#sub_05{right:320px}
+#sub_06{right:225px}
+#sub_07{right:131px}
+#sub_08{right:21px}
+.mainlevel div ol{overflow:hidden;float:left;display:block;width:240px}
+.mainlevel div li{border-bottom:#cccccc 1px dashed;line-height:27px;width:300px}
+.mainlevel div li a{height:27px;background:url(../images/li-icon.png) no-repeat left center;color:#3b3b3b;padding-left:10px;display:inline-block;line-height:27px;width:79px}
+.mainlevel div li a:hover{color:#172053}
+.mainlevel div .nav-img{float:right;display:inline-block}
+.mainlevel div span img{border:#ffffff 3px solid;}
+.banner-02{height:364px;position:relative;width:100%}

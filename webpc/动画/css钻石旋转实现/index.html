@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style type="text/css">
+            /* 钻石旋转
+             * 要实现这个钻石旋转: 首先需要明确这个钻石分为上下两个部分,上面包含六个正三角形,下面有6个倒三角形
+             * css实现正三角形：上右下左的方向 border-style: solid;border-color:transparent;border-width: 0 50px 170px 50px; border-bottom-color: rgba(255,0,0,0.5)
+             * css实现倒三角形：上右下左的方向 border-style: solid;border-color:transparent;border-width: 170px 50px 0 50px; border-top-color: rgba(255,0,0,0.5)
+             * 然后提供一个3D环境，给外层盒子添加 transform-style: preserve-3d;flat 所有的子元素在2D平面中;preserve-3D 所有的子元素 在3D 平面中
+             * 上面的三角形设置为绝对定位 absolute
+             * 使用css3的transform 三角形按角度转动 排列成钻石的上半部分，同理实现下半部分
+             * rotateY:沿着Y轴实现旋转,translateZ:沿着Z轴移动88px;沿着X轴 旋转31度
+             * 写一个动画tuoluo 0～50%～100%  沿着z轴旋转
+             * 实现动画的循环播放animation: tuoluo 3s linear infinite; */
+             
+             
+            /*@keysframes*/
+            .wrap{
+                width: 200px;
+                height: 400px;
+                margin: 30px auto;
+            }
+            @keyframes tuoluo{
+                0%{
+                    transform: rotateY(0deg) rotateX(0deg);
+                }
+                50%{
+                    transform: rotateY(-180deg) rotateX(18deg);
+                }
+                100%{
+                    transform: rotateY(-360deg) rotateX(0deg);
+                }
+            }
+            .wrap .tuoluo{
+                width: 100%;
+                height: 100%;
+                transform-style: preserve-3d;
+                /* flat 所有的子元素在2D平面中*/
+                /* preserve-3D 所有的子元素 在3D 平面中*/
+                animation: tuoluo 3s linear infinite;
+            }
+            .wrap .tuoluo .tuoluo-top,
+            .wrap .tuoluo .tuoluo-bottom{
+                position: relative;
+                width: 100%;
+                height: 50%;
+            }
+            .tuoluo-top .face-top{
+                position: absolute;
+                top: 29px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-color: transparent;
+                border-width: 0 50px 170px 50px;
+                border-bottom-color: rgba(65,92,162,.5);
+                /*元素变形基点的位置*/
+                transform-origin: center bottom;
+            }
+            .tuoluo-top .face-top:nth-of-type(1){
+                transform: rotateY(0deg) translateZ(88px) rotateX(31deg);
+            }
+            .tuoluo-top .face-top:nth-of-type(2){
+                transform: rotateY(60deg) translateZ(88px) rotateX(31deg);
+            }
+            .tuoluo-top .face-top:nth-of-type(3){
+                transform: rotateY(120deg) translateZ(88px) rotateX(31deg);
+            }
+            .tuoluo-top .face-top:nth-of-type(4){
+                transform: rotateY(180deg) translateZ(88px) rotateX(31deg);
+            }
+            .tuoluo-top .face-top:nth-of-type(5){
+                transform: rotateY(240deg) translateZ(88px) rotateX(31deg);
+            }
+            .tuoluo-top .face-top:nth-of-type(6){
+                transform: rotateY(300deg) translateZ(88px) rotateX(31deg);
+            }
+            .tuoluo-bottom .face-bottom{
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-color: transparent;
+                border-width: 170px 50px 0 50px;
+                border-top-color: rgba(65,92,162,.5);
+                /*元素变形基点的位置*/
+                transform-origin: center top;
+            }
+            .tuoluo-bottom .face-bottom:nth-of-type(1){
+                transform: rotateY(0deg) translateZ(88px) rotateX(-31deg);
+            }
+            .tuoluo-bottom .face-bottom:nth-of-type(2){
+                transform: rotateY(60deg) translateZ(88px) rotateX(-31deg);
+            }
+            .tuoluo-bottom .face-bottom:nth-of-type(3){
+                transform: rotateY(120deg) translateZ(88px) rotateX(-31deg);
+            }
+            .tuoluo-bottom .face-bottom:nth-of-type(4){
+                transform: rotateY(180deg) translateZ(88px) rotateX(-31deg);
+            }
+            .tuoluo-bottom .face-bottom:nth-of-type(5){
+                transform: rotateY(240deg) translateZ(88px) rotateX(-31deg);
+            }
+            .tuoluo-bottom .face-bottom:nth-of-type(6){
+                transform: rotateY(300deg) translateZ(88px) rotateX(-31deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="tuoluo">
+                <div class="tuoluo-top">
+                    <div class="face-top"></div>
+                    <div class="face-top"></div>
+                    <div class="face-top"></div>
+                    <div class="face-top"></div>
+                    <div class="face-top"></div>
+                    <div class="face-top"></div>
+                </div>
+                <div class="tuoluo-bottom">
+                    <div class="face-bottom"></div>
+                    <div class="face-bottom"></div>
+                    <div class="face-bottom"></div>
+                    <div class="face-bottom"></div>
+                    <div class="face-bottom"></div>
+                    <div class="face-bottom"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

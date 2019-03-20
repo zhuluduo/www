@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)http://javascript.ruanyifeng.com/dom/event-type.html#toc1 -->
+<html class="no-js" lang="en" data-livestyle-extension="available"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width">
+
+  <title>事件种类 -- JavaScript 标准参考教程（alpha）</title>
+  
+  <!-- Included CSS Files (Uncompressed) -->
+  <!--
+  <link rel="stylesheet" href="stylesheets/foundation.css">
+  -->
+  
+  <!-- Included CSS Files (Compressed) -->
+  <link rel="stylesheet" href="./事件666_files/foundation.css">
+  <link rel="stylesheet" href="./事件666_files/main.css">
+
+  <!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <script async="" src="./事件666_files/analytics.js.下载"></script><script src="./事件666_files/jquery.js.下载"></script>
+  <script src="./事件666_files/toc.js.下载"></script>
+  <script src="./事件666_files/main.js.下载"></script>
+
+<script type="text/javascript" async="" src="http://jstutorial.disqus.com/embed.js"></script></head>
+<body>
+
+<header class="top-bar" id="header" style="margin-bottom: 30px;">
+
+<div class="fixed">
+
+<nav class="top-bar">
+<ul>
+<!-- Title Area -->
+	<li class="name has-dropdown">
+	<h1><a href="http://javascript.ruanyifeng.com/">JavaScript 标准参考教程（alpha） </a></h1>
+		<ul class="dropdown">
+			
+			<li><a href="http://javascript.ruanyifeng.com/#introduction">导论</a></li>
+			
+			<li><a href="http://javascript.ruanyifeng.com/#grammar">语法</a></li>
+			
+			<li><a href="http://javascript.ruanyifeng.com/#stdlib">标准库</a></li>
+			
+			<li><a href="http://javascript.ruanyifeng.com/#oop">面向对象编程</a></li>
+			
+			<li><a href="http://javascript.ruanyifeng.com/#advanced">语法专题</a></li>
+			
+			<li><a href="http://javascript.ruanyifeng.com/#dom">DOM模型</a></li>
+			
+			<li><a href="http://javascript.ruanyifeng.com/#bom">浏览器环境</a></li>
+			
+			<li><a href="http://javascript.ruanyifeng.com/#htmlapi">Web API</a></li>
+			
+		</ul>
+	</li>
+</ul>
+
+<section>
+
+
+<ul class="left">
+<li class="divider"></li>
+<li class="has-dropdown"><a class="active" href="http://javascript.ruanyifeng.com/dom/event-type.html#"> DOM模型 </a><ul class="dropdown">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="http://javascript.ruanyifeng.com/dom/attribute.html">属性的操作</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="http://javascript.ruanyifeng.com/dom/css.html">CSS操作</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="http://javascript.ruanyifeng.com/dom/document.html">document节点</a></li>
+
+
+
+
+
+
+
+<li><a href="http://javascript.ruanyifeng.com/dom/element.html">Element对象</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="active"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#">事件种类</a></li>
+
+
+
+
+
+<li><a href="http://javascript.ruanyifeng.com/dom/event.html">事件模型</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="http://javascript.ruanyifeng.com/dom/image.html">Image对象</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="http://javascript.ruanyifeng.com/dom/mutationobserver.html">Mutation Observer API</a></li>
+
+
+
+
+
+
+
+<li><a href="http://javascript.ruanyifeng.com/dom/node.html">DOM 模型概述</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="http://javascript.ruanyifeng.com/dom/text.html">Text节点和DocumentFragment节点</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul></li>
+<li class="divider"></li>
+<li class="has-dropdown nav-3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#"> 事件种类</a><ul class="dropdown">
+<li class="toc-h2"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc0">鼠标事件</a></li><li class="toc-h2"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc6">MouseEvent 对象</a></li><li class="toc-h2"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc12">wheel事件</a></li><li class="toc-h2"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc13">键盘事件</a></li><li class="toc-h2"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc16">进度事件</a></li><li class="toc-h2"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc17">拖拉事件</a></li><li class="toc-h2"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc22">触摸事件</a></li><li class="toc-h2"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc27">表单事件</a></li><li class="toc-h2"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc30">文档事件</a></li></ul></li>
+</ul>
+
+
+<ul class="right">
+	<li class="divider"></li>
+	<li>
+		<a href="https://github.com/ruanyf/jstutorial" target="_blank">GitHub <i class="foundicon-edit"></i></a>
+	</li>
+	<li class="divider"></li>
+	<li>
+		<a href="http://javascript.ruanyifeng.com/dom/event-type.html#">TOP <i class="foundicon-up-arrow"></i></a>
+	</li>
+</ul>
+
+</section>
+
+</nav>  
+</div>
+</header>
+
+
+<article class="bookPage">
+
+  <div class="row">
+    <div class="twelve columns">
+
+<h1> 事件种类 </h1>
+
+<aside class="right"><p>来自<a href="http://javascript.ruanyifeng.com/">《JavaScript 标准参考教程（alpha）》</a>，by 阮一峰</p></aside>
+
+<h2>目录</h2><div id="toc" class="panel callout radius"><ul><li class="toc-h2"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc0">鼠标事件</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc1">click 事件，dblclick 事件</a></li><li class="toc-h3 toc-active"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc2">mouseup 事件，mousedown 事件，mousemove 事件</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc3">mouseover 事件，mouseenter 事件</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc4">mouseout 事件，mouseleave 事件</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc5">contextmenu 事件</a></li><li class="toc-h2"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc6">MouseEvent 对象</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc7">概述</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc8">altKey，ctrlKey，metaKey，shiftKey</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc9">button，buttons</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc10">clientX，clientY，movementX，movementY，screenX，screenY</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc11">relatedTarget</a></li><li class="toc-h2"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc12">wheel事件</a></li><li class="toc-h2"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc13">键盘事件</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc14">altKey，ctrlKey，metaKey，shiftKey</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc15">key，charCode</a></li><li class="toc-h2"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc16">进度事件</a></li><li class="toc-h2"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc17">拖拉事件</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc18">事件种类</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc19">DataTransfer对象概述</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc20">DataTransfer对象的属性</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc21">DataTransfer对象的方法</a></li><li class="toc-h2"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc22">触摸事件</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc23">Touch对象</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc24">TouchList对象</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc25">TouchEvent对象</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc26">触摸事件的种类</a></li><li class="toc-h2"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc27">表单事件</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc28">Input事件，select事件，change事件</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc29">reset事件，submit事件</a></li><li class="toc-h2"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc30">文档事件</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc31">beforeunload事件，unload事件，load事件，error事件，pageshow事件，pagehide事件</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc32">DOMContentLoaded事件，readystatechange事件</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc33">scroll事件，resize事件</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc34">hashchange事件，popstate事件</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc35">cut事件，copy事件，paste事件</a></li><li class="toc-h3"><a href="http://javascript.ruanyifeng.com/dom/event-type.html#toc36">焦点事件</a></li></ul></div>
+
+
+<p>本节介绍各种常见的浏览器事件。</p>
+
+<span id="toc0"></span><div class="chapter"><h2 id="鼠标事件">鼠标事件</h2></div>
+
+<p>鼠标事件指与鼠标相关的事件，主要有以下一些。</p>
+
+<span id="toc1"></span><h3 id="click-事件dblclick-事件">click 事件，dblclick 事件</h3>
+
+<p>当用户在Element节点、<code class="highlighter-rouge">document</code>节点、<code class="highlighter-rouge">window</code>对象上单击鼠标（或者按下回车键）时，<code class="highlighter-rouge">click</code>事件触发。</p>
+
+<p>“鼠标单击”定义为，用户在同一个位置完成一次<code class="highlighter-rouge">mousedown</code>动作和<code class="highlighter-rouge">mouseup</code>动作。它们的触发顺序是：<code class="highlighter-rouge">mousedown</code>首先触发，<code class="highlighter-rouge">mouseup</code>接着触发，<code class="highlighter-rouge">click</code>最后触发。</p>
+
+<p>下面是一个设置<code class="highlighter-rouge">click</code>事件监听函数的例子。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">div</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 显示在该节点，鼠标连续点击的次数</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"click count: "</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">detail</span><span class="p">;</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>下面的代码是利用<code class="highlighter-rouge">click</code>事件进行CSRF攻击（Cross-site request forgery）的一个例子。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.harmless.com/"</span> <span class="na">onclick=</span><span class="s">"
+  var f = document.createElement('form');
+  f.style.display = 'none';
+  this.parentNode.appendChild(f);
+  f.method = 'POST';
+  f.action = 'http://www.example.com/account/destroy';
+  f.submit();
+  return false;"</span><span class="nt">&gt;</span>伪装的链接<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">dblclick</code>事件当用户在<code class="highlighter-rouge">element</code>、<code class="highlighter-rouge">document</code>、<code class="highlighter-rouge">window</code>对象上，双击鼠标时触发。该事件会在<code class="highlighter-rouge">mousedown</code>、<code class="highlighter-rouge">mouseup</code>、<code class="highlighter-rouge">click</code>之后触发。</p>
+
+<span id="toc2"></span><h3 id="mouseup-事件mousedown-事件mousemove-事件">mouseup 事件，mousedown 事件，mousemove 事件</h3>
+
+<p><code class="highlighter-rouge">mouseup</code>事件在释放按下的鼠标键时触发。</p>
+
+<p><code class="highlighter-rouge">mousedown</code>事件在按下鼠标键时触发。</p>
+
+<p><code class="highlighter-rouge">mousemove</code>事件当鼠标在一个节点内部移动时触发。当鼠标持续移动时，该事件会连续触发。为了避免性能问题，建议对该事件的监听函数做一些限定，比如限定一段时间内只能运行一次代码。</p>
+
+<span id="toc3"></span><h3 id="mouseover-事件mouseenter-事件">mouseover 事件，mouseenter 事件</h3>
+
+<p><code class="highlighter-rouge">mouseover</code>事件和<code class="highlighter-rouge">mouseenter</code>事件，都是鼠标进入一个节点时触发。</p>
+
+<p>两者的区别是，<code class="highlighter-rouge">mouseenter</code>事件只触发一次，而只要鼠标在节点内部移动，<code class="highlighter-rouge">mouseover</code>事件会在子节点上触发多次。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HTML代码为</span>
+<span class="c1">// &lt;ul id="test"&gt;</span>
+<span class="c1">//   &lt;li&gt;item 1&lt;/li&gt;</span>
+<span class="c1">//   &lt;li&gt;item 2&lt;/li&gt;</span>
+<span class="c1">//   &lt;li&gt;item 3&lt;/li&gt;</span>
+<span class="c1">// &lt;/ul&gt;</span>
+
+<span class="kd">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'test'</span><span class="p">);</span>
+
+<span class="c1">// 进入test节点以后，该事件只会触发一次</span>
+<span class="c1">// event.target 是 ul 节点</span>
+<span class="nx">test</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'mouseenter'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s1">'purple'</span><span class="p">;</span>
+  <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+  <span class="p">},</span> <span class="mi">500</span><span class="p">);</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+
+<span class="c1">// 进入test节点以后，只要在子Element节点上移动，该事件会触发多次</span>
+<span class="c1">// event.target 是 li 节点</span>
+<span class="nx">test</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'mouseover'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s1">'orange'</span><span class="p">;</span>
+  <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+  <span class="p">},</span> <span class="mi">500</span><span class="p">);</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+</code></pre></div></div>
+
+<span id="toc4"></span><h3 id="mouseout-事件mouseleave-事件">mouseout 事件，mouseleave 事件</h3>
+
+<p><code class="highlighter-rouge">mouseout</code>事件和<code class="highlighter-rouge">mouseleave</code>事件，都是鼠标离开一个节点时触发。</p>
+
+<p>两者的区别是，<code class="highlighter-rouge">mouseout</code>事件会冒泡，<code class="highlighter-rouge">mouseleave</code>事件不会。子节点的<code class="highlighter-rouge">mouseout</code>事件会冒泡到父节点，进而触发父节点的<code class="highlighter-rouge">mouseout</code>事件。<code class="highlighter-rouge">mouseleave</code>事件就没有这种效果，所以离开子节点时，不会触发父节点的监听函数。</p>
+
+<span id="toc5"></span><h3 id="contextmenu-事件">contextmenu 事件</h3>
+
+<p><code class="highlighter-rouge">contextmenu</code>事件在一个节点上点击鼠标右键时触发，或者按下“上下文菜单”键时触发。</p>
+
+<span id="toc6"></span><div class="chapter"><h2 id="mouseevent-对象">MouseEvent 对象</h2></div>
+
+<span id="toc7"></span><h3 id="概述">概述</h3>
+
+<p>鼠标事件使用<code class="highlighter-rouge">MouseEvent</code>对象表示，它继承<code class="highlighter-rouge">UIEvent</code>对象和<code class="highlighter-rouge">Event</code>对象。浏览器提供一个<code class="highlighter-rouge">MouseEvent</code>构造函数，用于新建一个<code class="highlighter-rouge">MouseEvent</code>实例。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">event</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MouseEvent</span><span class="p">(</span><span class="nx">typeArg</span><span class="p">,</span> <span class="nx">mouseEventInit</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">MouseEvent</code>构造函数的第一个参数是事件名称（可能的值包括<code class="highlighter-rouge">click</code>、<code class="highlighter-rouge">mousedown</code>、<code class="highlighter-rouge">mouseup</code>、<code class="highlighter-rouge">mouseover</code>、<code class="highlighter-rouge">mousemove</code>、<code class="highlighter-rouge">mouseout</code>），第二个参数是一个事件初始化对象。该对象可以配置以下属性。</p>
+
+<ul>
+  <li>screenX，设置鼠标相对于屏幕的水平坐标（但不会移动鼠标），默认为0，等同于MouseEvent.screenX属性。</li>
+  <li>screenY，设置鼠标相对于屏幕的垂直坐标，默认为0，等同于MouseEvent.screenY属性。</li>
+  <li>clientX，设置鼠标相对于窗口的水平坐标，默认为0，等同于MouseEvent.clientX属性。</li>
+  <li>clientY，设置鼠标相对于窗口的垂直坐标，默认为0，等同于MouseEvent.clientY属性。</li>
+  <li>ctrlKey，设置是否按下ctrl键，默认为false，等同于MouseEvent.ctrlKey属性。</li>
+  <li>shiftKey，设置是否按下shift键，默认为false，等同于MouseEvent.shiftKey属性。</li>
+  <li>altKey，设置是否按下alt键，默认为false，等同于MouseEvent.altKey属性。</li>
+  <li>metaKey，设置是否按下meta键，默认为false，等同于MouseEvent.metaKey属性。</li>
+  <li>button，设置按下了哪一个鼠标按键，默认为0。-1表示没有按键，0表示按下主键（通常是左键），1表示按下辅助键（通常是中间的键），2表示按下次要键（通常是右键）。</li>
+  <li>buttons，设置按下了鼠标哪些键，是一个3个比特位的二进制值，默认为0。1表示按下主键（通常是左键），2表示按下次要键（通常是右键），4表示按下辅助键（通常是中间的键）。</li>
+  <li>relatedTarget，设置一个Element节点，在mouseenter和mouseover事件时，表示鼠标刚刚离开的那个Element节点，在mouseout和mouseleave事件时，表示鼠标正在进入的那个Element节点。默认为null，等同于MouseEvent.relatedTarget属性。</li>
+</ul>
+
+<p>以下属性也是可配置的，都继承自UIEvent构造函数和Event构造函数。</p>
+
+<ul>
+  <li>bubbles，布尔值，设置事件是否冒泡，默认为false，等同于Event.bubbles属性。</li>
+  <li>cancelable，布尔值，设置事件是否可取消，默认为false，等同于Event.cancelable属性。</li>
+  <li>view，设置事件的视图，一般是window或document.defaultView，等同于Event.view属性。</li>
+  <li>detail，设置鼠标点击的次数，等同于Event.detail属性。</li>
+</ul>
+
+<p>下面是一个例子。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">simulateClick</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">event</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MouseEvent</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s1">'bubbles'</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s1">'cancelable'</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">});</span>
+  <span class="kd">var</span> <span class="nx">cb</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'checkbox'</span><span class="p">);</span>
+  <span class="nx">cb</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>上面代码生成一个鼠标点击事件，并触发该事件。</p>
+
+<p>以下介绍MouseEvent实例的属性。</p>
+
+<span id="toc8"></span><h3 id="altkeyctrlkeymetakeyshiftkey">altKey，ctrlKey，metaKey，shiftKey</h3>
+
+<p>以下属性返回一个布尔值，表示鼠标事件发生时，是否按下某个键。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">altKey</code>属性：Alt 键</li>
+  <li><code class="highlighter-rouge">ctrlKey</code>属性：Ctrl 键</li>
+  <li><code class="highlighter-rouge">metaKey</code>属性：Meta 键（Mac键盘是一个四瓣的小花，Windows键盘是Windows键）</li>
+  <li><code class="highlighter-rouge">shiftKey</code>属性：Shift 键</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HTML代码为</span>
+<span class="c1">// &lt;body onclick="showkey(event);"&gt;</span>
+
+<span class="kd">function</span> <span class="nx">showKey</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"ALT key pressed: "</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">altKey</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"CTRL key pressed: "</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">ctrlKey</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"META key pressed: "</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">metaKey</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"SHIFT key pressed: "</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">shiftKey</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>上面代码中，点击网页会输出是否同时按下Alt键。</p>
+
+<span id="toc9"></span><h3 id="buttonbuttons">button，buttons</h3>
+
+<p>以下属性返回事件的鼠标键信息。</p>
+
+<p><strong>（1）button</strong></p>
+
+<p>button属性返回一个数值，表示按下了鼠标哪个键。</p>
+
+<ul>
+  <li>-1：没有按下键。</li>
+  <li>0：按下主键（通常是左键）。</li>
+  <li>1：按下辅助键（通常是中键或者滚轮键）。</li>
+  <li>2：按下次键（通常是右键）。</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HTML代码为</span>
+<span class="c1">// &lt;button onmouseup="whichButton(event);"&gt;点击&lt;/button&gt;</span>
+
+<span class="kd">var</span> <span class="nx">whichButton</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">button</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Left button clicked.'</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Middle button clicked.'</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Right button clicked.'</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="nl">default</span><span class="p">:</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Unexpected code: '</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">button</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>（2）buttons</strong></p>
+
+<p>buttons属性返回一个3个比特位的值，表示同时按下了哪些键。它用来处理同时按下多个鼠标键的情况。</p>
+
+<ul>
+  <li>1：二进制为001，表示按下左键。</li>
+  <li>2：二进制为010，表示按下右键。</li>
+  <li>4：二进制为100，表示按下中键或滚轮键。</li>
+</ul>
+
+<p>同时按下多个键的时候，每个按下的键对应的比特位都会有值。比如，同时按下左键和右键，会返回3（二进制为011）。</p>
+
+<span id="toc10"></span><h3 id="clientxclientymovementxmovementyscreenxscreeny">clientX，clientY，movementX，movementY，screenX，screenY</h3>
+
+<p>以下属性与事件的位置相关。</p>
+
+<p><strong>（1）clientX，clientY</strong></p>
+
+<p>clientX属性返回鼠标位置相对于浏览器窗口左上角的水平坐标，单位为像素，与页面是否横向滚动无关。</p>
+
+<p>clientY属性返回鼠标位置相对于浏览器窗口左上角的垂直坐标，单位为像素，与页面是否纵向滚动无关。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HTML代码为</span>
+<span class="c1">// &lt;body onmousedown="showCoords(event)"&gt;</span>
+
+<span class="kd">function</span> <span class="nx">showCoords</span><span class="p">(</span><span class="nx">evt</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+    <span class="s2">"clientX value: "</span> <span class="o">+</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">+</span> <span class="s2">"</span><span class="err">\</span><span class="s2">n"</span> <span class="o">+</span>
+    <span class="s2">"clientY value: "</span> <span class="o">+</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">clientY</span> <span class="o">+</span> <span class="s2">"</span><span class="err">\</span><span class="s2">n"</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>（2）movementX，movementY</strong></p>
+
+<p>movementX属性返回一个水平位移，单位为像素，表示当前位置与上一个mousemove事件之间的水平距离。在数值上，等于currentEvent.movementX = currentEvent.screenX - previousEvent.screenX。</p>
+
+<p>movementY属性返回一个垂直位移，单位为像素，表示当前位置与上一个mousemove事件之间的垂直距离。在数值上，等于currentEvent.movementY = currentEvent.screenY - previousEvent.screenY。</p>
+
+<p><strong>（3）screenX，screenY</strong></p>
+
+<p>screenX属性返回鼠标位置相对于屏幕左上角的水平坐标，单位为像素。</p>
+
+<p>screenY属性返回鼠标位置相对于屏幕左上角的垂直坐标，单位为像素。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HTML代码为</span>
+<span class="c1">// &lt;body onmousedown="showCoords(event)"&gt;</span>
+
+<span class="kd">function</span> <span class="nx">showCoords</span><span class="p">(</span><span class="nx">evt</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+    <span class="s2">"screenX value: "</span> <span class="o">+</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">screenX</span> <span class="o">+</span> <span class="s2">"</span><span class="err">\</span><span class="s2">n"</span>
+    <span class="o">+</span> <span class="s2">"screenY value: "</span> <span class="o">+</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">screenY</span> <span class="o">+</span> <span class="s2">"</span><span class="err">\</span><span class="s2">n"</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<span id="toc11"></span><h3 id="relatedtarget">relatedTarget</h3>
+
+<p>relatedTarget属性返回事件的次要相关节点。对于那些没有次要相关节点的事件，该属性返回null。</p>
+
+<p>下表列出不同事件的target属性和relatedTarget属性含义。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>事件名称</th>
+      <th>target属性</th>
+      <th>relatedTarget属性</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>focusin</td>
+      <td>接受焦点的节点</td>
+      <td>丧失焦点的节点</td>
+    </tr>
+    <tr>
+      <td>focusout</td>
+      <td>丧失焦点的节点</td>
+      <td>接受焦点的节点</td>
+    </tr>
+    <tr>
+      <td>mouseenter</td>
+      <td>将要进入的节点</td>
+      <td>将要离开的节点</td>
+    </tr>
+    <tr>
+      <td>mouseleave</td>
+      <td>将要离开的节点</td>
+      <td>将要进入的节点</td>
+    </tr>
+    <tr>
+      <td>mouseout</td>
+      <td>将要离开的节点</td>
+      <td>将要进入的节点</td>
+    </tr>
+    <tr>
+      <td>mouseover</td>
+      <td>将要进入的节点</td>
+      <td>将要离开的节点</td>
+    </tr>
+    <tr>
+      <td>dragenter</td>
+      <td>将要进入的节点</td>
+      <td>将要离开的节点</td>
+    </tr>
+    <tr>
+      <td>dragexit</td>
+      <td>将要离开的节点</td>
+      <td>将要进入的节点</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>下面是一个例子。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HTML代码为</span>
+<span class="c1">// &lt;div id="outer" style="height:50px;width:50px;border-width:1px solid black;"&gt;</span>
+<span class="c1">//   &lt;div id="inner" style="height:25px;width:25px;border:1px solid black;"&gt;&lt;/div&gt;</span>
+<span class="c1">// &lt;/div&gt;</span>
+
+<span class="kd">var</span> <span class="nx">inner</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"inner"</span><span class="p">);</span>
+
+<span class="nx">inner</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"mouseover"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'进入'</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s2">" 离开"</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">relatedTarget</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nx">inner</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"mouseenter"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'进入'</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s2">" 离开"</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">relatedTarget</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nx">inner</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"mouseout"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'离开'</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s2">" 进入"</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">relatedTarget</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nx">inner</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"mouseleave"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'离开'</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s2">" 进入"</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">relatedTarget</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// 鼠标从outer进入inner，输出</span>
+<span class="c1">// 进入inner 离开outer</span>
+<span class="c1">// 进入inner 离开outer</span>
+
+<span class="c1">// 鼠标从inner进入outer，输出</span>
+<span class="c1">// 离开inner 进入outer</span>
+<span class="c1">// 离开inner 进入outer</span>
+</code></pre></div></div>
+
+<span id="toc12"></span><div class="chapter"><h2 id="wheel事件">wheel事件</h2></div>
+
+<p><code class="highlighter-rouge">wheel</code>事件是与鼠标滚轮相关的事件，目前只有一个<code class="highlighter-rouge">wheel</code>事件。用户滚动鼠标的滚轮，就触发这个事件。</p>
+
+<p>该事件除了继承了MouseEvent、UIEvent、Event的属性，还有几个自己的属性。</p>
+
+<ul>
+  <li>deltaX：返回一个数值，表示滚轮的水平滚动量。</li>
+  <li>deltaY：返回一个数值，表示滚轮的垂直滚动量。</li>
+  <li>deltaZ：返回一个数值，表示滚轮的Z轴滚动量。</li>
+  <li>deltaMode：返回一个数值，表示滚动的单位，适用于上面三个属性。0表示像素，1表示行，2表示页。</li>
+</ul>
+
+<p>浏览器提供一个WheelEvent构造函数，可以用来生成滚轮事件的实例。它接受两个参数，第一个是事件名称，第二个是配置对象。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">syntheticEvent</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WheelEvent</span><span class="p">(</span><span class="s2">"syntheticWheel"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"deltaX"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">"deltaMode"</span><span class="p">:</span> <span class="mi">0</span><span class="p">});</span>
+</code></pre></div></div>
+
+<span id="toc13"></span><div class="chapter"><h2 id="键盘事件">键盘事件</h2></div>
+
+<p>键盘事件用来描述键盘行为，主要有keydown、keypress、keyup三个事件。</p>
+
+<ul>
+  <li>
+    <p>keydown：按下键盘时触发该事件。</p>
+  </li>
+  <li>
+    <p>keypress：只要按下的键并非Ctrl、Alt、Shift和Meta，就接着触发keypress事件。</p>
+  </li>
+  <li>
+    <p>keyup：松开键盘时触发该事件。</p>
+  </li>
+</ul>
+
+<p>下面是一个例子，对文本框设置keypress监听函数，只允许输入数字。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HTML代码为</span>
+<span class="c1">// &lt;input type="text"</span>
+<span class="c1">//   name="myInput"</span>
+<span class="c1">//   onkeypress="return numbersOnly(this, event);"</span>
+<span class="c1">//   onpaste="return false;"</span>
+<span class="c1">// /&gt;</span>
+
+<span class="kd">function</span> <span class="nx">numbersOnly</span><span class="p">(</span><span class="nx">oToCheckField</span><span class="p">,</span> <span class="nx">oKeyEvent</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">oKeyEvent</span><span class="p">.</span><span class="nx">charCode</span> <span class="o">===</span> <span class="mi">0</span>
+    <span class="o">||</span> <span class="sr">/</span><span class="se">\d</span><span class="sr">/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="nx">oKeyEvent</span><span class="p">.</span><span class="nx">charCode</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>如果用户一直按键不松开，就会连续触发键盘事件，触发的顺序如下。</p>
+
+<ol>
+  <li>keydown</li>
+  <li>keypress</li>
+  <li>keydown</li>
+  <li>keypress</li>
+  <li>（重复以上过程）</li>
+  <li>keyup</li>
+</ol>
+
+<p>键盘事件使用KeyboardEvent对象表示，该对象继承了UIEvent和MouseEvent对象。浏览器提供KeyboardEvent构造函数，用来新建键盘事件的实例。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">event</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">KeyboardEvent</span><span class="p">(</span><span class="nx">typeArg</span><span class="p">,</span> <span class="nx">KeyboardEventInit</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>KeyboardEvent构造函数的第一个参数是一个字符串，表示事件类型，第二个参数是一个事件配置对象，可配置以下字段。</p>
+
+<ul>
+  <li>key，对应KeyboardEvent.key属性，默认为空字符串。</li>
+  <li>ctrlKey，对应KeyboardEvent.ctrlKey属性，默认为false。</li>
+  <li>shiftKey，对应KeyboardEvent.shiftKey属性，默认为false。</li>
+  <li>altKey，对应KeyboardEvent.altKey属性，默认为false。</li>
+  <li>metaKey，对应KeyboardEvent.metaKey属性，默认为false。</li>
+</ul>
+
+<p>下面就是KeyboardEvent实例的属性介绍。</p>
+
+<span id="toc14"></span><h3 id="altkeyctrlkeymetakeyshiftkey-1">altKey，ctrlKey，metaKey，shiftKey</h3>
+
+<p>以下属性返回一个布尔值，表示是否按下对应的键。</p>
+
+<ul>
+  <li>altKey：alt键</li>
+  <li>ctrlKey：ctrl键</li>
+  <li>metaKey：meta键（mac系统是一个四瓣的小花，windows系统是windows键）</li>
+  <li>shiftKey：shift键</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">showChar</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"ALT: "</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">altKey</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"CTRL: "</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">ctrlKey</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Meta: "</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">metaKey</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Meta: "</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">shiftKey</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<span id="toc15"></span><h3 id="keycharcode">key，charCode</h3>
+
+<p>key属性返回一个字符串，表示按下的键名。如果同时按下一个控制键和一个符号键，则返回符号键的键名。比如，按下Ctrl+a，则返回a。如果无法识别键名，则返回字符串Unidentified。</p>
+
+<p>主要功能键的键名（不同的浏览器可能有差异）：Backspace，Tab，Enter，Shift，Control，Alt，CapsLock，Esc，Spacebar，PageUp，PageDown，End，Home，Left，Right，Up，Down，PrintScreen，Insert，Del，Win，F1～F12，NumLock，Scroll等。</p>
+
+<p>charCode属性返回一个数值，表示keypress事件按键的Unicode值，keydown和keyup事件不提供这个属性。注意，该属性已经从标准移除，虽然浏览器还支持，但应该尽量不使用。</p>
+
+<span id="toc16"></span><div class="chapter"><h2 id="进度事件">进度事件</h2></div>
+
+<p>进度事件用来描述一个事件进展的过程，比如XMLHttpRequest对象发出的HTTP请求的过程、&lt;img&gt;、&lt;audio&gt;、&lt;video&gt;、&lt;style&gt;、&lt;link&gt;加载外部资源的过程。下载和上传都会发生进度事件。</p>
+
+<p>进度事件有以下几种。</p>
+
+<ul>
+  <li>
+    <p>abort事件：当进度事件被中止时触发。如果发生错误，导致进程中止，不会触发该事件。</p>
+  </li>
+  <li>
+    <p>error事件：由于错误导致资源无法加载时触发。</p>
+  </li>
+  <li>
+    <p>load事件：进度成功结束时触发。</p>
+  </li>
+  <li>
+    <p>loadstart事件：进度开始时触发。</p>
+  </li>
+  <li>
+    <p>loadend事件：进度停止时触发，发生顺序排在error事件\abort事件\load事件后面。</p>
+  </li>
+  <li>
+    <p>progress事件：当操作处于进度之中，由传输的数据块不断触发。</p>
+  </li>
+  <li>
+    <p>timeout事件：进度超过限时触发。</p>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">image</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'load'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">image</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'finished'</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">image</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'error'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">image</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">'none'</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>上面代码在图片元素加载完成后，为图片元素的class属性添加一个值“finished”。如果加载失败，就把图片元素的样式设置为不显示。</p>
+
+<p>有时候，图片加载会在脚本运行之前就完成，尤其是当脚本放置在网页底部的时候，因此有可能使得load和error事件的监听函数根本不会被执行。所以，比较可靠的方式，是用complete属性先判断一下是否加载完成。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">loaded</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// code after image loaded</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">image</span><span class="p">.</span><span class="nx">complete</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">loaded</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nx">image</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'load'</span><span class="p">,</span> <span class="nx">loaded</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>由于DOM没有提供像complete属性那样的，判断是否发生加载错误的属性，所以error事件的监听函数最好放在img元素的HTML属性中，这样才能保证发生加载错误时百分之百会执行。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/wrong/url"</span> <span class="na">onerror=</span><span class="s">"this.style.display='none';"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<p>error事件有一个特殊的性质，就是不会冒泡。这样的设计是正确的，防止引发父元素的error事件监听函数。</p>
+
+<p>进度事件使用ProgressEvent对象表示。ProgressEvent实例有以下属性。</p>
+
+<ul>
+  <li>
+    <p>lengthComputable：返回一个布尔值，表示当前进度是否具有可计算的长度。如果为false，就表示当前进度无法测量。</p>
+  </li>
+  <li>
+    <p>total：返回一个数值，表示当前进度的总长度。如果是通过HTTP下载某个资源，表示内容本身的长度，不含HTTP头部的长度。如果lengthComputable属性为false，则total属性就无法取得正确的值。</p>
+  </li>
+  <li>
+    <p>loaded：返回一个数值，表示当前进度已经完成的数量。该属性除以total属性，就可以得到目前进度的百分比。</p>
+  </li>
+</ul>
+
+<p>下面是一个例子。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"progress"</span><span class="p">,</span> <span class="nx">updateProgress</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"load"</span><span class="p">,</span> <span class="nx">transferComplete</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"error"</span><span class="p">,</span> <span class="nx">transferFailed</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"abort"</span><span class="p">,</span> <span class="nx">transferCanceled</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+
+<span class="kd">function</span> <span class="nx">updateProgress</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">lengthComputable</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">percentComplete</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">loaded</span> <span class="o">/</span> <span class="nx">e</span><span class="p">.</span><span class="nx">total</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'不能计算进度'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">transferComplete</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'传输结束'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">transferFailed</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'传输过程中发生错误'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">transferCanceled</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'用户取消了传输'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>loadend事件的监听函数，可以用来取代abort事件/load事件/error事件的监听函数。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">req</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"loadend"</span><span class="p">,</span> <span class="nx">loadEnd</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">loadEnd</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'传输结束，成功失败未知'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>loadend事件本身不提供关于进度结束的原因，但可以用它来做所有进度结束场景都需要做的一些操作。</p>
+
+<p>另外，上面是下载过程的进度事件，还存在上传过程的进度事件。这时所有监听函数都要放在XMLHttpRequest.upload对象上面。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">upload</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"progress"</span><span class="p">,</span> <span class="nx">updateProgress</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">upload</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"load"</span><span class="p">,</span> <span class="nx">transferComplete</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">upload</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"error"</span><span class="p">,</span> <span class="nx">transferFailed</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">upload</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"abort"</span><span class="p">,</span> <span class="nx">transferCanceled</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>浏览器提供一个ProgressEvent构造函数，用来生成进度事件的实例。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">progressEvent</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProgressEvent</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">lengthComputable</span><span class="p">:</span> <span class="nx">aBooleanValue</span><span class="p">,</span>
+  <span class="na">loaded</span><span class="p">:</span> <span class="nx">aNumber</span><span class="p">,</span>
+  <span class="na">total</span><span class="p">:</span> <span class="nx">aNumber</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>上面代码中，ProgressEvent构造函数的第一个参数是事件类型（字符串），第二个参数是配置对象，用来指定lengthComputable属性（默认值为false）、loaded属性（默认值为0）、total属性（默认值为0）。</p>
+
+<span id="toc17"></span><div class="chapter"><h2 id="拖拉事件">拖拉事件</h2></div>
+
+<p>拖拉指的是，用户在某个对象上按下鼠标键不放，拖动它到另一个位置，然后释放鼠标键，将该对象放在那里。</p>
+
+<p>拖拉的对象有好几种，包括Element节点、图片、链接、选中的文字等等。在HTML网页中，除了Element节点默认不可以拖拉，其他（图片、链接、选中的文字）都是可以直接拖拉的。为了让Element节点可拖拉，可以将该节点的draggable属性设为true。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">draggable=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+  此区域可拖拉
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>draggable属性可用于任何Element节点，但是图片（img元素）和链接（a元素）不加这个属性，就可以拖拉。对于它们，用到这个属性的时候，往往是将其设为false，防止拖拉。</p>
+
+<p>注意，一旦某个Element节点的draggable属性设为true，就无法再用鼠标选中该节点内部的文字或子节点了。</p>
+
+<span id="toc18"></span><h3 id="事件种类">事件种类</h3>
+
+<p>当Element节点或选中的文本被拖拉时，就会持续触发拖拉事件，包括以下一些事件。</p>
+
+<ul>
+  <li>
+    <p><strong>drag事件</strong>：拖拉过程中，在被拖拉的节点上持续触发。</p>
+  </li>
+  <li>
+    <p><strong>dragstart事件</strong>：拖拉开始时在被拖拉的节点上触发，该事件的target属性是被拖拉的节点。通常应该在这个事件的监听函数中，指定拖拉的数据。</p>
+  </li>
+  <li>
+    <p><strong>dragend事件</strong>：拖拉结束时（释放鼠标键或按下escape键）在被拖拉的节点上触发，该事件的target属性是被拖拉的节点。它与dragstart事件，在同一个节点上触发。不管拖拉是否跨窗口，或者中途被取消，dragend事件总是会触发的。</p>
+  </li>
+  <li>
+    <p><strong>dragenter事件</strong>：拖拉进入当前节点时，在当前节点上触发，该事件的target属性是当前节点。通常应该在这个事件的监听函数中，指定是否允许在当前节点放下（drop）拖拉的数据。如果当前节点没有该事件的监听函数，或者监听函数不执行任何操作，就意味着不允许在当前节点放下数据。在视觉上显示拖拉进入当前节点，也是在这个事件的监听函数中设置。</p>
+  </li>
+  <li>
+    <p><strong>dragover事件</strong>：拖拉到当前节点上方时，在当前节点上持续触发，该事件的target属性是当前节点。该事件与dragenter事件基本类似，默认会重置当前的拖拉事件的效果（DataTransfer对象的dropEffect属性）为none，即不允许放下被拖拉的节点，所以如果允许在当前节点drop数据，通常会使用preventDefault方法，取消重置拖拉效果为none。</p>
+  </li>
+  <li>
+    <p><strong>dragleave事件</strong>：拖拉离开当前节点范围时，在当前节点上触发，该事件的target属性是当前节点。在视觉上显示拖拉离开当前节点，就在这个事件的监听函数中设置。</p>
+  </li>
+  <li>
+    <p><strong>drop事件</strong>：被拖拉的节点或选中的文本，释放到目标节点时，在目标节点上触发。注意，如果当前节点不允许drop，即使在该节点上方松开鼠标键，也不会触发该事件。如果用户按下Escape键，取消这个操作，也不会触发该事件。该事件的监听函数负责取出拖拉数据，并进行相关处理。</p>
+  </li>
+</ul>
+
+<p>关于拖拉事件，有以下几点注意事项。</p>
+
+<ul>
+  <li>
+    <p>拖拉过程只触发以上这些拖拉事件，尽管鼠标在移动，但是鼠标事件不会触发。</p>
+  </li>
+  <li>
+    <p>将文件从操作系统拖拉进浏览器，不会触发dragStart和dragend事件。</p>
+  </li>
+  <li>
+    <p>dragenter和dragover事件的监听函数，用来指定可以放下（drop）拖拉的数据。由于网页的大部分区域不适合作为drop的目标节点，所以这两个事件的默认设置为当前节点不允许drop。如果想要在目标节点上drop拖拉的数据，首先必须阻止这两个事件的默认行为，或者取消这两个事件。</p>
+  </li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">ondragover=</span><span class="s">"return false"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">ondragover=</span><span class="s">"event.preventDefault()"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>上面代码中，如果不取消拖拉事件或者阻止默认行为，就不可能在div节点上drop被拖拉的节点。</p>
+
+<p>拖拉事件用一个DragEvent对象表示，该对象继承MouseEvent对象，因此也就继承了UIEvent和Event对象。DragEvent对象只有一个独有的属性DataTransfer，其他都是继承的属性。DataTransfer属性用来读写拖拉事件中传输的数据，详见下文《DataTransfer对象》的部分。</p>
+
+<p>下面的例子展示，如何动态改变被拖动节点的背景色。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">div</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"dragstart"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundColor</span> <span class="o">=</span> <span class="s2">"red"</span><span class="p">;</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"dragend"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundColor</span> <span class="o">=</span> <span class="s2">"green"</span><span class="p">;</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>上面代码中，div节点被拖动时，背景色会变为红色，拖动结束，又变回绿色。</p>
+
+<p>下面是一个例子，显示如何实现将一个节点从当前父节点，拖拉到另一个父节点中。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HTML代码为</span>
+<span class="c1">// &lt;div class="dropzone"&gt;</span>
+<span class="c1">//    &lt;div id="draggable" draggable="true"&gt;</span>
+<span class="c1">//       该节点可拖拉</span>
+<span class="c1">//    &lt;/div&gt;</span>
+<span class="c1">// &lt;/div&gt;</span>
+<span class="c1">// &lt;div class="dropzone"&gt;&lt;/div&gt;</span>
+<span class="c1">// &lt;div class="dropzone"&gt;&lt;/div&gt;</span>
+<span class="c1">// &lt;div class="dropzone"&gt;&lt;/div&gt;</span>
+
+<span class="c1">// 被拖拉节点</span>
+<span class="kd">var</span> <span class="nx">dragged</span><span class="p">;</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"dragstart"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 保存被拖拉节点</span>
+  <span class="nx">dragged</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">;</span>
+  <span class="c1">// 被拖拉节点的背景色变透明</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+  <span class="c1">// 兼容Firefox</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">setData</span><span class="p">(</span><span class="s1">'text/plain'</span><span class="p">,</span> <span class="s1">'anything'</span><span class="p">);</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'dragend'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 被拖拉节点的背景色恢复正常</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'dragover'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 防止拖拉效果被重置，允许被拖拉的节点放入目标节点</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'dragenter'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 目标节点的背景色变紫色</span>
+  <span class="c1">// 由于该事件会冒泡，所以要过滤节点</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">className</span> <span class="o">==</span> <span class="s1">'dropzone'</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">background</span> <span class="o">=</span> <span class="s1">'purple'</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'dragleave'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 目标节点的背景色恢复原样</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">className</span> <span class="o">==</span> <span class="s1">'dropzone'</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">background</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'drop'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 防止事件默认行为（比如某些Elment节点上可以打开链接）</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">className</span> <span class="o">===</span> <span class="s1">'dropzone'</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 恢复目标节点背景色</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">background</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+    <span class="c1">// 将被拖拉节点插入目标节点</span>
+    <span class="nx">dragged</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span> <span class="nx">dragged</span> <span class="p">);</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span> <span class="nx">dragged</span> <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+</code></pre></div></div>
+
+<span id="toc19"></span><h3 id="datatransfer对象概述">DataTransfer对象概述</h3>
+
+<p>所有的拖拉事件都有一个dataTransfer属性，用来保存需要传递的数据。这个属性的值是一个DataTransfer对象。</p>
+
+<p>拖拉的数据保存两方面的数据：数据的种类（又称格式）和数据的值。数据的种类是一个MIME字符串，比如 text/plain或者image/jpeg，数据的值是一个字符串。一般来说，如果拖拉一段文本，则数据默认就是那段文本；如果拖拉一个链接，则数据默认就是链接的URL。</p>
+
+<p>当拖拉事件开始的时候，可以提供数据类型和数据值；在拖拉过程中，通过dragenter和dragover事件的监听函数，检查数据类型，以确定是否允许放下（drop）被拖拉的对象。比如，在只允许放下链接的区域，检查拖拉的数据类型是否为text/uri-list。</p>
+
+<p>发生drop事件时，监听函数取出拖拉的数据，对其进行处理。</p>
+
+<span id="toc20"></span><h3 id="datatransfer对象的属性">DataTransfer对象的属性</h3>
+
+<p>DataTransfer对象有以下属性。</p>
+
+<p><strong>（1）dropEffect</strong></p>
+
+<p>dropEffect属性设置放下（drop）被拖拉节点时的效果，可能的值包括copy（复制被拖拉的节点）、move（移动被拖拉的节点）、link（创建指向被拖拉的节点的链接）、none（无法放下被拖拉的节点）。设置除此以外的值，都是无效的。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">target</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'dragover'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">dropEffect</span> <span class="o">=</span> <span class="s1">'copy'</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>dropEffect属性一般在dragenter和dragover事件的监听函数中设置，对于dragstart、drag、dragleave这三个事件，该属性不起作用。进入目标节点后，拖拉行为会初始化成用户设定的效果，用户可以通过按下Shift键和Control键，改变初始设置，在copy、move、link三种效果中切换。</p>
+
+<p>鼠标箭头会根据dropEffect属性改变形状，提示目前正处于哪一种效果。这意味着，通过鼠标就能判断是否可以在当前节点drop被拖拉的节点。</p>
+
+<p><strong>（2）effectAllowed</strong></p>
+
+<p>effectAllowed属性设置本次拖拉中允许的效果，可能的值包括copy（复制被拖拉的节点）、move（移动被拖拉的节点）、link（创建指向被拖拉节点的链接）、copyLink（允许copy或link）、copyMove（允许copy或move）、linkMove（允许link或move）、all（允许所有效果）、none（无法放下被拖拉的节点）、uninitialized（默认值，等同于all）。如果某种效果是不允许的，用户就无法在目标节点中达成这种效果。</p>
+
+<p>dragstart事件的监听函数，可以设置被拖拉节点允许的效果；dragenter和dragover事件的监听函数，可以设置目标节点允许的效果。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">effectAllowed</span> <span class="o">=</span> <span class="s2">"copy"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>dropEffect属性和effectAllowed属性，往往配合使用。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">effectAllowed</span> <span class="o">=</span> <span class="s2">"copyMove"</span><span class="p">;</span>
+<span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">dropEffect</span> <span class="o">=</span> <span class="s2">"copy"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>上面代码中，copy是指定的效果，但是可以通过Shift或Ctrl键（根据平台而定），将效果切换成move。</p>
+
+<p>只要dropEffect属性和effectAllowed属性之中，有一个为none，就无法在目标节点上完成drop操作。</p>
+
+<p><strong>（3）files</strong></p>
+
+<p>files属性是一个FileList对象，包含一组本地文件，可以用来在拖拉操作中传送。如果本次拖拉不涉及文件，则属性为空的FileList对象。</p>
+
+<p>下面就是一个接收拖拉文件的例子。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HTML代码为</span>
+<span class="c1">// &lt;div id="output" style="min-height: 200px;border: 1px solid black;"&gt;</span>
+<span class="c1">//   文件拖拉到这里</span>
+<span class="c1">// &lt;/div&gt;</span>
+
+<span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'output'</span><span class="p">);</span>
+
+<span class="nx">div</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"dragenter"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="nx">div</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+
+<span class="nx">div</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"dragover"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+
+<span class="nx">div</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"drop"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="kd">var</span> <span class="nx">files</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">files</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">files</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">div</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">+=</span> <span class="nx">files</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="nx">files</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">size</span> <span class="o">+</span> <span class="s1">'字节</span><span class="err">\</span><span class="s1">n'</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>上面代码中，通过files属性读取拖拉文件的信息。如果想要读取文件内容，就要使用FileReader对象。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">div</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'drop'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
+
+  <span class="kd">var</span> <span class="nx">fileList</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">files</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">fileList</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">file</span> <span class="o">=</span> <span class="nx">fileList</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FileReader</span><span class="p">();</span>
+    <span class="nx">reader</span><span class="p">.</span><span class="nx">onloadend</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="nx">FileReader</span><span class="p">.</span><span class="nx">DONE</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="nx">reader</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span>
+        <span class="nx">contentDiv</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"File: "</span> <span class="o">+</span> <span class="nx">file</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">"</span><span class="err">\</span><span class="s2">n</span><span class="err">\</span><span class="s2">n"</span> <span class="o">+</span> <span class="nx">content</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">reader</span><span class="p">.</span><span class="nx">readAsBinaryString</span><span class="p">(</span><span class="nx">file</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p><strong>（4）types</strong></p>
+
+<p>types属性是一个数组，保存每一次拖拉的数据格式，比如拖拉文件，则格式信息就为File。</p>
+
+<p>下面是一个例子，通过检查dataTransfer属性的类型，决定是否允许在当前节点执行drop操作。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">contains</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span> <span class="nx">value</span><span class="p">){</span>
+  <span class="k">for</span><span class="p">(</span> <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">list</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span> <span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">list</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="nx">value</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">doDragOver</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">isLink</span> <span class="o">=</span> <span class="nx">contains</span><span class="p">(</span> <span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">types</span><span class="p">,</span> <span class="s2">"text/uri-list"</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">isLink</span><span class="p">)</span> <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>上面代码中，只有当被拖拉的节点是一个链接时，才允许在当前节点放下。</p>
+
+<span id="toc21"></span><h3 id="datatransfer对象的方法">DataTransfer对象的方法</h3>
+
+<p>DataTransfer对象有以下方法。</p>
+
+<p><strong>（1）setData()</strong></p>
+
+<p>setData方法用来设置事件所带有的指定类型的数据。它接受两个参数，第一个是数据类型，第二个是具体数据。如果指定的类型在现有数据中不存在，则该类型将写入types属性；如果已经存在，在该类型的现有数据将被替换。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">setData</span><span class="p">(</span><span class="s2">"text/plain"</span><span class="p">,</span> <span class="s2">"Text to drag"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>上面代码为事件加入纯文本格式的数据。</p>
+
+<p>如果拖拉文本框或者拖拉选中的文本，会默认将文本数据添加到dataTransfer属性，不用手动指定。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">draggable=</span><span class="s">"true"</span> <span class="na">ondragstart=</span><span class="s">"
+  event.dataTransfer.setData('text/plain', 'bbb')"</span><span class="nt">&gt;</span>
+  aaa
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>上面代码中，拖拉数据实际上是bbb，而不是aaa。</p>
+
+<p>下面是添加其他类型的数据。由于text/plain是最普遍支持的格式，为了保证兼容性，建议最后总是将数据保存一份纯文本的格式。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">dt</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">;</span>
+
+<span class="c1">// 添加链接</span>
+<span class="nx">dt</span><span class="p">.</span><span class="nx">setData</span><span class="p">(</span><span class="s2">"text/uri-list"</span><span class="p">,</span> <span class="s2">"http://www.example.com"</span><span class="p">);</span>
+<span class="nx">dt</span><span class="p">.</span><span class="nx">setData</span><span class="p">(</span><span class="s2">"text/plain"</span><span class="p">,</span> <span class="s2">"http://www.example.com"</span><span class="p">);</span>
+<span class="c1">// 添加HTML代码</span>
+<span class="nx">dt</span><span class="p">.</span><span class="nx">setData</span><span class="p">(</span><span class="s2">"text/html"</span><span class="p">,</span> <span class="s2">"Hello there, &lt;strong&gt;stranger&lt;/strong&gt;"</span><span class="p">);</span>
+<span class="nx">dt</span><span class="p">.</span><span class="nx">setData</span><span class="p">(</span><span class="s2">"text/plain"</span><span class="p">,</span> <span class="s2">"Hello there, &lt;strong&gt;stranger&lt;/strong&gt;"</span><span class="p">);</span>
+<span class="c1">// 添加图像的URL</span>
+<span class="nx">dt</span><span class="p">.</span><span class="nx">setData</span><span class="p">(</span><span class="s2">"text/uri-list"</span><span class="p">,</span> <span class="nx">imageurl</span><span class="p">);</span>
+<span class="nx">dt</span><span class="p">.</span><span class="nx">setData</span><span class="p">(</span><span class="s2">"text/plain"</span><span class="p">,</span> <span class="nx">imageurl</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>可以一次提供多种格式的数据。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">dt</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">;</span>
+<span class="nx">dt</span><span class="p">.</span><span class="nx">setData</span><span class="p">(</span><span class="s2">"application/x-bookmark"</span><span class="p">,</span> <span class="nx">bookmarkString</span><span class="p">);</span>
+<span class="nx">dt</span><span class="p">.</span><span class="nx">setData</span><span class="p">(</span><span class="s2">"text/uri-list"</span><span class="p">,</span> <span class="s2">"http://www.example.com"</span><span class="p">);</span>
+<span class="nx">dt</span><span class="p">.</span><span class="nx">setData</span><span class="p">(</span><span class="s2">"text/plain"</span><span class="p">,</span> <span class="s2">"http://www.example.com"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>上面代码中，通过在同一个事件上面，存放三种类型的数据，使得拖拉事件可以在不同的对象上面，drop不同的值。注意，第一种格式是一个自定义格式，浏览器默认无法读取，这意味着，只有某个部署了特定代码的节点，才可能drop（读取到）这个数据。</p>
+
+<p><strong>（2）getData()</strong></p>
+
+<p>getData方法接受一个字符串（表示数据类型）作为参数，返回事件所带的指定类型的数据（通常是用setData方法添加的数据）。如果指定类型的数据不存在，则返回空字符串。通常只有drop事件触发后，才能取出数据。如果取出另一个域名存放的数据，将会报错。</p>
+
+<p>下面是一个drop事件的监听函数，用来取出指定类型的数据。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">onDrop</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">getData</span><span class="p">(</span><span class="s2">"text/plain"</span><span class="p">);</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>上面代码取出拖拉事件的文本数据，将其替换成当前节点的文本内容。注意，这时还必须取消浏览器的默认行为，因为假如用户拖拉的是一个链接，浏览器默认会在当前窗口打开这个链接。</p>
+
+<p>getData方法返回的是一个字符串，如果其中包含多项数据，就必须手动解析。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">doDrop</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">getData</span><span class="p">(</span><span class="s2">"text/uri-list"</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s2">"</span><span class="err">\</span><span class="s2">n"</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">line</span> <span class="k">of</span> <span class="nx">lines</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">link</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"a"</span><span class="p">);</span>
+    <span class="nx">link</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">line</span><span class="p">;</span>
+    <span class="nx">link</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">line</span><span class="p">;</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">link</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>上面代码中，getData方法返回的是一组链接，就必须自行解析。</p>
+
+<p>类型值指定为URL，可以取出第一个有效链接。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">getData</span><span class="p">(</span><span class="s2">"URL"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>下面是一次性取出多种类型的数据。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">doDrop</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">types</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">types</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">supportedTypes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"text/uri-list"</span><span class="p">,</span> <span class="s2">"text/plain"</span><span class="p">];</span>
+  <span class="nx">types</span> <span class="o">=</span> <span class="nx">supportedTypes</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="nx">types</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">value</span><span class="p">));</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">types</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+    <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">getData</span><span class="p">(</span><span class="nx">types</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>（3）clearData()</strong></p>
+
+<p>clearData方法接受一个字符串（表示数据类型）作为参数，删除事件所带的指定类型的数据。如果没有指定类型，则删除所有数据。如果指定类型不存在，则原数据不受影响。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">clearData</span><span class="p">(</span><span class="s2">"text/uri-list"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>上面代码清除事件所带的URL数据。</p>
+
+<p><strong>（4）setDragImage()</strong></p>
+
+<p>拖动过程中（dragstart事件触发后），浏览器会显示一张图片跟随鼠标一起移动，表示被拖动的节点。这张图片是自动创造的，通常显示为被拖动节点的外观，不需要自己动手设置。setDragImage方法可以用来自定义这张图片，它接受三个参数，第一个是img图片元素或者canvas元素，如果省略或为null则使用被拖动的节点的外观，第二个和第三个参数为鼠标相对于该图片左上角的横坐标和右坐标。</p>
+
+<p>下面是一个例子。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HTML代码为</span>
+<span class="c1">// &lt;div id="drag-with-image" class="dragdemo" draggable="true"&gt;</span>
+     <span class="nx">drag</span> <span class="nx">me</span>
+<span class="c1">// &lt;/div&gt;</span>
+
+<span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"drag-with-image"</span><span class="p">);</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"dragstart"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">img</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"img"</span><span class="p">);</span>
+  <span class="nx">img</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">"http://path/to/img"</span><span class="p">;</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">setDragImage</span><span class="p">(</span><span class="nx">img</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+</code></pre></div></div>
+
+<span id="toc22"></span><div class="chapter"><h2 id="触摸事件">触摸事件</h2></div>
+
+<p>触摸API由三个对象组成。</p>
+
+<ul>
+  <li>Touch</li>
+  <li>TouchList</li>
+  <li>TouchEvent</li>
+</ul>
+
+<p>Touch对象表示触摸点（一根手指或者一根触摸笔），用来描述触摸动作，包括位置、大小、形状、压力、目标元素等属性。有时，触摸动作由多个触摸点（多根手指或者多根触摸笔）组成，多个触摸点的集合由TouchList对象表示。TouchEvent对象代表由触摸引发的事件，只有触摸屏才会引发这一类事件。</p>
+
+<p>很多时候，触摸事件和鼠标事件同时触发，即使这个时候并没有用到鼠标。这是为了让那些只定义鼠标事件、没有定义触摸事件的代码，在触摸屏的情况下仍然能用。如果想避免这种情况，可以用preventDefault方法阻止发出鼠标事件。</p>
+
+<span id="toc23"></span><h3 id="touch对象">Touch对象</h3>
+
+<p>Touch对象代表一个触摸点。触摸点可能是一根手指，也可能是一根触摸笔。它有以下属性。</p>
+
+<p><strong>（1）identifier</strong></p>
+
+<p>identifier属性表示Touch实例的独一无二的识别符。它在整个触摸过程中保持不变。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">touchItem</span><span class="p">.</span><span class="nx">identifier</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>TouchList对象的identifiedTouch方法，可以根据这个属性，从一个集合里面取出对应的Touch对象。</p>
+
+<p><strong>（2）screenX，screenY，clientX，clientY，pageX，pageY</strong></p>
+
+<p>screenX属性和screenY属性，分别表示触摸点相对于屏幕左上角的横坐标和纵坐标，与页面是否滚动无关。</p>
+
+<p>clientX属性和clientY属性，分别表示触摸点相对于浏览器视口左上角的横坐标和纵坐标，与页面是否滚动无关。</p>
+
+<p>pageX属性和pageY属性，分别表示触摸点相对于当前页面左上角的横坐标和纵坐标，包含了页面滚动带来的位移。</p>
+
+<p><strong>（3）radiusX，radiusY，rotationAngle</strong></p>
+
+<p>radiusX属性和radiusY属性，分别返回触摸点周围受到影响的椭圆范围的X轴和Y轴，单位为像素。</p>
+
+<p>rotationAngle属性表示触摸区域的椭圆的旋转角度，单位为度数，在0到90度之间。</p>
+
+<p>上面这三个属性共同定义了用户与屏幕接触的区域，对于描述手指这一类非精确的触摸，很有帮助。指尖接触屏幕，触摸范围会形成一个椭圆，这三个属性就用来描述这个椭圆区域。</p>
+
+<p><strong>（4）force</strong></p>
+
+<p>force属性返回一个0到1之间的数值，表示触摸压力。0代表没有压力，1代表硬件所能识别的最大压力。</p>
+
+<p><strong>（5）target</strong></p>
+
+<p>target属性返回一个Element节点，代表触摸发生的那个节点。</p>
+
+<span id="toc24"></span><h3 id="touchlist对象">TouchList对象</h3>
+
+<p>TouchList对象是一个类似数组的对象，成员是与某个触摸事件相关的所有触摸点。比如，用户用三根手指触摸，产生的TouchList对象就有三个成员，每根手指对应一个Touch对象。</p>
+
+<p>TouchList实例的length属性，返回TouchList对象的成员数量。</p>
+
+<p>TouchList实例的identifiedTouch方法和item方法，分别使用id属性和索引值（从0开始）作为参数，取出指定的Touch对象。</p>
+
+<span id="toc25"></span><h3 id="touchevent对象">TouchEvent对象</h3>
+
+<p>TouchEvent对象继承Event对象和UIEvent对象，表示触摸引发的事件。除了被继承的属性以外，它还有一些自己的属性。</p>
+
+<p><strong>（1）键盘相关属性</strong></p>
+
+<p>以下属性都为只读属性，返回一个布尔值，表示触摸的同时，是否按下某个键。</p>
+
+<ul>
+  <li>altKey 是否按下alt键</li>
+  <li>ctrlKey 是否按下ctrl键</li>
+  <li>metaKey 是否按下meta键</li>
+  <li>shiftKey 是否按下shift键</li>
+</ul>
+
+<p><strong>（2）changedTouches</strong></p>
+
+<p>changedTouches属性返回一个TouchList对象，包含了由当前触摸事件引发的所有Touch对象（即相关的触摸点）。</p>
+
+<p>对于touchstart事件，它代表被激活的触摸点；对于touchmove事件，代表发生变化的触摸点；对于touchend事件，代表消失的触摸点（即不再被触碰的点）。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">touches</span> <span class="o">=</span> <span class="nx">touchEvent</span><span class="p">.</span><span class="nx">changedTouches</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><strong>（3）targetTouches</strong></p>
+
+<p>targetTouches属性返回一个TouchList对象，包含了触摸的目标Element节点内部，所有仍然处于活动状态的触摸点。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">touches</span> <span class="o">=</span> <span class="nx">touchEvent</span><span class="p">.</span><span class="nx">targetTouches</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><strong>（4）touches</strong></p>
+
+<p>touches属性返回一个TouchList对象，包含了所有仍然处于活动状态的触摸点。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">touches</span> <span class="o">=</span> <span class="nx">touchEvent</span><span class="p">.</span><span class="nx">touches</span><span class="p">;</span>
+</code></pre></div></div>
+
+<span id="toc26"></span><h3 id="触摸事件的种类">触摸事件的种类</h3>
+
+<p>触摸引发的事件，有以下几类。可以通过TouchEvent.type属性，查看到底发生的是哪一种事件。</p>
+
+<ul>
+  <li>
+    <p>touchstart：用户接触触摸屏时触发，它的target属性返回发生触摸的Element节点。</p>
+  </li>
+  <li>
+    <p>touchend：用户不再接触触摸屏时（或者移出屏幕边缘时）触发，它的target属性与touchstart事件的target属性是一致的，它的changedTouches属性返回一个TouchList对象，包含所有不再触摸的触摸点（Touch对象）。</p>
+  </li>
+  <li>
+    <p>touchmove：用户移动触摸点时触发，它的target属性与touchstart事件的target属性一致。如果触摸的半径、角度、力度发生变化，也会触发该事件。</p>
+  </li>
+  <li>
+    <p>touchcancel：触摸点取消时触发，比如在触摸区域跳出一个情态窗口（modal window）、触摸点离开了文档区域（进入浏览器菜单栏区域）、用户放置更多的触摸点（自动取消早先的触摸点）。</p>
+  </li>
+</ul>
+
+<p>下面是一个例子。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">el</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">"canvas"</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"touchstart"</span><span class="p">,</span> <span class="nx">handleStart</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"touchmove"</span><span class="p">,</span> <span class="nx">handleMove</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">handleStart</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 阻止浏览器继续处理触摸事件，</span>
+  <span class="c1">// 也阻止发出鼠标事件</span>
+  <span class="nx">evt</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="kd">var</span> <span class="nx">touches</span> <span class="o">=</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">changedTouches</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">touches</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">touches</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">pageX</span><span class="p">,</span> <span class="nx">touches</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">pageY</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">handleMove</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">evt</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="kd">var</span> <span class="nx">touches</span> <span class="o">=</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">changedTouches</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">touches</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">touches</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">identifier</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">touch</span> <span class="o">=</span> <span class="nx">touches</span><span class="p">.</span><span class="nx">identifiedTouch</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">touch</span><span class="p">.</span><span class="nx">pageX</span><span class="p">,</span> <span class="nx">touch</span><span class="p">.</span><span class="nx">pageY</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<span id="toc27"></span><div class="chapter"><h2 id="表单事件">表单事件</h2></div>
+
+<span id="toc28"></span><h3 id="input事件select事件change事件">Input事件，select事件，change事件</h3>
+
+<p>以下事件与表单成员的值变化有关。</p>
+
+<p><strong>（1）input事件</strong></p>
+
+<p>input事件当&lt;input&gt;、&lt;textarea&gt;的值发生变化时触发。此外，打开contenteditable属性的元素，只要值发生变化，也会触发input事件。</p>
+
+<p>input事件的一个特点，就是会连续触发，比如用户每次按下一次按键，就会触发一次input事件。</p>
+
+<p><strong>（2）select事件</strong></p>
+
+<p>select事件当在&lt;input&gt;、&lt;textarea&gt;中选中文本时触发。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HTML代码为</span>
+<span class="c1">// &lt;input id="test" type="text" value="Select me!" /&gt;</span>
+
+<span class="kd">var</span> <span class="nx">elem</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'test'</span><span class="p">);</span>
+<span class="nx">elem</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'select'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Selection changed!'</span><span class="p">);</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><strong>（3）Change事件</strong></p>
+
+<p>Change事件当&lt;input&gt;、&lt;select&gt;、&lt;textarea&gt;的值发生变化时触发。它与input事件的最大不同，就是不会连续触发，只有当全部修改完成时才会触发，而且input事件必然会引发change事件。具体来说，分成以下几种情况。</p>
+
+<ul>
+  <li>激活单选框（radio）或复选框（checkbox）时触发。</li>
+  <li>用户提交时触发。比如，从下列列表（select）完成选择，在日期或文件输入框完成选择。</li>
+  <li>当文本框或textarea元素的值发生改变，并且丧失焦点时触发。</li>
+</ul>
+
+<p>下面是一个例子。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HTML代码为</span>
+<span class="c1">// &lt;select size="1" onchange="changeEventHandler(event);"&gt;</span>
+<span class="c1">//   &lt;option&gt;chocolate&lt;/option&gt;</span>
+<span class="c1">//   &lt;option&gt;strawberry&lt;/option&gt;</span>
+<span class="c1">//   &lt;option&gt;vanilla&lt;/option&gt;</span>
+<span class="c1">// &lt;/select&gt;</span>
+
+<span class="kd">function</span> <span class="nx">changeEventHandler</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'You like '</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span> <span class="o">+</span> <span class="s1">' ice cream.'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<span id="toc29"></span><h3 id="reset事件submit事件">reset事件，submit事件</h3>
+
+<p>以下事件发生在表单对象上，而不是发生在表单的成员上。</p>
+
+<p><strong>（1）reset事件</strong></p>
+
+<p>reset事件当表单重置（所有表单成员变回默认值）时触发。</p>
+
+<p><strong>（2）submit事件</strong></p>
+
+<p>submit事件当表单数据向服务器提交时触发。注意，submit事件的发生对象是form元素，而不是button元素（即使它的类型是submit），因为提交的是表单，而不是按钮。</p>
+
+<span id="toc30"></span><div class="chapter"><h2 id="文档事件">文档事件</h2></div>
+
+<span id="toc31"></span><h3 id="beforeunload事件unload事件load事件error事件pageshow事件pagehide事件">beforeunload事件，unload事件，load事件，error事件，pageshow事件，pagehide事件</h3>
+
+<p>以下事件与网页的加载与卸载相关。</p>
+
+<p><strong>（1）beforeunload事件</strong></p>
+
+<p><code class="highlighter-rouge">beforeunload</code>事件在窗口将要关闭，或者网页（即<code class="highlighter-rouge">document</code>对象）将要卸载时触发。它可以用来防止用户不小心关闭网页。</p>
+
+<p>根据标准，只要在该事件的回调函数中，调用了<code class="highlighter-rouge">event.preventDefault()</code>，或者<code class="highlighter-rouge">event.returnValue</code>属性的值是一个非空的值，就会自动跳出一个确认框，让用户确认是否关闭网页。如果用户点击“取消”按钮，网页就不会关闭。<code class="highlighter-rouge">event.returnValue</code>属性的值，会显示在确认对话框之中。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'beforeunload'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">returnValue</span> <span class="o">=</span> <span class="s1">'你确认要离开吗？'</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'beforeunload'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>但是，浏览器的行为很不一致，Chrome就不遵守<code class="highlighter-rouge">event.preventDefault()</code>，还是会关闭窗口，而IE需要显式返回一个非空的字符串。而且，大多数浏览器在对话框中不显示指定文本，只显示默认文本。因此，可以采用下面的写法，取得最大的兼容性。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'beforeunload'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">confirmationMessage</span> <span class="o">=</span> <span class="s1">'确认关闭窗口？'</span><span class="p">;</span>
+
+  <span class="nx">e</span><span class="p">.</span><span class="nx">returnValue</span> <span class="o">=</span> <span class="nx">confirmationMessage</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">confirmationMessage</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>需要特别注意的是，许多手机浏览器默认忽视这个事件，而桌面浏览器也可以这样设置，所以这个事件有可能根本不生效。所以，不能依赖它来阻止用户关闭窗口。</p>
+
+<p><strong>（2）unload事件</strong></p>
+
+<p>unload事件在窗口关闭或者document对象将要卸载时触发，发生在window、body、frameset等对象上面。它的触发顺序排在beforeunload、pagehide事件后面。unload事件只在页面没有被浏览器缓存时才会触发，换言之，如果通过按下“前进/后退”导致页面卸载，并不会触发unload事件。</p>
+
+<p>当unload事件发生时，document对象处于一个特殊状态。所有资源依然存在，但是对用户来说都不可见，UI互动（window.open、alert、confirm方法等）全部无效。这时即使抛出错误，也不能停止文档的卸载。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'unload'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'文档将要卸载'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>如果在window对象上定义了该事件，网页就不会被浏览器缓存。</p>
+
+<p><strong>（3）load事件，error事件</strong></p>
+
+<p>load事件在页面加载成功时触发，error事件在页面加载失败时触发。注意，页面从浏览器缓存加载，并不会触发load事件。</p>
+
+<p>这两个事件实际上属于进度事件，不仅发生在document对象，还发生在各种外部资源上面。浏览网页就是一个加载各种资源的过程，图像（image）、样式表（style sheet）、脚本（script）、视频（video）、音频（audio）、Ajax请求（XMLHttpRequest）等等。这些资源和document对象、window对象、XMLHttpRequestUpload对象，都会触发load事件和error事件。</p>
+
+<p><strong>（4）pageshow事件，pagehide事件</strong></p>
+
+<p>默认情况下，浏览器会在当前会话（session）缓存页面，当用户点击“前进/后退”按钮时，浏览器就会从缓存中加载页面。</p>
+
+<p>pageshow事件在页面加载时触发，包括第一次加载和从缓存加载两种情况。如果要指定页面每次加载（不管是不是从浏览器缓存）时都运行的代码，可以放在这个事件的监听函数。</p>
+
+<p>第一次加载时，它的触发顺序排在load事件后面。从缓存加载时，load事件不会触发，因为网页在缓存中的样子通常是load事件的监听函数运行后的样子，所以不必重复执行。同理，如果是从缓存中加载页面，网页内初始化的JavaScript脚本（比如DOMContentLoaded事件的监听函数）也不会执行。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'pageshow'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'pageshow: '</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>pageshow事件有一个persisted属性，返回一个布尔值。页面第一次加载时，这个属性是false；当页面从缓存加载时，这个属性是true。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'pageshow'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">persisted</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>pagehide事件与pageshow事件类似，当用户通过“前进/后退”按钮，离开当前页面时触发。它与unload事件的区别在于，如果在window对象上定义unload事件的监听函数之后，页面不会保存在缓存中，而使用pagehide事件，页面会保存在缓存中。</p>
+
+<p>pagehide事件的event对象有一个persisted属性，将这个属性设为true，就表示页面要保存在缓存中；设为false，表示网页不保存在缓存中，这时如果设置了unload事件的监听函数，该函数将在pagehide事件后立即运行。</p>
+
+<p>如果页面包含frame或iframe元素，则frame页面的pageshow事件和pagehide事件，都会在主页面之前触发。</p>
+
+<span id="toc32"></span><h3 id="domcontentloaded事件readystatechange事件">DOMContentLoaded事件，readystatechange事件</h3>
+
+<p>以下事件与文档状态相关。</p>
+
+<p><strong>（1）DOMContentLoaded事件</strong></p>
+
+<p>当HTML文档下载并解析完成以后，就会在document对象上触发DOMContentLoaded事件。这时，仅仅完成了HTML文档的解析（整张页面的DOM生成），所有外部资源（样式表、脚本、iframe等等）可能还没有下载结束。也就是说，这个事件比load事件，发生时间早得多。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"DOM生成"</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>注意，网页的JavaScript脚本是同步执行的，所以定义DOMContentLoaded事件的监听函数，应该放在所有脚本的最前面。否则脚本一旦发生堵塞，将推迟触发DOMContentLoaded事件。</p>
+
+<p><strong>（2）readystatechange事件</strong></p>
+
+<p>readystatechange事件发生在Document对象和XMLHttpRequest对象，当它们的readyState属性发生变化时触发。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="s2">"interactive"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>IE8不支持DOMContentLoaded事件，但是支持这个事件。因此，可以使用readystatechange事件，在低版本的IE中代替DOMContentLoaded事件。</p>
+
+<span id="toc33"></span><h3 id="scroll事件resize事件">scroll事件，resize事件</h3>
+
+<p>以下事件与窗口行为有关。</p>
+
+<p><strong>（1）scroll事件</strong></p>
+
+<p><code class="highlighter-rouge">scroll</code>事件在文档或文档元素滚动时触发，主要出现在用户拖动滚动条。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'scroll'</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>由于该事件会连续地大量触发，所以它的监听函数之中不应该有非常耗费计算的操作。推荐的做法是使用<code class="highlighter-rouge">requestAnimationFrame</code>或<code class="highlighter-rouge">setTimeout</code>控制该事件的触发频率，然后可以结合<code class="highlighter-rouge">customEvent</code>抛出一个新事件。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">throttle</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nx">obj</span> <span class="o">||</span> <span class="nb">window</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">running</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">running</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span><span class="p">;</span> <span class="p">}</span>
+      <span class="nx">running</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">obj</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="k">new</span> <span class="nx">CustomEvent</span><span class="p">(</span><span class="nx">name</span><span class="p">));</span>
+        <span class="nx">running</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="p">});</span>
+    <span class="p">};</span>
+    <span class="nx">obj</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">func</span><span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="c1">// 将scroll事件重定义为optimizedScroll事件</span>
+  <span class="nx">throttle</span><span class="p">(</span><span class="s1">'scroll'</span><span class="p">,</span> <span class="s1">'optimizedScroll'</span><span class="p">);</span>
+<span class="p">})();</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'optimizedScroll'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Resource conscious scroll callback!"</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>上面代码中，<code class="highlighter-rouge">throttle</code>函数用于控制事件触发频率，<code class="highlighter-rouge">requestAnimationFrame</code>方法保证每次页面重绘（每秒60次），只会触发一次<code class="highlighter-rouge">scroll</code>事件的监听函数。也就是说，上面方法将<code class="highlighter-rouge">scroll</code>事件的触发频率，限制在每秒60次。</p>
+
+<p>改用<code class="highlighter-rouge">setTimeout</code>方法，可以放置更大的时间间隔。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'scroll'</span><span class="p">,</span> <span class="nx">scrollThrottler</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+
+  <span class="kd">var</span> <span class="nx">scrollTimeout</span><span class="p">;</span>
+  <span class="kd">function</span> <span class="nx">scrollThrottler</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">scrollTimeout</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">scrollTimeout</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">scrollTimeout</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="nx">actualScrollHandler</span><span class="p">();</span>
+      <span class="p">},</span> <span class="mi">66</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">actualScrollHandler</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}());</span>
+</code></pre></div></div>
+
+<p>上面代码中，<code class="highlighter-rouge">setTimeout</code>指定<code class="highlighter-rouge">scroll</code>事件的监听函数，每66毫秒触发一次（每秒15次）。</p>
+
+<p>下面是一个更一般的<code class="highlighter-rouge">throttle</code>函数的写法。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">throttle</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">wait</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">time</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">((</span><span class="nx">time</span> <span class="o">+</span> <span class="nx">wait</span> <span class="o">-</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">())</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">fn</span><span class="p">();</span>
+      <span class="nx">time</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'scroll'</span><span class="p">,</span> <span class="nx">throttle</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="mi">1000</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>上面的代码将<code class="highlighter-rouge">scroll</code>事件的触发频率，限制在一秒一次。</p>
+
+<p><code class="highlighter-rouge">lodash</code>函数库提供了现成的<code class="highlighter-rouge">throttle</code>函数，可以直接引用。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'scroll'</span><span class="p">,</span> <span class="nx">_</span><span class="p">.</span><span class="nx">throttle</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="mi">1000</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p><strong>（2）resize事件</strong></p>
+
+<p>resize事件在改变浏览器窗口大小时触发，发生在window、body、frameset对象上面。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resizeMethod</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">clientWidth</span> <span class="o">&lt;</span> <span class="mi">768</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'移动设备'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"resize"</span><span class="p">,</span> <span class="nx">resizeMethod</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>该事件也会连续地大量触发，所以最好像上面的scroll事件一样，通过throttle函数控制事件触发频率。</p>
+
+<span id="toc34"></span><h3 id="hashchange事件popstate事件">hashchange事件，popstate事件</h3>
+
+<p>以下事件与文档的URL变化相关。</p>
+
+<p><strong>（1）hashchange事件</strong></p>
+
+<p>hashchange事件在URL的hash部分（即#号后面的部分，包括#号）发生变化时触发。如果老式浏览器不支持该属性，可以通过定期检查location.hash属性，模拟该事件，下面就是代码。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nb">window</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="s2">"onhashchange"</span> <span class="k">in</span> <span class="nb">window</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span> <span class="p">)</span> <span class="p">{</span> <span class="k">return</span><span class="p">;</span> <span class="p">}</span>
+
+  <span class="kd">var</span> <span class="nx">location</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">oldURL</span> <span class="o">=</span> <span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">oldHash</span> <span class="o">=</span> <span class="nx">location</span><span class="p">.</span><span class="nx">hash</span><span class="p">;</span>
+
+  <span class="c1">// 每隔100毫秒检查一下URL的hash</span>
+  <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">newURL</span> <span class="o">=</span> <span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">newHash</span> <span class="o">=</span> <span class="nx">location</span><span class="p">.</span><span class="nx">hash</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="nx">newHash</span> <span class="o">!=</span> <span class="nx">oldHash</span> <span class="o">&amp;&amp;</span> <span class="k">typeof</span> <span class="nb">window</span><span class="p">.</span><span class="nx">onhashchange</span> <span class="o">===</span> <span class="s2">"function"</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">onhashchange</span><span class="p">({</span>
+        <span class="na">type</span><span class="p">:</span> <span class="s2">"hashchange"</span><span class="p">,</span>
+        <span class="na">oldURL</span><span class="p">:</span> <span class="nx">oldURL</span><span class="p">,</span>
+        <span class="na">newURL</span><span class="p">:</span> <span class="nx">newURL</span>
+      <span class="p">});</span>
+
+      <span class="nx">oldURL</span> <span class="o">=</span> <span class="nx">newURL</span><span class="p">;</span>
+      <span class="nx">oldHash</span> <span class="o">=</span> <span class="nx">newHash</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="mi">100</span><span class="p">);</span>
+
+<span class="p">})(</span><span class="nb">window</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>hashchange事件对象除了继承Event对象，还有oldURL属性和newURL属性，分别表示变化前后的URL。</p>
+
+<p><strong>（2）popstate事件</strong></p>
+
+<p>popstate事件在浏览器的history对象的当前记录发生显式切换时触发。注意，调用history.pushState()或history.replaceState()，并不会触发popstate事件。该事件只在用户在history记录之间显式切换时触发，比如鼠标点击“后退/前进”按钮，或者在脚本中调用history.back()、history.forward()、history.go()时触发。</p>
+
+<p>该事件对象有一个state属性，保存history.pushState方法和history.replaceState方法为当前记录添加的state对象。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">onpopstate</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"state: "</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">state</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="nx">history</span><span class="p">.</span><span class="nx">pushState</span><span class="p">({</span><span class="na">page</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="s2">"title 1"</span><span class="p">,</span> <span class="s2">"?page=1"</span><span class="p">);</span>
+<span class="nx">history</span><span class="p">.</span><span class="nx">pushState</span><span class="p">({</span><span class="na">page</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="s2">"title 2"</span><span class="p">,</span> <span class="s2">"?page=2"</span><span class="p">);</span>
+<span class="nx">history</span><span class="p">.</span><span class="nx">replaceState</span><span class="p">({</span><span class="na">page</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span> <span class="s2">"title 3"</span><span class="p">,</span> <span class="s2">"?page=3"</span><span class="p">);</span>
+<span class="nx">history</span><span class="p">.</span><span class="nx">back</span><span class="p">();</span> <span class="c1">// state: {"page":1}</span>
+<span class="nx">history</span><span class="p">.</span><span class="nx">back</span><span class="p">();</span> <span class="c1">// state: null</span>
+<span class="nx">history</span><span class="p">.</span><span class="nx">go</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>  <span class="c1">// state: {"page":3}</span>
+</code></pre></div></div>
+
+<p>上面代码中，pushState方法向history添加了两条记录，然后replaceState方法替换掉当前记录。因此，连续两次back方法，会让当前条目退回到原始网址，它没有附带state对象，所以事件的state属性为null，然后前进两条记录，又回到replaceState方法添加的记录。</p>
+
+<p>浏览器对于页面首次加载，是否触发popstate事件，处理不一样，Firefox不触发该事件。</p>
+
+<span id="toc35"></span><h3 id="cut事件copy事件paste事件">cut事件，copy事件，paste事件</h3>
+
+<p>以下三个事件属于文本操作触发的事件。</p>
+
+<ul>
+  <li>
+    <p>cut事件：在将选中的内容从文档中移除，加入剪贴板后触发。</p>
+  </li>
+  <li>
+    <p>copy事件：在选中的内容加入剪贴板后触发。</p>
+  </li>
+  <li>
+    <p>paste事件：在剪贴板内容被粘贴到文档后触发。</p>
+  </li>
+</ul>
+
+<p>这三个事件都有一个clipboardData只读属性。该属性存放剪贴的数据，是一个DataTransfer对象，具体的API接口和操作方法，请参见《触摸事件》的DataTransfer对象章节。</p>
+
+<span id="toc36"></span><h3 id="焦点事件">焦点事件</h3>
+
+<p>焦点事件发生在Element节点和document对象上面，与获得或失去焦点相关。它主要包括以下四个事件。</p>
+
+<ul>
+  <li>
+    <p>focus事件：Element节点获得焦点后触发，该事件不会冒泡。</p>
+  </li>
+  <li>
+    <p>blur事件：Element节点失去焦点后触发，该事件不会冒泡。</p>
+  </li>
+  <li>
+    <p>focusin事件：Element节点将要获得焦点时触发，发生在focus事件之前。该事件会冒泡。Firefox不支持该事件。</p>
+  </li>
+  <li>
+    <p>focusout事件：Element节点将要失去焦点时触发，发生在blur事件之前。该事件会冒泡。Firefox不支持该事件。</p>
+  </li>
+</ul>
+
+<p>这四个事件的事件对象，带有target属性（返回事件的目标节点）和relatedTarget属性（返回一个Element节点）。对于focusin事件，relatedTarget属性表示失去焦点的节点；对于focusout事件，表示将要接受焦点的节点；对于focus和blur事件，该属性返回null。</p>
+
+<p>由于focus和blur事件不会冒泡，只能在捕获阶段触发，所以addEventListener方法的第三个参数需要设为true。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">form</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"focus"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">background</span> <span class="o">=</span> <span class="s2">"pink"</span><span class="p">;</span>
+<span class="p">},</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nx">form</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"blur"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">background</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+<span class="p">},</span> <span class="kc">true</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>上面代码设置表单的文本输入框，在接受焦点时设置背景色，在失去焦点时去除背景色。</p>
+
+<p>浏览器提供一个FocusEvent构造函数，可以用它生成焦点事件的实例。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">focusEvent</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FocusEvent</span><span class="p">(</span><span class="nx">typeArg</span><span class="p">,</span> <span class="nx">focusEventInit</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>上面代码中，FocusEvent构造函数的第一个参数为事件类型，第二个参数是可选的配置对象，用来配置FocusEvent对象。</p>
+
+
+</div></div></article>
+
+<div class="row">
+<div class="twelve columns">
+
+<h2>留言</h2>
+
+<div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jstutorial'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the &lt;a href="http://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;</noscript>
+    <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+</div>
+</div>
+
+<footer>
+<div class="row">
+<div class="twelve columns">
+	<p><a href="http://javascript.ruanyifeng.com/introduction/license.html">版权声明</a> | last modified on 2016-11-20 </p>
+</div>
+</div>
+</footer>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43771063-1', 'ruanyifeng.com');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+<div style="position: static; display: none; width: 0px; height: 0px; border: none; padding: 0px; margin: 0px;"><div id="trans-tooltip"><div id="tip-left-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-top.png&quot;);"></div><div id="tip-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-top.png&quot;) repeat-x;"></div><div id="tip-right-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-top.png&quot;);"></div><div id="tip-right" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right.png&quot;) repeat-y;"></div><div id="tip-right-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-bottom.png&quot;);"></div><div id="tip-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-bottom.png&quot;) repeat-x;"></div><div id="tip-left-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-bottom.png&quot;);"></div><div id="tip-left" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left.png&quot;);"></div><div id="trans-content"></div></div><div id="tip-arrow-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-bottom.png&quot;);"></div><div id="tip-arrow-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-top.png&quot;);"></div></div></body></html>

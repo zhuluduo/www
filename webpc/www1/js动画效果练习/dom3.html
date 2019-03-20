@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+<style>
+body,div,span{
+margin:0;
+padding:0;
+}
+#azhu{
+width: 200px;
+height: 200px;
+background:red;
+position:relative;
+left:-200px;
+top:0;
+}
+#azhu span{
+width: 20px;
+height: 50px;
+background: blue;
+position: absolute;
+left: 200px;
+top: 75px;
+}
+</style>
+	</head>
+	<body>
+		<div id="azhu"><span >123</span></div>
+		<script type="text/javascript">
+			window.onload=function(){
+				var zhu=document.getElementById('azhu');
+				zhu.onmousemove=function(){
+					azhu(0);
+				}
+				zhu.onmouseout=function(){
+					azhu(-200);
+				}
+			}
+			var itime=null;
+			function azhu(august){
+				clearInterval(itime);
+			  var zhu=document.getElementById('azhu');
+			   itime= setInterval(function(){
+			   	var speen=0;
+			   	if(zhu.offsetLeft>august){
+			   	speed=-20;
+                            }else{
+	                         speed=20;
+                             }
+			    	if(zhu.offsetLeft==august){
+			    		clearInterval(itime);
+			    	}else{
+			    		zhu.style.left=zhu.offsetLeft+speed+'px';
+			    	}
+			    	
+			    },30)
+			}
+		</script>
+	</body>
+</html>

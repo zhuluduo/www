@@ -1,0 +1,205 @@
+page {
+    /* overflow: hidden; */
+}
+
+.main {
+    width: 100%;
+    background: #fafafa;
+}
+
+text {
+    font-size: 24rpx;
+    color: #898989;
+}
+
+.index_hd {
+    position: absolute;
+    height: 56rpx;
+    top: 14rpx;
+    margin-left: 32rpx;
+    box-sizing: border-box;
+    z-index: 999;
+}
+
+.index_hd view {
+    display: inline-block;
+}
+
+.logo image {
+    width: 148rpx;
+    height: 51rpx;
+}
+
+.index_hd .search-box {
+    margin-left: 34rpx;
+    width: 514rpx;
+    height: 51rpx;
+    text-align: center;
+}
+
+.index_hd .search-box input {
+    border-radius: 50rpx;
+    background: rgba(248, 248, 248, 0.4);
+    font-size: 20rpx;
+}
+
+.index_bd {
+    width: 100%;
+    height: 798rpx;
+    position: relative;
+}
+
+.publicity_photo {
+    height: 798rpx;
+    width: 100%;
+    overflow: hidden;
+}
+
+.publicity_photo image {
+    height: 100%;
+    width: 100%;
+}
+
+
+.movie-info {
+    width: 100%;
+    height: 300rpx;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
+
+.movie-info swiper {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.movie-info swiper-item {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.info-box {
+    width: 100%;
+    height: 314rpx;
+    background: #fff;
+    margin: 0 60rpx;
+    display: flex;
+    align-items: center;
+    border-radius: 15rpx;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 8px #f3f3f3;
+}
+
+.info-box .movie-photo {
+    width: 222rpx;
+    height: 210rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.info-box .movie-photo image {
+    width: 151rpx;
+    height: 100%;
+    margin-left: 42rpx;
+}
+
+.info-box .movie-txt {
+    /* margin-left: 42rpx; */
+    height: 210rpx;
+    width: 413rpx;
+}
+
+.info-box .movie-txt text {
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.info-box .movie-txt text:not(:last-child) {
+    margin-bottom: -10rpx;
+}
+
+.movie-txt .title.movie-title {
+    display: block;
+    font-size: 35rpx;
+    font-weight: 800;
+    color: #000;
+}
+
+.movie-txt .update,
+.movie-txt .actor,
+.movie-txt .desc {
+    display: block;
+}
+
+.teleplay-list {
+    background: inherit;
+    display: flex;
+    flex-direction: row;
+}
+
+.list-head {
+    padding: 30rpx 20rpx 22rpx;
+    display: flex;
+    align-items: center;
+}
+
+.slogan {
+    color: #000;
+    margin-left: 21rpx;
+}
+
+.list-head navigator {
+    position: absolute;
+    right: 0;
+    font-size: 24rpx;
+    color: #898989;
+}
+
+.list-head navigator>text,
+.list-head navigator>view {
+    color: #616161;
+    display: inline;
+    margin-right: 15rpx;
+}
+
+.movie-containers {
+    display: flex;
+    flex-wrap: wrap;
+    height: 855rpx;
+}
+
+.movie-container {
+    margin-bottom: 65rpx;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.movie-container image {
+    width: 251rpx;
+    height: 330rpx;
+    padding-bottom: 20rpx;
+    box-sizing: border-box;
+    padding: 0 1px;
+}
+
+.movie-container>.update {
+    font-size: 18rpx;
+    color: #fff;
+    background: transparent;
+    position: absolute;
+    right: 20rpx;
+    bottom: 45rpx;
+}
+
+.movie-container>.title {
+    color: #000;
+}

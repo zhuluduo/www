@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	
+<table>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>5</td>
+		<td>6</td>
+	</tr>
+</table>
+<script type="text/javascript">
+	$("td").click(function(){
+  $(this).parent("tr").each(function(i){
+     alert($(this).text());
+  });
+});
+</script>
+</body>
+</html>

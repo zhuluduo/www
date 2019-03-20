@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html,
+        body {
+            height: 100%;
+        }
+        
+        ul.nav {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+        }
+        
+        ul.nav li {
+            width: 70px;
+            height: 40px;
+            color: #fff;
+            cursor: pointer;
+            background: #ccc;
+            text-align: center;
+            line-height: 40px;
+            list-style: none;
+            margin-top: 10px;
+        }
+        
+        ul.nav .current {
+            background: red;
+        }
+        
+        ul.content {
+            height: 500%;
+        }
+        
+        ul.content li {
+            height: 20%;
+            text-align: center;
+            font: 100px/200px "微软雅黑";
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>享品质</li>
+        <li>服饰美妆</li>
+        <li>家电手机</li>
+        <li>电脑数码</li>
+        <li>3C运动</li>
+    </ul>
+    <ul class="content">
+        <li>享品质</li>
+        <li>服饰美妆</li>
+        <li>家电手机</li>
+        <li>电脑数码</li>
+        <li>3C运动</li>
+    </ul>
+
+    <script type="text/javascript">
+        var color = ['skyblue', 'yellowgreen', 'pink', 'cornflowerblue', ' #87CEEB'];
+        var navlis = document.getElementsByTagName("ul")[0].children;
+        var contentlis = document.getElementsByTagName("ul")[1].children;
+        for (var i = 0; i < color.length; i++) {
+            contentlis[i].style.background = color[i];
+        }
+
+        for (var i = 0; i < navlis.length; i++) {
+            navlis[i].index = i;
+            navlis[i].onclick = function() {
+                for (var j = 0; j < navlis.length; j++) {
+                    navlis[j].className = "";
+                }
+                this.className = "current";
+
+                var yPos = this.index * document.body.offsetHeight;
+                clearInterval(window.timer);
+                window.timer = setInterval(function() {
+                    var speed = (yPos - scroll().top) / 10;
+                    speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                    window.scrollTo(0, scroll().top + speed);
+                    if (scroll().top == yPos) {
+                        clearInterval(Window.timer);
+                    }
+                }, 30)
+            }
+        }
+
+        window.onscroll = function() {
+            var num = scroll().top / document.body.offsetHeight;
+            num = Math.ceil(num * 2) / 2;
+            if (parseInt(num) != num) {
+                num = num - 0.5;
+            }
+            for (var j = 0; j < navlis.length; j++) {
+                navlis[j].className = "";
+            }
+            navlis[num].className = "current";
+        }
+
+        function scroll() {
+            return {
+                "top": document.body.scrollTop + document.documentElement.scrollTop,
+                "left": document.body.scrollLeft + document.documentElement.scrollLeft
+            }
+        }
+    </script>
+</body>
+
+</html>

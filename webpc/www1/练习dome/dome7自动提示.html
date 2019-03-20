@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>jQuery UI 自动完成示例</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+$(function() {
+		var availableTags = [
+		"ActionScript",
+		"AppleScript",
+		"Asp",
+		"BASIC",
+		"C",
+		"C++",
+		"Clojure",
+		"COBOL高",
+		"ColdFusion",
+		"Erlang",
+		"Fortran",
+		"Groovy",
+		"Haskell",
+		"Java",
+		"JavaScript",
+		"Lisp",
+		"Per高l",
+		"PHP",
+		"Python",
+		"Ruby",
+		"Scala",
+		"Sche高"
+		];
+
+		$( "#tags1" ).autocomplete({
+			source: availableTags
+		});
+
+		$("#tags2").autocomplete({
+			source: ["a", "b", "c"]
+		});
+
+		//页面加载
+		$("#tags3").autocomplete({
+			source: DataSouce1()
+		});
+		
+		//数据库
+		$("#tags4").autocomplete({
+			source: function( request, response ) {
+				var name=$.ui.autocomplete.escapeRegex( request.term );
+				response( $.grep( DataSouce2(name), function( item ){
+					return  item;
+				}) );
+			}
+		});
+
+		//利用ajax页面加载就获取到数据源
+		function DataSouce1()
+		{
+			var mycars=new Array()
+			for (var i = 0; i <100; i++) {
+				mycars[i]="高"+i;
+			};
+			return mycars;
+		}
+
+		//利用ajax根据输入的到数据库查找 相当于
+		function DataSouce2(name)
+		{
+			var mycars=new Array()
+			for (var i = 0; i <100; i++) {
+				mycars[i]=name+"_"+i;
+			};
+			return mycars;
+		}
+
+	});
+</script>
+</head>
+<body>
+<div class="ui-widget">
+<label for="tags">Tags: </label>
+<input id="tags1" />
+<input id="tags2" />
+<input id="tags3" />
+<input id="tags4" />
+</div>
+</body>
+</html>

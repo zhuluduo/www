@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery特效插件Validform制作一行代码搞定整站的表单验证</title>
+<style type="text/css">
+*{margin:0;padding:0;}
+input,select,textarea{font-size:1em;margin:0;color:#000;font-family:tahoma, arial, simsun, sans-serif;}
+table{border-collapse:collapse;border-spacing:0;}
+:focus{outline:none;}
+body{font:12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;}
+/* registerform */
+.registerform .need{width:10px;color:#b20202;}
+.registerform td{padding:5px 0;vertical-align:top;text-align:left;}
+.registerform .inputxt,.registerform textarea{border:1px solid #a5aeb6;width:196px;padding:2px;}
+.registerform textarea{height:75px;}
+.registerform label{margin:0 26px 0 10px;}
+.registerform .tip{line-height:20px;color:#5f6a72;}
+.registerform select{width:202px;}
+.registerformalter select{width:124px;}
+/*==========以下部分是必须的===========*/
+.Validform_checktip{margin-left:8px;line-height:20px;height:20px;overflow:hidden;color:#999;font-size:12px;}
+.Validform_right{color:#71b83d;padding-left:20px;background:url(images/right.png) no-repeat left center;}
+.Validform_wrong{color:red;padding-left:20px;white-space:nowrap;background:url(images/error.png) no-repeat left center;}
+.Validform_loading{padding-left:20px;background:url(images/onLoad.gif) no-repeat left center;}
+.Validform_error{background-color:#ffe7e7;}
+#Validform_msg{color:#7d8289;font:12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;width:280px;background:#fff;position:absolute;top:0px;right:50px;z-index:99999; display:none;filter:progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');-webkit-box-shadow:2px 2px 3px #aaa; -moz-box-shadow:2px 2px 3px #aaa;}
+#Validform_msg .iframe{position:absolute;left:0px;top:-1px;z-index:-1;}
+#Validform_msg .Validform_title{line-height:25px;height:25px;text-align:left;font-weight:bold;padding:0 8px;color:#fff;position:relative;background-color:#000;}
+#Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{line-height:22px;position:absolute;right:8px;top:0px;color:#fff;text-decoration:none;}
+#Validform_msg a.Validform_close:hover{color:#cc0;}
+#Validform_msg .Validform_info{padding:8px;border:1px solid #000;border-top:none;text-align:left;}
+</style>
+</head>
+
+<body>
+<div style="text-align:center; font-weight:bold; font-size:24px;">查看更多素材:<a style="color:#2dbdf1;"href="http://www.100sucai.com">100sucai.com</a></div>
+<div style="margin:20px auto; text-align:center; width:500px;">
+	<form class="registerform" action="ajax_post.php">
+		<table width="100%" style="table-layout:fixed;">
+			<tr>
+				<td class="need" style="width:10px;">*</td>
+				<td style="width:70px;">用户名：</td>
+				<td style="width:205px;"><input type="text" value="" name="name" class="inputxt" datatype="mz" ajaxurl="valid.php" nullmsg="请输入用户名！" errormsg="昵称至少6个字符,最多18个字符！" /></td>
+				<td><div class="Validform_checktip">昵称至少6个字符,最多18个字符</div></td>
+			</tr>
+			<tr>
+				<td class="need">*</td>
+				<td>密码：</td>
+				<td><input type="password" value="" name="userpassword" class="inputxt" datatype="*6-16" nullmsg="请设置密码！" errormsg="密码范围在6~16位之间,不能使用空格！" /></td>
+				<td><div class="Validform_checktip">密码范围在6~16位之间,不能使用空格</div></td>
+			</tr>
+			<tr>
+				<td class="need">*</td>
+				<td>确认密码：</td>
+				<td><input type="password" value="" name="userpassword2" class="inputxt" datatype="*" recheck="userpassword" nullmsg="请再输入一次密码！" errormsg="您两次输入的账号密码不一致！" /></td>
+				<td><div class="Validform_checktip">两次输入密码需一致</div></td>
+			</tr>
+			<tr>
+				<td class="need"></td>
+				<td>Email：</td>
+				<td><input type="text" value="" name="email" class="inputxt" datatype="e" ignore="ignore" nullmsg="请输入您常用的邮箱！" errormsg="请输入您常用的邮箱！" /></td>
+				<td><div class="Validform_checktip">请输入您常用的邮箱</div></td>
+			</tr>
+			<tr>
+				<td class="need">*</td>
+				<td>移动电话：</td>
+				<td><input type="text" value="" name="tel" class="inputxt" datatype="m" errormsg="请输入您的手机号码有误！"  /></td>
+				<td><div class="Validform_checktip"></div></td>
+			</tr>
+			<tr>
+				<td class="need">*</td>
+				<td>身份证：</td>
+				<td><input type="text" value="" name="card" class="inputxt" datatype="i" errormsg="请输入身份证号有误！"  /></td>
+				<td><div class="Validform_checktip"></div></td>
+			</tr>
+			<tr>
+				<td class="need">*</td>
+				<td>银行卡号：</td>
+				<td><input type="text" value="" name="e-card" class="inputxt" datatype="yhk" errormsg="请输入银行卡号码有误！"  /></td>
+				<td><div class="Validform_checktip"></div></td>
+			</tr>
+			<tr>
+				<td class="need">*</td>
+				<td>性别：</td>
+				<td><input type="radio" value="1" name="gender" id="male" class="pr1" datatype="radio" errormsg="请选择性别！" /><label for="male">男</label> <input type="radio" value="2" name="gender" id="female" class="pr1" /><label for="female">女</label></td>
+				<td><div class="Validform_checktip"></div></td>
+			</tr>
+			<tr>
+				<td class="need">*</td>
+				<td>省份：</td>
+				<td><select name="province" id="province" datatype="select" errormsg="请选择省份！" ><option value="">--请选择省份--</option><option value="1">江西省</option></select></td>
+				<td><div class="Validform_checktip"></div></td>
+			</tr>
+			<tr>
+				<td class="need">*</td>
+				<td>购物网：</td>
+				<td>
+				<input name="shoppingsite2" class="rt2" id="shoppingsite21" type="checkbox"  value="1" datatype="checkbox" errormsg="请选择您常去的购物网站！" /><label for="shoppingsite21">淘宝网</label>&nbsp;&nbsp;
+				<input name="shoppingsite2" class="rt2" id="shoppingsite22" type="checkbox"  value="2" /><label for="shoppingsite22">当当网</label>
+				</td>
+				<td><div class="Validform_checktip"></div></td>
+			</tr>
+			<tr>
+				<td class="need"></td>
+				<td></td>
+				<td colspan="2" style="padding:10px 0 18px 0;">
+				<input type="submit" value="提 交" /> <input type="reset" value="重 置" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/Validform.js"></script>
+<script type="text/javascript">
+$(function(){
+	//$(".registerform").Validform();  //就这一行代码！下面是演示两种不同的验证效果;
+	
+	//提示效果一;
+	$(".registerform:first").Validform();
+	
+	//提示效果二;
+	$(".registerform:last").Validform({
+		tiptype:2,
+		ajaxPost:true,
+		callback:function(data){
+			//返回数据data是json格式，{"info":"demo info","status":"y"}
+			//info: 输出提示信息;
+			//status: 返回提交数据的状态,是否提交成功。如可以用"y"表示提交成功，"n"表示提交失败，在ajax_post.php文件返回数据里自定字符，主要用在callback函数里根据该值执行相应的回调操作;
+			//你也可以在ajax_post.php文件返回更多信息在这里获取，进行相应操作；
+			
+			//这里执行回调操作;
+			if(data.status=="y"){
+				setTimeout(function(){
+					$.Hidemsg(); //公用方法关闭信息提示框;
+				},2000);
+			}
+		}
+	});
+		
+	//调取公用方法显示信息提示框，可用于全站统一的弹出框提示效果;
+	//$.Showmsg("Test Info here!");  //公用方法显示信息提示框;
+})
+</script>
+</body>
+</html>

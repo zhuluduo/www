@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var bar = function(){
+				console.log(this.x);
+			}
+			var foo = {
+				x:3
+			}
+			var sed = {
+				x:4
+			}
+			var func = bar.bind(foo).bind(sed);
+			func(); //?
+			 
+			var fiv = {
+				x:5
+			}
+			var func = bar.bind(foo).bind(sed).bind(fiv);
+			func(); //?
+		</script>
+	</body>
+</html>

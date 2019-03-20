@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="con">
+  <p>javascript</p>
+  <div>jQuery</div>
+  <h5>PHP</h5>
+   </div>
+   <!--返回第一个子节点和最后一个子节点-->
+   <script>
+   	var x=document.getElementById('con');
+ document.write(x.firstChild.nodeName);
+ document.write(x.lastChild.nodeName);
+   </script>
+   
+   
+   <!--兄弟节点-->
+   <ul id="u1">   
+            <li id="a">javascript</li>   
+            <li id="b">jquery</li>   
+            <li id="c">html</li>   
+        </ul>   
+        <ul id="u2">   
+            <li id="d">css3</li>   
+            <li id="e">php</li>   
+            <li id="f">java</li>   
+        </ul> 
+        <script type="text/javascript">
+        	function abc(n){
+        		var x=n.nextSibling;
+        		while(x&&x.nodeType!=1){
+        			x.nextSibling;
+        		}
+        		return x;
+        	}
+        	  var x=document.getElementsByTagName("li")[0];
+    document.write(x.nodeName);
+    document.write(" = ");
+    document.write(x.innerHTML);
+        </script>
+	</body>
+</html>

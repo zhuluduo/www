@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	添加事件：
+	<input type="button" value="test1" id="btn1">
+	<input type="button" value="test2" id="btn2">
+	<script>
+		var btn1=document.getElementById('btn1');
+		btn1.onclick=function(){
+			alert('zhu1');
+		}
+		function test1(){
+			alert('zhu2');
+		}
+		var btn2=document.getElementById('btn2');
+		btn2.onclick=test1;
+	</script>
+	
+	
+	<input type="button" value="btn6" id="btn6">
+	<script>
+//		跨浏览器支持:var e=e||window.event;
+//		ie:window.event
+//		其他:event
+		var btn6=document.getElementById('btn6');
+		btn6.onclick=function(e){
+			var e=e||window.event;
+			alert(e);
+		}
+	</script>
+	
+	
+	<!--dom2事件绑定和移除-->
+	<div id="box1" style="width: 200px;height: 200px;background: #0000FF;">
+		<input type="button" value="test1" id="tox1">
+	</div>
+	<script>
+		tox1.onclick=function(e){
+			alert('button');
+			//取消冒泡
+//			var e=e||window.event;
+			//w3c取消冒泡
+//			e.stopPropagation();
+//			alert(e.cancelBubble);//判断属性是否为真
+            if(typeof e.cancelBubble=="undefined"){
+            	e.stopPropagation();
+            }else{
+            	e.cancelBubble=true;
+            }
+		}
+		box1.onclick=function(){
+			alert('div');
+		}
+		document.body.onclick=function(){
+			alert('body');
+		}
+	</script>
+	</body>
+</html>

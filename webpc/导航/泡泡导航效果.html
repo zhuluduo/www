@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style type="text/css">
+			/* reset */
+html {
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+body,input,select,textarea,button {
+	font-family:'Microsoft Yahei','Helvetica Neue',Helvetica,'Lucida Grande',Arial,'Hiragino Sans GB','WenQuanYi Micro Hei',STHeiti,SimSun,sans-serif;
+}
+body,h1,h2,h3,h4,p,ul,ol,dd,dl,form {
+	margin:0;
+}
+hr {
+	margin-top:20px;
+	margin-bottom:20px;
+	border:0;
+	border-top:1px solid #eee;
+}
+img {
+	max-width:100%;
+	height:auto;
+	vertical-align:top;
+	-ms-interpolation-mode:bicubic;
+	border:0;
+}
+ul {
+	padding-left:0;
+	list-style-type:none;
+}
+a {
+	-webkit-transition:all 0.3s ease;
+	transition:all 0.3s ease;
+	text-decoration:none;
+	outline:0;
+}
+/*工具*/
+.fix {
+	*zoom:1;
+	*clear:both;
+}
+.fix:before,.fix:after {
+	display:table;
+	clear:both;
+	content:'';
+}
+.oh {
+	overflow:hidden;
+	*zoom:1;
+}
+.l {
+	float:left;
+}
+.r {
+	float:right;
+}
+.dib {
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+}
+.pr {
+	position:relative;
+}
+.pa {
+	position:absolute;
+}
+.tc {
+	text-align:center;
+}
+.tr {
+	text-align:right;
+}
+.el {
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+.hide {
+	display:none;
+}
+.hidetext {
+	font:0/0 a;
+	letter-spacing:-9px;
+}
+.arr {
+	display:inline-block;
+	overflow:hidden;
+	width:0;
+	height:0;
+}
+.opc0 {
+	opacity:0;
+	filter:alpha(opacity=0);
+}
+/* 常量设置 */
+html {
+	overflow-x:auto;
+}
+html,body,.wrap {
+	min-width:1200px;
+}
+.wrap {
+	width:1200px;
+	margin-right:auto;
+	margin-left:auto;
+}
+body {
+	font-size:13px;
+	line-height:1.6;
+	color:#555;
+	background:#fff;
+}
+a {
+	color:inherit;
+}
+a:hover {
+	color:#fff;
+}
+::-moz-selection {
+	color:#fff;
+	background:#39f;
+}
+::selection {
+	color:#fff;
+	background:#39f;
+}
+::-webkit-input-placeholder {
+	color:#aaa;
+}
+.placeholder {
+	color:#aaa;
+}
+/*css组件设置*/
+.form-control,.input-group-addon,.btn {
+	border-radius:2px;
+}
+.form-control:focus {
+	border-color:#66afe9;
+	outline:0;
+	box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px rgba(102,175,233,0.6);
+}
+.main {
+	background:url(../image/center.jpg) center center no-repeat;
+	padding:120px 0;
+	-webkit-background-size:100% auto;
+	background-size:100% auto;
+	height:430px;
+}
+.menu>li {
+	display:block;
+	border-radius:50%;
+	color:#fff;
+	font-size:32px;
+	text-align:center;
+	font-weight:bold;
+	float:left;
+	position:absolute;
+	z-index:5;
+}
+.menu .li1 {
+	width:190px;
+	height:190px;
+	line-height:190px;
+	background-color:rgba(239,60,40,.6);
+	top:170px;
+	left:0;
+}
+/*.menu .li1:before {
+	content:'';
+	background-color:rgba(239,60,40,.6);
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	border-radius:50%;
+}
+*/
+.menu .li2 {
+	width:186px;
+	height:186px;
+	line-height:186px;
+	background-color:rgba(250,186,17,.6);
+	left:154px;
+	top:0;
+}
+.menu .li3 {
+	width:104px;
+	height:104px;
+	line-height:104px;
+	background-color:rgba(64,216,44,.6);
+	font-size:18px;
+	left:415px;
+	top:20px;
+}
+.menu .li4 {
+	width:144px;
+	height:144px;
+	line-height:144px;
+	background-color:rgba(251,211,6,.6);
+	font-size:22px;
+	top:216px;
+	left:226px;
+}
+.menu .li5 {
+	width:208px;
+	height:208px;
+	line-height:208px;
+	background-color:rgba(65,216,177,.6);
+	font-size:36px;
+	left:384px;
+	top:190px;
+}
+.menu .li6 {
+	width:248px;
+	height:248px;
+	line-height:248px;
+	background-color:rgba(40,166,155,.6);
+	font-size:46px;
+	left:586px;
+	top:0;
+}
+.menu .li7 {
+	width:84px;
+	height:84px;
+	line-height:84px;
+	background-color:rgba(90,166,212,.6);
+	font-size:13px;
+	left:655px;
+	top:270px;
+}
+.menu .li8 {
+	width:180px;
+	height:180px;
+	line-height:180px;
+	background-color:rgba(164,133,172,.6);
+	left:796px;
+	top:250px;
+}
+.menu .li9 {
+	width:152px;
+	height:152px;
+	line-height:152px;
+	background-color:rgba(164,123,200,.6);
+	right:190px;
+	top:60px;
+}
+.menu .li10 {
+	width:168px;
+	height:168px;
+	line-height:168px;
+	background-color:rgba(197,122,192,.6);
+	right:26px;
+	top:200px;
+}
+.animation {
+	animation:mymove 5s linear infinite;
+	-moz-animation:mymove 5s linear infinite;
+	-webkit-animation:mymove 5s linear infinite;
+	-o-animation:mymove 5s linear infinite;
+}
+@keyframes mymove {
+	0% {
+	transform:translate(0,0);
+}
+20% {
+	transform:translate(0,10px);
+}
+40% {
+	transform:translate(0,-10px);
+}
+60% {
+	transform:translate(-10px,0);
+}
+80% {
+	transform:translate(-10px,10px);
+}
+100% {
+	transform:translate(0,0);
+}
+}@-webkit-keyframes mymove {
+	0% {
+	-webkit-transform:translate(0,0);
+}
+20% {
+	-webkit-transform:translate(0,10px);
+}
+40% {
+	-webkit-transform:translate(0,-10px);
+}
+60% {
+	-webkit-transform:translate(-10px,0);
+}
+80% {
+	-webkit-transform:translate(-10px,10px);
+}
+100% {
+	-webkit-transform:translate(0,0);
+}
+}@-moz-keyframes mymove {
+	0% {
+	-moz-transform:translate(0,0);
+}
+20% {
+	-moz-transform:translate(0,10px);
+}
+40% {
+	-moz-transform:translate(0,-10px);
+}
+60% {
+	-moz-transform:translate(-10px,0);
+}
+80% {
+	-moz-transform:translate(-10px,10px);
+}
+100% {
+	-moz-transform:translate(0,0);
+}
+}@-o-keyframes mymove {
+	0% {
+	-o-ransform:translate(0,0);
+}
+20% {
+	-o-transform:translate(0,10px);
+}
+40% {
+	-o-transform:translate(0,-10px);
+}
+60% {
+	-o-transform:translate(-10px,0);
+}
+80% {
+	-o-transform:translate(-10px,10px);
+}
+100% {
+	-o-transform:translate(0,0);
+}
+}.animation2 {
+	animation:mymove2 5s linear infinite;
+	-moz-animation:mymove2 5s linear infinite;
+	-webkit-animation:mymove2 5s linear infinite;
+	-o-animation:mymove2 5s linear infinite;
+}
+@keyframes mymove2 {
+	0% {
+	transform:translate(0,0);
+}
+20% {
+	transform:translate(0,-10px);
+}
+40% {
+	transform:translate(0,10px);
+}
+60% {
+	transform:translate(10px,0);
+}
+80% {
+	transform:translate(10px,-10px);
+}
+100% {
+	-webkit-transform:translate(0,0);
+}
+}@-webkit-keyframes mymove2 {
+	0% {
+	-webkit-transform:translate(0,0);
+}
+20% {
+	-webkit-transform:translate(0,-10px);
+}
+40% {
+	-webkit-transform:translate(0,10px);
+}
+60% {
+	-webkit-transform:translate(10px,0);
+}
+80% {
+	-webkit-transform:translate(10px,-10px);
+}
+100% {
+	-webkit-transform:translate(0,0);
+}
+}@-moz-keyframes  mymove2 {
+	0% {
+	-moz-transform:translate(0,0);
+}
+20% {
+	-moz-transform:translate(0,-10px);
+}
+40% {
+	-moz-transform:translate(0,10px);
+}
+60% {
+	-moz-transform:translate(10px,0);
+}
+80% {
+	-moz-transform:translate(10px,-10px);
+}
+100% {
+	-moz-transform:translate(0,0);
+}
+}@-o-keyframes mymove2 {
+	0% {
+	-o-transform:translate(0,0);
+}
+20% {
+	-o-transform:translate(0,-10px);
+}
+40% {
+	-o-transform:translate(0,10px);
+}
+60% {
+	-o-transform:translate(10px,0);
+}
+80% {
+	-o-transform:translate(10px,-10px);
+}
+100% {
+	-o-transform:translate(0,0);
+}
+}.animation3 {
+	animation:mymove3 5s linear infinite;
+	-moz-animation:mymove3 5s linear infinite;
+	-webkit-animation:mymove3 5s linear infinite;
+	-o-animation:mymove3 5s linear infinite;
+}
+@keyframes mymove3 {
+	0% {
+	transform:translate(0,0);
+}
+20% {
+	transform:translate(-10px,0);
+}
+40% {
+	transform:translate(10px,0);
+}
+60% {
+	transform:translate(0,10px);
+}
+80% {
+	transform:translate(-10px,10px);
+}
+100% {
+	transform:translate(0,0);
+}
+}@-webkit-keyframes mymove3 {
+	0% {
+	-webkit-transform:translate(0,0);
+}
+20% {
+	-webkit-transform:translate(-10px,0);
+}
+40% {
+	-webkit-transform:translate(10px,0);
+}
+60% {
+	-webkit-transform:translate(0,10px);
+}
+80% {
+	-webkit-transform:translate(-10px,10px);
+}
+100% {
+	-webkit-transform:translate(0,0);
+}
+}@-moz-keyframes mymove3 {
+	0% {
+	-moz-transform:translate(0,0);
+}
+20% {
+	-moz-transform:translate(-10px,0);
+}
+40% {
+	-moz-transform:translate(10px,0);
+}
+60% {
+	-moz-transform:translate(0,10px);
+}
+80% {
+	-moz-transform:translate(-10px,10px);
+}
+100% {
+	-moz-transform:translate(0,0);
+}
+}@-o-keyframes mymove3 {
+	0% {
+	-o-transform:translate(0,0);
+}
+20% {
+	-o-transform:translate(-10px,0);
+}
+40% {
+	-o-transform:translate(10px,0);
+}
+60% {
+	-o-transform:translate(0,10px);
+}
+80% {
+	-o-transform:translate(-10px,10px);
+}
+100% {
+	-o-transform:translate(0,0);
+}
+}.animation4 {
+	animation:mymove4 5s linear infinite;
+	-moz-animation:mymove4 5s linear infinite;
+	-webkit-animation:mymove4 5s linear infinite;
+	-o-animation:mymove4 5s linear infinite;
+}
+@keyframes mymove4 {
+	0% {
+	transform:translate(0,0);
+}
+20% {
+	transform:translate(10px,5px);
+}
+40% {
+	transform:translate(10px,-5px);
+}
+60% {
+	transform:translate(-5px,10px);
+}
+80% {
+	transform:translate(-5px,-10px);
+}
+100% {
+	transform:translate(0,0);
+}
+}@-webkit-keyframes mymove4 {
+	0% {
+	-webkit-transform:translate(0,0);
+}
+20% {
+	-webkit-transform:translate(10px,5px);
+}
+40% {
+	-webkit-transform:translate(10px,-5px);
+}
+60% {
+	-webkit-transform:translate(-5px,10px);
+}
+80% {
+	-webkit-transform:translate(-5px,-10px);
+}
+100% {
+	-webkit-transform:translate(0,0);
+}
+}@-moz-keyframes mymove4 {
+	0% {
+	-moz-transform:translate(0,0);
+}
+20% {
+	-moz-transform:translate(10px,5px);
+}
+40% {
+	-moz-transform:translate(10px,-5px);
+}
+60% {
+	-moz-transform:translate(-5px,10px);
+}
+80% {
+	-moz-transform:translate(-5px,-10px);
+}
+100% {
+	-moz-transform:translate(0,0);
+}
+}@-o-keyframes mymove4 {
+	0% {
+	-o-transform:translate(0,0);
+}
+20% {
+	-o-transform:translate(10px,5px);
+}
+40% {
+	-o-transform:translate(10px,-5px);
+}
+60% {
+	-o-transform:translate(-5px,10px);
+}
+80% {
+	-o-transform:translate(-5px,-10px);
+}
+100% {
+	-o-transform:translate(0,0);
+}
+}
+		</style>
+	</head>
+	<body>
+		<section class="main">
+    <div class="wrap pr">
+        <ul class="menu fix">
+            <li class="li1 animation "><a href="###">校园VR</a></li>
+            <li class="li2 animation2"><a href="###">网上迎新</a></li>
+            <li class="li3 animation"><a href="###">招生动态</a></li>
+            <li class="li4 animation3"><a href="###">招生章程</a></li>
+            <li class="li5 animation2"><a href="###">招生计划</a></li>
+            <li class="li6 animation4"><a href="###">专业介绍</a></li>
+            <li class="li7 animation"><a href="###">历年分数线</a></li>
+            <li class="li8 animation2"><a href="###">单独招生</a></li>
+            <li class="li9 animation3"><a href="###">学生问答</a></li>
+            <li class="li10 animation4"><a href="###">录取查询</a></li>
+        </ul>
+    </div>
+</section>
+	</body>
+</html>

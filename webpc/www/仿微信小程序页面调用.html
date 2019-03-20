@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>仿微信小程序页面调用</title>
+		<style type="text/css">
+			.btn{width: 100px;height: 50px;background-color: #3399FF;color: #fff;}
+		</style>
+	</head>
+	<body>
+		<div class="container" id="container"></div>
+		<script type="text/html" id="wx_html">
+			<div class="btn">
+				初始化
+			</div>
+			
+			<script type="text/javascript">
+				Window.onload = function(){
+					console.log(1111111)
+				}
+			</script>
+		</script>
+		<script type="text/javascript">
+			let wd = document.getElementById('container');
+			let cont = document.getElementById('wx_html').innerHTML;
+			wd.innerHTML=cont
+		</script>
+	</body>
+</html>

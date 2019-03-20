@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css实用导航下划线菜单效果</title>
+	<style>
+		.shrink-navbar{
+			margin: 100px 200px;background: #eee;display: inline-block;
+		}
+		.shrink-navbar:after{
+			content: '';
+			display: table;
+		}
+		.shrink-navbar .navbar-menu>li{
+			position: relative;float: left;width: 100px;text-align: center;line-height: 40px
+		}
+		.shrink-navbar .navbar-menu>li a{color: #333;}
+		.shrink-navbar .navbar-menu>li:after{
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 2px;
+			width: 0;
+			background: #c8161e;
+		}
+		.shrink-navbar .navbar-menu>li:after ,.shrink-navbar .navbar-menu>li a{
+		-webkit-transition:all .3s;transition:all .3s;
+		}
+		.shrink-navbar .navbar-menu>li:hover:after{width: 100%;}
+		.shrink-navbar .navbar-menu>li:hover a{color: #c8161e;}
+		.shrink-navbar .navbar-menu>li.activer:after{
+			width: 100%;
+			-webkit-transform:scale(1);
+			transform:scale(1);
+		}
+		.shrink-navbar .navbar-menu>li.active a{color: #c8161e;}
+		.shrink-navbar.shrink-center .navbar-menu>li:after{
+			width: 100%;
+			-webkit-transform:scale(0);
+			transform:scale(0);
+		}
+		.shrink-navbar.shrink-center .navbar-menu>li:hove:after{
+			-webkit-transform:scale(1);
+			transform:scale(1);
+		}
+	</style>
+</head>
+<body>
+	<nav class="shrink-navbar">
+		<ul class="item navbar-menu">
+			<li><a href="#">菜单1</a></li>
+			<li><a href="#">菜单2</a></li>
+			<li><a href="#">菜单3</a></li>
+		</ul>
+	</nav>
+</body>
+</html>

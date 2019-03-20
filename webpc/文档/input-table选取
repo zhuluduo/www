@@ -1,0 +1,61 @@
+// 全选，全不选
+function selectAll(btn, chk) {
+	$(btn).on('click', function() {
+		//更改背景色-J
+		var attrs = $(this).prop("checked");
+		if(attrs) {
+			$("tbody tr").has("input[type='checkbox']").css({
+				"background": "#f6f8fa",
+				"color": "#333"
+			});
+		} else {
+			$("tbody tr").has("input[type='checkbox']").css({
+				"background": "#fff",
+				"color": "black"
+			});
+		}
+
+		if($(this).is(':checked')) {
+			$(chk).prop('checked', 'checked');
+		} else {
+			$(chk).prop('checked', '');
+		}
+	});
+
+// 单行-input-全选变色
+function  allchecked(tb,ptr) {
+    $(tb).on('click',ptr,function (event) {
+        var event=event||window.event;
+        var target=event.target;
+        event.stopPropagation();
+        var inp = $(this).find("input[type='checkbox']");
+        var attr = inp.prop("checked");
+        var inpnum=$(this).find("input[type='checkbox']").length;
+        if(target.localName=="input"){
+            if (attr) {
+                $(this).css({"background":"#f6f8fa","color":"#333"});
+            } else {
+                $(this).css({"background":"#fff","color":"black"});
+            }
+        }else if(inpnum==1) {
+            if (attr) {
+                inp.prop("checked", false);
+                $(this).has("input[type='checkbox']").css({"background":"#fff","color":"black"});
+            } else{
+                inp.prop("checked", true);
+                $(this).has("input[type='checkbox']").css({"background":"#f6f8fa","color":"#333"});
+            }
+        }
+    });
+}
+
+function Dcheck(Dtb,Dtr) {
+    $(Dtb).on('click',Dtr,function (e) {
+        e.stopPropagation();
+        if($('input[type="checkbox"]').prop("checked")){
+            $(this).parent().parent().css({"background":"#f6f8fa","color":"#333"});
+        }else{
+            $(this).parent().parent().css({"background":"#fff","color":"black"});
+        }
+    })
+}

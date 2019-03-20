@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css实现多种效果展示的input框</title>
+	<style>
+		*{margin: 0;padding: 0;text-decoration: none;}
+		.postTitle a:link, .postTitle a:visited, .postTitle a:active{
+			color: #390;transition: all 0.4s linear 0s;}
+			.postTitle a:hover{color: red;margin-left: 30px;}
+		.input-field,.input-field *{
+			-webkit-box-sizing:border-box;
+			box-sizing: border-box;
+		}
+		.input-field{
+			position: relative;
+			width: 200px;
+			margin: 20px 50px;
+		}
+		.input-field input{
+			background-color: transparent;
+			border:none;
+			border-radius: 0;
+			height: 35px;
+			width: 100%;
+			padding: 0;
+			box-shadow: none;
+			outline:none;
+			-webkit-transition:all 0.3s;
+			transition:all 0.3s;
+		}
+		.input-field input+span{
+			position: absolute;
+			top: 100%;
+			left: 0;
+			display: inline-block;
+			max-width: 100%;
+			z-index: 0;
+			width: 100%;
+			height: 1px;
+			border-bottom: 1px solid #d9d9d9;
+			}
+			.input-field span:after{
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0px;
+				width: 100%;
+				height: 2px;
+				background: #2196f3;
+				-webkit-transform-scale(0);
+				transform: scale(0);
+				-webkit-transition:all .2s ease-out;
+				transition: all .2s ease-out
+			}
+			.input-field input:focus+span:after{
+				-webkit-transform:scale(1);
+				transform:scale(1);
+			}
+			.input-field.input-field-iconv i{
+				position: absolute;
+				right: 0;
+				top: 50%;
+				padding: 0 5px;
+				font-size: 1.5em;
+				-webkit-transform:translate(0,-50%);
+				transform:translate(0,-50%);
+			}
+			.input-field.input-field-icon input{
+				padding-right: 30px;
+			}
+			.input-field.success input+span{
+				border-color: #b5dfb7;
+			}
+			.input-field.warning input+span{
+				border-color: #ffd699;
+			}
+			.input-field.error input+span{
+				border-color: #fccbc7;
+			}
+			input-field.success span:after{
+				background:#4caf50;
+			}
+			input-field.error span:after{
+				background:#f44336;
+			}
+			input-field.warning span:after{
+				background: #ffc107;
+			}
+			.input-field.input-field-icon.success i{
+				color: #4caf50;
+			}
+			.input-field.input-field-icon.warning i{
+				color: #ffc107;
+			}
+			.input-field.input-field-icon.error i{
+				color: #f44336;
+			}
+			.input-field.linear span:after{
+				background"-webkit-linear-gradient(left,#8c0044 20% ,#00ff 50% ,#770ff 80%)
+			}
+	</style>
+</head>
+<body>
+<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/sunxirui00/p/7510288.html">事件对象（示例、封装函数EventUtil()）</a>
+		</h1>
+
+	<div class="input-field">
+		<input type="text" >
+		<span></span>
+	</div>
+	<div class="input-field success input-field-icon">
+		<input type="text" >
+		<span></span>
+		<i class="ion-android-done"></i>
+	</div>
+	<div class="input-field warning input-field-icon">
+		<input type="text" >
+		<span></span>
+		<i class="ion-android-done"></i>
+	</div>
+	<div class="input-field error input-field-icon">
+		<input type="text" >
+		<span></span>
+		<i class="ion-android-done"></i>
+	</div>
+	<div class="input-field  linear">
+		<input type="text" >
+		<span></span>
+	</div>
+</body>
+</html>

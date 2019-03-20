@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+.buddyListOdd{
+background-color:#f0f0f0;
+}
+.buddyListEven{
+background-color:#ffffff;
+}
+.buddyListHighLight{
+background-color:#DCE2E8;
+}
+</style>
+</head>
+<body>
+	<div style="width: 312px; height: 180px; overflow-y: scroll; overflow-x: hidden;color:#747678" id="allBuddy">
+<table cellspacing="0" cellpadding="0" border="0" width="100%" id="buddyListTable"><tbody>
+<tr class="buddyListOdd">
+<td width="26px"><input type="checkbox"></td>
+<td align="left" valign="middle">AAAAAA</td>
+<td align="left">+861311111111</td>
+</tr>
+<tr class="buddyListEven">
+<td width="26px"><input type="checkbox"></td>
+<td align="left" valign="middle">BBBBBB</td>
+<td align="left">+861322222222</td>
+</tr>
+<tr class="buddyListOdd">
+<td width="26px"><input type="checkbox"></td>
+<td align="left" valign="middle">CCCCCC</td>
+<td align="left">+861333333333</td>
+</tr>
+<tr class="buddyListEven">
+<td width="26px"><input type="checkbox"></td>
+<td align="left" valign="middle">DDDDDD</td>
+<td align="left">+861344444444</td>
+</tr>
+<tr class="buddyListOdd">
+<td width="26px"><input type="checkbox"></td>
+<td align="left" valign="middle">EEEEEE</td>
+<td align="left">+861355555555</td>
+</tr>
+<tr class="buddyListEven">
+<td width="26px"><input type="checkbox"></td>
+<td align="left" valign="middle">FFFFFF</td>
+<td align="left">+861366666666</td>
+</tr>
+<tr class="buddyListOdd">
+<td width="26px"><input type="checkbox"></td>
+<td align="left" valign="middle">GGGGGG</td>
+<td align="left">+861366666666</td>
+</tr>
+<tr class="buddyListEven">
+<td width="26px"><input type="checkbox"></td>
+<td align="left" valign="middle">HHHHHH</td>
+<td align="left">+861377777777</td>
+</tr>
+<tr class="buddyListOdd">
+<td width="26px"><input type="checkbox"></td>
+<td align="left" valign="middle">IIIIII</td>
+<td align="left">+861388888888</td>
+</tr>
+<tr class="buddyListEven">
+<td width="26px"><input type="checkbox"></td>
+<td align="left" valign="middle">GGGGGG</td>
+<td align="left">+861300000000</td>
+</tr>
+<tr class="buddyListOdd">
+<td width="26px"><input type="checkbox"></td>
+<td align="left" valign="middle">KKKKKK</td>
+<td align="left">+861321111111</td>
+</tr>
+<tr class="buddyListEven">
+<td width="26px"><input type="checkbox"></td>
+<td align="left" valign="middle">LLLLLL</td>
+<td align="left">+861322222222</td>
+</tr>
+<tr class="buddyListOdd">
+<td width="26px"><input type="checkbox"></td>
+<td align="left" valign="middle">MMMMMM</td>
+<td align="left">+8613233333333</td>
+</tr>
+<tr class="buddyListEven">
+<td width="26px"><input type="checkbox"></td>
+<td align="left" valign="middle">NNNNNN</td>
+<td align="left">+861311111111</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+首先把鼠标焦点放入下面的输入框，然后按键盘的上下键，可以看到表格中的行被高亮选中<br />
+<input type="text" onkeyup="return keyDownEvent(event);"/><br />
+按回车后，相对应的表格项会出现在下面，当然这只是一个简单的Demo，复杂的操作开发者可以自己添加<br />
+<table id="result"></table>
+</div>
+<script>
+	var currentLine=-1, offsetTr = 0;
+var $ =function(id){ return document.getElementById(id); }
+function keyDownEvent(e){
+var e = window.event||e;
+if(e.keyCode==38){
+offsetTr = 0;
+currentLine--;
+changeItem();
+}else if(e.keyCode==40){
+offsetTr = 150;
+currentLine++;
+        changeItem();
+}else if(e.keyCode==13&&currentLine>-1){
+addUser();
+}
+return false;
+}
+function changeItem(){
+if(!$('buddyListTable')) return false;
+var it = $('buddyListTable');
+if(document.all){
+it = $('buddyListTable').children[0];
+}
+changeBackground();
+if(currentLine<0) currentLine = it.rows.length-1;
+if(currentLine >= it.rows.length) currentLine = 0;
+it.rows[currentLine].className = "buddyListHighLight";
+if($('allBuddy')){
+$('allBuddy').scrollTop = it.rows[currentLine].offsetTop-offsetTr;
+}
+}
+function changeBackground(){
+var it = $('buddyListTable');
+if(document.all){
+it = $('buddyListTable').children[0];
+}
+
+}
+function addUser(){
+var it = $('buddyListTable');
+if(document.all){
+it = $('buddyListTable').children[0];
+}
+var trBody = it.rows[currentLine].innerHTML;
+$('result').innerHTML = $('result').innerHTML+trBody;
+}
+
+</script>
+</body>
+</html>

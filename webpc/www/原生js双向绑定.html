@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="foo">
+		<p id="test"></p>
+
+<script>
+    var user = {
+      get inputValue() { 
+		console.log(1111111)
+        return document.getElementById('foo').value
+      },
+      set inputValue(value) {
+		console.log(2222)
+        document.getElementById('foo').value = value
+        document.getElementById('test').innerHTML = value
+      }
+    }
+      document.getElementById('foo').addEventListener('keyup',function() {
+      document.getElementById('test').innerHTML = user.inputValue
+    })
+</script>
+	</body>
+</html>

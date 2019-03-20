@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>钰龙集团</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/fonts.css">
+
+<!-- Add jQuery library -->
+  <script type="text/javascript" src="fancybox/lib/jquery-1.10.1.min.js"></script>
+  <!-- 添加鼠标滚轮插件（这是可选的） -->
+  <script type="text/javascript" src="fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+  <!-- JS和CSS文件添加FancyBox主要 -->
+  <script type="text/javascript" src="fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+  <link rel="stylesheet" type="text/css" href="fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+<!-- 增加按钮助手（这是可选的） -->
+  <link rel="stylesheet" type="text/css" href="fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+  <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+
+<!-- ——添加缩略图助手（这是可选的） -->
+  <link rel="stylesheet" type="text/css" href="fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+  <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+
+  <script type="text/javascript">
+        $(document).ready(function() {
+            /*
+             *  Simple image gallery. Uses default settings
+             */
+
+            $('.fancybox').fancybox();
+
+
+            /*
+             *  Open manually
+             */
+
+            $("#fancybox-manual-c").click(function() {
+                $.fancybox.open([
+                    {pc:content  action="lists" catid="13" where="id=64"  order="id DESC" thumb="1" num="3"}
+             {loop $data $r $v}
+                    {
+                        href : '{$v['thumb']}',
+                        title : '<a href="{$v['url']}">{$v['title']}</a>'
+                    }
+                    {/loop}
+                     {/pc}
+                    ,{}
+                ], {
+                    helpers : {
+                        thumbs : {
+                            width: 75,
+                            height: 50
+                        }
+                    }
+                });
+            });
+
+                      $("#fancybox-manual-c1").click(function() {
+                $.fancybox.open([
+                    {
+                        href : 'http://cms.vhi99.com/uploadfile/2015/1030/20151030051509296.jpg',
+                        title : '<a href="http://www.yulong1999.com/">My title</a>'
+                    }, {
+                        href : 'http://cms.vhi99.com/uploadfile/2015/1030/20151030051509296.jpg',
+                        title : '<a href="http://www.yulong1999.com/">My title</a>'
+                    }, {
+                        href : 'http://cms.vhi99.com/uploadfile/2015/1030/20151030051509296.jpg',
+                          title : '<a href="http://www.yulong1999.com/">My title</a>'
+                    }
+                ], {
+                    helpers : {
+                        thumbs : {
+                            width: 75,
+                            height: 50
+                        }
+                    }
+                });
+            });
+                                $("#fancybox-manual-c2").click(function() {
+                $.fancybox.open([
+                    {
+                        href : 'http://cms.vhi99.com/uploadfile/2015/1109/20151109023635354.jpg',
+                        title : '<a href="http://www.yulong1999.com/">My title</a>'
+                    }, {
+                        href : 'http://cms.vhi99.com/uploadfile/2015/1109/20151109023635354.jpg',
+                        title :'<a href="http://www.yulong1999.com/">My title</a>'
+                    }, {
+                        href : 'http://cms.vhi99.com/uploadfile/2015/1109/20151109023635354.jpg',
+                          title : '<a href="http://www.yulong1999.com/">My title</a>'
+                    }
+                ], {
+                    helpers : {
+                        thumbs : {
+                            width: 75,
+                            height: 50
+                        }
+                    }
+                });
+            });
+                              $("#fancybox-manual-c3").click(function() {
+                $.fancybox.open([
+                    {
+                        href : 'http://cms.vhi99.com/uploadfile/2015/1030/20151030051524628.jpg',
+                        title : '<a href="http://www.yulong1999.com/">My title</a>'
+                    }, {
+                        href : 'http://cms.vhi99.com/uploadfile/2015/1030/20151030051524628.jpg',
+                        title : '<a href="http://www.yulong1999.com/">My title</a>'
+                    }, {
+                        href : 'http://cms.vhi99.com/uploadfile/2015/1030/20151030051524628.jpg',
+                          title : '<a href="http://www.yulong1999.com/">My title</a>'
+                    }
+                ], {
+                    helpers : {
+                        thumbs : {
+                            width: 75,
+                            height: 50
+                        }
+                    }
+                });
+            });
+                                  $("#fancybox-manual-c4").click(function() {
+                $.fancybox.open([
+                    {
+                        href : 'http://cms.vhi99.com/uploadfile/2015/1030/20151030051604698.jpg',
+                        title : '<a href="http://www.yulong1999.com/">My title</a>'
+                    }, {
+                        href : 'http://cms.vhi99.com/uploadfile/2015/1030/20151030051604698.jpg',
+                        title : '<a href="http://www.yulong1999.com/">My title</a>'
+                    }, {
+                        href : 'http://cms.vhi99.com/uploadfile/2015/1030/20151030051604698.jpg',
+                          title : '<a href="http://www.yulong1999.com/">My title</a>'
+                    }
+                ], {
+                    helpers : {
+                        thumbs : {
+                            width: 75,
+                            height: 50
+                        }
+                    }
+                });
+            });
+                                  $("#fancybox-manual-c5").click(function() {
+                $.fancybox.open([
+                    {
+                        href : 'http://cms.vhi99.com/uploadfile/2015/1109/20151109034413776.png',
+                        title : '<a href="http://www.yulong1999.com/">My title</a>'
+                    }, {
+                        href : 'http://cms.vhi99.com/uploadfile/2015/1109/20151109034413776.png',
+                        title : '<a href="http://www.yulong1999.com/">My title</a>'
+                    }, {
+                        href : 'http://cms.vhi99.com/uploadfile/2015/1109/20151109034413776.png',
+                          title : '<a href="http://www.yulong1999.com/">My title</a>'
+                    }
+                ], {
+                    helpers : {
+                        thumbs : {
+                            width: 75,
+                            height: 50
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    <style type="text/css">
+a{color: #ffffff; 
+}
+.fancybox-skin{padding: 0px;}
+    </style>
+}
+}
+}
+</head>
+<body>
+<div class="white">
+	<div class="bt">高端商业地产服务商</div>
+	<div class="bt_wz"><div style="margin-top:15px;">钰龙集团专注于“城市高端物业”的开发，是商业地产专业化的趋势，更是适应商业地产服务的不断升级的需要。商业地产开发要承担更大的风险，虽然它不能立竿见影，但是一栋好的写字楼，更能为这个地区、这座城市营造良好的“楼宇经济”，取得更好的社会效益。目前，武汉开发甲级5A智能概念的高档写字楼还处在探索阶段，优质的写字楼能彰显城市品味，高端的建筑品质能构筑企业品牌。我们连续开发四大商业地产项目，就是要致力于做城市核心区高端物业发展的城市运营商，做“楼宇经济”之样板。我们之所以要不断地从各方面提升配套功能，就是为了更好地服务于我们的客户、服务于我们的城市。</div></div>
+</div>
+<div class="white">
+	<div class="trxm">我们投入使用的项目有：</div>
+	
+	<div style="float: left;padding-top: 30px;text-align: center;width: 100%;font-weight: bolder;color: #ff6600;">这是第二种风格</div>  
+
+<!-- 这个是第二种风格 End-->
+	<div class="tpbh">
+           <ul>
+            <li>
+             <figure class="effect-jazz">
+            <img src="images/pic1.jpg" width="344" />
+                 <figcaption>
+                        <h2>
+                          大厦
+                            <br>
+                            <span>
+                                大楼
+                            </span>
+                        </h2>
+                        <p>
+                            1
+                        </p>
+                        <a id="fancybox-manual-c" href="javascript:;"> </a>
+                    </figcaption>
+                </figure>
+            </li>
+            <li>
+                 <figure class="effect-jazz">
+            <img src="images/pic2.jpg" width="344" />
+                  <figcaption>
+                        <h2>
+                            大厦
+                            <br>
+                            <span>
+                                taste
+                            </span>
+                        </h2>
+                        <p>
+                            1
+                        </p>
+                        <a id="fancybox-manual-c1" href="javascript:;"></a>
+                    </figcaption>
+                </figure>
+            </li>
+            <li>
+             <figure class="effect-jazz">
+            <img src="images/pic3.jpg" width="344"/>
+                  <figcaption>
+                        <h2>
+                            大厦
+                            <br>
+                            <span>
+                                taste
+                            </span>
+                        </h2>
+                        <p>
+                          1
+                        </p>
+                        <a id="fancybox-manual-c2" href="javascript:;"></a>
+                    </figcaption>
+                </figure>
+            </li>
+            <li>
+             <figure class="effect-jazz">
+            <img src="images/pic4.jpg" width="344" />
+                  <figcaption>
+                        <h2>
+                          大厦
+                            <br>
+                            <span>
+                               taste
+                            </span>
+                        </h2>
+                        <p>
+                           1
+                        </p>
+                        <a id="fancybox-manual-c3" href="javascript:;"></a>
+                    </figcaption>
+                </figure>
+            </li>
+            <li>
+             <figure class="effect-jazz">
+            <img src="images/pic5.jpg" width="344" />
+                  <figcaption>
+                        <h2>
+                            大厦
+                            <br>
+                            <span>
+                               taste
+                            </span>
+                        </h2>
+                        <p>
+                            1
+                        </p>
+                        <a id="fancybox-manual-c4" href="javascript:;"></a>
+                    </figcaption>
+                </figure>
+            </li>
+            <li>
+             <figure class="effect-jazz">
+            <img src="images/pic6.jpg" width="344" />
+              <figcaption>
+                        <h2>
+                            大厦
+                            <br>
+                            <span>
+                               taste
+                            </span>
+                        </h2>
+                        <p>
+                           1
+                        </p>
+                        <a id="fancybox-manual-c5" href="javascript:;"></a>
+                    </figcaption>
+                </figure>
+            </li>
+        </ul>
+	</div>
+</div>
+</body>
+</html>

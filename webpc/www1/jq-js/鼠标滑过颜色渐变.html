@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+     <style>
+     	#div4{
+     		width: 200px;
+     		height: 200px;
+     		background: firebrick;
+     		filter: alpha(opacity: 30);
+			opacity: 0.3;
+     	}
+     </style>
+	</head>
+	<body>
+		<div id="div4"></div>
+		<script type="text/javascript">
+			window.onload=function(){
+				var xiu=document.getElementById('div4');
+				xiu.onmousemove=function(){
+					xiudiv(100);
+				}
+				xiu.onmouseout=function(){
+					xiudiv(30);
+				}
+			}
+			
+			var itime=null;
+			var alpha=30;
+			function xiudiv(auguse){
+				var xiu=document.getElementById('div4');
+				clearInterval(itime);
+				itime=setInterval(function(){
+					var speend=0;
+					if(alpha>auguse){
+						speend=-10
+					}else{
+						speend=10;
+					}
+					if(alpha==auguse){
+						clearInterval(itime);
+					}else{
+						alpha+=speend;
+						xiu.style.filter='alpha(opacity: '+alpha+')';
+						xiu.style.opacity=alpha/100;
+					}
+				},30)
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> Javascript秒表特效实例</title>
+</head>
+<body>
+	<span id="dat"></span>
+	
+	<script>
+	// 日期对象
+	function getDates () {
+	dobj=new Date();
+	y=dobj.getFullYear();
+	m=dobj.getMonth()+1;
+	d=dobj.getDate();
+	h=dobj.getHours();
+	mf=dobj.getMinutes();
+	second=dobj.getSeconds();
+	str=y+'-'+m+'-'+d+' '+h+':'+mf+':'+second
+	sidobj=document.getElementById('dat');
+	sidobj.innerHTML=str;
+	}
+	getDates();
+setInterval(function(){
+		getDates();
+	},1000)
+
+	</script>
+</body>
+</html>

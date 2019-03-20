@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+    .div1 ,.div2{width: 200px;height: 200px;background: blue;margin: 10px}
+    .div1{box-sizing: border-box;padding: 10px}
+    .div2{box-sizing: content-box;padding: 10px}
+	</style>
+</head>
+<body>
+	<form>
+<input type="email" name="email" value="12@123.com">
+	<input type="submit" name="" value="按钮">
+	<input type="date" name="">
+	<input type="time" name="">
+	<input type="datetime" name="" value="10:10">
+	</form>
+	<input type="color" name="" onchange="document.body.style.backgroundColor=document.getElementById('currentColor').textContent=this.value;">
+	<span id="currentColor"></span>
+
+	<div class="div1"></div>
+	<div class="div2"></div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>top返回</title>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			.container-man {
+				width: 1000px;
+				height: 2000px;
+				border: 1px solid darkred;
+				background: blueviolet;
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			#btn {
+				width: 30px;
+				height: 60px;
+				background: #000000;
+				position: fixed;
+				left: 50%;
+				bottom: 50px;
+				margin-left: 510px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="container-man"></div>
+		</div>
+		<a style="display: none;" href="javascript:;" id="btn"></a>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+//				1.声明id/计时器，但前页面高度
+             var btnid=document.getElementById('btn');
+             var time=null;
+             var btnheight=document.documentElement.clientHeight;
+             
+             window.onscroll=function(){
+             	var btnto=document.body.scrollTop;
+             	if(btnto>=btnheight){
+             		btnid.style.display='block';
+             	}else{
+             		btnid.style.display='none';
+             	}
+             }
+             
+             
+             btnid.onclick=function(){
+             	time=setInterval(function(){
+             		var btnto=document.body.scrollTop;
+             		var seepn=btnto/5;
+             		document.body.scrollTop=btnto-seepn;
+             		if(btnto==0){
+             			clearInterval(time);
+             		}
+             	},40)
+             }
+			}
+		</script>
+	</body>
+</html>

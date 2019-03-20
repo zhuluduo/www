@@ -1,0 +1,11 @@
+*{margin: 0;padding: 0;list-style: none;}
+.banner{position: relative;margin: 100px auto;border: 1px solid darkred;width: 550px;height: 300px;}
+.banner img{width: 550px;height: 300px;}
+.banner .img{width: 5000px;position: absolute;left: 0;}
+.banner .img li{float: left;}
+.banner .num{position: absolute;width: 100%;bottom: 10px;left: 0;background: dodgerblue;opacity: 0.8;text-align: center;font-size: 0;}
+.banner .num li{width: 10px;height: 10px;background: red;border-radius: 50%;display: inline-block;margin: 0 3px;cursor: pointer;}
+.banner .num li.on{background: darkslateblue;}
+.banner .btn{width: 30px;height: 50px;background: rgba(0,0,0,0.5);position: absolute;top: 50%;margin-top: -25px;color: #fff;cursor: pointer;text-align: center;line-height: 50px;font-size: 40px;}
+.banner .btn_l{left: 0;}
+.banner .btn_r{right: 0;}

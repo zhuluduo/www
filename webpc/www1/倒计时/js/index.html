@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>倒计时</title>
+		<style>
+			#box{
+				width: 200px;
+				height: 50px;
+				border: 1px solid red;
+			}
+			#zhu{
+				width: 200px;
+				height: 30px;
+				border: 1px solid royalblue;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			window.onload=function(){
+           //倒计时已知结束时间用结束时间减去开始时间
+           var curtime=new Date();//开始时间
+           var endtime=new Date('2016,9,9');//结束时间
+//         var lefttime=endtime-curtime;结果为字符串需先转化为毫秒
+//			var lefttime=endtime.getTime()-curtime.getTime();
+//转为毫秒后需除以天数 1天=24小时   1小时=60分 1分等于60秒  1秒=1000毫秒
+//var lefttime=endtime.getTime()-curtime.getTime()/(24*60*60*1000);这样结果带小数需取整
+var lefttime=Math.ceil((endtime.getTime()-curtime.getTime())   /(24*60*60*1000));
+alert(lefttime);
+			}
+		</script>
+		<!--倒计时-->
+		<script>
+			window.onload=function(){
+				var a=new Date();
+				var b=new Date('2016,9,9');
+				var c=Math.ceil((b.getTime()-a.getTime())/(24*60*60*1000));
+				alert(c);
+			}
+		</script>
+		
+		
+		<!--淘宝限时抢购-->
+	     <script>
+	     	window.onload=function(){
+	     		showtime();
+	     	}
+	     	function showtime(){
+	     		var a=new Date('2016/9/8,16:53:30');
+	     		var b=new Date();
+	     		var c=parseInt((a.getTime()-b.getTime())/1000);
+	     		var d=parseInt(c/(24*60*60));//天 1天=24小时
+	     		var h=parseInt(c/(60*60)%24);//时
+	     		var f=parseInt(c/60&60);//分
+	     		var m=parseInt(c%60);//秒
+	     		document.getElementById('zhu').innerHTML=d+'天'+h+'时'+f+'分'+m+'秒';
+	     		setTimeout(showtime,500);
+	     	}
+	     </script>
+	     <div id="box"> <span id="zhu"></span></div>
+	    
+	</body>
+</html>

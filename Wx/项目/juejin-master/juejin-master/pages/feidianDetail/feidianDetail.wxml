@@ -1,0 +1,3 @@
+<view class='container'>
+  <feidianItemTop item='{{item}}' intro='{{false}}'></feidianItemTop>
+</view>

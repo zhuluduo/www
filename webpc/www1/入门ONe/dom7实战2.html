@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+<!--获取显示秒数的元素，通过定时器来更改秒数。
+通过window的location和history对象来控制网页的跳转。-->
+<script type="text/javascript">
+	var suma=5;
+	function zhu(){
+		
+		if(suma==0){
+			location.assign('http://www.baidu.com');
+		}
+		document.getElementById('a1').innerHTML=suma;
+		suma--;
+	}
+	setInterval(zhu,500);
+</script>
+<span id="a1"></span>秒后跳转<a href="javascript:a2()">返回</a>
+	</body>
+</html>

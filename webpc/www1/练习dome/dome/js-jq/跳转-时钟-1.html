@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>浏览器对象windows对象</title>
+	</head>
+	<body>
+		<button id="btn" onclick="btnclick()">按钮</button>
+		<script type="text/javascript">
+//			document.write(window.innerWidth+window.innerHeight)
+	function btnclick(){
+		window.open("dome2.html","zhu","width=400,height=400,top=200,left=30,toolbar=no");
+	}
+	</script>
+	<p id="ptime"></p>
+	<script type="text/javascript">
+		var mytime=setInterval(function(){
+			gettime();
+		},1000)
+		function gettime(){
+			var d=new Date();
+			var t=d.toLocaleTimeString();
+			document.getElementById('ptime').innerHTML=t;
+		}
+	</script>
+	<!--History（）-->
+	<button id="btn1" onclick="goceshi()">按钮</button>
+	<script type="text/javascript">
+	function goceshi(){
+		history.back();
+	}
+	</script>
+	<a href="history.html">跳转</a>
+	</body>
+</html>

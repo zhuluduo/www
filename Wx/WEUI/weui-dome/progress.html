@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<title></title>
+	<link rel="stylesheet" href="css/weui.css">
+	<link rel="stylesheet" href="css/example.css">
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+	<script>
+		$(function () {
+			$(".btn1").click(function(){
+		     var _html=$('#tpl_progress').html();
+		     $("#container").html(_html)
+		  });
+			       $('#container').on('click', '#btnStartProgress', function () {
+                if ($(this).hasClass('weui_btn_disabled')) {
+                    return;
+                }
+
+                $(this).addClass('weui_btn_disabled');
+
+                var progress = 0;
+                var $progress = $('.js_progress');
+
+                function next() {
+                    $progress.css({width: progress + '%'});
+                    progress = ++progress % 100;
+                    setTimeout(next, 30);
+                }
+
+                next();
+            });
+     
+		})
+	</script>	
+
+<button class="btn1">按钮</button>
+<div class="container" id="container"></div>
+     <script type="text/html" id="tpl_progress">
+<div class="hd">
+    <h1 class="page_title">Progress</h1>
+</div>
+<div class="bd spacing">
+    <div class="weui_progress">
+        <div class="weui_progress_bar">
+            <div class="weui_progress_inner_bar js_progress" style="width: 0%;"></div>
+        </div>
+        <a href="javascript:;" class="weui_progress_opr">
+            <i class="weui_icon_cancel"></i>
+        </a>
+    </div>
+    <br>
+    <div class="weui_progress">
+        <div class="weui_progress_bar">
+            <div class="weui_progress_inner_bar js_progress" style="width: 50%;"></div>
+        </div>
+        <a href="javascript:;" class="weui_progress_opr">
+            <i class="weui_icon_cancel"></i>
+        </a>
+    </div>
+    <br>
+    <div class="weui_progress">
+        <div class="weui_progress_bar">
+            <div class="weui_progress_inner_bar js_progress" style="width: 80%;"></div>
+        </div>
+        <a href="javascript:;" class="weui_progress_opr">
+            <i class="weui_icon_cancel"></i>
+        </a>
+    </div>
+    <div class="weui_btn_area">
+        <a href="javascript:;" class="weui_btn weui_btn_primary" id="btnStartProgress">上传</a>
+    </div>
+</div>
+</script>
+ 
+</body>
+</html>

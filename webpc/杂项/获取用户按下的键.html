@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<strong></strong><input type="text" onkeydown="return noNumbers(event)">
+<script type="text/javascript">
+	function noNumbers(e) {
+    var keynum;
+    var keychar;
+
+    keynum = window.event ? e.keyCode : e.which;
+    keychar = String.fromCharCode(keynum);
+    alert(keynum + ':' + keychar);
+}
+</script>
+	</body>
+</html>

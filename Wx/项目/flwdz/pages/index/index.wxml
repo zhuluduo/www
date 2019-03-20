@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view class="containers">
+<!-- <view class="mask-shadow {{loadingHidden ? 'mask-shadow-on' : ''}}"></view> -->
+  <view id="loading" class="{{loadingHidden?'stateShow':'stateHidde'}}">
+    <text  id="num" >{{num}}</text>%
+    <view id="progress" style='top:{{scrTop}}'></view>
+  </view>
+  <view id='main' class="main {{loadingHidden?'':'stateShow'}}">
+    <view class='main-box'>
+      <view class='main-banner'>
+  <swiper indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}"  previous-margin="{{'140rpx'}}" next-margin="{{'140rpx'}}" bindchange="swiperChange">
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}"/>
+      </swiper-item>
+    </block>
+  </swiper>
+      </view>
+      <view class='main-cont'>
+      
+      </view>
+      <view class='main-footer'>
+      
+      </view>
+    </view>
+  </view>
+</view>

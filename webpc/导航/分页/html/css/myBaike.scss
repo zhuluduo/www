@@ -1,0 +1,110 @@
+#Bk-index {
+    position: relative;
+    font-size: 14px;
+    color: #a4a4a4;
+}
+
+.Box {
+    width: 100%;
+    margin: auto;
+    padding: 0 20px;
+    overflow-y: hidden;
+    overflow-y: hidden;
+}
+
+.Bk-header{
+    padding: 10px 0;
+    .goBack{
+        width: 26px;
+        height: 19px;
+        img{
+            widows: 100%;
+            height: 100%;
+        }
+    }
+}
+.Bk-content{
+    .user-Statistics{
+        .user-info{
+            width: 264px;
+            height: 128px;
+            border: solid 1px #838383;
+            margin-right: 20px;
+            img{
+                margin: 19px 0 0 16px;
+                width: 91px;
+                height: 91px;
+            }
+            .item-inner{
+                margin-top: 16px;
+                padding: 0 16px;
+                p{
+                    line-height: 30px;
+                }
+            }
+        }
+        .user-data{
+            width: 174px;
+            height: 128px;
+            border: solid 1px #838383;
+            text-align: center;
+            padding: 32px 0;
+            h5{
+                font-size: 28px;
+                color: #d8ac62;
+                margin-bottom: 10px;
+            }
+            p{
+                color: #a1a1a1;
+            }
+        }
+        .user-data+.user-data{
+            margin-left: 14px;
+        }
+    }
+    .edition-title {
+        padding: 20px 0 10px 0; 
+        span{
+            display: inline-block;
+            width: 334px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: #a1a1a1;
+            
+        }
+        span+span{
+            margin-left: 4px;
+        }
+        span:hover{
+            background-color: red;
+            color: #ffffff;
+
+        }
+    }
+    .data{
+        border: solid 1px #838383;
+        .thead{
+            border-bottom: solid 1px #838383;
+        }
+        span{
+            display: inline-block;
+            width: 24.6%;
+            text-align: center;
+            line-height: 42px;
+        }
+        .tbody{
+            padding: 10px 0 5px 0;
+            span{
+               line-height: 34px;
+            }
+            .checkItem{
+                color: #0086ee;
+            }
+        }
+        
+    }
+}
+.Bk-footer{
+    padding: 12px 0;
+}

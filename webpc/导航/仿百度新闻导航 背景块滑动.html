@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{margin: 0;padding: 0;}
+		body{font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, 宋体, Tahoma, Arial, Helvetica, STHeiti;font-size: 16px;}
+		a{text-decoration: none;color: inherit;}
+		ul,li{list-style: none;}
+		nav{height: 40px;background: #01204f;}
+		nav ul{width: 984px;margin: 0 auto;position: relative;}
+		nav ul li{float: left;color: #fff;font-weight: bold;z-index: 1;position: relative;}
+		nav ul li.index a{padding-left: 30px;background:url(img/icon-index_2c3bd00.png) no-repeat 7px 8px;}
+		nav ul li.active a{background-color:#c00;}
+		nav ul li a{padding: 0 10px;display: block;line-height: 40px;}
+		.nav-active{background: #c00;position: absolute;height: 40px;}
+	</style>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js" ></script>
+	<body>
+		<nav>
+			<ul id="nav">
+				<li class="index active"><a href="#">首页</a></li>
+				<li><a href="#">百家号</a></li>
+				<li><a href="#">国内</a></li>
+				<li><a href="#">国际</a></li>
+				<li><a href="#">军事</a></li>
+				<li><a href="#">社会</a></li>
+				<li><a href="#">财经</a></li>
+				<li><a href="#">娱乐</a></li>
+				<li><a href="#">体育</a></li>
+				<li><a href="#">互联网</a></li>
+				<li><a href="#">科技</a></li>
+				<li><a href="#">游戏</a></li>
+				<li><a href="#">时尚</a></li>
+				<li><a href="#">女人</a></li>
+				<li><a href="#">汽车</a></li>
+				<li><a href="#">个性推荐</a></li>
+			</ul>
+		</nav>
+	</body>
+	<script>
+		$(function(){
+			var div = $("<div class='nav-active'></div>")
+			$('#nav').append(div)
+			$('#nav li').click(function(){
+				$(this).addClass('active').siblings().removeClass('active')
+			})
+			$('#nav li').mouseenter(function(){
+				var Lleft = $(this).position().left
+				var Lwidth = $(this).width()
+				div.stop(true,false).animate({
+					left:Lleft,
+					width:Lwidth
+				},400)
+			})
+			$('#nav li').mouseout(function(){
+				div.stop(true,false).animate({
+					left:$('#nav li.active').position().left,
+					width:$('#nav li.active').width()
+				},400)
+			})
+		})
+	</script>
+</html>

@@ -1,0 +1,68 @@
+
+@font-face {font-family: "iconfont";
+  src: url('fonts/iconfont.eot?t=1492137439402'); /* IE9*/
+  src: url('fonts/iconfont.eot?t=1492137439402#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('fonts/iconfont.woff?t=1492137439402') format('woff'), /* chrome, firefox */
+  url('fonts/iconfont.ttf?t=1492137439402') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('fonts/iconfont.svg?t=1492137439402#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-user:before { content: "\e600"; }
+
+.icon-home1:before { content: "\e635"; }
+
+.icon-home:before { content: "\e6a1"; }
+
+.icon-setting1:before { content: "\e601"; }
+
+.icon-setting:before { content: "\e664"; }
+
+.icon-down:before { content: "\e623"; }
+
+.icon-books1:before { content: "\e67f"; }
+
+.icon-leaf:before { content: "\e645"; }
+
+.icon-users1:before { content: "\e65a"; }
+
+.icon-menuunfold:before { content: "\eacc"; }
+
+.icon-menufold:before { content: "\eacd"; }
+
+.icon-books:before { content: "\e605"; }
+
+.icon-users:before { content: "\e883"; }
+
+.icon-books2:before { content: "\e7b9"; }
+
+.icon-statistics:before { content: "\e74b"; }
+.icon-product:before { content: "\e604"; }
+.icon-promotion:before { content: "\e62f"; }
+.icon-sale:before { content: "\e632"; }
+.icon-inventory:before { content: "\e633"; }
+.icon-inventory-warning:before { content: "\e606"; }
+.icon-product-warning:before { content: "\e682"; }
+.icon-jfun-logo:before { content: "\e683"; }
+.icon-menu:before { content: "\e64a"; }
+.icon-tag:before { content: "\e666"; }
+.icon-logout:before { content: "\e64c"; }
+.icon-shutdown:before { content: "\e64d"; }
+.icon-jfun-user:before { content: "\e64e"; }
+.icon-jfun-password:before { content: "\e64f"; }
+.icon-jfun-download:before { content: "\e650"; }
+.icon-jfun-download2:before { content: "\e651"; }
+.icon-jfun-new-order:before { content: "\e652"; }
+.icon-jfun-exception-order:before { content: "\e653"; }
+.icon-jfun-remind-order:before { content: "\e654"; }
+.icon-jfun-cancel-order:before { content: "\e655"; }
+.icon-jfun-refund-order:before { content: "\e656"; }
+.icon-jfun-wait-order:before { content: "\e657"; }
+

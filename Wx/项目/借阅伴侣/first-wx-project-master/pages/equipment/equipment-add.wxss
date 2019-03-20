@@ -1,0 +1,4 @@
+/* equipment-add.wxss */
+.btn-area {
+  margin:20rpx 0rpx 20rpx 0rpx
+}

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>今日头条</title>
+	<style type="text/css">
+		html {
+    -webkit-tap-highlight-color:transparent;
+    -webkit-overflow-scrolling:touch;
+    -webkit-text-size-adjust:100%;
+    -ms-text-size-adjust:100%;
+    -ms-overflow-style:-ms-autohiding-scrollbar
+}
+		.Slide-container{
+			width: 700px;
+			height: 350px;
+			border: 1px solid cornflowerblue;
+			box-sizing: border-box;
+			display: flex;
+		    flex-direction: row;
+		    align-items: stretch;
+		}
+		#Slideleft{
+			width: 600px;
+			height: 348px;
+			background: #269ABC;
+			position: relative;
+		}
+		#SlideRight{
+			width: 98px;
+			height: 348px;
+			background: #000000;
+			position: relative;
+		}
+		#SlideImg{
+			width: 100%;
+			height: 100%;
+		}
+		#SlideImg img{
+			width: 100%;
+			height: 100%;
+			transition: all .5s;
+			-moz-transition: all .5s;	/* Firefox 4 */
+			-webkit-transition: all .5s;	/* Safari 和 Chrome */
+			-o-transition: all .5s;	/* Opera */
+		}
+		#SlideText{
+			width: 100%;
+			height: 50px;
+			line-height: 50px;
+			padding-left: 20px;
+			color: #fff;
+			font-size: 16px;
+			background-color: rgba(0,0,0,.2);
+			position: absolute;
+			left: 0;
+			bottom: 0;
+		}
+		#SlideRidio ul{
+			width: 100%;
+			height: 100%;
+			margin: 0;
+		    padding: 0;
+		    list-style-type: none;
+		    position: relative;
+		    z-index: 10;
+		}
+		#SlideRidio li{
+			width: 100%;
+		    line-height: 36px;
+		    margin: 5px 0 10px;
+		    cursor: pointer;
+		    color: #fff;
+		    text-align: center;
+		}
+		.active{
+			background: #ea3d45;
+		}
+	</style>
+</head>
+<body>
+	<div class="Slide-container">
+		<div id="Slideleft">
+			<div id="SlideImg">
+				
+			</div>
+			<div id="SlideText">
+				
+			</div>
+		</div>
+		<div id="SlideRight">
+			<div id="SlideRidio">
+				<ul>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		let ImgList=[
+			{title:'这是标题1',img:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1962406471,854069461&fm=26&gp=0.jpg',cont:'这是第一个内容'},
+			{title:'这是标题2',img:'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=829747267,1619991141&fm=26&gp=0.jpg',cont:'这是第2个内容'},
+			{title:'这是标题3',img:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1356704401,409047053&fm=200&gp=0.jpg',cont:'这是第3个内容'},
+			{title:'这是标题4',img:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3357139565,1548309168&fm=26&gp=0.jpg',cont:'这是第4个内容'},
+		];
+		
+		let SlideImg = document.getElementById('SlideImg'); //获取图片集合
+		let SlideText = document.getElementById('SlideText'); //获取文字
+		let SlideRidio = document.querySelector('#SlideRidio ul'); //获取点
+		
+		let imgs = document.createElement('img'); //创建图片标签
+		imgs.src = ImgList[0].img;
+		imgs.style.opacity = 1;
+	    imgs.style.display = 'block';
+	    imgs.style.zIndex = 2;
+	    SlideText.innerHTML ='<span>'+ImgList[0].cont+'</span>'; //左侧底部文字插入
+	    SlideImg.appendChild(imgs);
+		for(let i=0;i<ImgList.length;i++){
+			let lis = document.createElement('li'); //创建右侧文字标签
+			    lis.innerText = ImgList[i].title;
+			    if(i==0){
+			    	lis.className = 'active';
+			    }
+			    SlideRidio.appendChild(lis);
+		}
+		
+		let subset = SlideRidio.children;
+		for(let i=0;i<subset.length;i++){
+			subset[i].addEventListener('click',()=>{
+				nameTogle(i);
+				console.log(i)
+				let imgs = document.createElement('img'); //创建图片标签
+				imgs.src = ImgList[i].img;
+				imgs.style.opacity = 1;
+			    imgs.style.display = 'block';
+			    imgs.style.zIndex = 2;
+			    SlideImg.appendChild(imgs);
+				SlideText.innerHTML ='<span>'+ImgList[i].cont+'</span>';
+			})
+		}
+		
+		//去除重复class与属性
+		function nameTogle(j){
+			let subset = SlideRidio.children;
+			let slideImgChild = SlideImg.children;
+			slideImgChild[0].style.opacity=0;
+			SlideImg.removeChild(slideImgChild[0])
+			SlideText.innerHTML = '';
+			for(let i=0;i<subset.length;i++){
+				if(subset[i].className=='active'){
+					subset[i].className='';
+				}
+			}
+			subset[j].className='active';
+			
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>今日头条</title>
+	<style type="text/css">
+		html {
+    -webkit-tap-highlight-color:transparent;
+    -webkit-overflow-scrolling:touch;
+    -webkit-text-size-adjust:100%;
+    -ms-text-size-adjust:100%;
+    -ms-overflow-style:-ms-autohiding-scrollbar
+}
+		.Slide-container{
+			width: 700px;
+			height: 350px;
+			border: 1px solid cornflowerblue;
+			box-sizing: border-box;
+			display: flex;
+		    flex-direction: row;
+		    align-items: stretch;
+		}
+		#Slideleft{
+			width: 600px;
+			height: 348px;
+			background: #269ABC;
+			position: relative;
+		}
+		#SlideRight{
+			width: 98px;
+			height: 348px;
+			background: #000000;
+			position: relative;
+		}
+		#SlideImg{
+			width: 100%;
+			height: 100%;
+		}
+		#SlideImg img{
+			width: 100%;
+			height: 100%;
+			transition: all .5s;
+			-moz-transition: all .5s;	/* Firefox 4 */
+			-webkit-transition: all .5s;	/* Safari 和 Chrome */
+			-o-transition: all .5s;	/* Opera */
+		}
+		#SlideText{
+			width: 100%;
+			height: 50px;
+			line-height: 50px;
+			padding-left: 20px;
+			color: #fff;
+			font-size: 16px;
+			background-color: rgba(0,0,0,.2);
+			position: absolute;
+			left: 0;
+			bottom: 0;
+		}
+		#SlideRidio ul{
+			width: 100%;
+			height: 100%;
+			margin: 0;
+		    padding: 0;
+		    list-style-type: none;
+		    position: relative;
+		    z-index: 10;
+		}
+		#SlideRidio li{
+			width: 100%;
+		    line-height: 36px;
+		    margin: 5px 0 10px;
+		    cursor: pointer;
+		    color: #fff;
+		    text-align: center;
+		}
+		.active{
+			background: #ea3d45;
+		}
+	</style>
+</head>
+<body>
+	<div class="Slide-container">
+		<div id="Slideleft">
+			<div id="SlideImg">
+				
+			</div>
+			<div id="SlideText">
+				
+			</div>
+		</div>
+		<div id="SlideRight">
+			<div id="SlideRidio">
+				<ul>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		let ImgList=[
+			{title:'这是标题1',img:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1962406471,854069461&fm=26&gp=0.jpg',cont:'这是第一个内容'},
+			{title:'这是标题2',img:'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=829747267,1619991141&fm=26&gp=0.jpg',cont:'这是第2个内容'},
+			{title:'这是标题3',img:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1356704401,409047053&fm=200&gp=0.jpg',cont:'这是第3个内容'},
+			{title:'这是标题4',img:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3357139565,1548309168&fm=26&gp=0.jpg',cont:'这是第4个内容'},
+		];
+		
+		let SlideImg = document.getElementById('SlideImg'); //获取图片集合
+		let SlideText = document.getElementById('SlideText'); //获取文字
+		let SlideRidio = document.querySelector('#SlideRidio ul'); //获取点
+		
+		for(let i=0;i<ImgList.length;i++){
+			let imgs = document.createElement('img'); //创建图片标签
+			let lis = document.createElement('li'); //创建右侧文字标签
+			    imgs.src = ImgList[i].img;
+			    lis.innerText = ImgList[i].title;
+			    if(i==0){
+				    imgs.style.opacity = 1;
+				    imgs.style.display = 'block';
+				    imgs.style.zIndex = 2;
+				    SlideText.innerHTML ='<span>'+ImgList[i].cont+'</span>'; //左侧底部文字插入
+				    lis.className = 'active';
+			    }else{
+				    imgs.style.opacity = 0;
+				    imgs.style.display = 'none';
+				    imgs.style.zIndex = 0;
+			    }
+			    SlideImg.appendChild(imgs);
+			    SlideRidio.appendChild(lis);
+		}
+		
+		let subset = SlideRidio.children;
+		for(let i=0;i<subset.length;i++){
+			subset[i].addEventListener('click',()=>{
+				nameTogle(i);
+				SlideText.innerHTML ='<span>'+ImgList[i].cont+'</span>';
+			})
+		}
+		
+		//去除重复class与属性
+		function nameTogle(j){
+			let subset = SlideRidio.children;
+			let slideImgChild = SlideImg.children;
+			for(let i=0;i<subset.length;i++){
+				if(subset[i].className=='active'){
+					subset[i].className='';
+				}
+					slideImgChild[i].style.opacity = 0;
+				    slideImgChild[i].style.display = 'none';
+				    slideImgChild[i].style.zIndex = 0;
+			}
+			subset[j].className='active';
+			slideImgChild[j].style.opacity = 1;
+		    slideImgChild[j].style.display = 'block';
+		    slideImgChild[j].style.zIndex = 2;
+			
+		}
+	</script>
+</body>
+</html>-->

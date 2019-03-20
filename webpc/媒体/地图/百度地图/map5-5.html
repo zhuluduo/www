@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>获取百度地图可视区域坐标</title>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WGisSYWHrFFynEUtR8sihaVluQ6ERp8R"></script>
+		<style type="text/css">
+			#allmap{width: 1600px;height: 600px;margin: auto;}
+		</style>
+	</head>
+	<body>
+		<div id="allmap"></div>
+		
+		<script type="text/javascript">
+			// 百度地图API功能
+			var map = new BMap.Map("allmap");
+			var point = new BMap.Point(116.331398,39.897445);
+			map.centerAndZoom(point, 12);
+			map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+			
+			function getBounds(map){
+				BoundsData(map)
+				//地图移动结束时触发此事件
+				map.addEventListener('moveend',(e)=>{
+					BoundsData(map)
+				})
+				//地图更改缩放级别结束时触发触发此事件
+				map.addEventListener('zoomend',(e)=>{
+					BoundsData(map)
+				})
+			}
+			function BoundsData(baiduMap){
+				const Bounds=baiduMap.getBounds();// 返回地图可视区域,以地理坐标表示
+				console.log("返回整个可视区域坐标");
+				console.log(Bounds)
+				console.log("返回矩形中心点")
+				console.log(Bounds.getCenter())
+				console.log("返回矩形区域的西南角")
+				console.log(Bounds.getSouthWest())
+				console.log("返回矩形区域的东北角")
+				console.log(Bounds.getNorthEast())
+				console.log("返回矩形区域的跨度")
+				console.log(Bounds.toSpan())
+			}
+			getBounds(map)
+		</script>
+	</body>
+</html>

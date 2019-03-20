@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style type="text/css">
+			.flex-center {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+}
+.container {
+	display:inline-block;
+	width:50%;
+	height:20px;
+	padding-right:10px;
+	border:1px solid #999;
+	border-radius:5px;
+}
+.h-100P {
+	height:100%;
+}
+.bar {
+	display:inline-block;
+	background:#90bf46;
+	color:white;
+	font-weight:bold;
+	padding:0 5px;
+	text-align:right;
+	border-radius:5px;
+	border-right:1px solid #999;
+}
+
+		</style>
+	</head>
+	<body>
+		<div class="flex-center">
+    <h1>正在为你分析膳食，请稍后...</h1>
+    <span class="container">
+                <span id="progressBar" class="h-100P bar"></span>
+    </span>
+</div>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+	 $(document).ready(function() {
+     var percentage = 0;
+     var interval = setInterval(function() {
+         if (percentage < 10000) {
+             percentage = percentage + 35;
+             var widthTemp = (percentage / 100).toFixed(0) + '%';
+             $('#progressBar').css('width', widthTemp);
+             $('#progressBar').text(widthTemp);
+         } else {
+             clearInterval(interval);
+             $('h1').text('膳食分析完毕！正在为您跳转...');
+             setTimeout(function() {
+                 //location = '#';
+             }, 1500);
+         }
+     }, 10);
+ });
+</script>
+	</body>
+</html>

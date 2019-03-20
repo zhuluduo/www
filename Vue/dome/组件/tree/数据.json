@@ -1,0 +1,1164 @@
+{
+    "code": 200,
+    "data": [
+        {
+            "techniqueCatalogName": "机加成型",
+            "children": [
+                {
+                    "techniqueCatalogName": "线割加工",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "快走丝",
+                            "id": 360
+                        }
+                    ],
+                    "id": 79
+                },
+                {
+                    "techniqueCatalogName": "磨削加工",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "研磨",
+                            "id": 353
+                        }
+                    ],
+                    "id": 77
+                },
+                {
+                    "techniqueCatalogName": "铣削加工",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "CNC四轴",
+                            "id": 342
+                        },
+                        {
+                            "techniqueName": "精雕加工",
+                            "id": 339
+                        },
+                        {
+                            "techniqueName": "龙门铣",
+                            "id": 344
+                        },
+                        {
+                            "techniqueName": "CNC五轴",
+                            "id": 341
+                        },
+                        {
+                            "techniqueName": "铣床/立铣",
+                            "id": 343
+                        }
+                    ],
+                    "id": 75
+                },
+                {
+                    "techniqueCatalogName": "车削加工",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "车铣复合中心",
+                            "id": 347
+                        },
+                        {
+                            "techniqueName": "立式车床",
+                            "id": 348
+                        },
+                        {
+                            "techniqueName": "普车",
+                            "id": 345
+                        }
+                    ],
+                    "id": 76
+                }
+            ],
+            "techniqueList": [
+                {
+                    "techniqueName": "拉削加工",
+                    "id": 337
+                },
+                {
+                    "techniqueName": "钻削加工",
+                    "id": 338
+                },
+                {
+                    "techniqueName": "刨削加工",
+                    "id": 336
+                }
+            ],
+            "id": 74
+        },
+        {
+            "techniqueCatalogName": "组装&测试",
+            "children": {},
+            "techniqueList": [
+                {
+                    "techniqueName": "全检",
+                    "id": 221
+                },
+                {
+                    "techniqueName": "铆接",
+                    "id": 222
+                },
+                {
+                    "techniqueName": "其它电子元器件件组装",
+                    "id": 227
+                },
+                {
+                    "techniqueName": "整机测试",
+                    "id": 226
+                },
+                {
+                    "techniqueName": "点胶",
+                    "id": 220
+                },
+                {
+                    "techniqueName": "其它 自定义",
+                    "id": 229
+                },
+                {
+                    "techniqueName": "PCB板组装",
+                    "id": 228
+                },
+                {
+                    "techniqueName": "零件组装",
+                    "id": 224
+                },
+                {
+                    "techniqueName": "SMT",
+                    "id": 225
+                },
+                {
+                    "techniqueName": "成品组装&测试",
+                    "id": 230
+                },
+                {
+                    "techniqueName": "热熔",
+                    "id": 223
+                }
+            ],
+            "id": 52
+        },
+        {
+            "techniqueCatalogName": "特种制造",
+            "techniqueList": [
+                {
+                    "techniqueName": "超精密制造业",
+                    "id": 159
+                },
+                {
+                    "techniqueName": "水刀切割",
+                    "id": 163
+                },
+                {
+                    "techniqueName": "CNC五轴机加工",
+                    "id": 161
+                },
+                {
+                    "techniqueName": "液态金属",
+                    "id": 165
+                },
+                {
+                    "techniqueName": "其它",
+                    "id": 166
+                },
+                {
+                    "techniqueName": "大尺寸/规格 物品制造业",
+                    "id": 160
+                },
+                {
+                    "techniqueName": "专机整形加工",
+                    "id": 162
+                }
+            ],
+            "id": 24
+        },
+        {
+            "techniqueCatalogName": "夹具/冶具加工",
+            "techniqueList": [
+                {
+                    "techniqueName": "其他治具设计及加工",
+                    "id": 158
+                },
+                {
+                    "techniqueName": "机加治具加工",
+                    "id": 151
+                },
+                {
+                    "techniqueName": "测试治具加工",
+                    "id": 153
+                },
+                {
+                    "techniqueName": "装配治具设计及加工",
+                    "id": 156
+                },
+                {
+                    "techniqueName": "表面处理挂具设计及加工",
+                    "id": 157
+                },
+                {
+                    "techniqueName": "装配治具加工",
+                    "id": 152
+                }
+            ],
+            "id": 22
+        },
+        {
+            "techniqueCatalogName": "表面处理&辅助处理",
+            "children": [
+                {
+                    "techniqueCatalogName": "电镀",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "挂镀",
+                            "id": 200
+                        },
+                        {
+                            "techniqueName": "滚镀",
+                            "id": 198
+                        },
+                        {
+                            "techniqueName": "刷镀",
+                            "id": 199
+                        }
+                    ],
+                    "id": 43
+                },
+                {
+                    "techniqueCatalogName": "喷涂",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "电弧喷涂",
+                            "id": 209
+                        },
+                        {
+                            "techniqueName": "热喷涂",
+                            "id": 207
+                        }
+                    ],
+                    "id": 45
+                },
+                {
+                    "techniqueCatalogName": "T处理&E处理",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "铝材E处理",
+                            "id": 215
+                        },
+                        {
+                            "techniqueName": "不锈钢E处理",
+                            "id": 214
+                        }
+                    ],
+                    "id": 47
+                },
+                {
+                    "techniqueCatalogName": "拉丝",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "旋转拉丝",
+                            "id": 217
+                        },
+                        {
+                            "techniqueName": "轮拉丝",
+                            "id": 218
+                        },
+                        {
+                            "techniqueName": "带拉丝",
+                            "id": 216
+                        }
+                    ],
+                    "id": 48
+                },
+                {
+                    "techniqueCatalogName": "抛光",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "CNC设备打磨",
+                            "id": 205
+                        },
+                        {
+                            "techniqueName": "轮式抛光",
+                            "id": 203
+                        },
+                        {
+                            "techniqueName": "等离子抛光",
+                            "id": 206
+                        },
+                        {
+                            "techniqueName": "平面研磨",
+                            "id": 201
+                        }
+                    ],
+                    "id": 44
+                },
+                {
+                    "techniqueCatalogName": "阳极",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "普通阳极",
+                            "id": 212
+                        },
+                        {
+                            "techniqueName": "其他特殊阳极",
+                            "id": 213
+                        },
+                        {
+                            "techniqueName": "硬质阳极",
+                            "id": 211
+                        }
+                    ],
+                    "id": 46
+                }
+            ],
+            "techniqueList": [
+                {
+                    "techniqueName": "UV",
+                    "id": 186
+                },
+                {
+                    "techniqueName": "酸洗",
+                    "id": 192
+                },
+                {
+                    "techniqueName": "喷砂",
+                    "id": 184
+                },
+                {
+                    "techniqueName": "印刷",
+                    "id": 189
+                },
+                {
+                    "techniqueName": "喷漆&喷油",
+                    "id": 183
+                },
+                {
+                    "techniqueName": "ED&电泳",
+                    "id": 185
+                },
+                {
+                    "techniqueName": "移印",
+                    "id": 190
+                },
+                {
+                    "techniqueName": "烫金",
+                    "id": 194
+                },
+                {
+                    "techniqueName": "蚀刻",
+                    "id": 191
+                },
+                {
+                    "techniqueName": "丝印",
+                    "id": 188
+                },
+                {
+                    "techniqueName": "电抛",
+                    "id": 179
+                },
+                {
+                    "techniqueName": "镭雕",
+                    "id": 187
+                },
+                {
+                    "techniqueName": "水转印",
+                    "id": 197
+                },
+                {
+                    "techniqueName": "PVD",
+                    "id": 181
+                }
+            ],
+            "id": 42
+        },
+        {
+            "techniqueCatalogName": "后加工工艺",
+            "children": [
+                {
+                    "techniqueCatalogName": "镭雕",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "彩雕",
+                            "id": 240
+                        },
+                        {
+                            "techniqueName": "普通镭雕",
+                            "id": 241
+                        }
+                    ],
+                    "id": 55
+                }
+            ],
+            "techniqueList": [
+                {
+                    "techniqueName": "高光",
+                    "id": 232
+                },
+                {
+                    "techniqueName": "冷冻去毛刺",
+                    "id": 235
+                },
+                {
+                    "techniqueName": "激光焊接",
+                    "id": 239
+                },
+                {
+                    "techniqueName": "其它",
+                    "id": 237
+                },
+                {
+                    "techniqueName": "批花",
+                    "id": 234
+                },
+                {
+                    "techniqueName": "精雕",
+                    "id": 231
+                }
+            ],
+            "id": 54
+        },
+        {
+            "techniqueCatalogName": "金属塑性成型",
+            "children": [
+                {
+                    "techniqueCatalogName": "钣金加工",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "钣金折弯",
+                            "id": 309
+                        }
+                    ],
+                    "id": 70
+                },
+                {
+                    "techniqueCatalogName": "冲压",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "低速冲压",
+                            "id": 292
+                        },
+                        {
+                            "techniqueName": "高速冲压",
+                            "id": 293
+                        },
+                        {
+                            "techniqueName": "中速冲压",
+                            "id": 294
+                        }
+                    ],
+                    "id": 67
+                },
+                {
+                    "techniqueCatalogName": "锻造",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "热锻",
+                            "id": 296
+                        },
+                        {
+                            "techniqueName": "冷锻",
+                            "id": 295
+                        }
+                    ],
+                    "id": 68
+                },
+                {
+                    "techniqueCatalogName": "轧制",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "热轧",
+                            "id": 302
+                        },
+                        {
+                            "techniqueName": "冷轧",
+                            "id": 301
+                        }
+                    ],
+                    "id": 69
+                }
+            ],
+            "techniqueList": [
+                {
+                    "techniqueName": "MIM",
+                    "id": 305
+                },
+                {
+                    "techniqueName": "旋压",
+                    "id": 303
+                },
+                {
+                    "techniqueName": "精密冲裁",
+                    "id": 299
+                },
+                {
+                    "techniqueName": "无模多点成形",
+                    "id": 300
+                },
+                {
+                    "techniqueName": "超塑性成型",
+                    "id": 298
+                },
+                {
+                    "techniqueName": "弯管加工",
+                    "id": 307
+                },
+                {
+                    "techniqueName": "摆动碾压",
+                    "id": 304
+                },
+                {
+                    "techniqueName": "其它",
+                    "id": 308
+                },
+                {
+                    "techniqueName": "挤压",
+                    "id": 297
+                }
+            ],
+            "id": 66
+        },
+        {
+            "techniqueCatalogName": "热处理",
+            "techniqueList": [
+                {
+                    "techniqueName": "渗氮处理",
+                    "id": 170
+                },
+                {
+                    "techniqueName": "渗金属处理",
+                    "id": 171
+                },
+                {
+                    "techniqueName": "其它热处理",
+                    "id": 173
+                },
+                {
+                    "techniqueName": "真空热处理",
+                    "id": 172
+                },
+                {
+                    "techniqueName": "时效处理",
+                    "id": 167
+                },
+                {
+                    "techniqueName": "调质处理",
+                    "id": 168
+                }
+            ],
+            "id": 40
+        },
+        {
+            "techniqueCatalogName": "金属焊接成型",
+            "children": [
+                {
+                    "techniqueCatalogName": "钎焊",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "其他钎焊",
+                            "id": 335
+                        },
+                        {
+                            "techniqueName": "炉中钎焊",
+                            "id": 334
+                        },
+                        {
+                            "techniqueName": "电阻钎焊",
+                            "id": 332
+                        },
+                        {
+                            "techniqueName": "感应钎焊",
+                            "id": 333
+                        }
+                    ],
+                    "id": 73
+                }
+            ],
+            "techniqueList": [
+                {
+                    "techniqueName": "气焊与气割",
+                    "id": 324
+                },
+                {
+                    "techniqueName": "激光切割",
+                    "id": 325
+                },
+                {
+                    "techniqueName": "电弧焊",
+                    "id": 321
+                },
+                {
+                    "techniqueName": "摩擦焊接",
+                    "id": 327
+                },
+                {
+                    "techniqueName": "激光焊接",
+                    "id": 323
+                },
+                {
+                    "techniqueName": "扩散焊",
+                    "id": 328
+                },
+                {
+                    "techniqueName": "超声波焊接",
+                    "id": 329
+                },
+                {
+                    "techniqueName": "电渣焊",
+                    "id": 322
+                },
+                {
+                    "techniqueName": "爆炸焊",
+                    "id": 330
+                },
+                {
+                    "techniqueName": "电阻焊",
+                    "id": 326
+                }
+            ],
+            "id": 72
+        },
+        {
+            "techniqueCatalogName": "非金属成型加工",
+            "children": [
+                {
+                    "techniqueCatalogName": "聚合物基复合材料成型",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "挤压成形",
+                            "id": 287
+                        },
+                        {
+                            "techniqueName": "缠绕成形",
+                            "id": 286
+                        },
+                        {
+                            "techniqueName": "预浸料成形",
+                            "id": 282
+                        },
+                        {
+                            "techniqueName": "袋压成形",
+                            "id": 285
+                        },
+                        {
+                            "techniqueName": "预混料成形",
+                            "id": 283
+                        },
+                        {
+                            "techniqueName": "模压成形",
+                            "id": 288
+                        }
+                    ],
+                    "id": 65
+                },
+                {
+                    "techniqueCatalogName": "陶瓷成型",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "干压成型",
+                            "id": 269
+                        },
+                        {
+                            "techniqueName": "热压铸",
+                            "id": 276
+                        },
+                        {
+                            "techniqueName": "凝胶成型",
+                            "id": 273
+                        },
+                        {
+                            "techniqueName": "流延成型",
+                            "id": 272
+                        },
+                        {
+                            "techniqueName": "注射成型",
+                            "id": 277
+                        },
+                        {
+                            "techniqueName": "冷等静压",
+                            "id": 270
+                        }
+                    ],
+                    "id": 63
+                },
+                {
+                    "techniqueCatalogName": "塑料成型",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "薄膜吹塑",
+                            "id": 252
+                        },
+                        {
+                            "techniqueName": "挤出吹塑",
+                            "id": 251
+                        },
+                        {
+                            "techniqueName": "层压成型",
+                            "id": 253
+                        },
+                        {
+                            "techniqueName": "搪塑成型",
+                            "id": 259
+                        },
+                        {
+                            "techniqueName": "挤出成型",
+                            "id": 248
+                        },
+                        {
+                            "techniqueName": "双色注塑",
+                            "id": 246
+                        },
+                        {
+                            "techniqueName": "纳米注塑",
+                            "id": 245
+                        },
+                        {
+                            "techniqueName": "注射吹塑",
+                            "id": 249
+                        },
+                        {
+                            "techniqueName": "其它成型工艺",
+                            "id": 242
+                        },
+                        {
+                            "techniqueName": "拉伸吹塑",
+                            "id": 250
+                        },
+                        {
+                            "techniqueName": "模压成型",
+                            "id": 254
+                        },
+                        {
+                            "techniqueName": "嵌件注塑",
+                            "id": 243
+                        },
+                        {
+                            "techniqueName": "吸塑成型",
+                            "id": 258
+                        }
+                    ],
+                    "id": 60
+                },
+                {
+                    "techniqueCatalogName": "硅胶成型",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "模压成型",
+                            "id": 265
+                        },
+                        {
+                            "techniqueName": "挤出成型",
+                            "id": 266
+                        },
+                        {
+                            "techniqueName": "液体硅胶成型",
+                            "id": 267
+                        }
+                    ],
+                    "id": 62
+                },
+                {
+                    "techniqueCatalogName": "金属基复合材料成型",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "固态法成形",
+                            "id": 279
+                        },
+                        {
+                            "techniqueName": "液态法成形",
+                            "id": 280
+                        }
+                    ],
+                    "id": 64
+                },
+                {
+                    "techniqueCatalogName": "橡胶成型",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "传递模塑成型",
+                            "id": 261
+                        },
+                        {
+                            "techniqueName": "泡沫",
+                            "id": 264
+                        },
+                        {
+                            "techniqueName": "压缩成型",
+                            "id": 260
+                        }
+                    ],
+                    "id": 61
+                }
+            ],
+            "techniqueList": [
+                {
+                    "techniqueName": "其它材料成型",
+                    "id": 290
+                },
+                {
+                    "techniqueName": "辅料 模切",
+                    "id": 278
+                }
+            ],
+            "id": 59
+        },
+        {
+            "techniqueCatalogName": "手板加工",
+            "techniqueList": [
+                {
+                    "techniqueName": "贵金属手板",
+                    "id": 177
+                },
+                {
+                    "techniqueName": "金属手板",
+                    "id": 174
+                },
+                {
+                    "techniqueName": "塑胶手板",
+                    "id": 175
+                },
+                {
+                    "techniqueName": "其他非金属手板",
+                    "id": 176
+                }
+            ],
+            "id": 41
+        },
+        {
+            "techniqueCatalogName": "电子料加工",
+            "techniqueList": [
+                {
+                    "techniqueName": "记忆元件制造",
+                    "id": 402
+                },
+                {
+                    "techniqueName": "光耦合器/LED制造",
+                    "id": 412
+                }
+            ],
+            "id": 84
+        },
+        {
+            "techniqueCatalogName": "包材加工",
+            "techniqueList": [
+                {
+                    "techniqueName": "EPE珍珠棉",
+                    "id": 377
+                }
+            ],
+            "id": 81
+        },
+        {
+            "techniqueCatalogName": "金属液态成型",
+            "techniqueList": [
+                {
+                    "techniqueName": "喷射铸造",
+                    "id": 319
+                },
+                {
+                    "techniqueName": "离心铸造",
+                    "id": 316
+                },
+                {
+                    "techniqueName": "熔模铸造",
+                    "id": 313
+                },
+                {
+                    "techniqueName": "压力铸造",
+                    "id": 315
+                },
+                {
+                    "techniqueName": "电铸",
+                    "id": 320
+                },
+                {
+                    "techniqueName": "电磁铸造",
+                    "id": 318
+                },
+                {
+                    "techniqueName": "低压铸造",
+                    "id": 317
+                }
+            ],
+            "id": 71
+        },
+        {
+            "techniqueCatalogName": "刀具加工",
+            "children": [
+                {
+                    "techniqueCatalogName": "铣削刀具加工",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "铝材铣削刀具",
+                            "id": 427
+                        }
+                    ],
+                    "id": 88
+                },
+                {
+                    "techniqueCatalogName": "车铣刀具加工",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "其它材料车刀具加工",
+                            "id": 421
+                        },
+                        {
+                            "techniqueName": "铝材车刀具加工",
+                            "id": 422
+                        }
+                    ],
+                    "id": 86
+                }
+            ],
+            "techniqueList": [
+                {
+                    "techniqueName": "其它刀具加工",
+                    "id": 429
+                },
+                {
+                    "techniqueName": "特种刀具加工",
+                    "id": 430
+                }
+            ],
+            "id": 85
+        },
+        {
+            "techniqueCatalogName": "模具加工",
+            "children": [
+                {
+                    "techniqueCatalogName": "磨削加工",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "外圆磨",
+                            "id": 125
+                        },
+                        {
+                            "techniqueName": "双面砂轮磨",
+                            "id": 131
+                        },
+                        {
+                            "techniqueName": "平面磨",
+                            "id": 128
+                        },
+                        {
+                            "techniqueName": "研磨",
+                            "id": 129
+                        },
+                        {
+                            "techniqueName": "珩磨",
+                            "id": 130
+                        }
+                    ],
+                    "id": 32
+                },
+                {
+                    "techniqueCatalogName": "模具设计",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "吸塑模具",
+                            "id": 100
+                        },
+                        {
+                            "techniqueName": "锻压模具",
+                            "id": 93
+                        },
+                        {
+                            "techniqueName": "压铸模具",
+                            "id": 94
+                        },
+                        {
+                            "techniqueName": "其他模具",
+                            "id": 99
+                        },
+                        {
+                            "techniqueName": "冲压模具",
+                            "id": 95
+                        },
+                        {
+                            "techniqueName": "MIM模具",
+                            "id": 96
+                        },
+                        {
+                            "techniqueName": "硅胶模",
+                            "id": 98
+                        },
+                        {
+                            "techniqueName": "吹塑模具",
+                            "id": 101
+                        },
+                        {
+                            "techniqueName": "注塑模具",
+                            "id": 97
+                        }
+                    ],
+                    "id": 25
+                },
+                {
+                    "techniqueCatalogName": "焊接",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "电阻焊",
+                            "id": 112
+                        },
+                        {
+                            "techniqueName": "电渣焊",
+                            "id": 111
+                        },
+                        {
+                            "techniqueName": "激光焊",
+                            "id": 114
+                        },
+                        {
+                            "techniqueName": "电弧焊",
+                            "id": 108
+                        },
+                        {
+                            "techniqueName": "气体保护焊",
+                            "id": 109
+                        },
+                        {
+                            "techniqueName": "钎焊",
+                            "id": 113
+                        },
+                        {
+                            "techniqueName": "埋弧自动焊",
+                            "id": 110
+                        }
+                    ],
+                    "id": 29
+                },
+                {
+                    "techniqueCatalogName": "铣削加工",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "铣床/立铣",
+                            "id": 119
+                        },
+                        {
+                            "techniqueName": "龙门铣",
+                            "id": 120
+                        },
+                        {
+                            "techniqueName": "CNC四轴",
+                            "id": 118
+                        }
+                    ],
+                    "id": 30
+                },
+                {
+                    "techniqueCatalogName": "电火花加工",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "铜电极",
+                            "id": 103
+                        },
+                        {
+                            "techniqueName": "石墨电极",
+                            "id": 104
+                        }
+                    ],
+                    "id": 27
+                },
+                {
+                    "techniqueCatalogName": "车削加工",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "数控车",
+                            "id": 122
+                        },
+                        {
+                            "techniqueName": "车铣复合中心",
+                            "id": 123
+                        },
+                        {
+                            "techniqueName": "普车",
+                            "id": 121
+                        },
+                        {
+                            "techniqueName": "立式车床",
+                            "id": 124
+                        }
+                    ],
+                    "id": 31
+                },
+                {
+                    "techniqueCatalogName": "线割加工",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "慢走丝",
+                            "id": 105
+                        },
+                        {
+                            "techniqueName": "快走丝",
+                            "id": 107
+                        }
+                    ],
+                    "id": 28
+                },
+                {
+                    "techniqueCatalogName": "机加辅助工艺",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "镗孔",
+                            "id": 134
+                        },
+                        {
+                            "techniqueName": "插齿加工",
+                            "id": 132
+                        },
+                        {
+                            "techniqueName": "深孔钻",
+                            "id": 133
+                        }
+                    ],
+                    "id": 33
+                },
+                {
+                    "techniqueCatalogName": "热处理",
+                    "techniqueList": [
+                        {
+                            "techniqueName": "调质处理",
+                            "id": 138
+                        },
+                        {
+                            "techniqueName": "渗氮处理",
+                            "id": 140
+                        },
+                        {
+                            "techniqueName": "退火处理",
+                            "id": 141
+                        }
+                    ],
+                    "id": 37
+                }
+            ],
+            "techniqueList": [
+                {
+                    "techniqueName": "省模",
+                    "id": 136
+                },
+                {
+                    "techniqueName": "模具设计",
+                    "id": 92
+                },
+                {
+                    "techniqueName": "模具组立&调试&保养",
+                    "id": 102
+                },
+                {
+                    "techniqueName": "拉削加工",
+                    "id": 137
+                }
+            ],
+            "id": 21
+        },
+        {
+            "techniqueCatalogName": "金属原材料加工",
+            "children": {},
+            "techniqueList": [
+                {
+                    "techniqueName": "成型厚板",
+                    "id": 386
+                }
+            ],
+            "id": 82
+        }
+    ],
+    "message": "查询成功"
+}

@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style> html, body {
+    margin:0;
+    height:100%;
+}
+.barcon {
+    width:auto;
+    margin:0 auto;
+    text-align:center;
+}
+.barcon1 {
+    font-size:17px;
+    float:left;
+    margin-top:20px;
+}
+.barcon2 {
+    float:right;
+}
+.barcon2 ul {
+    margin:20px 0;
+    padding-left:0;
+    list-style:none;
+    text-align:center;
+}
+.barcon2 li {
+    display:inline;
+}
+.barcon2 a {
+    font-size:16px;
+    font-weight:normal;
+    display:inline-block;
+    padding:5px;
+    padding-top:0;
+    color:black;
+    border:1px solid #ddd;
+    background-color:#fff;
+}
+.barcon2 a:hover {
+    background-color:#eee;
+}
+.ban {
+    opacity:.4;
+}
+#shade {
+    background:#000;
+    filter:alpha(opacity=50);
+    /* IE的透明度*/
+    opacity:0.5;
+    /* 透明度*/
+    display:none;
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    z-index:9999;
+    /* 此处的图层要大于页面*/
+    display:none;
+}
+</style>
+		<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>菜单</th>
+            <th>链接地址</th>
+            <th>父菜单</th>
+        </tr>
+    </thead>
+    <tbody id="list"></tbody>
+</table>
+<div id="barcon" class="barcon">
+    <div id="barcon1" class="barcon1"></div>
+    <div id="barcon2" class="barcon2">
+        <ul>
+            <li><a href="###" id="firstPage">首页</a>
+            </li>
+            <li><a href="###" id="prePage">上一页</a>
+            </li>
+            <li><a href="###" id="nextPage">下一页</a>
+            </li>
+            <li><a href="###" id="lastPage">尾页</a>
+            </li>
+            <li>
+                <select id="jumpWhere"></select>
+            </li>
+            <li><a href="###" id="jumpPage" onclick="jumpPage()">跳转</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+	var table;
+
+table = [
+
+    {
+
+        "id": "21",
+
+        "name": "演唱会",
+
+        "parent_id": "15",
+
+        "url": "http://www.acfun.cn/v/list99/index.htm/v/list140/index.htm"
+
+        },
+
+    {
+
+        "id": "22",
+
+        "name": "舞蹈·彼女",
+
+        "parent_id": "0",
+
+        "url": "http://www.acfun.cn/v/list123/index.htm"
+
+        },
+
+    {
+
+        "id": "23",
+
+        "name": "宅舞",
+
+        "parent_id": "22",
+
+        "url": "http://www.acfun.cn/v/list134/index.htm"
+
+        },
+
+    {
+
+        "id": "24",
+
+        "name": "综合舞蹈",
+
+        "parent_id": "22",
+
+        "url": "http://www.acfun.cn/v/list135/index.htm"
+
+        },
+
+    {
+
+        "id": "25",
+
+        "name": "爱豆",
+
+        "parent_id": "22",
+
+        "url": "http://www.acfun.cn/v/list129/index.htm"
+
+        },
+
+    {
+
+        "id": "26",
+
+        "name": "手作",
+
+        "parent_id": "22",
+
+        "url": "http://www.acfun.cn/v/list130/index.htm"
+
+        },
+
+    {
+
+        "id": "27",
+
+        "name": "造型",
+
+        "parent_id": "22",
+
+        "url": "http://www.acfun.cn/v/list127/index.htm"
+
+        },
+
+    {
+
+        "id": "28",
+
+        "name": "游戏",
+
+        "parent_id": "0",
+
+        "url": "http://www.acfun.cn/v/list59/index.htm"
+
+        },
+
+    {
+
+        "id": "29",
+
+        "name": "主机单机",
+
+        "parent_id": "28",
+
+        "url": "http://www.acfun.cn/v/list84/index.htm"
+
+        },
+
+    {
+
+        "id": "30",
+
+        "name": "游戏集锦",
+
+        "parent_id": "28",
+
+        "url": "http://www.acfun.cn/v/list83/index.htm"
+
+        },
+
+    {
+
+        "id": "31",
+
+        "name": "电子竞技",
+
+        "parent_id": "28",
+
+        "url": "http://www.acfun.cn/v/list145/index.htm"
+
+        },
+
+    {
+
+        "id": "32",
+
+        "name": "英雄联盟",
+
+        "parent_id": "28",
+
+        "url": "http://www.acfun.cn/v/list85/index.htm"
+
+        },
+
+    {
+
+        "id": "33",
+
+        "name": "守望先锋",
+
+        "parent_id": "28",
+
+        "url": "http://www.acfun.cn/v/list170/index.htm"
+
+        },
+
+    {
+
+        "id": "34",
+
+        "name": "桌游卡牌",
+
+        "parent_id": "28",
+
+        "url": "http://www.acfun.cn/v/list165/index.htm/"
+
+        },
+
+    {
+
+        "id": "35",
+
+        "name": "Mugen",
+
+        "parent_id": "28",
+
+        "url": "http://www.acfun.cn/v/list72/index.htm/"
+
+        },
+
+    {
+
+        "id": "36",
+
+        "name": "游戏中心",
+
+        "parent_id": "28",
+
+        "url": "http://www.acfun.cn/gamecenter"
+
+        },
+
+    {
+
+        "id": "37",
+
+        "name": "娱乐",
+
+        "parent_id": "0",
+
+        "url": "http://www.acfun.cn/v/list59/index.htm"
+
+        },
+
+    {
+
+        "id": "38",
+
+        "name": "生活娱乐",
+
+        "parent_id": "37",
+
+        "url": "http://www.acfun.cn/v/list84/index.htm"
+
+        },
+
+    {
+
+        "id": "39",
+
+        "name": "鬼畜调教",
+
+        "parent_id": "37",
+
+        "url": "http://www.acfun.cn/v/list83/index.htm"
+
+        },
+
+    {
+
+        "id": "40",
+
+        "name": "萌宠",
+
+        "parent_id": "37",
+
+        "url": "http://www.acfun.cn/v/list145/index.htm"
+
+        },
+
+    {
+
+        "id": "41",
+
+        "name": "美食",
+
+        "parent_id": "37",
+
+        "url": "http://www.acfun.cn/v/list85/index.htm"
+
+        },
+
+    {
+
+        "id": "42",
+
+        "name": "科技",
+
+        "parent_id": "0",
+
+        "url": "http://www.acfun.cn/v/list59/index.htm"
+
+        },
+
+    {
+
+        "id": "43",
+
+        "name": "科学技术",
+
+        "parent_id": "42",
+
+        "url": "http://www.acfun.cn/v/list84/index.htm"
+
+        },
+
+    {
+
+        "id": "44",
+
+        "name": "教程",
+
+        "parent_id": "42",
+
+        "url": "http://www.acfun.cn/v/list83/index.htm"
+
+        },
+
+    {
+
+        "id": "45",
+
+        "name": "数码",
+
+        "parent_id": "42",
+
+        "url": "http://www.acfun.cn/v/list145/index.htm"
+
+        },
+
+    {
+
+        "id": "46",
+
+        "name": "广告",
+
+        "parent_id": "42",
+
+        "url": "http://www.acfun.cn/v/list85/index.htm"
+
+        },
+
+    {
+
+        "id": "47",
+
+        "name": "影视",
+
+        "parent_id": "0",
+
+        "url": "http://www.acfun.cn/v/list59/index.htm"
+
+        },
+
+    {
+
+        "id": "48",
+
+        "name": "国产剧",
+
+        "parent_id": "47",
+
+        "url": "http://www.acfun.cn/v/list84/index.htm"
+
+        },
+
+    {
+
+        "id": "49",
+
+        "name": "网络剧",
+
+        "parent_id": "47",
+
+        "url": "http://www.acfun.cn/v/list83/index.htm"
+
+        },
+
+    {
+
+        "id": "50",
+
+        "name": "纪录片",
+
+        "parent_id": "47",
+
+        "url": "http://www.acfun.cn/v/list145/index.htm"
+
+        },
+
+    {
+
+        "id": "51",
+
+        "name": "综艺",
+
+        "parent_id": "47",
+
+        "url": "http://www.acfun.cn/v/list85/index.htm"
+
+        },
+
+    {
+
+        "id": "52",
+
+        "name": "文章",
+
+        "parent_id": "0",
+
+        "url": "http://www.acfun.cn/v/list59/index.htm"
+
+        },
+
+    {
+
+        "id": "53",
+
+        "name": "游记·涂鸦",
+
+        "parent_id": "52",
+
+        "url": "http://www.acfun.cn/v/list84/index.htm"
+
+        },
+
+    {
+
+        "id": "54",
+
+        "name": "综合",
+
+        "parent_id": "52",
+
+        "url": "http://www.acfun.cn/v/list83/index.htm"
+
+        },
+
+    {
+
+        "id": "55",
+
+        "name": "工作·情感",
+
+        "parent_id": "52",
+
+        "url": "http://www.acfun.cn/v/list145/index.htm"
+
+        },
+
+    {
+
+        "id": "56",
+
+        "name": "动漫文化",
+
+        "parent_id": "52",
+
+        "url": "http://www.acfun.cn/v/list85/index.htm"
+
+        },
+
+    {
+
+        "id": "57",
+
+        "name": "漫画·文学",
+
+        "parent_id": "52",
+
+        "url": "http://www.acfun.cn/v/list170/index.htm"
+
+        }
+
+]
+
+starpag();
+
+function starpag() {
+
+    goPage(1, 20);
+
+    var tempOption = "";
+
+    for (var i = 1; i <= totalPage; i++) {
+
+        tempOption += '<option value=' + i + '>' + i + ''
+
+    }
+
+    $("#jumpWhere").html(tempOption);
+
+};
+
+// 分页函数
+
+// pno--页数
+
+// psize--每页显示记录数
+
+// 分页部分是从真实数据行开始，因而存在加减某个常数，以确定真正的记录数
+
+// 纯js分页实质是数据行全部加载，通过是否显示属性完成分页功能
+
+var pageSize = 0; //每页显示行数
+
+var currentPage_ = 1; //当前页全局变量，用于跳转时判断是否在相同页，在就不跳，否则跳转。
+
+var totalPage; //总页数
+
+function goPage(pno, psize) {
+
+    var num = table.length; //表格所有行数(所有记录数)
+
+    pageSize = psize; //每页显示行数
+
+    //总共分几页
+
+    if (num / pageSize > parseInt(num / pageSize)) {
+
+        totalPage = parseInt(num / pageSize) + 1;
+
+    } else {
+
+        totalPage = parseInt(num / pageSize);
+
+    }
+
+    var currentPage = pno; //当前页数
+
+    currentPage_ = currentPage;
+
+    var startRow = (currentPage - 1) * pageSize + 1;
+
+    var endRow = currentPage * pageSize;
+
+    endRow = (endRow > num) ? num : endRow;
+
+    // console.log(endRow);
+
+    var tablepag = new Array();
+
+    for (let index = startRow; index <= endRow; index++) {
+
+        tablepag.push(table[index - 1])
+
+    }
+
+    tabletr(tablepag);
+
+    var tempStr = "共" + num + "条记录 共分" + totalPage + "页 当前第" + currentPage + "页";
+
+    document.getElementById("barcon1").innerHTML = tempStr;
+
+    if (currentPage > 1) {
+
+        $("#firstPage").on("click", function () {
+
+            goPage(1, psize);
+
+        }).removeClass("ban");
+
+        $("#prePage").on("click", function () {
+
+            goPage(currentPage - 1, psize);
+
+        }).removeClass("ban");
+
+    } else {
+
+        $("#firstPage").off("click").addClass("ban");
+
+        $("#prePage").off("click").addClass("ban");
+
+    }
+
+    if (currentPage){
+
+        $("#nextPage").on("click", function () {
+
+            goPage(currentPage + 1, psize);
+
+        }).removeClass("ban");
+
+        $("#lastPage").on("click", function () {
+
+            goPage(totalPage, psize);
+
+        }).removeClass("ban");
+
+    }else {
+
+        $("#nextPage").off("click").addClass("ban");
+
+        $("#lastPage").off("click").addClass("ban");
+
+    }
+
+    $("#jumpWhere").val(currentPage);
+
+}
+
+function jumpPage() {
+
+    var num = parseInt($("#jumpWhere").val());
+
+    if (num != currentPage_) {
+
+        goPage(num, pageSize);
+
+    }
+
+}
+
+function tabletr(arr) {
+
+    var htm = '';
+
+    for (let index = 0; index < arr.length; index++) {
+
+        htm += '<tr>' +
+
+            '<td>' + arr[index].id + '</td>' +
+
+            '<td>' + arr[index].name + '</td>' +
+
+            '<td>' + arr[index].url + '</td>' +
+
+            '<td>' + arr[index].parent_id + '</td>' +
+
+            '<td>' +
+
+            '</tr>';
+
+    }
+
+    $("#list").html(htm);
+
+}
+</script>
+	</body>
+</html>

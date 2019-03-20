@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>js显示隐藏层</title>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function showdiv(targetid,objN){
+   
+      var target=document.getElementById(targetid);
+      var clicktext=document.getElementById(objN)
+
+            if (target.style.display=="block"){
+                target.style.display="none";
+                clicktext.innerText="点击查看详细信息";
+  
+
+            } else {
+                target.style.display="block";
+                clicktext.innerText='关闭详细信息信息';
+            }
+   
+}
+-->
+</script>
+<style type="text/css">
+<!--
+
+body { font: normal 14px "宋体" }
+
+a { text-decoration: none; }
+
+#showtext { cursor: hand; cursor:pointer;}
+#showtext2 { cursor: hand; cursor:pointer;}
+#contentid { margin-top: 10px; width:100%; border: 1px solid #CCC; background: #F1F1F1; padding: 15px; }
+#contentid2 { margin-top: 10px; width: 470px; border: 1px solid #CCC; background: #F1F1F1; padding: 15px; }
+.none { display: none; }
+-->
+</style>
+</head>
+
+<body>
+<a id="showtext" onClick="showdiv('contentid','showtext')">点击查看详细信息</a>
+<div id="contentid" class="none">打开的内容</div>
+<p></p>
+<a id="showtext2" onClick="showdiv('contentid2','showtext2')">点击查看详细信息</a>
+<div id="contentid2" class="none">1<br />
+2.<br />
+3.<br />
+4.<br />
+5.<br />
+6. <br />
+7.<br />
+8. <br />
+9.<br />
+10.<br />
+11.<br />
+12. <br />
+13.<br />
+14. <br />
+15.<br />
+</div>
+
+</body>
+
+
+</html>

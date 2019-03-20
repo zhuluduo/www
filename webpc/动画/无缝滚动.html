@@ -1,0 +1,70 @@
+
+<!Doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk2312"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 , maximum-scale=1.0, user-scalable=0">
+<title>移动端js文字向左无缝滚动marquee特效</title>
+<style type="text/css">
+        *{margin:0;padding:0;}
+        #demo{
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 3rem;
+        line-height: 3rem;
+        color: #ec0000;
+        background: #434343;
+        font-size: 1.5rem;
+        z-index: 100;
+        margin: 15px auto;
+        }
+        #indemo {
+            width: 800%;
+        }
+        #indemo,#demo1,#demo2 {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="demo">
+<div id="indemo">
+<div id="demo1">&nbsp;&nbsp;移动端原生纯js文字向左无缝滚动marquee特效</div>
+<div id="demo2">&nbsp;&nbsp;移动端原生纯js文字向左无缝滚动marquee特效</div>
+</div>
+</div>
+<script type="text/javascript">
+    var speed=12;  //数字越大文字滚动速度越慢
+    var tab=document.getElementById("demo");
+    var tab1=document.getElementById("demo1");
+    var tab2=document.getElementById("demo2");
+
+    tab2.innerHTML=tab1.innerHTML;
+    function Marquee(){
+        if(tab2.offsetWidth-tab.scrollLeft<=0)
+            tab.scrollLeft-=tab1.offsetWidth
+        else{
+            tab.scrollLeft++;
+        }
+    }
+    var MyMar=setInterval(Marquee,speed);
+    tab.onmouseover=function() {clearInterval(MyMar)};
+    tab.onmouseout=function() {MyMar=setInterval(Marquee,speed)};
+
+    var onOff = true;
+    var Time = setInterval(Chang,3000);
+    function Chang(){
+        if(onOff){
+            oFig.style.marginLeft='-100%';
+            onOff = false;
+        }else{
+            oFig.style.marginLeft='0';
+            onOff = true;
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WGisSYWHrFFynEUtR8sihaVluQ6ERp8R"></script>
+	<title>判断点击是否是覆盖物</title>
+	<style type="text/css">
+		#allmap{width: 1600px;height: 600px;margin: auto;}
+	</style>
+</head>
+<body>
+	<div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(116.331398,39.897445);
+	map.centerAndZoom(point, 12);
+	map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+
+    map.addEventListener("click",function(e){
+        if(e.overlay){
+            alert('你点击的是覆盖物：'+e.overlay.toString());   
+        }else{
+            alert('你点击的是地图');
+        }
+    });
+
+    //覆盖物Marker
+    var pmk = new BMap.Point(116.249472,39.946583);
+    var mk = new BMap.Marker(pmk);
+    map.addOverlay(mk);
+
+    //覆盖物Label
+    var plb = new BMap.Point(116.408149,39.958087);
+    var lb = new BMap.Label('我是覆盖物Label',{point:plb});
+    map.addOverlay(lb);
+
+    //覆盖物Polyline
+    var pl = new BMap.Polyline([new BMap.Point(116.250047,39.919583),new BMap.Point(116.441494,39.919583)],{strokeWeight:10})
+    map.addOverlay(pl);
+
+    //覆盖物Polygon
+    var pg = new BMap.Polygon([new BMap.Point(116.248323,39.893016),new BMap.Point(116.440344,39.893016),new BMap.Point(116.440344,39.811036),new BMap.Point(116.248323,39.811036)]);
+    map.addOverlay(pg);
+</script>

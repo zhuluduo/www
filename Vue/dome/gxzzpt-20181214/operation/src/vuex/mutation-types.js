@@ -1,0 +1,1 @@
+export const SET_DIC = 'SET_DIC';

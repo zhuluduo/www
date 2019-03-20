@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>top返回</title>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			.container-man {
+				width: 1000px;
+				height: 2000px;
+				border: 1px solid darkred;
+				background: blueviolet;
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			#btn {
+				width: 30px;
+				height: 60px;
+				background: #000000;
+				position: fixed;
+				left: 50%;
+				bottom: 50px;
+				margin-left: 510px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="container-man"></div>
+		</div>
+		<a style="display: none;" href="javascript:;" id="btn"></a>
+		<script type="text/javascript">
+			window.onload = function() {
+				//1.获取ID值
+				var btntop = document.getElementById('btn');
+				var time = null;
+				
+				var btnheight=document.documentElement.clientHeight;
+//				二滚动事件滚到顶部消失
+
+				window.onscroll=function(){
+					var backtop = document.body.scrollTop;
+					if(backtop>=btnheight){
+						btntop.style.display='block';
+					}else{
+						btntop.style.display='none';
+					}
+				}
+				
+				btntop.onclick = function() {
+					//2.获取顶端对象var backtop=document.body.scrollTop;
+					//3.建计时器
+					time = setInterval(function() {
+						var backtop = document.body.scrollTop;
+						//4.定义速度操作动态给定速度值
+						var speedtop=backtop/5;
+						document.body.scrollTop=backtop-speedtop;
+						if(backtop == 0) {
+							clearInterval(time);
+						}
+					}, 30)
+				}
+
+			}
+		</script>
+	</body>
+
+</html>

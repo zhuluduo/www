@@ -1,0 +1,195 @@
+*{margin:0;padding:0}
+.f1{background:url("f1_1.jpg") no-repeat top center;height:671px; min-width:1000px;}
+.f1-font{
+  width: 647px;
+  height: 287px;
+  position: absolute;
+  margin-left: 154px;
+  -webkit-animation: bounceIn 1s .2s ease both;
+  -moz-animation: bounceIn 1s .2s ease both;
+  animation: bounceIn 1s .2s ease both;
+  -ms-animation: bounceIn 1s .2s ease both;
+  -o-animation: bounceIn 1s .2s ease both;
+  z-index: 20;
+  top: 165px;
+}
+@-webkit-keyframes bounceIn{
+0%{opacity:0;-webkit-transform:scale(.3);-moz-transform: scale(.3);-ms-transform: scale(.3);-o-transform: scale(.3);transform: scale(.3);}
+50%{opacity:1;-webkit-transform:scale(1.05);-moz-transform: scale(1.05);-ms-transform: scale(1.05);-o-transform: scale(1.05);transform: scale(1.05);}
+70%{-webkit-transform:scale(.9);-moz-transform: scale(.9);-ms-transform: scale(.9);-o-transform: scale(.9);transform: scale(.9);}
+100%{-webkit-transform:scale(1);-moz-transform: scale(1);-ms-transform: scale(1);-o-transform: scale(1);transform: scale(1);}
+}
+@-moz-keyframes bounceIn{
+0%{opacity:0;-webkit-transform:scale(.3);-moz-transform: scale(.3);-ms-transform: scale(.3);-o-transform: scale(.3);transform: scale(.3);}
+50%{opacity:1;-webkit-transform:scale(1.05);-moz-transform: scale(1.05);-ms-transform: scale(1.05);-o-transform: scale(1.05);transform: scale(1.05);}
+70%{-webkit-transform:scale(.9);-moz-transform: scale(.9);-ms-transform: scale(.9);-o-transform: scale(.9);transform: scale(.9);}
+100%{-webkit-transform:scale(1);-moz-transform: scale(1);-ms-transform: scale(1);-o-transform: scale(1);transform: scale(1);}
+}
+.f1-yun1{
+  position: absolute;
+  top: 62px;
+  left: 235px;
+  -webkit-animation: yun1 5s linear infinite backwards;
+  -moz-animation: yun1 5s linear infinite backwards;
+  animation: yun1 5s linear infinite backwards;
+  -ms-animation: yun1 5s linear infinite backwards;
+  -o-animation: yun1 5s linear infinite backwards;
+}
+@-webkit-keyframes yun1{
+	0{left: 235px;}
+	50%{left: 285px;}
+	100%{left: 235px;}
+}
+@-moz-keyframes yun1{
+	0{left: 235px;}
+	50%{left: 285px;}
+	100%{left: 235px;}
+}
+.f1-yun2{
+  position: absolute;
+  right: 0px;
+  top: 134px;
+  -webkit-animation: yun2 5s linear infinite backwards; 
+  -moz-animation: yun2 5s linear infinite backwards;
+  animation: yun2 5s linear infinite backwards; 
+  -ms-animation: yun2 5s linear infinite backwards;
+  -o-animation: yun2 5s linear infinite backwards;
+}
+@-webkit-keyframes yun2{
+	0{right: 0px;}
+	50%{right: 35px;}
+	100%{right: 0px;}
+}
+@-moz-keyframes yun2{
+	0{right: 0px;}
+	50%{right: 35px;}
+	100%{right: 0px;}
+}
+.f1-yun3{
+  position: absolute;
+  top: 175px;
+  left: -70px;
+  -webkit-animation: yun3 5s linear infinite backwards;
+  -moz-animation: yun3 5s linear infinite backwards;
+  animation: yun3 5s linear infinite backwards;
+  -ms-animation: yun3 5s linear infinite backwards;
+  -o-animation: yun3 5s linear infinite backwards
+}
+@-webkit-keyframes yun3{
+	0{left: -70px;}
+	50%{left: -40px;}
+	100%{left: -70px;}
+}
+@-moz-keyframes yun3{
+	0{left: -70px;}
+	50%{left: -40px;}
+	100%{left: -70px;}
+}
+.f1-lu{
+  position: absolute;
+  right: 125px;
+  z-index: 10;
+  top: 101px;
+  -webkit-animation:load 2s linear 3s infinite;	
+  animation: load 2s linear 3s infinite;
+  -moz-animation: load 2s linear 3s infinite;
+  -ms-animation: load 2s linear 3s infinite;
+  -o-animation: load 2s linear 3s infinite; 
+    -webkit-transform-origin: 0px 204px;
+    -moz-transform-origin:0px 204px;
+    transform-origin: 0px 204px;	
+    -ms-transform-origin: 0px 204px;
+}
+@keyframes load{
+    20%{-webkit-transform:rotate(5deg);-moz-transform:rotate(5deg);-ms-transform: rotate(5deg);-o-transform: rotate(5deg);transform: rotate(5deg);}
+   30%{-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);-ms-transform: rotate(0deg);-o-transform: rotate(0deg);transform: rotate(0deg);}
+   100%{-webkit-transform: rotate(0.1deg);-moz-transform:rotate(0.1deg);-ms-transform: rotate(0.1deg);-o-transform: rotate(0.1deg);transform: rotate(0.1deg);}
+}
+ @-webkit-keyframes load{
+    20%{-webkit-transform:rotate(5deg);-moz-transform:rotate(5deg);-ms-transform: rotate(5deg);-o-transform: rotate(5deg);transform: rotate(5deg);}
+   30%{-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);-ms-transform: rotate(0deg);-o-transform: rotate(0deg);transform: rotate(0deg);}
+   100%{-webkit-transform: rotate(0.1deg);-moz-transform:rotate(0.1deg);-ms-transform: rotate(0.1deg);-o-transform: rotate(0.1deg);transform: rotate(0.1deg);}
+ }
+.f1-san{
+  position: absolute;
+  left: 155px;
+  top: 120px;
+  -webkit-animation:san 3s linear infinite backwards;	
+  animation: san 3s linear infinite backwards;
+  -moz-animation: san 3s linear infinite backwards;
+  -ms-animation: san 3s linear infinite backwards;
+  -o-animation: san 3s linear infinite backwards; 	
+}
+@keyframes san{
+   0%{top:120px}
+   50%{top:100px}
+   100%{top:120px}
+}
+ @-webkit-keyframes san{
+   0%{top:120px}
+   50%{top:100px}
+   100%{top:120px}
+ }
+ .f1-show{
+   position: absolute;
+  top: 290px;
+  z-index: 50;
+ }
+ .f1-tejia{
+ 	position: absolute;
+  left: 80px;
+  top: 163px;
+   -webkit-animation:show1 1s linear infinite backwards;	
+  animation: show1 1s linear infinite backwards;
+  -moz-animation: show1 1s linear infinite backwards;
+  -ms-animation: show1 1s linear infinite backwards;
+  -o-animation: show1 1s linear infinite backwards; 	
+}
+ .f1-app{
+  position: absolute;
+  margin-left: 300px;
+  top: 163px;
+   -webkit-animation:show1 1.2s linear infinite backwards;	
+  animation: show1 1.2s linear infinite backwards;
+  -moz-animation: show1 1.2s linear infinite backwards;
+  -ms-animation: show1 1.2s linear infinite backwards;
+  -o-animation: show1 1.2s linear infinite backwards; 	
+}
+ .f1-duoren{
+  position: absolute;
+  margin-left: 523px;
+  top: 163px;
+   -webkit-animation:show1 0.8s linear infinite backwards;	
+  animation: show1 0.8s linear infinite backwards;
+  -moz-animation: show1 0.8s linear infinite backwards;
+  -ms-animation: show1 0.8s linear infinite backwards;
+  -o-animation: show1 0.8s linear infinite backwards; 	
+}
+ .f1-shuaka{
+  position: absolute;
+  margin-left: 744px;
+  top: 163px;
+   -webkit-animation:show1 1s linear infinite backwards;	
+  animation: show1 1s linear infinite backwards;
+  -moz-animation: show1 1s linear infinite backwards;
+  -ms-animation: show1 1s linear infinite backwards;
+  -o-animation: show1 1s linear infinite backwards; 	
+}
+@keyframes show1{
+   0%{margin-top:0px}
+   50%{margin-top:-10px}
+   100%{margin-top:0px}
+}
+ @-webkit-keyframes show1{
+   0%{margin-top:0px}
+   50%{margin-top:-10px}
+   100%{margin-top:0px}
+ }	
+
+
+.right_pic{width:230px;height:515px;float:right;margin:20px
+15px 0 0}
+
+.block{padding:20px
+0 20px 18px;position:relative;z-index:100;font-family:'microsoft yahei';width:990px;margin:0
+auto}

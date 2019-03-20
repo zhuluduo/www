@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="布局, jquery" />
+<meta name="description" content="jQuery实现切换页面布局" />
+<title>jQuery实现切换页面布局</title>
+<link rel="stylesheet" type="text/css" href="main.css" />
+<style type="text/css">
+#demo{width:680px; margin:20px auto; padding:4px; background:#f7f7f7; border:1px solid #d3d3d3}
+.list{margin:6px}
+.list h3{height:26px; line-height:26px; font-size:14px}
+.list p{line-height:20px}
+.showblock .list{float:left; width:324px; height:110px;}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+$(function(){
+	$("#switch").toggle(function(){
+		$("#demo").fadeOut("fast",function(){
+			$(this).fadeIn("fast").addClass("showblock");
+		});
+	},function(){
+		$("#demo").fadeOut("fast",function(){
+			$(this).fadeIn("fast").removeClass("showblock");
+		});
+	});
+});
+</script>
+</head>
+
+<body>
+<div id="header">
+   <div id="logo"><h1><a href="http://www.jb51.net" title="返回脚本之家首页">脚本之家</a></h1></div>
+</div>
+
+<div id="main">
+  <h2 class="top_title"><a href="http://www.jb51.net/jiaoben/39315.html">jQuery实现切换页面布局</a></h2>
+  <div style="text-align:center; height:28px; line-height:28px"><a href="#" id="switch">切换布局</a></div>
+  <div id="demo">
+     <div class="list">
+         <h3><a href="http://www.jb51.net/article/28487.htm" target="_blank">passwordStrength 基于jquery的密码强度检测代码使用介绍</a></h3>
+         <p>我们设定密码强度等级为10，制作一张图片表示每个等级状态，给密码框绑定keyup事件，通过keyup事件获取密码值，然后使用正则进行判断密码强度等级，然后变换相应的图片...</p>
+     </div>
+     <div class="list">
+         <h3><a href="http://www.jb51.net/article/28489.htm" target="_blank">PHP+Mysql+jQuery实现动态展示信息</a></h3>
+         <p>在本文中，我将介绍如何在页面上实现动态展示用户发表的信息，将用户发表的信息逐条播放展示。该效果可以在展示系统动态、商品评论等场景应用</p>
+     </div>
+     <div class="list">
+         <h3><a href="http://www.jb51.net/article/28481.htm" target="_blank">PHP判断远程url是否有效的几种方法小结</a></h3>
+         <p>需要判断远程URL是否有效，远程url包括远程图片，网页，视频等等元素，收集了多种方法，大家可以根据需要选择...</p>
+     </div>
+     <div class="list">
+         <h3><a href="http://www.jb51.net/article/27826.htm" target="_blank">PHP匹配多行的正则表达式分析</a></h3>
+         <p>PHP匹配多行的正则表达式分析，需要的朋友可以参考下，多用于采集替换等</p>
+     </div>
+  </div>
+</div>
+<div id="footer">
+    <p>Powered by helloweba.com  允许转载、修改和使用本站的DEMO</p>
+</div>
+<p id="stat"></p>
+</body>
+</html>

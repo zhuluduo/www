@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>广告轮播</title>
+	<link rel="stylesheet" type="text/css" href="galb.css">
+</head>
+<body>
+	<div class="flash">
+	<!--图片内容开始-->
+		<img src="images/1.jpg"/  >
+		<img src="images/2.jpg"/ >
+		<img src="images/3.jpg"/>
+		<img src="images/4.jpg"/>
+		<img src="images/5.jpg"/>
+		<!--图片内容结束-->
+
+		<!--按钮开始-->
+			<ul class="button">
+				<li class="hover"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		<!--按钮结束-->
+	</div>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	
+	<script type="text/javascript">
+	var  index=0;//初始化序列号
+	$(".button  li").mouseover(function(){
+		//鼠标放上悬停  :clearInterval()
+		clearInterval(Play);
+		index=$(this).index();//获取到序列号
+		$(this).addClass("hover").siblings().removeClass("hover");
+		$(".flash  img").eq(index).show().siblings("img").hide();
+	}).mouseout(function(){
+			autoPlay();
+	});
+	//.mouseout 鼠标移开继续轮播
+
+
+	//图片自动播放(设置定时器)
+	function  autoPlay(){
+		Play=setInterval(function(){
+		// },2000);
+		// index++;
+		index++;
+		if (index>4) {index=-1;}else{   //重复轮播
+		// alert(index);动一下＋1.。。	
+		 	$(".button  li").eq(index).addClass("hover").siblings().removeClass("hover");
+			$(".flash  img").eq(index).show().siblings("img").hide();
+				}
+			},1000);
+	}
+	autoPlay();
+	</script>
+</body>
+</html>

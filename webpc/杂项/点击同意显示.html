@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>注册按钮是灰色</title>
+</head>
+
+<body>
+<label><input name="" type="checkbox" value="" id="regText">同意注册协议</label>
+<button type="submit" disabled id="regBtn">立即注册</button>
+<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.0/jquery.min.js"></script>
+<script>
+//作者：懒人建站
+$(function(){
+    var regBtn = $("#regBtn");
+    $("#regText").change(function(){
+        var that = $(this);
+        that.prop("checked",that.prop("checked"));
+        if(that.prop("checked")){
+            regBtn.prop("disabled",false)
+        }else{
+            regBtn.prop("disabled",true)
+        }
+    });
+});
+</script>
+</body>
+</html>

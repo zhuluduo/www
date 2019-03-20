@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		//绑定多个事件 getelementbyid
+		<input type="button" value="tet1" id="btn1"/>
+		<script>
+			var btn1=document.getElementById('btn1');
+			btn1.addEventListener('click',function(){
+				alert('a');
+			},false);
+			var handler=function(){
+				alert('b');
+			}
+			btn1.addEventListener('click',handler,false);
+			btn1.addEventListener('click',function(){
+				alert('c');
+			},false);
+		</script>
+		
+		//取消事件
+		<input type="button" value="tet2" id="btn2"/>
+		<script>
+		var btn2=document.getElementById('btn2');
+		var sum=0;
+		var zhu=function(){
+			alert(sum++);
+			if(sum==3){
+				alert('事件被取消了');btn2.removeEventListener('click',zhu,false);
+			}
+		}
+		btn2.addEventListener('click',zhu,false);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,18 @@
+/* pages/dashboard/dashboard.wxss */
+.btn-area {
+  display: flex;
+  flex-direction: row;
+  margin:5px;
+}
+
+.nav-btn {
+  display: block;
+  color: lightgrey;
+  width:50%;
+  text-align: center;
+}
+
+.nav-btn:active{
+  color: #3366cc;
+  border-bottom-color: #3366cc;
+}

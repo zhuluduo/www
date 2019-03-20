@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+	<style type="text/css">
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		#big{
+			width:400px;
+			height:400px;
+			border:solid 1px #ddd;
+			position:absolute;
+			left:100px;
+			top:120px;
+
+		}
+		#move{
+			width:160px;
+			height:160px;
+			position:absolute;
+			left:0px;
+			top:0px;
+			background:url(bg.png);
+			cursor:move;
+			display:none;
+		}
+
+		#small{
+			width:400px;
+			height:400px;
+			border:solid 1px #ddd;
+			position:absolute;
+			left:550px;
+			top:120px;
+			overflow:hidden;
+			display:none;
+		}
+
+
+		#bImg{
+			position:absolute;
+		}
+
+		ul{
+			width:600px;
+			height:200px;
+			position:absolute;
+			top:550px;
+			left:100px;
+			list-style:none;
+		}
+		li{
+			width:80px;
+			height:80px;
+			float:left;
+			margin-right:20px;
+			border:solid 1px #ddd;
+			padding:5px;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="big">
+		<img id="sImg" src="http://www.sucaihuo.com/jquery/11/1195/demo/3.jpg" width="100%" alt="">
+		<div id="move"></div>
+	</div>
+
+	<div id="small">
+		<img id="bImg" src="http://www.sucaihuo.com/jquery/11/1195/demo/3.jpg" alt="">
+	</div>
+	
+	<ul id="simages">
+		<li><img src="http://www.sucaihuo.com/jquery/11/1195/demo/3.jpg" width="100%" alt=""></li>
+		<li><img src="http://www.sucaihuo.com/jquery/11/1195/demo/2.jpg" width="100%" alt=""></li>
+		<li><img src="http://www.sucaihuo.com/jquery/11/1195/demo/5.jpg" width="100%" alt=""></li>
+	</ul>
+
+	<script type="text/javascript">
+	var width = 1000;
+	//获取元素
+	var big = document.getElementById('big');
+	var move = document.getElementById('move');
+	var bImg = document.getElementById('bImg');
+	var small = document.getElementById('small');
+	var sImg = document.getElementById('sImg');
+	var simages = document.getElementById('simages');
+	var lis  = simages.children;
+
+	//初始化
+	function init()
+	{
+		//设置当前move div元素的宽度和高度
+		var w = big.offsetWidth * parseInt(getComputedStyle(small)['width']) / width;
+		move.style.width = w + 'px';
+		move.style.height = w + 'px';
+
+		//给li元素绑定单击事件
+		for(var i=0;i<lis.length;i++){
+			lis[i].onclick = function(){
+				//获取当前正在点击的元素的src属性
+				var src = this.firstElementChild.getAttribute('src');
+				//
+				// 设置图片的src路径
+				bImg.src = src;
+				sImg.src = src;
+			}
+		}
+	}
+	init();
+
+	//鼠标放上去的事件
+	big.onmouseover = function(){
+		move.style.display =  'block';
+		small.style.display = 'block';
+	}
+
+	//绑定事件
+	big.onmousemove = function(e){
+		//获取鼠标的位置
+		var x = e.pageX;
+		var y = e.pageY;
+
+		//获取div距离左侧的偏移量
+		var l = big.offsetLeft;
+		var t = big.offsetTop;
+
+		//获取宽度的一半
+		var w = move.offsetWidth / 2;
+		var h = move.offsetHeight / 2;
+
+		//计算新的left的值
+		var newLeft = x - l - w;
+		var newTop = y - t - h;
+
+		//检测是否越界
+		if(newLeft <= 0){
+			newLeft = 0;
+		}
+		//计算最大的left的值
+		var maxLeft = big.offsetWidth - move.offsetWidth;
+		if(newLeft >= maxLeft){
+			newLeft = maxLeft;
+		}
+
+		if(newTop <= 0){
+			newTop = 0;
+		}
+		var maxTop = big.offsetHeight - move.offsetHeight;
+		if(newTop >= maxTop){
+			newTop = maxTop;
+		}
+
+		//设置样式
+		move.style.left = newLeft + 'px';
+		move.style.top = newTop + 'px';
+
+		//计算大图需要移动的尺寸
+		var bImgWidth = bImg.offsetWidth;
+		var bWidth = big.offsetWidth;
+
+		var bImgHeight = bImg.offsetHeight;
+		var bHeight = big.offsetHeight;
+
+		//求移动的尺寸
+		var iLeft = bImgWidth * newLeft / bWidth;
+		var iTop = bImgHeight * newTop / bHeight;
+
+		//设置样式
+		bImg.style.left = -iLeft + 'px';
+		bImg.style.top = -iTop + 'px';
+	}
+
+	//鼠标离开事件
+	big.onmouseout = function(){
+		move.style.display = 'none';
+		small.style.display = 'none';
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>我的百科</title>
+		<link rel="stylesheet" type="text/css" href="css/pages.css"/>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/myBaike.css"/>
+
+	</head>
+	<body>
+		<div id="Bk-index">
+			<div class="Box">
+				<header class="Bk-header pull-hidd">
+					<div class="goBack">
+						<img src="images/icon-arrow-left.png">
+					</div>
+				</header>
+				<main class="Bk-content">
+					<section class="user-Statistics clearfix">
+						<div class="user-info fl">
+							<img class="fl" src="https://www.zybuluo.com/static/img/logo.png" alt="">
+							<div class="item-inner fl">
+								<p>无敌大王</p>
+								<p>提交版本：25677</p>
+								<p>提交版本：25677</p>
+							</div>
+						</div>
+						<div class="user-data fl">
+							<h5>12148</h5>
+							<p>创建词条</p>
+						</div>
+						<div class="user-data fl">
+							<h5>12148</h5>
+							<p>创建词条</p>
+						</div>
+						<div class="user-data fl">
+							<h5>12148</h5>
+							<p>创建词条</p>
+						</div>
+						<div class="user-data fl">
+							<h5>12148</h5>
+							<p>创建词条</p>
+						</div>
+
+					</section>
+					<section class="edition-title">
+						<span>已通过版本</span>
+						<span>待通过版本</span>
+						<span>未通过版本</span>
+					</section>
+					<section class="data">
+						<div class="thead">
+							<span>词条名称</span>
+							<span>词条位置</span>
+							<span>提交时间</span>
+							<span>操作</span>
+						</div>
+						<ul class="tbody">
+							<li>
+								<span>市民中心</span>
+								<span>福中三路1号（近少年宫）</span>
+								<span>2018-12-29 12：00</span>
+								<span class="checkItem">查看</span>
+							</li>
+						</ul>
+					</section>
+				</main>
+				<footer class="Bk-footer clearfix">
+					<div class="fr">
+						<div class="page_1 pagination"></div>
+					</div>
+		
+				</footer>
+			</div>
+		</div>
+		<script src="./js/jquery-1.8.3.min.js"></script>
+		<script src="./js/marked.min.js"></script>
+		<script src="js/test.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/toPage.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+				$(function(){
+					var obj_1={
+						obj_box:'.pagination',//翻页容器
+						obj_list:'#contList',
+						total_item:120,//条目总数
+						per_num:10,//每页条目数
+						table : [],
+					};
+					page_ctrl(obj_1);
+				
+				})
+		</script>
+	</body>
+</html>

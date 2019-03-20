@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>添加信息窗口</title>
+		<style type="text/css">
+			#allmap{width: 1600px;height: 600px;margin: auto;}
+			span{display: block;    cursor: pointer;}
+		</style>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WGisSYWHrFFynEUtR8sihaVluQ6ERp8R"></script>
+	</head>
+	<body>
+		<div id="allmap"></div>
+		
+		<div id="cont">
+	
+		</div>
+		
+		<script type="text/javascript">
+			// 百度地图API功能	
+	map = new BMap.Map("allmap");
+	map.centerAndZoom(new BMap.Point(116.387452,39.947302), 13);
+	map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+	map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+	
+	var data_info = [
+		[116.417854,39.921988,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
+		[116.406605,39.921585,"地址：北京市东城区东华门大街"],
+		[116.412222,39.912345,"地址：北京市东城区正义路甲5号"],
+		[116.4935302734375,40.0506591796875,"地址：北京市东城区正义路甲6号"],
+		[116.4935302734375,40.05615234375,"地址：北京市东城区正义路甲7号"],
+		[116.488037109375,40.05615234375,"地址：北京市东城区正义路甲8号"],
+		[116.488037109375,40.0616455078125,"地址：北京市东城区正义路甲9号"],
+		[116.488037109375,40.067138671875,"地址：北京市东城区正义路甲10号"],
+		[116.488037109375,40.0726318359375,"地址：北京市东城区正义路甲11号"],
+		[116.4935302734375,40.0726318359375,"地址：北京市东城区正义路甲12号"],
+		[116.279655,40.020499,"地址：北京市东城区正义路甲13号"],
+		[116.260683,39.833259,"地址：北京市东城区正义路甲14号"],
+		[116.532043,39.830599,"地址：北京市东城区正义路甲15号"],
+		[116.526869,40.021383,"地址：北京市东城区正义路甲16号"],
+		[116.279655,40.020499,"地址：北京市东城区正义路甲17号"]
+		];
+
+
+			var opts = {
+				width : 250,     // 信息窗口宽度
+				height: 80,     // 信息窗口高度
+				title : "信息窗口" , // 信息窗口标题
+				enableMessage:true//设置允许信息窗发送短息
+		   };
+			for(var i=0;i<data_info.length;i++){
+				var marker = new BMap.Marker(new BMap.Point(data_info[i][0],data_info[i][1]));  // 创建标注
+				var content = data_info[i][2];
+				map.addOverlay(marker);               // 将标注添加到地图中
+				addClickHandler(content,marker);
+			}
+			function addClickHandler(content,marker){
+				marker.addEventListener("click",function(e){
+					openInfo(content,e)}
+				);
+			}
+			function openInfo(content,e){
+				var p = e.target;
+				var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+				var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象 
+				map.openInfoWindow(infoWindow,point); //开启信息窗口
+			}
+			function openInfoList(){
+				var Fid=document.getElementById('cont')
+				for(let i=0;i<data_info.length;i++){
+					var spans=document.createElement('span');
+					spans.innerHTML = data_info[i][2];
+					Fid.appendChild(spans)
+					
+// 					(function(i){
+// 						spans[i].onclick=function(){
+// 							console.log(i)
+// 						}
+// 					})(i)
+				}
+// 				var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+// 				var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象 
+// 				map.openInfoWindow(infoWindow,point); //开启信息窗口
+			}
+			openInfoList();
+			
+			var spanInfo=document.getElementsByTagName('span');
+			for(let i=0;i<spanInfo.length;i++){
+				(function(i){
+					spanInfo[i].onclick=function(){
+						console.log(data_info[i-1])
+						var point = new BMap.Point(data_info[i-1][0], data_info[i-1][1]);
+						var infoWindow = new BMap.InfoWindow(data_info[i-1][2],opts);  // 创建信息窗口对象 
+						map.openInfoWindow(infoWindow,point); //开启信息窗口
+					}
+				})(i)
+			}
+		</script>
+	</body>
+</html>

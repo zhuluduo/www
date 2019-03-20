@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!--
+ 1.排序
+ 2.找出最大值
+ 3.去除相同的
+ 4.点击什么显示什么
+ 5.ajax(jquery/js)
+-->
+<script type="text/javascript">
+ var arr=[1,3,6,6,2,5,7,7,9,4];
+ var temp=[],tem={};
+ for (var i = 0; i < arr.length; i++) {
+ 	var su=arr[i]
+ 	if (!tem[su]) {
+       temp=temp.concat(su);
+       tem[su]=su;
+ 	}
+ }
+
+ console.log('去掉重复值:'+temp);
+</script>
+<script type="text/javascript">
+ var arr=[1,3,6,2,5,7,9,4];
+ var arr1=[1,3,6,2,5,7,9,4];
+ arr.sort(function(a,b){
+           return a-b;
+ })
+
+for (var i = 0; i < arr1.length; i++) {
+	for(var j=arr1.length-1;j>0;j--){
+        if (arr1[j]<arr1[j-1]) {
+        	var b=arr1[j];
+        	arr1[j]=arr1[j-1];
+        	arr1[j-1]=b;
+        }
+	}
+}
+
+ console.log('排序'+arr);
+ console.log('排序'+arr1);
+
+</script>
+<h1>asdsaddddddddddddd</h1>
+<h1>asdsaddddddddddddd</h1>
+<h1>asdsaddddddddddddd</h1>
+<h1>asdsaddddddddddddd</h1>
+<h1>asdsaddddddddddddd</h1>
+<script type="text/javascript">
+ var obj=document.getElementsByTagName('h1');
+ for (var i = 0; i < obj.length; i++) {
+ 	obj[i].setAttribute("num",i+1);
+ 	obj[i].onclick=function(){
+ 		this.innerHTML=this.getAttribute('num');
+ 	}
+ }
+</script>
+
+
+
+</body>
+</html>

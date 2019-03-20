@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: #FF0000;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<!--当样式中有边框时，offsetWidth就不等于style.width，设计时不用offsetWidth，使用封装的函数getStyle()，可以有效防止bug出现-->
+<script>
+window.onload=function(){
+var div1=document.getElementById('div1');
+var div2=document.getElementById('div2');
+div1.onmouseover=function(){startMove(this,'width',400);}
+div1.onmouseout=function(){startMove(this,'width',200);}
+div2.onmouseover=function(){startMove(this,'height',400);}
+div2.onmouseout=function(){startMove(this,'height',100);}
+}
+function startMove(obj,attr,target){
+clearInterval(obj.timer);
+obj.timer=setInterval(function(){
+var icur=parseInt(getStyle(obj,attr));
+var speed=(target-icur)/8;
+speed=speed>0?Math.ceil(speed):Math.floor(speed);
+if(icur==target){
+clearInterval(obj.timer);
+}else{//obj.style.width=obj.style[attr] 注意 style[attr]
+obj.style[attr]=icur+speed+"px";}},30)
+}
+function getStyle(obj,attr){
+if(obj.currentStyle){
+return obj.currentStyle[attr];
+}else{
+return getComputedStyle(obj,false)[attr];}
+}
+</script>
+
+<div id="div1"></div>
+<div id="div2"></div>
+
+	</body>
+</html>

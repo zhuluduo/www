@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>3D百科</title>
+		<link rel="stylesheet" type="text/css" href="css/search.css"/>
+		<style type="text/css">
+			.clearfix {zoom: 1;}
+			.clearfix:after {display: block;content: "";height: 0;clear: both;overflow: hidden;visibility: hidden;}
+			*{padding: 0;margin: 0;box-sizing: border-box;font-family: MicrosoftYaHei;}
+			.wrapper{width: 1063px;height: 783px;padding: 0px 20px 20px 30px;overflow-y: auto;background: url(./images/bg.png);}
+			.top{position:fixed; top:0;z-index: 100;left: 0;height: 35px;width: 1063px;font-size: 26px;color: #a8a8a8;text-align: center;background-color: #202020;font-weight: 700;}
+			.go-back-btn{float: left;width: 26px;height: 19px;margin-left: 20px;background: url(./images/icon-back.png) no-repeat center center;margin-top: 5px;}
+			.main-content{}
+			.main-content img{width: 200px;float: right;}
+			.name{margin-top: 55px;margin-bottom: 20px;}
+			h1{position: relative;font-size: 28px;color: #dddddd;margin-bottom: 10px;}
+			h1:before{content:'';position:absolute;top:3px;left:-12px;width: 4px;height: 28px;background: #0086ee;}
+			h2{position: relative;font-size: 18px;color: #a4a4a4;margin-bottom: 10px;}
+			h2:before{content:'';position:absolute;top:7px;left:-12px;width: 6px;height: 6px;background: #0086ee;}
+			p{color: #898989;line-height: 22px;margin-bottom: 15px;text-indent: 0px;}
+			
+			::-webkit-scrollbar{
+	            width: 7px;
+	            height: 7px;
+	            background-color: rgba(0,0,0,3);
+	        }
+	        /*滚动条的轨道*/
+	        ::-webkit-scrollbar-track{
+	            box-shadow: inset 0 0 5px rgba(0,0,0,.3);
+	            background-color: rgba(0,0,0,3);
+	        }
+	        /*滚动条的滑块按钮*/
+	        ::-webkit-scrollbar-thumb{
+	            border-radius: 5px;
+	            background-color: #696969;
+	            box-shadow: inset 0 0 5px #000;
+	        }
+	        /*滚动条的上下两端的按钮*/
+	        ::-webkit-scrollbar-button{
+	            height: 10px;
+	            background-color: #696969;
+	        }
+
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="top">百科详情<div class="go-back-btn" id="goBackBtn"></div></div>
+			<h1 id="name" class="name">sss</h1>
+			<div class="main-content" id="content">
+			</div>
+			<div style="height: 100px;"></div>
+		</div>
+	</body>
+	<script src="./js/jquery-1.8.3.min.js"></script>
+    <script src="./js/marked.min.js"></script>
+    <script src="./js/test.js"></script>
+	<script type="text/javascript">
+
+	function GetRequest() {
+	    var url = window.location.search; //获取url中"?"符后的字串
+	    var theRequest = new Object();
+	    if (url.indexOf("?") != -1) {
+	        var str = url.substr(1);
+	        strs = str.split("&");
+	        for(var i = 0; i < strs.length; i ++) {
+	            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+	        }
+	    }
+	    return theRequest;
+	}
+
+	var params = GetRequest();
+
+	var param = {
+	    "item_req":[
+	        params.id
+	    ]
+	}
+
+	$('#goBackBtn').on('click',function(){
+		window.history.go(-1);
+	})
+
+	$.ajax({
+		url:'http://'+params.server_host+'/thinkphp/home/item/retrieve',
+		data:JSON.stringify(param),
+		type:'POST',
+		dataType:'text',
+		success: function(data){
+
+			var jsonData = JSON.parse(data);
+
+			var itemRes = jsonData.item_res;
+			if ( itemRes && itemRes.length > 0 ) {
+				var raw = itemRes[0].ext_field.baike_3d;
+			    var data = dateFormat( false, raw );
+			    $('#name').html(itemRes[0].name);
+			    document.getElementById('content').innerHTML = data;
+			}
+			
+		},
+		error: function(E){ 
+		}
+	})
+
+	</script>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS实现由下而上的文字动画特效</title>
+	<style>
+		*{ padding: 0;margin:0;box-sizing: border-box;}
+		.demo{
+			width: 40%;
+			margin: 20px auto;
+			border:1px solid #ccc;
+			position: relative;
+			padding: 20px;
+		}
+		.demo>ul>li{
+			position: relative;
+			list-style: none;
+			height: 25px;
+			overflow: hidden;
+		}
+
+		/*文字自上而下*/
+		.item>div{
+			position: absolute;
+			height: 18px;
+			top: 25px;
+			animation: textToTop 0.2s linear;
+			-webkit-animation: textToTop 0.2s linear;
+			animation-fill-mode: forwards;
+			-webkit-animation-fill-mode: forwards;
+			-moz-animation-fill-mode: forwards;
+		}
+		.item:nth-chil(2)>div{
+			animation-delay: 2s: 
+		}
+		.item:nth-chil(3)>div{
+			animation-delay: 4s: 
+		}
+		.item:nth-chil(4)>div{
+			animation-delay: 6s: 
+		}
+		.item:nth-chil(5)>div{
+			animation-delay: 8s: 
+		}
+
+		/*文字上色*/
+		.item>div::before{
+			content: attr(data-letters);
+			position: absolute;
+			width: 0;
+			z-index: 2;
+			color: red;
+			overflow: hidden;
+			white-space: nowrap;
+			animation: textToColor 1.2s linear;
+			animation-fill-mode:forwards;
+			-webkit-animation-fill-mode:forwards;
+			-moz-animation-fill-mode:forwards;
+		}
+		.item:nth-child(2)>div::after,.item:nth-child(2)>div::before{animation-delay:2.5s; }
+		.item:nth-child(3)>div::after,.item:nth-child(3)>div::before{animation-delay:4.5s; }
+		.item:nth-child(4)>div::after,.item:nth-child(4)>div::before{animation-delay:6.5s; }
+		.item:nth-child(5)>div::after,.item:nth-child(5)>div::before{animation-delay:8.5s; }
+		.item>div::after{
+			content: '';
+			width: 0;
+			position: absolute;
+			bottom: -7px;
+			left:0;
+			height:2px;
+			background: red;
+			animation:textLine 1.2s linear;
+			animation-fill-mode: forwards;
+			-webkit-animation-fill-mode: forwards;
+			-moz-animation-fill-mode: forwards;
+		}
+		@keyframes textToTop{
+			0%{
+				top:25px;
+			}
+			100%{
+				top: 0;
+			}
+		}
+		@keyframes textToColor{
+			0%{
+				width: 0;
+			}
+			100%{
+				width: 100%;
+			}
+		}
+		@keyframes textLine{
+			0%{width: 0;}
+			100%{width: 100%;}
+		}
+	</style>
+</head>
+<body>
+	<div class="demo">
+		<ul>
+			<li class="item"><div data-letters='111111111111111'>111111111111111</div></li>
+			<li class="item"><div data-letters='22222222222222222'>22222222222222222</div></li>
+			<li class="item"><div data-letters='33333333333333'>33333333333333</div></li>
+			<li class="item"><div data-letters='4444444444444444'>4444444444444444</div></li>
+			<li class="item"><div data-letters='555555555555555'>555555555555555</div></li>
+			<li class="item"><div data-letters='4444444444444444'>4444444444444444</div></li>
+			<li class="item"><div data-letters='555555555555555'>555555555555555</div></li>
+		</ul>
+	</div>
+</body>
+</html>

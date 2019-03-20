@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WGisSYWHrFFynEUtR8sihaVluQ6ERp8R"></script>
+    <!--  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"></script>-->
+    <title>批量转换</title> 
+</head>
+<body>
+    <div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+
+    var points = [new BMap.Point(116.3786889372559,39.90762965106183),
+                  new BMap.Point(116.38632786853032,39.90795884517671),
+                  new BMap.Point(116.39534009082035,39.907432133833574),
+                  new BMap.Point(116.60624058825688,39.90789300648029),
+                  new BMap.Point(116.50624058825688,39.90789300648029),
+                  new BMap.Point(116.40624058825688,39.90789300648029),
+                  new BMap.Point(116.41413701159672,39.90795884517671)
+    ];
+
+    //地图初始化
+    var bm = new BMap.Map("allmap");
+    bm.centerAndZoom(new BMap.Point(116.378688937,39.9076296510), 15);
+      bm.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+    	bm.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+
+  var polyline=[
+    [
+      new BMap.Point(116.3786889372559,39.90762965106183),
+      new BMap.Point(116.38632786853032,39.90795884517671),
+      new BMap.Point(116.39534009082035,39.907432133833574),
+      new BMap.Point(116.40624058825688,39.90789300648029),
+      new BMap.Point(116.41413701159672,39.90795884517671)
+	],
+    [
+		new BMap.Point(117.383752, 39.91334),
+		new BMap.Point(117.38792, 39.920866),
+		new BMap.Point(117.490867, 39.906532),
+      	new BMap.Point(117.390867, 39.906532)
+	]  
+  ];
+  
+      //坐标转换完之后的回调函数
+    translateCallbacks = function (data){
+      if(data.status === 0) {
+		console.log(data)
+       for (var k = 0; k < data.points.length; k++) {
+            bm.addOverlay(new BMap.Marker(data.points[k]));
+            bm.setCenter(data.points[k]);
+        }
+      }
+    }
+    setTimeout(function(){
+        var convertor = new BMap.Convertor();
+      for(var j = 0; j < polyline.length; j++){
+        convertor.translate(polyline[j], 1,5, translateCallbacks)
+      }
+    }, 1000);
+  
+  
+  
+  
+  
+  for(var j = 0; j < polyline.length; j++){
+    for(var k=0;k<polyline[j].length;k++){
+      bm.addOverlay(new BMap.Polyline(polyline[j][k]), {strokeColor:"red", strokeWeight:6, strokeOpacity:0.5});
+    }
+  }
+ 
+</script>

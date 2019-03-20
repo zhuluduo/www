@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 类的prototype属性和__proto__属性 -->
+		<script type="text/javascript">
+			function aX(){
+				this.getA='这是a';
+				this.getB='这是B'
+			}
+			function bX(){
+				let getC='这是C';
+				let getD='这是D'
+			}
+			var xc=new aX();
+// 			a.prototype.b=function(){
+// 				console.log(a())
+// 			}
+		class Barrage {
+			appBtn(){
+				return 10*5;
+			}
+		};
+		let barrage = new Barrage();
+		console.log(barrage.appBtn())
+	
+	setInterval(() => {
+        const now = new Date()
+        const hours = now.getHours().toString()
+        const minutes = now.getMinutes().toString()
+        const seconds = now.getSeconds().toString()
+        console.log(`${hours.padStart(2, 0)}:${minutes.padStart(2, 0)}:${seconds.padStart(2, 0)}`)
+    }, 1000)
+
+		</script>
+		<!-- class 与 extends -->
+	</body>
+</html>

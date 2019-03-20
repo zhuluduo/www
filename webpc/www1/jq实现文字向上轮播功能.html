@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Document</title>
+ <style>
+ *{
+ margin:0;
+ padding:0;
+ }
+ .lunbo{
+ position: relative;
+ width: 600px;
+ height: 50px;
+ border:1px solid red;
+ overflow: hidden;
+ }
+ ul{
+ position:absolute;
+ left: 0;
+ top:0;
+ width: 600px;
+ height: auto;
+ }
+ ul li{
+ width: 600px;
+ height: 50px;
+ line-height: 50px;
+ font-size:20px;
+ color:#333;
+ text-align: center
+ }
+ </style>
+</head>
+<body>
+ <div class="lunbo">
+ <ul>
+ <li>人生在世须尽欢 莫使金樽空对月</li>
+ <li>我寄愁心与明月，随风直到夜郎西</li>
+ <li>不是花中偏爱菊，此花开尽更无花</li>
+ <li>辛苦遭逢起一经，干戈寥落四周星</li>
+ <li>山河破碎风飘絮，身世浮沉雨打萍。</li>
+ <li>惶恐滩头说惶恐，零丁洋里叹零丁。</li>
+ <li>人生自古谁无死？留取丹心照汗青。</li>
+ </ul>
+ </div>
+<script src="//cdn.bootcss.com/jquery/2.2.2/jquery.js"></script>
+<script>
+ function lunbo(id,height){
+  var ul=$(id);
+  var liFirst=ul.find('li:first');
+  $(id).animate({top:height}).animate({"top":0},0,function(){
+  var clone=liFirst.clone();
+  $(id).append(clone);
+  liFirst.remove();
+  })
+ }
+ setInterval("lunbo('ul','-50px')",3000)
+</script>
+</body>
+</html>
+
+

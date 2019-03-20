@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title></title>
+<script src="js/mui.min.js"></script>
+<link href="css/mui.min.css" rel="stylesheet"/>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav">
+    <h1 class="mui-title">测试</h1>
+</header> 
+<nav class="mui-bar mui-bar-tab">
+    <a class="mui-tab-item mui-active" id="home">
+        <span class="mui-icon mui-icon-home"></span>
+        <span class="mui-tab-label">首页</span>
+    </a>
+    <a class="mui-tab-item" id="tel">
+        <span class="mui-icon mui-icon-phone"></span>
+        <span class="mui-tab-label">电话</span>
+    </a>
+    <a class="mui-tab-item" id="mail">
+        <span class="mui-icon mui-icon-email"></span>
+        <span class="mui-tab-label">邮件</span>
+    </a>
+    <a class="mui-tab-item" id="set">
+        <span class="mui-icon mui-icon-gear"></span>
+        <span class="mui-tab-label">设置</span>
+    </a>
+</nav>
+<script type="text/javascript" charset="utf-8">
+function changeView(id){
+    var view = plus.webview.getWebviewById(id);
+    view.show();
+}
+mui.init({
+    subpages:[
+        {
+          url:'indexSub.html',
+          id:'indexSub.html',
+          styles:{top:'44px', bottom:'44px'}
+        },
+        {
+          url:'tel.html',
+          id:'tel.html',
+          styles:{top:'44px', bottom:'44px'}
+        },
+        {
+          url:'mail.html',
+          id:'mail.html',
+          styles:{top:'44px', bottom:'44px'}
+        },
+        {
+          url:'set.html',
+          id:'set.html',
+          styles:{top:'44px', bottom:'44px'}
+        }
+    ]
+});
+mui.plusReady(function(){
+    var index = plus.webview.getWebviewById('indexSub.html');
+    index.show();
+    //
+    document.getElementById('home').addEventListener('tap', function(){
+        changeView('indexSub.html');
+    });
+    document.getElementById('tel').addEventListener('tap', function(){
+        changeView('tel.html');
+    });
+    document.getElementById('mail').addEventListener('tap', function(){
+        changeView('mail.html');
+    });
+    document.getElementById('set').addEventListener('tap', function(){
+        changeView('set.html');
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #content {
+            width: 600px;
+            height: 400px;
+            position: relative;
+            margin: auto;
+            border: 1px solid brown;
+            overflow: hidden
+        }
+        
+        #imgList {
+            width: 3600px;
+            position: absolute;
+        }
+        
+        #imgList img {
+            float: left;
+            width: 600px;
+            height: 400px;
+        }
+        
+        #btnOn {
+            width: 100px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            margin-left: -50px;
+            background: #fff;
+            text-align: center
+        }
+        
+        #btnOn span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid blue;
+            display: inline-block;
+            cursor: pointer
+        }
+        
+        #btnOn .on {
+            background: red;
+        }
+        
+        .btn {
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 50px;
+            margin-top: -25px;
+            color: #fff;
+            background: burlywood;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+        }
+        
+        #btnRight {
+            right: 0;
+        }
+        
+        #btnLeft {
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <div id="imgList" style="left:0">
+            <img src="http://g.hiphotos.baidu.com/image/pic/item/10dfa9ec8a1363278c19c3f9988fa0ec09fac700.jpg" alt="">
+            <img src="http://e.hiphotos.baidu.com/image/pic/item/9922720e0cf3d7ca3f58f965f81fbe096b63a973.jpg" alt="">
+            <img src="http://b.hiphotos.baidu.com/image/pic/item/0bd162d9f2d3572cf8579c168313632763d0c347.jpg" alt="">
+            <img src="http://b.hiphotos.baidu.com/image/pic/item/574e9258d109b3def5ebe5a2c5bf6c81810a4ca7.jpg" alt="">
+            <img src="http://g.hiphotos.baidu.com/image/pic/item/4bed2e738bd4b31c512492718ed6277f9f2ff8e4.jpg" alt="">
+            <img src="http://b.hiphotos.baidu.com/image/pic/item/5243fbf2b2119313999ff97a6c380cd790238d1f.jpg" alt="">
+        </div>
+        <div id="btnOn">
+            <span index="1" class="on"></span>
+            <span index="2"></span>
+            <span index="3"></span>
+            <span index="4"></span>
+            <span index="5"></span>
+            <span index="6"></span>
+        </div>
+        <span class="btn" id="btnRight">向右</span>
+        <span class="btn" id="btnLeft">向左</span>
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function() {
+            var content = document.getElementById('content');
+            var imgList = document.getElementById('imgList');
+            var btnOn = document.getElementById('btnOn').getElementsByTagName('span');
+            var btnRight = document.getElementById('btnRight');
+            var btnLeft = document.getElementById('btnLeft');
+            var index = 1;
+            var timer;
+
+            // 点击切换
+            function btnShow(offset) {
+                var newshow = parseInt(imgList.style.left) + offset
+                imgList.style.left = newshow + 'px';
+                if (newshow > 0) {
+                    imgList.style.left = -3000 + 'px'
+                }
+                if (newshow < -3000) {
+                    imgList.style.left = 0 + 'px'
+                }
+            }
+
+            function btnON() {
+                for (var i = 0; i < btnOn.length; i++) {
+                    if (btnOn[i].className == 'on') {
+                        btnOn[i].className = ''
+                    }
+                }
+                btnOn[index - 1].className = 'on'
+            }
+
+            function btnCk() {
+                for (var i = 0; i < btnOn.length; i++) {
+                    btnOn[i].onclick = function() {
+                        var arrayIndex = parseInt(this.getAttribute('index'))
+                        var offset = (arrayIndex - index) * -600;
+                        btnShow(offset)
+                        index = arrayIndex;
+                        btnON()
+                    }
+                }
+            }
+
+            btnRight.onclick = function() {
+                if (index == 6) {
+                    index = 1
+                } else {
+                    index++
+                }
+                btnON()
+                btnShow(-600)
+            }
+            btnLeft.onclick = function() {
+                if (index == 1) {
+                    index = 6
+                } else {
+                    index--
+                }
+                btnON()
+                btnShow(600)
+            }
+
+            function play() {
+                timer = setInterval(function() {
+                    btnRight.onclick();
+                }, 3000)
+            }
+
+            function stop() {
+                clearInterval(timer)
+            }
+            content.onmousemove = stop;
+            content.onmouseout = play
+            btnCk();
+            play()
+        }
+    </script>
+</body>
+
+</html>

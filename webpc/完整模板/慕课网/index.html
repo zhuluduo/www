@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>��ҵ��վʵ��</title>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/setHomeSetFav.js"></script>
+<script type="text/javascript" src="js/myfocus-2.0.1.min.js" charset="utf-8"></script><!--����myFocus��-->
+<script type="text/javascript">
+myFocus.set({
+    id:'boxID',//����ͼ����ID
+    pattern:'mF_fancy',//���Ӧ�õ����
+    time:3,//�л�ʱ����(��)
+    trigger:'click',//�����л�ģʽ:'click'(���)/'mouseover'(��ͣ)
+    width:1000,//����ͼƬ������(����)
+    height:310,//����ͼƬ����߶�(����)
+    txtHeight:'default'//���ֲ�߶�����(����),'default'ΪĬ�ϸ߶ȣ�0Ϊ����
+});
+</script>
+</head>
+
+<body>
+<div class="top">
+  <div class="top_content">
+    <ul>
+      <li><a href="#">��ϵ����</a></li>
+      <li><a onclick="AddFavorite(window.location,document.title)" href="javascript:void(0)">�����ղ�</a></li>
+      <li><a onclick="SetHome(window.location)" href="javascript:void(0)">��Ϊ��ҳ</a></li>
+    </ul>
+  </div>
+</div>
+<!--ҳ�涥��top����-->
+
+<div class="wrap">
+  <div  class="logo">
+    <div class="logo_left"><img src="images/logo.jpg" /></div>
+    <div class="logo_right"><img src="images/tel.jpg" width="28" height="28" />24Сʱ�������ߣ�<span class="tel">123-456-7890</span></div>
+  </div>
+  <!--logo����-->
+  
+  <div class="nav">
+    <div  class="nav_left"></div>
+    <div class="nav_mid">
+      <div class="nav_mid_left">
+        <ul>
+          <li><a href="#">��ҳ</a></li>
+          <li><a href="list.html">����Ľ��</a></li>
+          <li><a href="list.html">���Ŷ�̬</a></li>
+          <li><a href="list.html">�γ�����</a></li>
+          <li><a href="list.html">���߿γ�</a></li>
+          <li><a href="list.html">�˲���Ƹ</a></li>
+        </ul>
+      </div>
+      <!--nav_mid_left����-->
+      <div class="nav_mid_right">
+        <form action="" method="post">
+          <input type="text" class="search_text" />
+          <!--<input type="text" class="search_text" x-webkit-speech />-->
+        </form>
+      </div>
+      <!--nav_mid_right����--> 
+    </div>
+    <!--��������nav_mid����-->
+    <div class="nav_right"></div>
+  </div>
+  <!--nav����-->
+  
+  <div class="ad">
+    <div id="boxID"><!--����ͼ����-->
+      <div class="loading"><img src="images/loading.gif" alt="���Ժ�..." /></div>
+      <!--���뻭��(��ɾ��)-->
+      <div class="pic"><!--�����б�(li��Ŀ����������)-->
+        <ul>
+          <li><a href="#"><img src="images/ad2.jpg" thumb="" alt="" text="��ϸ����2" /></a></li>
+          <li><a href="#"><img src="images/ad3.jpg" thumb="" alt="" text="��ϸ����3" /></a></li>
+          <li><a href="#"><img src="images/ad4.jpg" thumb="" alt="" text="��ϸ����4" /></a></li>
+          <li><a href="#"><img src="images/ad3.jpg" thumb="" alt="" text="��ϸ����5" /></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!--ad����-->
+  
+  <div class="main">
+    <div class="news">
+      <div class="title">
+        <h2 class="titile_left">��������</h2>
+        <span class="title_right"><a href="#">More&gt;&gt;</a></span> </div>
+      <!--title����-->
+      
+      <div class="pic_news"> <img src="images/news.jpg" alt="520 ĽŮ���������" width="113" height="77" />
+        <h2><a href="news.html">520 ĽŮ��������ף�</a></h2>
+        <p>�ʱ�䣺5��20�ա�5��25��<br />
+          �񽱹���ʱ�䣺5��26��<br />
+          <a href="news.html">Learn More>></a></p>
+      </div>
+      <!--pic_news����-->
+      
+      <div class="news_list">
+        <ul>
+          <li><span>2014-06-01</span> <a href="news.html">��Ľ�ͷ�̸ �û�ƪ������Ϊ��˿����·��</a></li>
+          <li><span>2014-06-01</span><a href="news.html">���н�������׵���������</a></li>
+          <li><span>2014-05-30</span><a href="news.html">������Գ����ɹ�����ͯ�꡷��񽱹���</a></li>
+          <li><span>2014-05-28</span><a href="news.html" title="aa">��Ľ�η�̸���Ƽ�ɵ���Ů����Ա���ɱ�ʷ</a></li>
+        </ul>
+      </div>
+      <!--news_list����--> 
+      
+    </div>
+    <!--news����-->
+    
+    <div class="products">
+      <div class="title">
+        <h2 class="titile_left">�γ�����</h2>
+        <span class="title_right"><a href="#">More&gt;&gt;</a></span> </div>
+      <!--title����-->
+      
+      <div class="product_list"><img src="images/css.jpg" alt="CSSԲ�ǽ���" width="158" height="106" />
+        <h2><a href="news.html">CSSԲ�ǽ���</a></h2>
+        <p> CSSԲ�ǵ�ʵ�֣����������չ�׶Σ�����ͼƬ��ʽ��CSS2.0+HTML��ǩģ�⡢CSS3.0Բ�����ԣ�����������ϸ����ÿһ�ֵ�ʵ�ַ�ʽ������ʵ�ֵ���ȱ����жԱȷ�����</p>
+      </div>
+      <!--product_list����-->
+      
+      <div class="product_type">
+        <ul>
+          <li>PHP����</li>
+          <li>ǰ�˿���</li>
+          <li>JAVA����</li>
+          <li>Android����</li>
+        </ul>
+      </div>
+    </div>
+    <!--products����-->
+    
+    <div class="sidebar">
+      <div class="video">
+        <div class="title">
+          <h2 class="titile_left">ý��۽�</h2>
+          <span class="title_right"><a href="#">More&gt;&gt;</a></span> </div>
+        <!--title����-->
+        <p class="video_content">
+          <embed src="http://player.youku.com/player.php/sid/XNjkzMDE5MTUy/v.swf" allowFullScreen="true" quality="high" width="220" height="140" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+        </p>
+      </div>
+      <!--video����-->
+      
+      <div class="service"> <img src="images/app.jpg" /> </div>
+    </div>
+    <!--sidebar����--> 
+    
+  </div>
+  <!--main����--> 
+</div>
+<!--�����wrap����  -->
+<div class="copyright">
+  <div class="copyright_content">
+    <ul>
+      <li>����
+        <ul>
+          <li>Ʒ�ƹ���</li>
+          <li>��ϵ����</li>
+          <li>��������</li>
+          <li>��Ȩ����</li>
+        </ul>
+      </li>
+      <li>�γ�
+        <ul>
+          <li>PHP����</li>
+          <li>ǰ�˿���</li>
+          <li>JAVA����</li>
+          <li>Android����</li>
+        </ul>
+      </li>
+      <li>��ע
+        <ul>
+          <li>����΢��</li>
+          <li>��Ѷ΢��</li>
+          <li>��ҵ΢��</li>
+          <li>QQ�ռ�</li>
+        </ul>
+      </li>
+      <li>����
+        <ul>
+          <li>�����</li>
+          <li>��������</li>
+          <li>ý������</li>
+          <li>���߿ͷ�</li>
+        </ul>
+      </li>
+      <li><img src="images/weixin.png" alt="΢�Ź�ע" width="30" height="27" />΢�Ź�ע
+        <ul>
+          <li><img src="images/qrcode.jpg" alt="ɨ���עĽ����ٷ�΢��" width="102" height="102" /></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--copyright_content����--> 
+</div>
+</body>
+</html>

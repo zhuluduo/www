@@ -1,0 +1,60 @@
+mkdir webpack-test 创建文件夹
+
+npm init 文件下初始化
+
+npm insatall webpack --save-dev
+
+
+创建webpack脚本文件
+
+
+安装css(loader)
+npm install css-loader style-loader --save-dev
+
+处理css文件必须添加css-loader
+require('css-loader!./style.css)
+
+!!!!要使css生效还需添加(style-loader)
+require('styleloader!css-loader!./style.css')
+
+直接在命令行也可直接指定:
+webpack  要执行的.js  --module-bind 'css=style-loader!css-loader'
+
+实时刷新:
+webpack  a.js  --module-bind 'css=style-loader!css-loader' --watch
+
+
+添加多个功能:(--display-modules  查看打包模块  --display-reasons 查看更新原因)
+webpack  a.js  --module-bind 'css=style-loader!css-loader' --watch --display-modules
+
+package.json添加相关插件(npm run webpack)
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack":"webpack --config webpack.config.js --progress --display-modules --colors --display-reason"
+  },
+
+
+版本号更新;
+output:{
+filename:[name]-[chunkhash].js
+}
+
+
+通过借用webpack插件来动态(index.html)添加js
+ npm install html-webpack-plugin --save-dev
+
+webpack.config.js调用
+
+ const HtmlWebpackPlugin = require('html-webpack-plugin'); // 通过 npm 安装
+
+
+ index.html动态调用webpack.config.js 中(HtmlWebpackPlugin)的值是必须使用驼峰命名法则不然会报版本与插件错误
+
+ <%= htmlWebpackPlugin.options.title %>
+
+
+ 安装插件:
+ js:
+ npm install --save-dev babel-core babel-preset-es2015 babel-loader jsx-loader
+
+ npm install --save-dev babel-preset-latest

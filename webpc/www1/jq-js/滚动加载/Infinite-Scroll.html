@@ -1,0 +1,100 @@
+<!--http://www.sucaihuo.com/js/108.html-->
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <title>演示：Infinite-Scroll无限滚动加载数据</title>
+        <meta name="keywords" content="滚动加载,Infinite-Scroll" />
+        <meta name="description" content="无限滚动的实现原理：当滚动条到底离网页底部一定长度的时候，向后台发送页数并获取数据。" />
+        <link rel="stylesheet" type="text/css" href="css/common.css" />
+        <style type="text/css">
+            #content {
+                width: 480px;
+                margin: 36px auto;
+                font-size: 1.5em;
+            }
+            #content p {
+                margin: 0 0 3em;
+            }
+
+            #pages {
+                text-align: center;
+                margin: 0 auto 72px;
+                font-size: 1.5em;
+            }
+            .loading{text-align: center;font-size: 20px;margin:20px 0}
+        </style>
+    </head>
+    <body>
+        <div class="head">
+            <div class="head_inner clearfix">
+                <ul id="nav">
+                    <li><a href="http://www.sucaihuo.com">首 页</a></li>
+                    <li><a href="http://www.sucaihuo.com/templates">网站模板</a></li>
+                    <li><a href="http://www.sucaihuo.com/js">网页特效</a></li>
+                    <li><a href="http://www.sucaihuo.com/php">PHP</a></li>
+                    <li><a href="http://www.sucaihuo.com/site">精选网址</a></li>
+                </ul>
+                <a class="logo" href="http://www.sucaihuo.com"><img src="http://www.sucaihuo.com/Public/images/logo.jpg" alt="素材火logo" /></a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="demo">
+                <h2 class="title"><a href="http://www.sucaihuo.com/js/108.html">教程：Infinite-Scroll无限滚动加载数据</a></h2>
+                <div id="content">
+                    <p><a href="http://www.sucaihuo.com/js/91.html" target="_blank">1、PHP生成图片验证码</a></p>
+                    <p><a href="http://www.sucaihuo.com/js/90.html" target="_blank">2、jQuery实现table上移下移和置顶</a></p>
+                    <p><a href="http://www.sucaihuo.com/js/89.html" target="_blank">3、基于jQuery的cookie插件</a></p>
+                    <p><a href="http://www.sucaihuo.com/js/88.html" target="_blank">4、jQuery仿淘宝图片放大镜插件imagezoom</a></p>
+                    <p><a href="http://www.sucaihuo.com/js/87.html" target="_blank">5、简单jQuery商品属性选择表单</a></p>
+                    <p><a href="http://www.sucaihuo.com/js/86.html" target="_blank">6、jQuery+iPresenter3D旋转图片超炫效果</a></p>
+                    <p><a href="http://www.sucaihuo.com/js/91.html" target="_blank">7、PHP生成图片验证码</a></p>
+                    <p><a href="http://www.sucaihuo.com/js/90.html" target="_blank">8、jQuery实现table上移下移和置顶</a></p>
+                    <p><a href="http://www.sucaihuo.com/js/89.html" target="_blank">9、基于jQuery的cookie插件</a></p>
+                    <p><a href="http://www.sucaihuo.com/js/88.html" target="_blank">10、jQuery仿淘宝图片放大镜插件imagezoom</a></p>
+                </div>
+                <div id="pages"><a id="next" href="page.php?page=1">下一页</a></div>
+                <div class="loading"></div>
+            </div>
+        </div>
+        <div class="foot">
+            Powered by sucaihuo.com  本站皆为作者原创，转载请注明原文链接：<a href="http://www.sucaihuo.com" target="_blank">www.sucaihuo.com</a>
+        </div>
+        <script type="text/javascript" src="js/jquery-2.1.0.js"></script> 
+        <script src="js/debug.js"></script>
+        <script src="js/jquery.infinitescroll.js"></script>
+        <script type="text/javascript">
+            $('#content').infinitescroll({
+                loading: {
+                    msgText: "",
+                    img: "images/loading.gif",
+                    finishedMsg: '没有新数据了哦...',
+                    selector: '.loading' //loading选择器
+                },
+                navSelector: "#pages", //导航的选择器，会被隐藏
+                nextSelector: "#next", //包含下一页链接的选择器
+                itemSelector: "p", //你将要取回的选项(内容块)
+                debug: true, //启用调试信息，若启用必须引入debug.js
+                dataType: 'html', //格式要和itemSelector保持一致
+                maxPage: 5, //最大加载的页数
+//                animate: true, //当有新数据加载进来的时候，页面是否有动画效果，默认没有
+                extraScrollPx: 150, //滚动条距离底部多少像素的时候开始加载，默认150
+//                bufferPx: 40, //载入信息的显示时间，时间越大，载入信息显示时间越短
+                errorCallback: function() { //加载完数据后的回调函数
+
+                },
+                path: function(index) { //获取下一页方法
+                    return "page.php?p=" + index;
+                },
+            }, function(newElements, data, url) { //回调函数
+                //console.log(data);
+                //alert(url);
+            });
+        </script>
+    </body>
+</html>
+

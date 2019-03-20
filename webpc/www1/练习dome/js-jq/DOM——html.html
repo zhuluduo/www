@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>dom对象控制html</title>
+	</head>
+	<body>
+		<p name="pn">hello</p>
+		<p name="pn">hello</p>
+		<p name="pn">hello</p>
+		<p name="pn" id="aid">hello</p>
+		<script type="text/javascript">
+			function getname(){
+				var count=document.getElementsByName("pn");
+				var p=count[0];
+				p.innerHTML="123";
+			}
+			getname();
+			
+			function getArr(){
+				var anode=document.getElementById("aid");
+				var attr=anode.getAttribute('id');
+				alert(attr);
+			}
+			getArr();
+		</script>
+		<script type="text/javascript">
+			function widthadd(){
+				var width=document.documentElement.offsetWidth;
+				var height=document.documentElement.offsetHeight;
+				alert(width);
+			}
+			widthadd();
+		</script>
+	</body>
+</html>

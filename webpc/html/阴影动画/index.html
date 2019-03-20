@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>css3 3d纸张特效 | 手机微信网站特效| 网页特效库</title>
+		<meta name="keywords" content="SVG特效, 手机微信网站特效, css3动画, html5特效, 网页特效" />
+        <style>
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+      @charset "UTF-8";
+/* Base page styles */
+body {
+  font-family: 'PT Sans', sans-serif;
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-bottom: 0;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+}
+h2.no-separator {
+  border: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+li {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+/* Base Button Style */
+.btn {
+  position: relative;
+  display: block;
+  width: 250px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transform-style: flat;
+  transition: all 250ms ease-out;
+}
+.btn:before, .btn:after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  transition: all 250ms ease-out;
+}
+
+/* Paper effect – slightly raised off background */
+.paper {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+  border-color: #dedede;
+}
+
+/* Raised effect – pushes up on hover */
+.paper-raise:before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.paper-raise:hover {
+  border: 1px solid #fff;
+}
+.paper-raise:hover:before {
+  box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5);
+}
+
+.paper-raise-flatten {
+  border-color: #fff;
+  box-shadow: none;
+}
+.paper-raise-flatten:before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5);
+}
+.paper-raise-flatten:hover {
+  border-color: #dedede;
+}
+.paper-raise-flatten:hover:before {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+}
+
+/* Lift effect – lifts sides on hover */
+.paper-lift:before, .paper-lift:after {
+  bottom: 15px;
+  width: 50%;
+  height: 20%;
+  max-width: 300px;
+  max-height: 100px;
+  box-shadow: 0 10px 10px rgba(31, 31, 31, 0.5);
+}
+.paper-lift:before {
+  left: 8px;
+  transform: rotate(-3deg);
+}
+.paper-lift:after {
+  right: 8px;
+  transform: rotate(3deg);
+}
+.paper-lift:hover {
+  border-color: transparent;
+}
+.paper-lift:hover:before, .paper-lift:hover:after {
+  box-shadow: 0 15px 12px rgba(31, 31, 31, 0.7);
+}
+.paper-lift:hover:before {
+  left: 10px;
+}
+.paper-lift:hover:after {
+  right: 10px;
+}
+
+/* Flatten effect – flattens sides on hover */
+.paper-flatten {
+  border: 1px solid transparent;
+}
+.paper-flatten:before, .paper-flatten:after {
+  bottom: 15px;
+  width: 50%;
+  height: 20%;
+  max-width: 300px;
+  max-height: 100px;
+  box-shadow: 0 15px 12px rgba(31, 31, 31, 0.7);
+}
+.paper-flatten:before {
+  left: 10px;
+  transform: rotate(-3deg);
+}
+.paper-flatten:after {
+  right: 10px;
+  transform: rotate(3deg);
+}
+.paper-flatten:hover {
+  border-color: #ccc;
+}
+.paper-flatten:hover:before, .paper-flatten:hover:after {
+  transition: box-shadow 600ms ease-out, left 200ms, right 200ms;
+  box-shadow: 0 8px 8px rgba(31, 31, 31, 0.5);
+}
+.paper-flatten:hover:before {
+  left: 5px;
+}
+.paper-flatten:hover:after {
+  right: 5px;
+}
+
+/* Curl effects – curls corners on hover */
+.paper-curl:before, .paper-curl:after,
+.paper-curl-right:before,
+.paper-curl-right:after {
+  bottom: 12px;
+  width: 50%;
+  height: 55%;
+  max-width: 200px;
+  max-height: 100px;
+  box-shadow: 1px 8px 12px rgba(31, 31, 31, 0.6);
+}
+.paper-curl:before,
+.paper-curl-right:before {
+  left: 10px;
+}
+.paper-curl:after,
+.paper-curl-right:after {
+  right: 10px;
+}
+.paper-curl:hover:before, .paper-curl:hover:after,
+.paper-curl-right:hover:before,
+.paper-curl-right:hover:after {
+  box-shadow: 1px 8px 12px rgba(31, 31, 31, 0.8);
+}
+.paper-curl:hover:before,
+.paper-curl-right:hover:before {
+  transform: skew(-8deg) rotate(-3deg);
+}
+.paper-curl:hover:after,
+.paper-curl-right:hover:after {
+  transform: skew(8deg) rotate(3deg);
+}
+
+.paper-curl:hover {
+  border-radius: 0 0 40% 40% / 0 0 30% 30%;
+}
+
+.paper-curl-right:before {
+  display: none;
+}
+.paper-curl-right:hover {
+  border-radius: 0 0 40% 0 / 0 0 30% 0;
+}
+
+/* Curl effects – curls right hand side on hover */
+.paper-curl-right-side:before, .paper-curl-right-side:after {
+  right: 10px;
+  width: 50%;
+  height: 55%;
+  max-width: 200px;
+  max-height: 100px;
+}
+.paper-curl-right-side:before {
+  top: 12px;
+  box-shadow: 1px -4px 12px rgba(31, 31, 31, 0.6);
+}
+.paper-curl-right-side:after {
+  bottom: 12px;
+  box-shadow: 1px 4px 12px rgba(31, 31, 31, 0.6);
+}
+.paper-curl-right-side:hover {
+  right: 0;
+  border-radius: 0 3% 3% 0 / 0% 50% 50% 0;
+}
+.paper-curl-right-side:hover:before {
+  box-shadow: 10px -4px 12px rgba(31, 31, 31, 0.8);
+  transform: skew(-8deg) rotate(-3deg);
+}
+.paper-curl-right-side:hover:after {
+  box-shadow: 10px 4px 12px rgba(31, 31, 31, 0.8);
+  transform: skew(8deg) rotate(3deg);
+}
+
+.footerLink {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px 15px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 5px 0 0 0;
+  text-decoration: none;
+  transition: 300ms;
+}
+.footerLink:hover {
+  background-color: rgba(60, 60, 60, 0.8);
+}
+
+    </style>
+
+    
+        <script src="js/prefixfree.min.js"></script>
+
+    
+  </head>
+
+  <body>
+
+    <!-- I made this demo to try out and illustrate some of the subtle button effects you can create just using box-shadow and borders on pseudo–elements.
+
+Inspired by the work I saw a while back over on Beemuse (http://beemuse.com/paper) and so this is a heavily tweaked more dynamic version of those effects.
+
+Also see Nicolas Gallaghers previous post on effects like this:
+http://nicolasgallagher.com/css-drop-shadows-without-images/
+
+Tested in latest Chrome and Firefox, but no reason it shouldn't work in all latest browsers. -->
+
+
+<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+
+<h2 class="no-separator">Raise on hover from flat</h2>
+<a href="" class="btn paper-raise">Try Me</a>
+
+<h2>Flatten on hover from raised</h2>
+<a href="" class="btn paper paper-raise-flatten">Try Me</a>
+  
+<h2>Raise from Less flat position on hover</h2>
+<a href="" class="btn paper paper-raise">Try Me</a>
+  
+<h2>Lift sides on Hover</h2>
+<a href="" class="btn paper-lift">Try Me</a>
+  
+<h2>Flatten sides on hover</h2>
+<a href="" class="btn paper-flatten">Try Me</a>
+  
+<h2>Curl right corner on hover</h2>
+<a href="" class="btn paper paper-curl-right">Try Me</a>
+  
+<h2>Curl right side on hover</h2>
+<a href="" class="btn paper paper-curl-right-side">Try Me</a>
+
+<h2>Curl bottom corners on hover</h2>
+<a href="" class="btn paper paper-curl">Try Me</a>
+  
+  
+<h2>Group examples</h2>
+<h2>Raise on hover</h2>
+<ul>
+  <li><a href="" class="btn paper-raise">Button One</a></li>
+  <li><a href="" class="btn paper-raise">Button Two</a></li>
+  <li><a href="" class="btn paper-raise">Button Three</a></li>
+</ul>
+  
+<h2>Flatten on hover</h2>
+<ul>
+  <li><a href="" class="btn paper paper-raise-flatten">Button One</a></li>
+  <li><a href="" class="btn paper paper-raise-flatten">Button Two</a></li>
+  <li><a href="" class="btn paper paper-raise-flatten">Button Three</a></li>
+</ul>
+  
+<h2>Less flat raise on hover</h2>
+<ul>
+  <li><a href="" class="btn paper paper-raise">Button One</a></li>
+  <li><a href="" class="btn paper paper-raise">Button Two</a></li>
+  <li><a href="" class="btn paper paper-raise">Button Three</a></li>
+</ul>
+
+<h2>Lift sides on hover</h2>
+<ul>
+  <li><a href="" class="btn paper-lift">Button One</a></li>
+  <li><a href="" class="btn paper-lift">Button Two</a></li>
+  <li><a href="" class="btn paper-lift">Button Three</a></li>
+</ul>
+
+<h2>Flatten sides on hover</h2>
+<ul>
+  <li><a href="" class="btn paper-flatten">Button One</a></li>
+  <li><a href="" class="btn paper-flatten">Button Two</a></li>
+  <li><a href="" class="btn paper-flatten">Button Three</a></li>
+</ul>
+
+<h2>Curl right corner on hover</h2>
+<ul>
+  <li><a href="" class="btn paper paper-curl-right">Button One</a></li>
+  <li><a href="" class="btn paper paper-curl-right">Button Two</a></li>
+  <li><a href="" class="btn paper paper-curl-right">Button Three</a></li>
+</ul>
+  
+<h2>Curl right side on hover</h2>
+<ul>
+  <li><a href="" class="btn paper paper-curl-right-side">Button One</a></li>
+  <li><a href="" class="btn paper paper-curl-right-side">Button Two</a></li>
+  <li><a href="" class="btn paper paper-curl-right-side">Button Three</a></li>
+</ul>
+
+<h2>Curl bottom corners on hover</h2>
+<ul>
+  <li><a href="" class="btn paper paper-curl">Button One</a></li>
+  <li><a href="" class="btn paper paper-curl">Button Two</a></li>
+  <li><a href="" class="btn paper paper-curl">Button Three</a></li>
+</ul>
+
+<div style="width: 100%; height: 50px; line-height: 50px; text-align: center;">
+	更多网页特效，请访问<a href="http://www.5iweb.com.cn"><b>网页特效库</b></a>,欢迎加入网页特效库QQ交流群：258242983
+</div>
+    
+  </body>
+</html>

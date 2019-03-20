@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">按钮</button>
+	<script type="text/javascript">
+		var btn=document.getElementById('btn')
+		btn.addEventListener('click',function(){
+//			var str1 = {"name": "apple", "sex": "21"};
+//			let students = JSON.stringify(str1);
+//          localStorage.setItem("gxzzpt2_consumer",students);
+            let user = localStorage.getItem('gxzzpt2_consumer');
+            var jsonObj = JSON.parse(user);
+            jsonObj.color=[{name:22}]
+            console.log(jsonObj)
+            let students = JSON.stringify(jsonObj);
+            localStorage.setItem("gxzzpt2_consumer",students);
+		})
+	</script>
+</body>
+</html>

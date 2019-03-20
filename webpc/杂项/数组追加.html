@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<button onclick="hhhh()">ff</button>
+		<script>
+//			jsonData是动态变化的，接下来怎么将这个变化的值追加到数组里面
+					
+		
+			function hhhh(){
+//				debugger
+				var jsonData = {
+				str: 3, //开始时间
+				tid: 1 //套餐id
+			}
+			let user = localStorage.getItem('storage');
+            var storage = JSON.parse(user);
+			storage.push(jsonData);
+			localStorage.setItem("storage", JSON.stringify(storage));
+			var storage=localStorage.getItem("storage");
+//			storage.push(jsonData);
+//		var xx=hh.push(storage)
+			console.log(storage, 66)
+			}
+			
+			
+			
+		</script>
+	</body>
+
+</html>

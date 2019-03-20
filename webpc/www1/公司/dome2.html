@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>插入、删除表格行与列</title>
+</head>
+<body>
+    <table border="1" id="tr2_tab">
+        <tr class="tr2">
+            <td>Firstname</td>
+            <td>Lastname</td>
+        </tr>
+        <tr class="tr2">
+            <td>Peter</td>
+            <td>Griffin</td>
+        </tr>
+    </table>
+    <br />
+    <input type="button" onclick="insCell()" value="插入列">
+    <input type="button" onclick="deleteCell()" value="删除列">
+    <input type="button" onclick="insRow()" value="插入行">
+    <input type="button" onclick="deleteRow()" value="删除行">
+    <script type="text/javascript">
+    var tab = document.getElementById('tr2_tab');
+    var rows = tab.rows.length;
+    var cells = tab.rows.item(0).cells.length;
+
+    function insCell() {
+        for (var i = 0; i < cells; i++) {
+            var x = document.getElementsByClassName('tr2')[i].insertCell(cells);
+            x.innerHTML = "新增列名";
+        }
+    }
+
+    function insRow() {
+        var y = tab.insertRow(rows)
+        for (var i = 0; i < cells; i++) {
+            var z = y.insertCell(i);
+            z.innerHTML = "新增行名";
+        }
+
+    }
+
+    function deleteCell(obj) {
+        for (var i = 0; i < cells; i++) {
+            document.getElementsByClassName('tr2')[i].deleteCell(cells);
+        }
+    }
+
+    function deleteRow() {
+        tab.deleteRow(rows);
+    }
+
+
+    //阻止控制台报错
+    onerror = handleErr
+
+    function handleErr(msg, url, l) {
+        return true
+    }
+    </script>
+</body>
+
+</html>

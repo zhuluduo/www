@@ -1,0 +1,9 @@
+一.PAGE
+  applyManage  ----应用管理
+     ---areaManage (区域管理)
+     ---publicEarth (公建地球)
+     ---versionManage （版本管理）
+     ---versionDetails （版本详情）
+     ---BuildingUsersManage (建造用户管理)
+     ---BuildingUserDetails （建造用户详情）
+     ---RoleBehavior     （用户角色行为）

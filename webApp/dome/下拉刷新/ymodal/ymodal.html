@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width;">
+    <title>移动端模态框</title>
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script src="js/yalert.js"></script>
+</head>
+<style>
+*{ margin:0;padding:0; }
+.btn{
+  display:inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  text-align: center;
+  *display: inline;
+  padding: 8px 16px;
+  margin-bottom: 0;
+  line-height: 20px;
+  color:#fff;
+  border:none; user-select:none;
+  font-size: 14px; min-width: 50px;
+  background-color:#0091ff;
+  -webkit-transition: all 0.1s ease-in 0s;
+  -moz-transition: all 0.1s ease-in 0s;
+  -o-transition: all 0.1s ease-in 0s;
+  transition: all 0.1s ease-in 0s;font-family:Georigia,Microsoft Yahei,Helvetica;-webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-appearance:none;-moz-appearance:none;
+  border-radius: 4px;
+  margin:4px;
+}
+.btn:hover{background-color:#1e9eff;}
+.btn:active{background-color:#007ede;}
+</style>
+<body>
+<div style="padding:20px; text-align:center">
+<button class="btn" id="modal01">模拟alert</button>
+<button class="btn" id="modal02">alert带回调</button>
+<button class="btn" id="modal03">模拟confirm</button>
+<button class="btn" id="modal04">confirm带回调</button>
+</div>
+<script>
+var stylepath='css/yalert.css'; //样式可以动态载入，也可以直接引入
+$("#modal01").click(function(){
+	showAlert("提示","我是个alert",stylepath,"");
+})
+$("#modal02").click(function(){
+	showAlert("提示","<div style='color:#f00'>我是个alert</div>",stylepath,function(){ 
+		showAlert("提示","我是回调函数",stylepath,"");
+	})
+})
+$("#modal03").click(function(){
+	showConfirm("我是自定义标题","我是个confirm",stylepath,"","");
+})
+$("#modal04").click(function(){
+	showConfirm("<div style='color:#f00'>提示</div>","我是个有回调函数的confirm",stylepath,function(){ 
+		showAlert("提示","确定了",stylepath,"");
+	},function(){
+		showAlert("提示","我被取消了",stylepath,"");
+	})
+})
+</script>
+</body>
+</html>

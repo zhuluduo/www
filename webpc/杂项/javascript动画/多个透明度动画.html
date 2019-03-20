@@ -1,0 +1,50 @@
+
+<style type="text/css">
+* {
+margin:0 ;
+padding:0;
+}
+ul,li{
+list-style:none;
+}
+ul li{
+width:200px;
+height:100px;
+background:yellow;
+margin-bottom:20px;
+}
+</style>
+<script> 
+window.onload=function(){
+var ali=document.getElementsByTagName("li");
+for(var i=0;i<ali.length;i++){
+ali[i].timer=null;
+ali[i].onmouseover=function(){
+startMove(this,400);
+}
+ali[i].onmouseout=function(){
+startMove(this,200);
+}
+}
+}
+function startMove(obj,target){
+clearInterval(obj.timer);
+obj.timer=setInterval(function(){
+var speed=(target-obj.offsetWidth)/8;
+speed=speed>0?Math.ceil(speed):Math.floor(speed);
+if(obj.offsetWidth==target){
+clearInterval(obj.timer)
+}else{
+obj.style.width=obj.offsetWidth+speed+'px';	
+}
+},30)
+}
+</script>
+</head>
+<body>
+<ul>
+<li  ></li>
+<li></li>
+<li></li>
+</ul>
+</body>

@@ -1,0 +1,63 @@
+<a style="display:none" href="http://www.100sucai.com">www.100sucai.com</a>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>仿土豆网文字评论查看效果</title>
+<style>
+#comment{ margin:0px auto; width:500px;}
+#comment div{ width:500px;  border-bottom:1px solid #ccc; margin:0 0 10px 0; padding:10px 0;}
+#comment p{ line-height:150%; font-size:12px; color:#0066CC; display:inline;}
+#comment a{ font-size:12px; color:#999; line-height:150%; margin:0 0 0 10px;text-decoration:underline; display:none; cursor:pointer;}
+#comment a:hover{text-decoration:none; }
+</style>
+</head>
+<body>
+<div id="comment">
+    <div><p>第一行，若果大于500个字，就声乐了。大家一起试试吧</p><a>更多>></a><a>收起>></a></div>
+    <div><p id="teshu">第二行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧</p><a>更多>></a><a>收起>></a></div>
+    <div><p>第三行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧</p><a>更多>></a><a>收起>></a></div>
+    <div><p>第四行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧</p><a>更多>></a><a>收起>></a></div>
+    <div><p>第五行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧第一行，若果大于500个字，就声乐了。大家一起试试吧</p><a>更多>></a><a>收起>></a></div>
+  
+<script>
+   
+function checkWords(elementID){
+  
+  function updata(i){
+      var elementHtml= elementP[i].innerHTML;
+	  var elementLength= elementHtml.length;
+      if( elementLength > 60){
+	      var moreBtn=elementP[i].nextSibling;
+		  var closeBtn=moreBtn.nextSibling;
+		  elementP[i].innerHTML=(elementP[i].innerHTML.substr(0,60)+'...');
+		  moreBtn.style.display="inline-block";
+		  //查看更多
+		  moreBtn.onclick=function(){
+			  elementP[i].innerHTML=elementHtml;
+			  this.style.display="none";
+			  closeBtn.style.display="inline-block";
+			  return false;
+		  }
+		  //收起查看更多
+		  closeBtn.onclick=function(){
+			  elementP[i].innerHTML=(elementP[i].innerHTML.substr(0,60)+'...');
+			  this.style.display="none";
+			  moreBtn.style.display="inline-block";
+			  return false;
+		  }
+	  }
+  }  
+   var elementDiv= document.getElementById(elementID);
+   var elementP= elementDiv.getElementsByTagName('p');
+   for( i=0; i<elementP.length; i++){
+      updata(i);
+   }
+}
+</script>
+<script>
+checkWords('comment');
+</script>
+</body>
+</html>   
+        

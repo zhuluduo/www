@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<font color="#0000f0"><b>引言：</b></font>这几天一直在研究这个问题，今天终于算是有点雏形了，拿出来和大家分享下，希望不要见笑。其实刚开始我的想法很简单，只是想把本地选择的图片的缩略图显示在我想要的位置，就这么简单，可是我越发做着做着我发现，就这么一个简单的实现牵扯了很多知识点。<div><br>
+			<div>下面直接看代码，在根据代码详细分析：</div>
+			<div>
+				<font color="#0000f0"><b>Demo:</b></font>
+			</div>
+			<div>
+				<div>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+					"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</div>
+				<div>&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;</div>
+				<div>&lt;head&gt;</div>
+				<div>&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;</div>
+				<div>&lt;title&gt;JS上传前显示图片缩略图&lt;/title&gt;</div>
+				<div>&lt;style type="text/css"&gt;</div>
+				<div>#upload_file{ display:none;}</div>
+				<div>#show_img{<b>
+						<font color="#f000f0">/图片上下左右居中/</font>
+					</b></div>
+				<div><span .="Apple-tab-span"> </span>width:300px; height:300px;</div>
+				<div><span .="Apple-tab-span"> </span>/display:table-cell;</div>
+				<div><span .="Apple-tab-span"> </span>text-align:center; vertical-align:middle;</div>
+				<div><span .="Apple-tab-span"> </span>line-height:300px;</div>
+				<div><span .="Apple-tab-span"> </span>float:left; font-size:300px; font-family:SimSun;/<span .="Apple-tab-span">
+					</span><b>
+						<font color="#f000f0">/for IE6,7/</font>
+					</b></div>
+				<div><span .="Apple-tab-span"> </span>border:1px solid green;</div>
+				<div>}</div>
+				<div>#show_img img{ max-width:300px; max-height:300px; vertical-align:middle;}</div>
+				<div>#prevImg{ visibility:hidden;}<b>
+						<font color="#f000f0">/必须是hidden,display:none不可以*/</font>
+					</b></div>
+				<div>&lt;/style&gt;</div>
+				<div>&lt;script type="text/javascript"&gt;</div>
+				<div>function zoomImg(obj, imaxW, imaxH, iOriW, iOriH)<span .="Apple-tab-span"> </span>
+					<font color="#f000f0"><b>//设置图片等比列缩放和上下左右居中函数</b></font>
+				</div>
+				<div>{</div>
+				<div><span .="Apple-tab-span"> </span>var oZoomImg={width:0, height:0, left:0, top:0};</div>
+				<div><span .="Apple-tab-span"> </span>var rateW=iOriW/imaxW;</div>
+				<div><span .="Apple-tab-span"> </span>var rateH=iOriH/imaxH;</div>
+				<div><span .="Apple-tab-span"> </span></div>
+				<div><span .="Apple-tab-span"> </span>if(rateW &gt; rateH)</div>
+				<div><span .="Apple-tab-span"> </span>{</div>
+				<div><span .="Apple-tab-span"> </span>oZoomImg.width=imaxW;</div>
+				<div><span .="Apple-tab-span"> </span>oZoomImg.height=Math.round(iOriH/rateW);</div>
+				<div><span .="Apple-tab-span"> </span>}</div>
+				<div><span .="Apple-tab-span"> </span>else if(rateW &lt;= rateH)</div>
+				<div><span .="Apple-tab-span"> </span>{</div>
+				<div><span .="Apple-tab-span"> </span>oZoomImg.height=imaxH;</div>
+				<div><span .="Apple-tab-span"> </span>oZoomImg.width=Math.round(iOriW/rateH);<span .="Apple-tab-span"> </span></div>
+				<div><span .="Apple-tab-span"> </span>}</div>
+				<div><span .="Apple-tab-span"> </span></div>
+				<div><span .="Apple-tab-span"> </span>oZoomImg.left=parseInt((imaxW-oZoomImg.width)/2);</div>
+				<div><span .="Apple-tab-span"> </span>oZoomImg.top=parseInt((imaxH-oZoomImg.height)/2);</div>
+				<div><span .="Apple-tab-span"> </span></div>
+				<div><span .="Apple-tab-span"> </span>obj.style.width=oZoomImg.width+'px';</div>
+				<div><span .="Apple-tab-span"> </span>obj.style.height=oZoomImg.height+'px';<span .="Apple-tab-span"> </span>
+					&nbsp;</div>
+				<div><span .="Apple-tab-span"> </span>obj.style.marginLeft=oZoomImg.left+'px'</div>
+				<div><span .="Apple-tab-span"> </span>obj.style.marginTop=oZoomImg.top+'px';</div>
+				<div><span .="Apple-tab-span"> </span></div>
+				<div>};</div>
+				<div><br></div>
+				<div>window.onload=function()</div>
+				<div>{</div>
+				<div><span .="Apple-tab-span"> </span>var oBtn=document.getElementById('upload_btn');</div>
+				<div><span .="Apple-tab-span"> </span>var oFile=document.getElementById('upload_file');</div>
+				<div><span .="Apple-tab-span"> </span>var oDiv=document.getElementById('show_img');</div>
+				<div><span .="Apple-tab-span"> </span>var oPrevImg=document.getElementById('prevImg');</div>
+				<div><span .="Apple-tab-span"> </span>var oImg=null;</div>
+				<div><span .="Apple-tab-span"> </span></div>
+				<div><span .="Apple-tab-span"> </span>oBtn.onclick=function()</div>
+				<div><span .="Apple-tab-span"> </span>{</div>
+				<div><span .="Apple-tab-span"> </span>oFile.click();<span .="Apple-tab-span"> </span><b>
+						<font color="#f000f0">//用自定义按钮模拟form默认图片上传表单</font>
+					</b></div>
+				<div><span .="Apple-tab-span"> </span>};</div>
+				<div><span .="Apple-tab-span"> </span></div>
+				<div><span .="Apple-tab-span"> </span>oFile.onchange=function()</div>
+				<div><span .="Apple-tab-span"> </span>{</div>
+				<div><span .="Apple-tab-span"> </span>oImg=document.createElement('img');</div>
+				<div><span .="Apple-tab-span"> </span>if(this.files)<span .="Apple-tab-span"> </span><b>
+						<font color="#f000f0">//FF,Chrome方式</font>
+					</b></div>
+				<div><span .="Apple-tab-span"> </span>{</div>
+				<div><span .="Apple-tab-span"> </span>oImg.onload=function()</div>
+				<div><span .="Apple-tab-span"> </span>{</div>
+				<div><span .="Apple-tab-span"> </span></div>
+				<div><span .="Apple-tab-span"> </span>zoomImg(oImg, 300, 300, oImg.offsetWidth, oImg.offsetHeight);<span .="Apple-tab-span">
+					</span></div>
+				<div><span .="Apple-tab-span"> </span>}</div>
+				<div><span .="Apple-tab-span"> </span>var oFileReader=new FileReader();</div>
+				<div><span .="Apple-tab-span"> </span>oFileReader.onload=function(ev)</div>
+				<div><span .="Apple-tab-span"> </span>{</div>
+				<div><span .="Apple-tab-span"> </span>oImg.src=ev.target.result;<span .="Apple-tab-span"> </span>
+					<font color="#f000f0"><b>//FF,Chrome获取图片路径</b></font>
+				</div>
+				<div><span .="Apple-tab-span"> </span>}</div>
+				<div><span .="Apple-tab-span"> </span>oFileReader.readAsDataURL(this.files[0]);</div>
+				<div><span .="Apple-tab-span"> </span></div>
+				<div><span .="Apple-tab-span"> </span>}</div>
+				<div><span .="Apple-tab-span"> </span>else<span .="Apple-tab-span"> </span>//IE方式</div>
+				<div><span .="Apple-tab-span"> </span>{</div>
+				<div><span .="Apple-tab-span"> </span>oImg.src=this.value;<span .="Apple-tab-span"> </span><b>
+						<font color="#f000f0">//IE获取选取图片路径</font>
+					</b></div>
+				<div><span .="Apple-tab-span"> </span>oPrevImg.src=this.value;<span .="Apple-tab-span"> </span><b>
+						<font color="#f000f0">//将路径赋值给一个已存在的img,目的为了获取选取图片的原始尺寸</font>
+					</b></div>
+				<div><span .="Apple-tab-span"> </span>zoomImg(oImg, 300, 300, oPrevImg.offsetWidth, oPrevImg.offsetHeight);</div>
+				<div><span .="Apple-tab-span"> </span>}</div>
+				<div><span .="Apple-tab-span"> </span></div>
+				<div><span .="Apple-tab-span"> </span>oDiv.appendChild(oImg);<span .="Apple-tab-span"> </span><b>
+						<font color="#f000f0">//将选取的图片添加到容器中</font>
+					</b><span .="Apple-tab-span"></span></div>
+				<div><span .="Apple-tab-span"> </span>};</div>
+				<div>};</div>
+				<div>&lt;/script&gt;</div>
+				<div>&lt;/head&gt;</div>
+				<div><br></div>
+				<div>&lt;body&gt;</div>
+				<div>&lt;input id="upload_file" type="file" /&gt;</div>
+				<div>&lt;img id="upload_btn"
+					src="http://www.w3cfuns.com/data/attachment/album/201304/08/210035jmyx0e69l9bpxomh.jpg.thumb.jpg<span .="font-size: 14px; line-height: 1.8em;">"
+						/&gt;</span></div>
+				<div>&lt;div id="show_img"&gt;</div>
+			</div>
+		</div>
+		<div>&lt;img id="prevImg" /&gt;</div>
+		<div>&lt;/body&gt;</div>
+		<div>&lt;/html&gt;</div>
+		<div><br></div>
+		<div>
+			<div>
+				<font color="#0000f0" size="3"><b>知识点总结：</b></font>
+			</div>
+		</div>
+		<div><u>
+				<font size="2" color="#f000f0"><b>知识点(1)：用自定义按钮模拟表单自带的type='file'表单</b></font>
+			</u></div>
+		<div>分析：当我们点击自定义的按钮'本地上传'时，我们需要弹出选择本地图片的弹出框，所以，我们采用将type='file'先隐藏，当点击自定义按钮时触发file的单击事件，这样就达到了我们想要的效果，然后在给file添加一个onchange事件，获取选取文件的图片路径</div>
+		<div><br></div>
+		<div>
+			<font color="#f000f0"><u><b>知识点(2)：IE缩略图显示比较简单，但兼容火狐，Chrome又得另寻他路</b></u></font>
+		</div>
+		<div>分析：这里要区分IE和火狐、Chrome两种情况：</div>
+		<div>IE：</div>
+		<div>直接获取file的value值赋值给新创建的img元素即可</div>
+		<div>FF、Chrome:</div>
+		<div>这里需要用到file的一个files属性进行判断，利用FileReader对象的onload方法赋值图片路径：oImg.src=ev.target.result;
+			再利用FileReader对象的readAsDataURL方法oFileReader.readAsDataURL(this.files[0]);就OK啦</div>
+		<div><br></div>
+		<div><b>
+				<font color="#f000f0"><u>知识点(3)：对选择的图片在固定大小容器的等比列缩略图及上下左右居中问题</u></font>
+			</b></div>
+		<div>这里我假设我图片最大宽高为maxW=maxH=300，需要在容器为300px中上下左右居中</div>
+		<div>这里需要处理两个问题：</div>
+		<div>第一：选取图片需要按照maxW或maxH等比列缩放，那首先要获取到图片的原始宽高iOriW和iOriH，根据计算高的缩放比列和宽的缩放比列进行判断，如果rateW&gt;rateH，那么直接将图片的宽度设置为maxW,然后高度按照宽度的比列缩放即为图片缩略图高度，见函数zoomImg，</div>
+		<div>反之rateW&lt;rateH时，同理。</div>
+		<div>备注：这里获取图片的原始高度和宽度时不得不提一下，IE下必须借助另外的一个预先在页面上设置好的img空标签(id:prevImg)，将选取图片的路径赋值给该img,而且该img的显示属性只能设置为visibility:visible;若是为display:none也是获取不到图片的原始宽高的。而火狐则是通过新建img的onload事件可获取选取图片的原始宽高。</div>
+		<div>第二：缩略图的宽高设置好以后，就可以根据容器的宽高计算出缩略图距离容器的上边(marginTop)和左边(marginLeft)的位置，这样就完成了图片的上下左右居中。当然也可以用预先写好的CSS实现，但是用CSS有时候会失效，目前还没找出原因，所以比较委托的还是直接用JS设置，确保万无一失。</div>
+		<div>
+			<div><b><u>
+						<font color="#f000f0">知识点(4)：对图片格式的判断</font>
+					</u></b></div>
+			<div><u><b>
+						<font color="#f000f0">知识点(5)：对图片文件大小的限制</font>
+					</b></u></div>
+		</div>
+		<div .="uchome-message-pic">
+			<p></p>
+		</div>
+	</body>
+</html>

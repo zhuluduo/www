@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div id="box" data_a_b="ccc">
+			<ul class="banner">
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<ul class="number">
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<div id="navBar">
+			<ul class="nav">
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<div id="content">
+			<ul class="list">
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<div id='text'></div>
+		<script type="text/javascript">
+		var box = document.getElementById('box')
+		var content = document.getElementById('contet')
+		var banner = document.getElementsByClassName('banner')
+		var li = document.getElementsByTagName('li')
+		var list = document.getElementsByClassName('list')
+		var navBar = document.getElementById('navBar')
+		var nav = document.getElementsByClassName('nav')
+
+		//childNodes 所有子元素
+		var boxChildNodes = box.childNodes
+
+		//children 所有子元素
+		var boxChildren = box.children
+
+		//Array.prototype.slice() 将伪数组变成数组
+		var array = Array.prototype.slice.call(boxChildren,0)
+
+		//用遍历将伪数组变成数组
+		var aaa = []
+		for(var i = 0; i < boxChildNodes.length; i++){
+			aaa.push(boxChildNodes[i])
+		}
+
+		//parentNode 父元素
+		if(banner[0].parentNode === box){
+			console.log('true')
+		}else{
+			console.log('false')
+		}
+
+		//previousSibling 上一个兄弟元素
+		var previous = boxChildNodes[0].previousSibling
+
+		//nextSibling 下一个兄弟元素
+		var next = boxChildNodes[4].nextSibling
+
+		//firstChild 第一个子元素
+		if(boxChildNodes[0] === box.firstChild){
+			console.log('true')
+		}
+
+		//lastChild 最后一个子元素
+		if(boxChildNodes[boxChildNodes.length-1] === box.lastChild){
+			console.log('true')
+		}
+
+		//hasChildNodes() 是否有子元素
+		var boxHasChildNodes = box.hasChildNodes()
+		var liHasChildNodes = li[0].hasChildNodes()
+
+		//ownerDocument 根元素
+		var boxOwner = box.ownerDocument
+
+		//appendChild() 插入子元素
+		boxChildNodes[1].childNodes[1].appendChild(list[0]) //在 banner 下第一个 li 下最后一个元素后添加 list
+		boxChildNodes[1].appendChild(list[0]) //在 banner 下最后一个元素后添加 list
+		boxChildren[1].appendChild(list[0]) //在 number 下最后一个元素后添加 List
+		box.appendChild(list[0]) //在 box 下最后一个元素后添加 list
+
+		//insertBefore() 在指定元素前插入某元素
+		box.insertBefore(list[0],null) //在 box 下最后一个元素后添加 list 和 appendChild() 方法相同
+		box.insertBefore(list[0],banner[0]) //在 box 下 banner 前添加 list
+		boxChildNodes[1].insertBefore(list[0],banner[0].children[0]) //在 banner 下第一个 li 前添加 list
+		navBar.childNodes[1].insertBefore(list[0],nav[0].children[2]) //在 nav 下第三个 li 前添加 list
+
+		//replaceChild() 替换子元素
+		box.replaceChild(list[0],banner[0]) // 把 banner 替换成 list
+		boxChildNodes[1].replaceChild(list[0],banner[0].childNodes[1]) //把 banner 下第一个 li 替换成 list
+
+		//removeChild() 移除节点
+		box.removeChild(banner[0]) //把 banner 移除掉
+		boxChildNodes[1].removeChild(banner[0].children[0]) //把 banner 下第一个 li 移除掉
+		
+		//getAttribute() 获取属性
+		if(box.getAttribute('id') === box.id){
+		  console.log('true')
+		}
+		
+		//setAttribute() 设置属性
+		box.id = 'xxx' 和 box.setAttribute('id','xxx') 效果一样
+		
+		//createElement() 创建一个元素标签
+		var p = document.createElement('p')
+		banner[0].insertBefore(p,banner[0].children[1])
+		
+		//createTextNode() 创建文本
+		var hello = document.createTextNode('Hello')
+		var text= document.getElementById('text')
+		text.appendChild(hello)
+		
+		//normalize() 合并文本节点
+		text.normalize()
+		
+		//splitText()
+		text.childNode[0].splitText(5)
+		
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>preload</title>
+    <style>
+        *{margin:0;pading:0;}
+        a{
+            text-decoration: none;
+        }
+        .box {text-align:center;}
+        .btn{
+            display:inline-block;
+            height:30px;
+            line-height:30px;
+            border:1px solid #ccc;
+            background: #fff;
+            padding:0 10px;
+            margin-right:50px;
+            color: #333;
+        }
+        .btn:hover{
+            background: #eee;
+        }
+        /*进度条样式*/
+        .loading{
+            position:fixed;
+            top:0;
+            left:0;
+            bottom:0;
+            right:0;//撑满整个屏幕
+            background: #eee;
+            text-align: center;
+            font-size:30px;
+            font-weight:bold;
+        }
+        .progress{
+            margin-top:300px;
+        }
+    </style>
+</head>
+<body>
+<!--无序预加载需要写进度条，当加载完毕后才能操作；
+    有序预加载可以不写进度条，加载完第一张后立即加载第二张、第三张、第四张...
+-->
+    <div class="box">
+        <img src="http://image.hnol.net/c/2010-11/14/21/201011142147143181-239867.jpg" id="img" alt="pic" width="1000">
+        <p>
+            <a href="javascript:;" class="btn" data-control="prev">上一张</a>
+            <a href="javascript:;" class="btn" data-control="next">下一张</a>
+        </p>
+    </div>
+    <!--进度条-->
+    <div class="loading">
+        <p class="progress">0%</p>
+    </div>
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script >
+        ;(function($){
+
+    function PreLoad(imgs, options){
+        //保存图片到数组
+        this.imgs = (typeof imgs === 'string') ? [imgs] : imgs;
+        this.opts = $.extend(PreLoad.defaults,options);
+
+        // this._unordered();//如果只有无序预加载
+        if(this.opts.order === 'ordered'){
+            this._ordered();
+        }else{
+            this._unordered();//默认是无序预加载
+        }
+    };
+    PreLoad.defaults = {
+        order: 'unordered', //指定默认加载方式为无序
+        each: null, //每一张图片加载完毕后执行
+        all: null //所有图片加载完毕后执行
+    };
+    //有序预加载
+    PreLoad.prototype._ordered = function(){
+        var opts = this.opts,
+            imgs = this.imgs,
+            len = imgs.length,
+            count = 0;
+
+        load();
+        function load(){
+            var imgObj = new Image();
+
+            $(imgObj).on('load error', function () {
+                //相当于if(opts.each){ opts.each(); } ，如果有配置each()方法则调用，后面的all()同理
+                opts.each && opts.each(count);
+
+                if(count >= len){
+                    //所有图片加载完毕
+                    opts.all && opts.all();
+                }else{
+                    //如果没加载完，继续调用自身加载下一张
+                    load();
+                }
+                count++;
+            });
+
+            imgObj.src = imgs[count];//缓存图片
+        };
+    };
+
+    //无序加载
+    PreLoad.prototype._unordered = function(){
+        var imgs = this.imgs,
+            opts = this.opts,
+            count = 0,
+            len = imgs.length;
+
+        $.each(imgs,function(i,src){
+            //判断图片数组中的每一项是否为字符串，不是字符串会导致出错，因此返回
+            if(typeof src != 'string') return;
+
+            var imgObj = new Image();
+
+            $(imgObj).on('load error',function(){
+                //判断opts.each是否存在，不存在则不执行
+                opts.each && opts.each(count);
+
+                if(count >= len - 1){
+                    //判断opts.all是否存在，存在则执行
+                    opts.all && opts.all();
+                }
+                count++;
+            });
+
+            imgObj.src = src;//缓存图片
+        });
+    };
+
+    //由于不用具体的对象去调用，因此用$.extend(object)挂载插件.
+    $.extend({
+        //preload为插件名
+       preload: function(imgs,opts) {
+           new PreLoad(imgs,opts);
+       }
+    });
+
+})(jQuery);
+    </script>
+    <script>
+        var imgs = ['http://image.hnol.net/c/2010-11/14/21/201011142147143181-239867.jpg',
+            'http://www.picperweek.com/resource/image/dbc3c16b-5fc6-48e5-aa48-c64739739da2.png',
+            'http://imgstore.cdn.sogou.com/app/a/100540002/406526.jpg'],
+            index = 0,
+            len = imgs.length;
+            $progress = $('.progress');
+              //有序预加载,可以不用写进度条部分，如果有写，需要手动配置each()、all()方法
+//            $.preload(imgs,{
+//                order:'ordered'
+//            });
+
+        //调用无序预加载   --imgs 数组存放预加载的图片
+        $.preload(imgs,{
+            //每张图片加载(load事件)一次触发一次each()
+            each:function (count) {
+                //进度条显示百分比进度
+                $progress.html(Math.round((count + 1) / len * 100) + '%');
+            },
+            //加载完毕
+            all: function () {
+                $('.loading').hide();
+                document.title = '1/' + len;//初始化第一张
+            }
+        });
+        //未封装成插件的无序预加载
+//        $.each(imgs,function(i,src){
+//            var imgObj = new Image();   //Image()实例用于缓存图片
+//
+//            $(imgObj).on('load error',function(){
+//                $progress.html(Math.round((count + 1) / len * 100) + '%');
+//
+//                if(count >= len - 1){
+//                    $('.loading').hide();
+//                    document.title = '1/' + len;
+//                }
+//                count++;//每加载完一张图片count加1
+//            });
+//
+//            imgObj.src = src;//缓存图片
+//        });
+        //上一页，下一页按钮
+        $('.btn').on('click',function(){
+            if('prev' === $(this).data('control')){
+                index = Math.max(0,--index);
+            }else{
+                index = Math.min(len - 1,++index);
+            }
+            document.title = (index + 1)+'/' + len;
+            $('img').attr('src',imgs[index]);
+        });
+    </script>
+</body>
+</html>

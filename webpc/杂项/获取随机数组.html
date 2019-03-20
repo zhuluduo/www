@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<p id="pid"></p>
+		<script type="text/javascript">
+			 var pid = document.getElementById('pid');
+		 var arr = [];
+		 for (var i = 0; i < 5; i++) {
+				 getx(arr);
+		 }
+		 var list = {
+				 name: '哈哈',
+		 }
+
+		 function getx(arr) {
+				 for (var i = 0; i > -1; i++) {
+						 var flag = true;
+						 var num = Math.floor(Math.random() * 10) + 1;
+						 for (var i in arr) {
+								 if (arr[i] == num) {
+										 flag = false;
+										 break;
+								 }
+						 }
+						 if (flag == true) {
+								 console.log(num);
+								 arr.push(num);
+								 return;
+						 }
+				 }
+		 }
+
+		 pid.innerHTML = arr;
+		</script>
+	</body>
+</html>

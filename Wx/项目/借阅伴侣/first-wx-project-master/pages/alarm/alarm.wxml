@@ -1,0 +1,19 @@
+<view class="container">
+
+  <view wx:for="{{currentAlarmList}}" wx:for-item="item" wx:key="id" class="block-section" style="margin-bottom:20rpx">
+    <view class="section-title">
+      <view class="section-title-left">{{item.service}}</view>
+    </view>
+    <view class="section-body">
+      <view class="alarm-attr">设备编号：{{item.serialNumber}}</view>
+      <view class="alarm-attr">设备IP：{{item.ip}}</view>
+      <view class="alarm-attr">设备类型：{{item.type}}</view>
+      <view class="alarm-attr">机房：{{item.idcName}}</view>
+      <view class="alarm-attr">机架：{{item.rack}}</view>
+      <view class="alarm-attr">故障等级：{{item.level}}</view>
+      <view class="alarm-attr">开始时间：{{item.startTime}}</view>
+      <view class="alarm-attr">故障详情：{{item.info}}</view>
+
+    </view>
+  </view>
+</view>

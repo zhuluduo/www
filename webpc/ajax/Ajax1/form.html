@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单验证</title>
+	<style type="text/css">
+    *{margin: 0;padding: 0}
+    body{font-size: 12px;padding: 100px}
+    .one{margin: 10px 0;}
+    .one label{width: 100px;float: left;text-align: right;height: 20px
+         border:1px solid #ccc;line-height: 20px;
+    }
+    .two{padding-left: 100px}
+	</style>
+</head>
+<body>
+    <form method="post" action="" >
+	<div class="one">
+	<label for="username">用户名:</label>
+	<input type="text" id="username" name="" class="a1">
+	</div>
+	<div class="one">
+	<label for="password">密码:</label>
+	<input type="password" id="password" name="" class="a1">
+	</div>
+	<div class="one">
+	<label for="password">确认密码:</label>
+	<input type="password" id="password" name="" class="a1">
+	</div>
+	<div class="one">
+	<label for="email">邮件:</label>
+	<input type="text" id="email" name="" class="a1">
+	</div>
+	<div class="one">
+	<label for="username">手机:</label>
+	<input type="text" id="tel" name="" class="a1">
+	</div>
+	<div class="two">
+ 	 <input type="submit" id="send" value="提交" name="">
+ 	 <input type="reset" id="res" value="重置" name="">
+	</div>
+    </form>
+   
+
+
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+</script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+         $('.a1').each(function(){
+         	var hdw=$('<strong>*</strong>');
+         	$(this).parent().append(hdw);
+         });
+
+         //表单失去焦点
+         $("form:input").blur(function(){
+         	$(this).parent().find('.a2').remove();
+             
+             if ($(this).is("#username")) {
+             	if (this.value==" " || this.value.length<6) {
+         		var hdw1=$("<span class='a2'>用户名不得小于6位</span>");
+         		$(this).parent().append(hdw1);
+         	}else{
+         		var hdw1=$("<span class='a2'>正确</span>");
+         		$(this).parent().append(hdw1);
+         	}
+             }
+            
+         })
+      })
+    </script>
+</body>
+</html>

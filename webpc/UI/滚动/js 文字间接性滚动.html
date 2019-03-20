@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>www.jb51.net - 间歇循环滚动</title>
+<style>
+#box{
+  height:240px;
+  width:300px;
+  margin:0 auto;
+  border:1px solid #0066FF;
+  overflow:hidden;
+  padding-bottom:20px;
+}
+#box li{
+  color:#333;
+  height:24px;
+}
+#box ul{
+  margin:0;
+  padding:0;
+}
+</style>
+</head>
+<body>
+<div id="box">
+  <ul id="con1">
+    <li>脚本之家1</li>
+    <li>脚本之家2</li>
+    <li>脚本之家3</li>
+    <li>脚本之家4</li>
+    <li>脚本之家5</li>
+    <li>脚本之家6</li>
+    <li>脚本之家7</li>
+    <li>脚本之家8</li>
+    <li>脚本之家9</li>
+  </ul>
+</div>
+<script>
+	var area=document.getElementById("box");
+	area.innerHTML+=area.innerHTML;
+	var liHeight=24;
+	area.scrollTop=0;
+	var delay=2000;
+	var speed=50;
+	var time;
+	function starMove(){
+	  area.scrollTop++;
+	  time=setInterval("scrollUp()",speed);
+	}
+	function scrollUp(){
+	  if(area.scrollTop%liHeight==0){
+	  clearInterval(time);
+	  setTimeout("starMove()",delay);
+	  }else{
+	  area.scrollTop++;
+	  if(area.scrollTop>=area.offsetHeight/2){
+	  area.scrollTop=0;
+	  }
+	  }
+	}
+	setTimeout("starMove()",delay);
+</script>
+</body>
+</html>

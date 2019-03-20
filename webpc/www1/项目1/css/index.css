@@ -1,0 +1,12 @@
+.public-header{
+	height: 110px;
+	background: #ccc;
+}
+.public-container{
+	position: relative;
+	margin: 0 auto;
+	background: red;
+	height: 100px;
+	
+   width: 810px;
+}

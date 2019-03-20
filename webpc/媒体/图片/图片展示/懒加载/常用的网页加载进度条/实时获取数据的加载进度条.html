@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>实时获取数据的加载进度条</title>
+		<style>
+			.loading{
+				width: 100%;height: 100%;position: fixed;top: 0;left: 0;z-index: 100;background: #fff;
+			}
+			.loading .pic{
+				width:100px;height: 100px;position: absolute;top: 0;
+				bottom: 0;left: 0;right: 0;margin: auto;border: 1px solid red;text-align: center;line-height: 100px;
+			}
+			.loading .pic span{display: block;position: absolute;width: 80px;height: 80px;top: 10px;left: 10px;
+			border-radius: 50%;box-shadow: 0 3px 0 #666;animation:transform 1s infinite linear;}
+			
+			@keyframes transform{
+				from{transform: rotate(0deg);}
+				to{transform: rotate(360deg);}
+			}
+			@-webkit-keyframes transform{
+				from{transform: rotate(0deg);}
+				to{transform: rotate(360deg);}
+			}
+		</style>
+		<script src="jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var img=$("img");  //获取所有图片
+				var num=0
+				img.each(function(i){
+					var oImg=new Image()//获取图片集合
+					oImg.onload=function(){
+						//防止多次请求，请求前先清onload
+						oImg.onload=null
+						num++
+						$(".loading b").html(parseInt(num/$("img").size()*100)+'%')
+						console.log(i)
+						if(num>=i){
+							$(".loading").fadeOut()
+						}
+					}
+					oImg.src=img[i].src
+				})
+				
+				
+			})
+		</script>
+	</head>
+	<body>
+		<!--知识点-->
+		<!--建立图像对象：图像对象名称=new image()-->
+		<!--src属性一定要写到onload后面，否则程序在ie中会出错-->
+		<div class="loading">
+			<div class="pic">
+				<span></span>
+				<b>0%</b>
+			</div>
+		</div>
+		<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2709542152,451105615&fm=27&gp=0.jpg" alt="" />
+		<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2726092124,3923445819&fm=27&gp=0.jpg" alt="" />
+		<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4163287375,1388332151&fm=27&gp=0.jpg" alt="" />
+		<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1754637869,1820415652&fm=27&gp=0.jpg" alt="" />
+		<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3502464800,2158996294&fm=27&gp=0.jpg" alt="" />
+		<img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=774669671,3645987209&fm=27&gp=0.jpg" alt="" />
+		<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3382799466,1389574938&fm=27&gp=0.jpg" alt="" />
+		<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=918378619,3273270434&fm=27&gp=0.jpg" alt="" />
+		<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3421824154,3453334784&fm=27&gp=0.jpg" alt="" />
+		<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2594681440,3265576004&fm=27&gp=0.jpg" alt="" />
+		<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1154308109,186971012&fm=27&gp=0.jpg" alt="" />
+		<img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2019748355,33761741&fm=27&gp=0.jpg" alt="" />
+	</body>
+</html>

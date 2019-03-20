@@ -1,0 +1,5 @@
+<!--pages/fmc/fmc.wxml-->
+<view>
+<button type="primary"  bindtap="primary"> primary </button>
+<text>123</text>
+</view>

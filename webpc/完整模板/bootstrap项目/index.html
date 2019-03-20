@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+		<title>bootstrap项目实战</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/bootsteap-zhu.css" />
+		<link rel="stylesheet" href="css/animate.min.css" />
+		<script type="text/javascript" src="js/jquery-3.0.0.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="js/jquery.singlePageNav.min.js" ></script>
+		<script type="text/javascript" src="js/wow.min.js" ></script>
+	  <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+      <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+      <!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+      <script>
+    $(function(){
+        /*导航跳转效果插件*/
+        $('.nav').singlePageNav({
+            offset:70
+        });
+        /*小屏幕导航点击关闭菜单*/
+        $('.navbar-collapse a').click(function(){
+            $('.navbar-collapse').collapse('hide');
+        });
+        new WOW().init();
+    })
+
+</script>
+
+	</head>
+	<body>
+		<!--导航-->
+		<nav class="navbar navbar-default navbar-fixed-top" >
+			<!--<div class="container-fluid">导航显示100%宽-->
+			<div class="container">
+				<!--小屏幕导航按钮logo-->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" 
+         data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="javascipt:;" class="navbar-brand">小朱定制</a>
+				</div>
+				<!--小屏幕导航按钮logo-->
+				
+				<!--导航-->
+				<div class="navbar-collapse collapse" id="example-navbar-collapse">
+			     <ul class="nav navbar-nav navbar-right" id="nav">
+			     	<li><a href="#home-banner">首页</a></li>
+			     	<li><a href="#forum">论坛</a></li>
+			     	<li><a href="#html5">前端开发</a></li>
+			     	<li><a href="#course">最新课程</a></li>
+			     	<li><a href="#app">移动APP</a></li>
+			     	<li><a href="#contact">联系我们</a></li>
+			     	
+			     </ul>
+				</div>
+			</div>
+			
+		</nav>
+		<!--导航-->
+		<!--home第一屏-->
+		<section id="home-banner">
+			<div class="home-opacity">
+			<div class="container">
+				<div class="row " data-wow-duration="1s" data-wow-delay="1s">
+					<div class="col-md-1"></div>
+					<div class="col-md-10">
+						<h1>bootstrap</h1>
+						<p>第一段内容<br/>第一段内容</p>
+						<img src="imges/php.jpg" class="img-responsive">
+					</div>
+					<div class="col-md-1"></div>
+				</div>
+			</div>
+			</div>
+		</section>
+		<!--home第一屏-->
+		
+		<!--技术交流forum-->
+		<section id="forum">
+			<div class="container">
+				<div class="row wow fadeInUp" data-wow-duration="0.5s">
+					<div class="col-md-4">
+						<a href="#" target="_blank">
+						<img src="imges/a.png" class="img-responsive">
+						<h3>开发</h3>
+						<p>开发</p>
+						</a>
+					</div>
+					<div class="col-md-4">
+						<a href="#" target="_blank">
+						<img src="imges/i.png" class="img-responsive">
+						<h3>开发</h3>
+						<p>开发</p>
+						</a>
+					</div>
+					<div class="col-md-4">
+						<a href="#" target="_blank">
+						<img src="imges/b.png" class="img-responsive">
+						<h3>开发</h3>
+						<p>开发</p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--技术交流forum-->
+		<!--html5-->
+		<section id="html5">
+			<div class="container">
+				<div class="col-md-6 wow fadeInLeft">
+					<h2>html前端开发</h2>
+					<p><span class="glyphicon glyphicon-cloud html5-icon"></span>打造前端工程师</p>
+					<p><span class="glyphicon glyphicon-cloud html5-icon"></span>打造前端工程师</p>
+				</div>
+				<div class="col-md-6 wow fadeInRight">
+					<img src="imges/html5.jpg"  class="img-responsive" >
+				</div>
+			</div>
+		</section>
+		<!--html5-->
+		
+		<!--bootstrap-void-->
+		<section id="bootstrap">
+			<div class="container wow fadeInUp">
+				<div class="col-md-6">
+					<img src="imges/Bootstrap.jpg"  class="img-responsive" >
+				</div>
+				<div class="col-md-6">
+					<h2>html前端开发</h2>
+					<p><span class="glyphicon glyphicon-cloud html5-icon"></span>打造前端工程师</p>
+					<p><span class="glyphicon glyphicon-cloud html5-icon"></span>打造前端工程师</p>
+				</div>
+			</div>
+		</section> 
+		<!--bootstrap-void-->
+		
+		<!--course-->
+		<section id="course">
+			<div class="container">
+                 <div class="row wow fadeIn">
+                 	<div class="col-md-12">
+                 		<h2>最新课程</h2>
+                 	</div>
+                 	<div class="col-md-3">
+                 		<div class="course">
+                 		<img src="imges/swift.jpg" class="img-responsive"/>
+                 		<a href="" class="btn btn-primary" role="button" target="_blank">加入学习</a>
+                 		</div>
+                 	</div>
+                 	<div class="col-md-3">
+                 		<div class="course">
+                 		<img src="imges/swift.jpg" class="img-responsive"/>
+                 		<a href="" class="btn btn-primary" role="button" target="_blank">加入学习</a>
+                 		</div>
+                 	</div>
+                 	<div class="col-md-3">
+                 		<div class="course">
+                 		<img src="imges/swift.jpg" class="img-responsive"/>
+                 		<a href="" class="btn btn-primary" role="button" target="_blank">加入学习</a>
+                 		</div>
+                 	</div>
+                 	<div class="col-md-3">
+                 		<div class="course">
+                 		<img src="imges/swift.jpg" class="img-responsive"/>
+                 		<a href="" class="btn btn-primary" role="button" target="_blank">加入学习</a>
+                 		</div>
+                 	</div>
+                 	<div class="col-md-3">
+                 		<div class="course">
+                 		<img src="imges/swift.jpg" class="img-responsive"/>
+                 		<a href="" class="btn btn-primary" role="button" target="_blank">加入学习</a>
+                 		</div>
+                 	</div>
+                 	<div class="col-md-3">
+                 		<div class="course">
+                 		<img src="imges/swift.jpg" class="img-responsive"/>
+                 		<a href="" class="btn btn-primary" role="button" target="_blank">加入学习</a>
+                 		</div>
+                 	</div>
+                 	<div class="col-md-3">
+                 		<div class="course">
+                 		<img src="imges/swift.jpg" class="img-responsive"/>
+                 		<a href="" class="btn btn-primary" role="button" target="_blank">加入学习</a>
+                 		</div>
+                 	</div>
+                 	<div class="col-md-3">
+                 		<div class="course">
+                 		<img src="imges/swift.jpg" class="img-responsive"/>
+                 		<a href="" class="btn btn-primary" role="button" target="_blank">加入学习</a>
+                 		</div>
+                 	</div>
+                 </div>
+			</div>
+		</section>
+		<!--course-->
+		
+		<!--app-->
+		<section id="app">
+			<div class="container">
+				<div class="row wow fadeInUp">
+					<div class="col-md-6">
+						<h2>移动app</h2>
+						<p>全新ui交互,网站数据同步</p>
+						<button class="btn btn-primary">
+							<span class="glyphicon glyphicon-download-alt">安卓版</span>
+						</button>
+						<button class="btn btn-primary">
+							<span class="glyphicon glyphicon-download-alt">安卓版</span>
+						</button>
+					</div>
+					<div class="col-md-6">
+						<img src="imges/app-banner.jpg" class="img-responsive">
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--app-->
+		<!--contact-->
+		<section id="contact">
+			<div class="home-opacity">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6  wow fadeInLeft">
+							<h2><span class="glyphicon glyphicon-screenshot"></span>联系我</h2>
+							<p>你一定要联系我</p>
+							<address>
+								<p ><span class="glyphicon glyphicon-home">地址:湖北省武汉市洪山区</span></p>
+								<p ><span class="glyphicon glyphicon-phone-alt">电话：123456789101</span></p>
+								<p ><span class="glyphicon glyphicon-envelope">邮箱：1296727625@qq.com</span></p>
+							</address>
+						</div>
+						<div class="col-md-6 wow fadeInRight">
+							<form action="#" method="post">
+								<div class="col-md-6">
+									<input type="text" class="form-name form-control" placeholder="您的姓名">
+								</div>
+								<div class="col-md-6">
+									<input type="email" class="form-email form-control" placeholder="您的邮箱">
+								</div>
+								<div class="col-md-12">
+									<input type="text" class="form-email form-control" placeholder="标题">
+								</div>
+								<div class="col-md-12">
+									<textarea class="form-control"  rows="4" placeholder="留言内容"></textarea>
+										
+									
+								</div>
+								<div class="col-md-8">
+									<input type="submit" class="form-control" value="提交">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+		    </div>
+		</section>
+		<!--contact-->
+		<!--footer-->
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<p>Copyright&nbsp; 2016</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!--footer-->
+	</body>
+</html>

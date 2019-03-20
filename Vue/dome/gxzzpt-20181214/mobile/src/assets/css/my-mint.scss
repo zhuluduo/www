@@ -1,0 +1,27 @@
+$color-primary: #26a2ff;
+
+body {
+    margin: 0;
+}
+
+.mint-header {
+    background-color: #fafafa;
+    color: #333;
+    padding: 0;
+    border:0.5px solid #ebebeb; border-style:none none solid none;
+}
+
+.mint-tabbar {
+    border:0.5px solid #ebebeb; border-style:solid none none none;
+}
+
+.mint-tabbar > .mint-tab-item {
+    background-color: #fafafa;
+    font-size: 24px;
+}
+
+.mint-tabbar > .mint-tab-item.is-selected {
+    color: $color-primary;
+    background-color: #fafafa;
+    font-size: 24px;
+}

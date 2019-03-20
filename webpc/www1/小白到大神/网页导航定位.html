@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页导航定位</title>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+	<style>
+		*{margin: 0;padding: 0}
+		li{list-style: none;}
+		#content{
+			width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+		#content h1{
+			color: #0088bb;
+		}
+		#content .item{
+			padding: 20px;
+			margin-bottom: 20px;
+			border: 1px solid red;
+		}
+		#content .item h2{
+			border-bottom: 2px solid #0088bb;
+			margin-bottom: 10px;
+		}
+		#content .item li{
+			display: inline;
+			margin-right: 10px;
+		}
+		#content .item li img{
+			width: 230px;height: 230px;border: none;
+		}
+		#menu{
+			position: fixed;top: 100px;left: 50%;margin-left: 400px;width: 80px;background: red
+		}
+		#menu ul li a{
+			display: block;
+			margin: 5px 0;
+			color: #333;
+			width: 80px;height: 50px;
+			line-height: 50px;
+			text-decoration: none;
+			text-align: center;
+		}
+		.current{background: black}
+	</style>
+</head>
+<body>
+	<div id="menu">
+		<ul>
+			<li><a href="#item1" class="current">1f</a></li>
+			<li><a href="#item2">2f</a></li>
+			<li><a href="#item3">3f</a></li>
+			<li><a href="#item4">4f</a></li>
+			<li><a href="#item5">5f</a></li>
+		</ul>
+	</div>
+	<div id="content">
+		<h1>地沟购物网</h1>
+		<div id="item1" class="item">
+			<h2>1f 男装1</h2>
+			<ul>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+			</ul>
+		</div>
+			<div id="item2" class="item">
+			<h2>2f 男装2</h2>
+			<ul>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+			</ul>
+		</div>
+			<div id="item3" class="item">
+			<h2>3f 男装3</h2>
+			<ul>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+			</ul>
+		</div>
+			<div id="item4" class="item">
+			<h2>4f 男装4</h2>
+			<ul>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+			</ul>
+		</div>
+			<div id="item5" class="item">
+			<h2>5f 男装5</h2>
+			<ul>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+				<li><a href="#"><img src="http://c7.gg/8TCc" alt=""></a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- jq实现 -->
+<!-- 	<script>
+		$(document).ready(function(){
+			//监听滚动条
+			$(window).scroll(function(){
+			//获取滚动距离
+			var top=$(document).scrollTop()
+			var menu=$("#menu")
+			var items=$("#content").find(".item");
+			var currentId="";
+			items.each(function(){
+				var _this=$(this);
+				var itemTop=_this.offset().top;
+				if(top>itemTop-200){
+					currentId="#"+_this.attr("id");
+				}else {
+					return false;
+				}
+				console.log(itemTop)
+			});
+
+			var currentLink=menu.find(".current");
+			if(currentId&&currentLink.attr("href")!=currentId){
+				currentLink.removeClass('current')
+				menu.find("[href="+currentId+"]").addClass('current')
+			}
+			})
+		})
+	</script> -->
+	
+	<!-- js实现 -->
+	<script>
+		window.onload=function(){
+			window.onscroll=function(){
+			 //获取滚动距离
+			 var top= document.documentElement.scrollTop || document.body.scrollTop;
+			 
+			 var menus=document.getElementById("menu").getElementByTagName("a");
+
+			 var items=document.getElementById("content").getElementByClassName("item")
+			}
+		}
+	</script>
+</body>
+</html>

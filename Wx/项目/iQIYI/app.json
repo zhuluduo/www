@@ -1,0 +1,51 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/video/video",
+        "pages/search/search-result/search-result",
+        "pages/my/my",
+        "pages/search/search",
+        "pages/index/video-detail/video-detail",
+        "pages/channel/channel",
+        "pages/HBDC/HBDC"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#1e1e1e",
+        "navigationBarTitleText": "爱奇艺视频",
+        "navigationBarTextStyle": "white"
+    },
+    "tabBar": {
+        "list": [{
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/indexIcon.png",
+                "selectedIconPath": "images/indexIcon_selected.png"
+            },
+            {
+                "pagePath": "pages/video/video",
+                "text": "热点",
+                "iconPath": "images/videoIcon.png",
+                "selectedIconPath": "images/videoIcon_selected.png"
+            },
+            {
+                "pagePath": "pages/HBDC/HBDC",
+                "text": "热血街舞团",
+                "iconPath": "images/HBDC.png",
+                "selectedIconPath": "images/HBDC.png"
+            },
+            {
+                "pagePath": "pages/channel/channel",
+                "text": "频道",
+                "iconPath": "images/channelIcon.png",
+                "selectedIconPath": "images/channelIcon_selected.png"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "我的",
+                "iconPath": "images/myIcon.png",
+                "selectedIconPath": "images/myIcon_selected.png"
+            }
+        ]
+    }
+}

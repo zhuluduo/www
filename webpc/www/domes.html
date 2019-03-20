@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 20px;
+				background: red;
+			}
+			.box:hover+.boxs{
+				background: forestgreen;
+			}
+			.boxs{
+				width: 100px;
+				height: 20px;
+				background: blanchedalmond;
+			}
+			.boxs:before{
+				content:"+";
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				background: rgba(255,0,0,.3);
+				position: absolute;
+				left: 20px;
+				top: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"> 
+			12312313
+		</div>
+		<div class="boxs">
+			12323
+		</div>
+		<script type="text/javascript">
+			const box = {};
+			box.bos = function(c){
+				let cx = c||20
+				let a=10;
+				let b=10;
+				return a+b+cx;
+			}
+			console.log(box.bos())
+		</script>
+	</body>
+</html>

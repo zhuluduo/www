@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+ <table>
+        <tr>
+            <td> <input type="checkbox" name="" id="ce" value="" /></td>
+            <td>111</td>
+            <td>1113</td>
+            <td>1114</td>
+            <td>11122</td>
+            <td><input type="button" name="del" value="clcik" /></td>
+        </tr>
+              <tr>
+            <td> <input type="checkbox" name="" id="" value="" /></td>
+            <td>111</td>
+            <td>1113</td>
+            <td>1114</td>
+            <td>11122</td>
+            <td><input type="button" name="del" value="clcik" /></td>
+        </tr>
+              <tr>
+            <td> <input type="checkbox" name="" id="" value="" /></td>
+            <td>111</td>
+            <td>1113</td>
+            <td>1114</td>
+            <td>11122</td>
+            <td><input type="button" name="del" value="clcik" /></td>
+        </tr>
+              <tr>
+            <td> <input type="checkbox" name="" id="" value="" /></td>
+            <td>111</td>
+            <td>1113</td>
+            <td>1114</td>
+            <td>11122</td>
+            <td><input type="button" name="del" value="clcik" /></td>
+        </tr>
+              <tr>
+            <td> <input type="checkbox" name="" id="" value="" /></td>
+            <td>111</td>
+            <td>1113</td>
+            <td>1114</td>
+            <td>11122</td>
+            <td><input type="button" name="del" value="clcik" /></td>
+        </tr>
+        </table>
+		<script type="text/javascript">
+	$(function(){
+
+//$('input:checkbox').each(function (index, domEle) {
+//  if(domEle.checked){
+//  	console.log('1');
+//  }else{
+//  		console.log('2');
+//  	}
+//});
+$('input:checkbox').click(function(){
+	ifchecked=$(this).prop('checked');//判断  input:checked是否被选中
+	console.log(ifchecked);
+	if(ifchecked==true){
+$(this).parent().parent().css('background','red');
+		
+	}else{
+		$(this).parent().parent().css('background','#754f4f');
+	}
+})
+});
+		</script>
+	</body>
+</html>

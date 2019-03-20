@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>插入节点</title>
+	</head>
+	<body>
+		<ul id="test">
+  <li>JavaScript</li>
+  <li>HTML</li>
+</ul> 
+<input type="button" value="添加" onclick="zhu()"> 
+<input type="button" value="在添加一个" onclick="zu()" />
+<input type="button" value="删除" onclick="sc()">
+<script>
+//	function zhu(){
+//		  var otest = document.getElementById("test"); 
+//	var b=document.createElement('li');
+//	b.innerHTML='php';
+//
+//	otest.appendChild(b);
+//	}
+
+
+
+function zhu(){
+	var a=document.getElementById('test');
+	var b=document.createElement('li');
+	b.innerHTML='phph';
+	a.appendChild(b);
+}
+  function   zu(){
+	var a=document.getElementById('test');
+	var b=document.getElementsByTagName('li')[3];
+	var c=document.createElement('li');
+	c.innerHTML='测试';
+	a.insertBefore(c,b);
+}
+</script>
+<script>
+	function sc(){
+		var a=document.getElementById('test');
+		var b=a.removeChild(a.childNodes[3]);
+//for(i=0;i<content.childNodes.length;i++)
+//{
+//    var x=content.removeChild(content.childNodes[i]);
+//}
+	}
+	//法一,一次性清除节点内容
+//   for(var i=0;i<content.childNodes.length;i++){
+//       if(content.childNodes[i].nodeType!=1){   
+//          continue;  
+//       }else{
+//          content.removeChild(content.childNodes[i]);    
+//       }
+         
+//       }
+</script>
+	</body>
+</html>

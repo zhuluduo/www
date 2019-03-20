@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>根据子集个数改变导航高度的导航条</title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;list-style: none;}
+			a{text-decoration: none;}
+			body{background: #999;}
+			.header{padding: 0 30px;width: 100%;min-width: 1000px;height: 70px;background: #fff;
+			box-sizing: border-box;}
+		    .header .logo{float: left;margin-top: 10px;}
+		    .header .logo img{height: 50px;}
+		    .header .nav{float: right;}
+		    .header .nav li{float: left;position: relative;}
+		    .header .nav li>a{color: #333;display: block;
+		      line-height: 70px;padding: 0 25px;}
+		     .header .nav .dow{position: absolute;top: 70px;left: 0;padding-left: 25px;padding-top: 10px;display: none;z-index: 5;}
+		     .header .nav .dow a{display: block;line-height: 30px;color: #666;}
+		     .header .hd_bg{width: 100%;position: absolute;top: 70px;height: 0px;background: rgba(0,204,153,0.5);left: 0;z-index: 4;}
+		</style>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+	     <script type="text/javascript">
+	     	$(function(){
+	     		$(".header .nav li").hover(function(){
+	     			var h=$(this).find(".dow").outerHeight();
+	     			$(".hd_bg").stop().animate({height:h})
+	     			$(this).find(".dow").slideDown();
+	     		},function(){
+	     			$(".hd_bg").stop().animate({height:0})
+	     			$(this).find(".dow").slideUp();
+	     		})
+	     		
+	     	})
+	     </script>
+	</head>
+	<body>
+		<div class="header">
+			<a href="#" class="logo"><img src="../../轮播/img/4.jpg" alt=""/></a>
+			<ul class="nav">
+				<li><a href="#">首页1</a>
+					<div class="dow">
+						<a href="#">1</a>
+						<a href="#">1</a>
+						<a href="#">1</a>
+						<a href="#">1</a>
+					</div>
+				</li>
+				<li><a href="#">首页1</a>
+					<div class="dow">
+						<a href="#">2</a>
+						<a href="#">1</a>
+						<a href="#">1</a>
+						<a href="#">1</a>
+					</div>
+				</li>
+				<li><a href="#">首页1</a>
+				<div class="dow">
+					<a href="#">3</a>
+					<a href="#">1</a>
+					<a href="#">1</a>
+					<a href="#">1</a>
+				</div>
+				</li>
+				<li><a href="#">首页1</a>
+					<div class="dow">
+						<a href="#">4</a>
+						<a href="#">1</a>
+					</div>
+				</li>
+				<li><a href="#">首页1</a></li>
+			</ul>
+			<div class="hd_bg"></div>
+		</div>
+	</body>
+</html>

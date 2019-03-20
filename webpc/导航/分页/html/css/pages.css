@@ -1,0 +1,52 @@
+	.page_ctrl{
+		text-align: center;
+		box-sizing: border-box;
+	}
+	.page_ctrl *{
+		line-height: 26px;
+	}
+	.page_ctrl button{
+		margin:0 3px;
+		width: 22px;
+		height: 22px;
+		line-height: 22px;
+		background:none;
+		border: 1px solid #e3e3e3;
+		color: #bcbcbc;
+		cursor: pointer;
+		outline: none;
+		text-align: center;
+	}
+	.page_ctrl .btn_dis{
+		cursor: pointer;
+		width: 22px;
+		height: 22px;
+		line-height: 22px;
+		border: solid 1px #e3e3e3;
+		background: none;
+	}
+	.page_ctrl .page_num{
+		color: #898989;
+		background: none;
+		border: none;
+		font-size: 14px;
+		vertical-align: middle;
+	}
+	.page_ctrl .current_page{
+		color: #3f8def;
+	}
+	.page_ctrl .input_page_num{
+		width:30px;
+		height: 26px;
+		margin:0 3px;
+		padding: 0;
+		text-align: center;
+		background: #ffffff;
+		border: 1px solid #e5e5e5;
+		color: #5e5e5e;
+		outline: none;
+	}
+	.page_ctrl .page_total,.page_ctrl .page_text{
+		color: #2b2b2b;
+		font-size: 13px;
+	}

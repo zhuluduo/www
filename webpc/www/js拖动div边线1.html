@@ -1,0 +1,57 @@
+<!DOCTYPE html>  
+<html>  
+    <head>  
+        <meta charset="UTF-8">  
+        <title></title>  
+        <style type="text/css">  
+             *{margin: 0;padding: 0;}
+            #box{position: absolute;left: 0;width: 100%;height: 200px;background-color: #007AFF;} 
+            #line{width: 100%;height:5px; background-color: #000;position: absolute; top: 200px;cursor: n-resize;} 
+        </style>  
+        <script type="text/javascript">  
+            window.onload=function(){  
+                var oBox=document.getElementById('box'); 
+                var oLine = document.getElementById('line');
+                var b='';//声明两个空变量a，b；  
+                var a='';  
+                oLine.onmousedown=function(ev){  
+                    var iEvent=ev||event;  
+                    var dx=iEvent.clientX;//当你第一次单击的时候，存储x轴的坐标。  
+                    var dy=iEvent.clientY;//当你第一次单击的时候，储存Y轴的坐标。  
+                    var dw=oBox.offsetWidth;//存储默认的div的宽度。  
+                    var dh=oBox.offsetHeight;//存储默认的div的高度。  
+                    var disright=oBox.offsetLeft+oBox.offsetWidth;//存储默认div右边距离屏幕左边的距离。  
+                    var distop=oBox.offsetHeight+oBox.offsetTop;//存储默认div上边距离屏幕左边的距离。  
+                    if(iEvent.clientY<oBox.offsetHeight+10){//同理  
+                        b='dow';  
+                    }  
+                    document.onmousemove=function(ev){  
+                        var iEvent=ev||event;
+                        if(b=='dow'){  
+//                          oBox.style.width=dw-(iEvent.clientX-dx)+'px';//iEvent.clientX-dx表示第二次鼠标的X坐标减去第一次鼠标的X坐标，得到绿色移动的距离（为负数），再加上原本的div宽度，就得到新的宽度。   
+//                          oBox.style.left=disright-oBox.offsetWidth+'px';//disright表示盒子右边框距离左边的距离，disright-当前的盒子宽度，就是当前盒子距离左边的距离  
+//                          oLine.style.left = disright-oBox.offsetWidth-2+'px';//disright表示盒子右边框距离左边的距
+                            oBox.style.height=dh+(iEvent.clientY-dy)+'px';
+//                          oBox.style.top=distop-oBox.offsetHeight+'px';
+                            oLine.style.top = dh+(iEvent.clientY-dy)+'px';
+                            if(oBox.offsetHeight<=190){  
+                                oBox.style.height='190px';  
+								oLine.style.top='190px';
+                            }  
+                        }  
+                          
+                    };  
+                    document.onmouseup=function(){  
+                        document.onmousedown=null;  
+                        document.onmousemove=null;  
+                    };  
+                    return false;  
+                };  
+            };  
+        </script>  
+    </head>  
+    <body style="height: 100%;">  
+            <div id="line"></div>
+        <div id="box"></div>  
+    </body>  
+</html>

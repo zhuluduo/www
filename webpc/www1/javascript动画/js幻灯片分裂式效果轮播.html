@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>js幻灯片分裂式效果轮播</title>
+		<style type="text/css">
+			.ImgList {
+				position:relative;
+				display:block;
+				width:840px;
+				height:308px;
+				background-repeat:no-repeat;
+				border:1px solid #ccc;
+				background-size:100% 100%;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="ImgList" id="img" href="javascript:void(0)"></div>
+		<script type="text/javascript">
+		function onloadList(){
+			var data=[
+				 "https://picsum.photos/840/304?image=301",
+				 "https://picsum.photos/840/304?image=302",
+				 "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3730401362,2143039791&fm=26&gp=0.jpg",
+				 "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3131779084,2995325255&fm=26&gp=0.jpg"
+				 ];
+			 var aImg
+			 function Initiali(){
+				 var img = document.querySelector("#img")
+					 aImg =data|| ["https://picsum.photos/840/304?image=301","https://picsum.photos/840/304?image=302"];
+				 img.style.backgroundImage = 'url(' + aImg[0] + ')';
+			 }
+			 Initiali();
+	
+			 function explore(index) {
+				 var C = 6;
+				 var R = 3;
+	
+				 var w = img.offsetWidth;
+				 var h = img.offsetHeight;
+				 for (var i = 0; i < R; i++) {
+					 for (var j = 0; j < C; j++) {
+						 (function() {
+							 var oDiv = document.createElement("div");
+							 setStyle(oDiv, {
+								 position: 'absolute',
+								 left: Math.floor(w / C) * j + 'px',
+								 top: Math.floor(h / R) * i + 'px',
+								 width: Math.floor(w / C) + "px",
+								 height: Math.floor(h / R) + "px",
+								 background: 'url(' + aImg[index] + ') ' + -Math.floor(w / C) * j + 'px ' + -Math.floor(h / R) * i + 'px  no-repeat',
+								 transition: '0.5s all ease-out',
+							 })
+							 img.append(oDiv);
+							 var l = (Math.floor(w / C) * j - w / 3) * rnd(2, 3) + Math.floor(w / C) - w / (2 * C);
+							 var t = (Math.floor(h / R) * i - h / 2) * rnd(2, 3) + Math.floor(h / R) - h / (2 * R);
+	
+							 setTimeout(function() {
+								 setStyle(oDiv, {
+									 left: l + 'px',
+									 top: t + 'px',
+									 transform: 'rotateX(' + rnd(-180, 180) + 'deg) ' + 'rotateY(' + rnd(-180, 180) + 'deg) ' + 'rotateZ(' + rnd(-180, 180) + 'deg)    scale(' + rnd(1.5, 2) + ')',
+									 opacity: 0
+								 })
+							 }, 200)
+						 })()
+					 }
+				 }
+				 // if (index < 2) {
+				 if (index < aImg.length-1) {
+					 img.style.backgroundImage = 'url(' + aImg[index + 1] + ')';
+					 img.style.backgroundSize = '100% 100%';
+				 } else {
+					 img.style.backgroundImage = 'url(' + aImg[0] + ')';
+				 }
+			 }
+			function TimeSpeend(){
+				explore(0);
+				var index = 0;
+				setInterval(function() {
+					// if (index < 2) {
+				if (index < aImg.length-1) {
+						index++;
+					} else {
+						index = 0;
+					}
+					explore(index);
+				}, 2000)
+			};
+			TimeSpeend();
+			
+			function setStyle(obj, json) {
+				 for (i in json) {
+					 obj.style[i] = json[i];
+				 }
+			 }
+			
+			 function rnd(a, b) {
+				 return Math.random() * (b - a) + a;
+			 }
+		}
+		onloadList()
+		</script>
+	</body>
+</html>

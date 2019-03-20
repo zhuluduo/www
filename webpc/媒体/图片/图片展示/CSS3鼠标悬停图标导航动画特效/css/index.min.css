@@ -1,0 +1,219 @@
+@charset "utf-8";
+/*框架预览 CSS*/
+.mkeBody{ background:#121212;}
+.mkeHeadBox{ padding: 30px 10px; text-overflow: ellipsis; white-space: nowrap; margin: 0; color: #fff; text-align: center; overflow: hidden; border-bottom: 3px solid #666; box-shadow: inset 0 -2px 3px #000000; letter-spacing: 1px; font: 26px/26px "微软雅黑"; }
+.mkeFooterBox{ padding: 25px 10px; text-overflow: ellipsis; margin: 0; color: #fff; font-size: 14px; line-height: 24px; text-align: center; overflow: hidden; border-top: 3px solid #666; box-shadow: inset 0 2px 3px #000000; }
+.mkeContentBox{ background:#fff; padding:50px 0 50px 0}
+.mkeContentBox:after{height:0; clear:both;}
+.mkeFooterBox p,.mkeFooterBox div{padding:0; margin:0; line-height:26px; font-size:14px;}
+.mkeFooterBox a{color:#fff; white-space:nowrap}
+.mkeButton{background:#F36; display:inline-block; text-decoration:none; width:102px; border-radius:0.3em; transition:all 0.3s ease}
+.mkeButton:hover{ background: #FF1550; }
+.mkeURL{font-size:24px;}
+.mkeFooterBox .mKeBannerAD{ width: 728px; height: 90px; margin: 18px auto 0; }
+.mkeFooterBox .mSmallKeBannerAD{display:none;}
+@media only screen and (max-width:900px){
+.mkeButton {display:block; margin:8px auto 0;}
+}
+@media only screen and (max-width:767px){
+.mkeHeadBox{font-size:18px; padding:15px 10px;}
+.mkeFooterBox p,.mkeFooterBox div{ line-height:24px; font-size:12px;}
+.mkeURL{font-size:22px;}
+.mkeFooterBox .mKeBannerAD{display:none;}
+.mkeFooterBox .mSmallKeBannerAD{width:300px; height:250px; margin:18px auto 0; display:block;}
+}
+/*End*/
+
+/*主要CSS*/
+*{
+	padding: 0;
+	margin: 0;
+}
+a,a:hover{
+	text-decoration: none;
+}
+section.business {
+	background: url(../images/wallpaper2.jpg) 50% bottom;
+}
+
+.business .box {
+	width: 1200px;
+	margin: 0 auto;
+	position: relative;
+	-webkit-transition: all .3s ease-in-out 0s;
+	-moz-transition: all .3s ease-in-out 0s;
+	-ms-transition: all .3s ease-in-out 0s;
+	-o-transition: all .3s ease-in-out 0s;
+	transition: all .3s ease-in-out 0s;
+}
+
+.business .box ul.items {
+	margin: 0 auto;
+
+}
+
+.business .box ul.items li {
+	width: 200px;
+	height: 300px;
+	margin: 0 8px;
+	background: url(../images/bg_green.png) no-repeat 0px 400px;
+	overflow: hidden;
+	display: inline-block;
+}
+
+.business .box ul.items li i {
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 43px;
+	height: 69px;
+}
+
+.business .box ul.items li.pc i {
+	width: 69px;
+	background: url(../images/words.png) no-repeat -245px -357px;
+}
+
+.business .box ul.items li.mobi i {
+	width: 64px;
+	background: url(../images/words.png) no-repeat -416px -291px;
+}
+
+.business .box ul.items li.sys i {
+	width: 76px;
+	background: url(../images/words.png) no-repeat -415px -362px;
+}
+
+.business .box ul.items li.app i {
+	width: 74px;
+	background: url(../images/words.png) no-repeat -244px -439px;
+}
+
+.business .box ul.items li.host i {
+	width: 79px;
+	background: url(../images/words.png) no-repeat -420px -439px;
+}
+
+.business .box ul.items li u {
+	display: block;
+	position: absolute;
+	width: 156px;
+	height: 156px;
+	margin-left: 22px;
+	background: url(../images/words.png) no-repeat 0px -363px;
+	-webkit-transition: all .5s ease-in-out 0s;
+	-moz-transition: all .5s ease-in-out 0s;
+	-ms-transition: all .5s ease-in-out 0s;
+	-o-transition: all .5s ease-in-out 0s;
+	transition: all .5s ease-in-out 0s;
+}
+
+.business .box ul.items li u.cl {
+	clip: rect(0px,156px,-10px,78px);
+}
+
+.business.active .box ul.items li u.cl {
+	clip: rect(0px,156px,156px,78px);
+}
+
+.business .box ul.items li u.cr {
+	clip: rect(156px,78px,156px,0px);
+}
+
+.business.active .box ul.items li u.cr {
+	clip: rect(0px,78px,156px,0px);
+}
+
+.business .box ul.items li strong {
+	display: block;
+	margin-top: 70px;
+	font-size: 16px;
+	font-weight: normal;
+	text-align: center;
+}
+
+.business .box ul.items li p {
+	position: relative;
+	top: 200px;
+	color: White;
+	font-family: Arial,"宋体";
+	font-size: 12px;
+	line-height: 20px;
+	text-align: center;
+}
+
+.business .box ul.items li:hover {
+	background-position: 0px 0px;
+	-webkit-transition: all .5s ease-in-out .3s;
+	-moz-transition: all .5s ease-in-out .3s;
+	-ms-transition: all .5s ease-in-out .3s;
+	-o-transition: all .5s ease-in-out .3s;
+	transition: all .5s ease-in-out .3s;
+}
+
+.business .box ul.items li:hover i {
+	-webkit-transition: all .5s ease-in-out .4s;
+	-moz-transition: all .5s ease-in-out .4s;
+	-ms-transition: all .5s ease-in-out .4s;
+	-o-transition: all .5s ease-in-out .4s;
+	transition: all .5s ease-in-out .4s;
+}
+
+.business .box ul.items li.pc:hover i {
+	background: url(../images/words.png) no-repeat -168px -357px;
+}
+
+.business .box ul.items li.mobi:hover i {
+	background: url(../images/words.png) no-repeat -337px -291px;
+}
+
+.business .box ul.items li.sys:hover i {
+	background: url(../images/words.png) no-repeat -327px -362px;
+}
+
+.business .box ul.items li.app:hover i {
+	background: url(../images/words.png) no-repeat -164px -439px;
+}
+
+.business .box ul.items li.host:hover i {
+	background: url(../images/words.png) no-repeat -335px -439px;
+}
+
+.business .box ul.items li:hover u.cl {
+	clip: rect(0px,156px,-10px,78px);
+}
+
+.business .box ul.items li:hover u.cr {
+	clip: rect(156px,78px,156px,0px);
+}
+
+.business .box ul.items li:hover strong {
+	color: White;
+	-webkit-transition-delay: .4s;
+	-moz-transition-delay: .4s;
+	-ms-transition-delay: .4s;
+	-o-transition-delay: .4s;
+	transition-delay: .4s;
+}
+
+.business .box ul.items li:hover p {
+	top: 20px;
+	-webkit-transition: all .3s ease-in-out .5s;
+	-moz-transition: all .3s ease-in-out .5s;
+	-ms-transition: all .3s ease-in-out .5s;
+	-o-transition: all .3s ease-in-out .5s;
+	transition: all .3s ease-in-out .5s;
+}
+
+.business .box label {
+	display: block;
+	margin: 0 auto;
+	margin-top: -40px;
+	width: 297px;
+	height: 21px;
+	background: url(../images/words.png) no-repeat 0px -333px;
+}
+
+section.cases {
+	background: url(../images/wallpaper3.jpg);
+}

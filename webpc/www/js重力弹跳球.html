@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			 #box {
+	width:100px;
+	height:100px;
+	background:orange;
+	border-radius:100px;
+	position:absolute;
+	}
+	body {
+		height:500px
+	}
+
+		</style>
+	</head>
+	<body>
+		<button onclick="start()">开始</button>
+		<div id="box"></div>
+		<script type="text/javascript">
+		var box = document.getElementById('box');
+
+		function start() {
+		    var speed = 5;
+		    setInterval(function() {
+		        speed += 5;
+		        var des = box.offsetTop + speed;
+		        if (des >= 400) {
+		            des = 400;
+		            speed *= -1;
+		        }
+		        box.style.top = des + 'px';
+		    }, 30);
+		}
+		</script>
+	</body>
+</html>

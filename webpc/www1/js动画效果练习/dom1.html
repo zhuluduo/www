@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>速度动画</title>
+		<style>
+body,div,span{
+margin:0;
+padding:0;
+}
+#div1{
+width: 200px;
+height: 200px;
+background:red;
+position:relative;
+left:-200px;
+top:0;
+}
+#div1 span{
+width: 20px;
+height: 50px;
+background: blue;
+position: absolute;
+left: 200px;
+top: 75px;
+}
+</style>
+	</head>
+	<body>
+		<div id="div1"><span id="share"></span></div>
+	
+	<!--<script>
+		window.onload=function(){
+			var odiv=document.getElementById('div1');
+			odiv.onmouseover=function(){
+				startMove(10,0);
+			}
+			odiv.onmouseout=function(){
+				startMove(-10,-200);
+			}
+		}
+		var timer=null;
+		function startMove(speed,itarget){
+//			在执行startMove先清掉所有定时器
+           clearInterval(timer);
+		   var odiv=document.getElementById('div1');
+//			定义一个动定时器
+            timer=setInterval(function(){
+//      	判断odiv.offsetLeft是否为0如果是则清空定时器
+               if(odiv.offsetLeft==itarget){
+               	clearInterval(timer);
+               }else{
+               	odiv.style.left=odiv.offsetLeft+speed+'px';
+               }
+        	
+        },30)
+			
+		}
+	</script>-->
+		<script>
+		window.onload=function(){
+			var odiv=document.getElementById('div1');
+			odiv.onmouseover=function(){
+				startMove(0);
+			}
+			odiv.onmouseout=function(){
+				startMove(-200);
+			}
+		}
+		var timer=null;
+		function startMove(itarget){
+//			在执行startMove先清掉所有定时器
+           clearInterval(timer);
+		   var odiv=document.getElementById('div1');
+//			定义一个动定时器
+            timer=setInterval(function(){
+//      	判断odiv.offsetLeft是否为0如果是则清空定时器
+var speed=0;
+if(odiv.offsetLeft>itarget){
+	speed=-20;
+}else{
+	speed=20;
+}
+               if(odiv.offsetLeft==itarget){
+               	clearInterval(timer);
+               }else{
+               	odiv.style.left=odiv.offsetLeft+speed+'px';
+               }
+        	
+        },30)
+			
+		}
+	</script>
+	</body>
+</html>

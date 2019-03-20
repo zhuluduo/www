@@ -1,0 +1,197 @@
+
+
+.index-banner{
+  position: relative;
+  background: #3B3B3B;
+}
+
+.index-banner-bg{
+	height: 534px;
+	overflow: hidden;
+}
+.index-banner-txt{
+	position: absolute;
+	top:200px;
+	left: 50%;
+	margin-left: -380px;
+}
+.index-banner-txt .txt-logo{
+	width: 776px;
+	height: 113px;
+	background: url(../img/txt-logo.png) no-repeat;
+}
+.index-banner-txt .txt-info{
+	margin-top: 17px;
+	text-align: center;
+	color: #fff;
+	
+}
+.index-banner-txt .line{
+	display: inline-block;
+	width: 40px;
+	border-top: 1px solid #fff;
+	vertical-align: middle;
+}
+/*.index-banner-txt .line-l{
+	margin-right: 26px;
+}
+.index-banner-txt .line-r{
+	margin-left: 26px;
+}*/
+.index-banner-txt .txt{
+	margin: 0 26px;
+}
+
+/*菜单*/
+.index-menu{
+	position: relative;
+	border-top: 4px solid #f34949;
+}
+.index-menu .menu-tips{
+	position: absolute;
+	left: 50%;
+	top: 0;
+	margin-left: -87px;
+	width: 156px;
+	height: 75px;
+	text-align: center;
+	line-height: 65px;
+	color: #fff;
+	background:#f34949 ;
+}
+.index-menu .menu-tips:after{
+	position: absolute;
+	content: '';
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	border-left: 78px solid transparent;
+	border-right: 78px solid transparent;
+	border-bottom: 10px solid #fff;
+}
+
+.index-menu .menu-list{
+	margin-top: 150px;
+	color: #f34949;
+	overflow: hidden;
+}
+.index-menu .menu-list ul{
+	width: 1160px;
+	}
+
+.index-menu .menu-item{
+	float: left;
+	width: 520px;
+	margin-right: 60px;
+	margin-bottom: 56px;;
+}
+
+.index-menu .menu-item .title, .index-menu .menu-item .line{
+	float: left;
+}
+.index-menu .menu-item .price{
+	float: right;
+}
+.index-menu .menu-item .title{
+	width: 230px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.index-menu .menu-item .line{
+	margin-top: 11px;
+	width: 190px;
+	border-top: 1px solid #555555;
+	
+}
+.index-menu .menu-item .comment{
+	margin-top: 4px;
+	font-size: 12px;
+	color: #C1C1C1;
+}
+
+.index-menu .menu-more-btn{
+	margin: 0 auto;
+	width: 114px;
+	height: 32px;
+	padding-left: 16px;
+	border: 1px solid #d7d5d5;
+	font-size: 14px;
+	line-height: 32px;
+	color: #b7b7b7;
+	
+}
+.index-paner{
+	margin-top: 200px;
+}
+
+.index-paner-header h3{
+	font-size: 20px;
+	color: #3B3B3B;
+	font-weight: normal;
+	float: left;
+	margin-right: 48px;
+}
+.index-paner-header .line{
+	float: left;
+	width: 200px;
+	margin-top:15px;
+	border-top: 1px solid #e5e3e3;
+	}
+.index-paner-header .btn-group{
+	font-size: 0;
+	float: right;
+}
+.index-paner-header .btn{
+	display: inline-block;
+	margin-left: 11px;
+	width: 9px;
+	height: 9px;
+	background: #dedede;
+	border-radius: 50%;
+}
+.index-ppanel-body{
+	margin-top: 70px;
+}
+.index-food-list{
+	overflow: hidden;
+}
+index-food-lis ul{
+	width: 1160px;
+}
+.index-food-list .footer-item{
+	float: left;
+	width: 230px;
+	margin-right: 58px;
+	
+}
+.index-food-list .footer-item .banner{
+	margin-bottom: 30px;
+	height: 202px;
+}
+.index-food-list .footer-item .name{
+	color: #555;
+	margin-bottom: 10px;
+}
+.index-food-list .footer-item .price{
+	float: right;
+}
+.index-food-list .star-bar{
+	font-size: 0;
+}
+.index-food-list .star{
+	display: inline-block;
+	width: 12px;
+	height: 13px;
+	 margin-right: 5px;
+	 background-image: url(../img/x.png);
+	 background-repeat: no-repeat;
+}
+.index-food-list .footer-item .nostar{
+	background-position: 0 -13px;
+}
+
+.clearfixfloat{
+	width: 1160px;
+}

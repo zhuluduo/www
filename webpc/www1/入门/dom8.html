@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>无标题文档</title>
+    </head>
+    
+    <body>
+        <form>
+          请选择你爱好:<br>
+          <input type="checkbox" name="hobby" id="hobby1">  音乐
+          <input type="checkbox" name="hobby" id="hobby2">  登山
+          <input type="checkbox" name="hobby" id="hobby3">  游泳
+          <input type="checkbox" name="hobby" id="hobby4">  阅读
+          <input type="checkbox" name="hobby" id="hobby5">  打球
+          <input type="checkbox" name="hobby" id="hobby6">  跑步 <br>
+          <input type="button" value = "全选" onclick = "checkall();">
+          <input type="button" value = "全不选" onclick = "clearall();">
+          <p>请输入您要选择爱好的序号，序号为1-6:</p>
+          <input id="wb" name="wb" type="text" >
+          <input name="ok" type="button" value="确定" onclick = "checkone();">
+        </form>
+        <script type="text/javascript">
+        function checkall(){
+            var hobby = document.getElementsByTagName("input");
+           for(var i=0;i<hobby.length;i++){
+           hobby[i].checked=true
+           		
+           	
+           }
+          // 任务1 
+           
+        }
+        function clearall(){
+            var hobby = document.getElementsByName("hobby");
+              for(var i=0;i<hobby.length;i++){
+           hobby[i].checked=false
+           		
+           	
+           }
+         // 任务2    
+            
+        }
+        
+        function checkone(){
+            var j=document.getElementById("wb").value;
+          var hobby = document.getElementById("hobby"+j);
+            hobby.checked = true;
+            
+//          j=0;
+//       var j=parseInt(document.getElementById("wb").value);
+//       var hobby = document.getElementsByName("hobby");
+// 
+//  switch(j){
+// 
+//  case 1: hobby[0].checked=true;
+// 
+//                    break;
+// 
+//  case 2: hobby[1].checked=true;
+// 
+//                   break;
+// 
+// case 3: hobby[2].checked=true;
+// 
+//                    break;        
+// 
+//  case 4: hobby[3].checked=true;
+// 
+//                  break;        
+// 
+//  case 5: hobby[4].checked=true;
+// 
+//                break;       
+// 
+//  case 6: hobby[5].checked=true;
+// 
+//              break;
+// 
+//   default:
+// 
+//     break;
+// 
+//  }
+// 
+        }
+        
+        </script>
+        <hr/>
+        <p id="intro">课程列表</p>  
+    <ul>  
+        <li title="第1个li">HTML</li>  
+        <li>CSS</li>  
+        <li title="第3个li">JavaScript</li>  
+        <li title="第4个li">Jquery</li>  
+        <li>Html5</li>  
+    </ul>  
+<p>以下为获取的不为空的li标签title值:</p>
+<script>
+	var a=document.getElementsByTagName('li');
+	for (var i=0;i<a.length;i++) {
+		var b=a[i].getAttribute('title');
+		if(b!=null){
+			document.write(b);
+		}
+	}
+</script>
+    </body>
+</html>

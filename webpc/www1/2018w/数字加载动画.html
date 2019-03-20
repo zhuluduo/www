@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+</head>
+<body>
+	<div id="view"></div><input id="Button1" type="button" value="启动" />
+    <script>
+        $("#Button1").click(function () {
+            $("#view").html("0");
+            timerID = setInterval("num()", 30); //每3秒100个数字;3000/100
+        });
+        function num() {
+            if (Number($("#view").html()) >= 30000) {
+                clearInterval(timerID)
+            }
+            else
+                $("#view").html(Number($("#view").html()) + 100);
+        }
+    </script>
+</body>
+</html>

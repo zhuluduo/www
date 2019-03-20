@@ -1,0 +1,79 @@
+1：import template from '../template/list.html'    //import tabPane from './components/tabPane'
+
+2：
+  export default {
+    components: { fixedThead, unfixedThead }
+  }; 
+
+3：
+ <fixed-thead></fixed-thead>
+
+  
+ <unfixed-thead></unfixed-thead>
+
+
+或则：
+1：
+import Header from 'components/Header'
+
+2：
+	<v-header></v-header>
+
+3：
+	components: {"v-header": Header,}
+
+
+
+
+
+
+
+
+<template>
+  <el-row class="warp">
+    <el-col :span="24" class="warp-breadcrum title">
+      <span class="datatit">系统设置</span>
+      <div class="datatable tab_Setup">
+        <el-tabs v-model="activeName" @tab-click="handleClick">
+          <el-tab-pane label="店铺信息" name="first">
+          <v-shop></v-shop>
+          </el-tab-pane>
+          <el-tab-pane label="收银员" name="second">
+          <v-cashier></v-cashier>
+          </el-tab-pane>
+          <el-tab-pane label="广告设置" name="third">
+          <v-advertisement></v-advertisement>
+          </el-tab-pane>
+        </el-tabs>
+      </div>
+    </el-col>
+  </el-row>
+</template>
+<script>
+
+    import shops from './shops'
+    import advertisement from './advertisement'
+    import cashier from './cashier'
+
+    export default{
+      data(){
+        return {
+            activeName: 'first',
+        }
+      },
+      methods: {
+          handleClick(tab, event) {
+              console.log(tab, event);
+          },
+
+      },
+      mounted() {
+      },
+        components: {
+            "v-shop":shops,
+            "v-advertisement":advertisement,
+            "v-cashier":cashier
+
+        }
+    }
+</script>

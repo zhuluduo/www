@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gb2312">
+<!--[if lt IE 8]> 
+<script src="html5.js"></script>
+<![endif]-->
+<!--[if lte IE 8]> 
+<noscript>
+     <style>.html5-wrappers{display:none!important;}</style>
+     <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a>.
+     </div>
+</noscript>
+<![endif]-->
+<title>HTML5新标签不兼容(IE6/IE7/IE8)的完美解决方法</title>
+<style>
+head{ display:none;}
+header,footer{display:block; font-size:36px; background:red;}
+</style>
+</head>
+
+<body>
+<header>这是头部</header>
+<footer>这是网站底部！！！</footer>
+</body>
+</html>

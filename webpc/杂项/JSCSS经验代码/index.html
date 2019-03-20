@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            text-align: center;width:100%;
+        }
+        div{
+            margin:10px;
+            padding:10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        button{
+            cursor: pointer;
+        }
+        .vertical-rl-con{
+            width:100%;
+            text-align: center;
+            box-sizing: border-box;
+            padding-left:calc(50% - 20px);
+        }
+        .vertical-rl {
+            padding:0 0;
+            margin:0 0;
+            width:20px;
+            writing-mode:vertical-rl;
+            writing-mode:tb-rl;
+            -webkit-writing-mode:vertical-rl;
+        }
+        .liner-background-mine1,.liner-background-mine2{
+            width:calc(50% - 40px);
+            height:100px;
+            line-height: 100px;
+            float: left;
+        }
+        .liner-background-mine1 {
+            background:-webkit-linear-gradient(#bdade6,#6af181,skyblue) ;
+            /* Safari 5.1 - 6.0 */
+          background:-o-linear-gradient(#bdade6,#6af181,skyblue) ;
+            /* Opera 11.1 - 12.0 */
+          background:-moz-linear-gradient(#bdade6,#6af181,skyblue) ;
+            /* Firefox 3.6 - 15 */
+          background:linear-gradient(#bdade6,#6af181,skyblue) ;
+            /* 标准的语法 */
+        }
+        .liner-background-mine2 {
+            background:-webkit-linear-gradient(#d0d738,#6af181,#b33ddc) ;
+            /* Safari 5.1 - 6.0 */
+          background:-o-linear-gradient(#d0d738,#6af181,#b33ddc) ;
+            /* Opera 11.1 - 12.0 */
+          background:-moz-linear-gradient(#d0d738,#6af181,#b33ddc) ;
+            /* Firefox 3.6 - 15 */
+          background:linear-gradient(#d0d738,#6af181,#b33ddc) ;
+            /* 标准的语法 */
+        }
+        .clear{
+            display: block;
+            clear: both;
+            width:0;
+            height: 0;
+        }
+        .opacity{
+            background:transparent;/**背景透明*/
+            background-color:rgba(9, 126, 85, 0.2);/**背景颜色,最后一位为透明度0-1的值*/
+            border:none;/**无边框*/
+            border-radius:20px;/**边框弧度*/
+            font-weight: bold;
+        }
+        .bg-15adf0{
+            background: #15adf0;
+        }
+        .entry_s{
+            height: 300px;
+            background: #46aaaa;
+            padding:30px;
+            font-size: 17px;
+            text-align: justify;
+        }
+        .back2top{
+            width:30px;
+            height: 30px;
+            border-radius:3px;
+            background-color:#194141;
+            transform: rotate(20deg);
+            text-align: center;
+            vertical-align: middle;
+            position: fixed;
+            right:10px;
+            bottom:5px;
+            cursor: pointer;
+        }
+        .back2top:hover{
+            transform: rotate(0deg);
+            background-color: #316072;
+        }
+        .back2top>div{
+            background-color:transparent;
+            border:5px solid #050a17;
+            border-radius:4px;
+            border-left:none;
+            border-bottom:none;
+            transform: rotate(-45deg);
+            width:0px;
+            height: 0px;
+            margin:25% auto;
+        }
+        ._lock_top{
+            background-color: #28406a;
+            padding:0;
+            margin:0;
+            font-weight: bold;
+            position: relative;
+            height: 50px;
+            line-height: 100%;
+            vertical-align: middle;
+            width:100%;
+        }
+        ._lock_top._fixed{
+            position: fixed;
+            top:0;
+        }
+        ._navgation{
+            background-color: transparent;
+            display: block;
+            padding:0;
+            margin:1px;
+            height: calc(100%);
+        }
+        ._navgation>li{
+            float:left;
+            display: block;
+            cursor: pointer;
+            list-style: none;
+            padding:2px;
+            width:140px;
+            height:calc(100%);
+            line-height: 45px;
+            vertical-align: middle;
+        }
+        ._navgation>li:hover{
+            background-color: #3a646a;
+            color: #fff;
+        }
+	</style>
+</head>
+<body>
+	<!-- 顶部吸附导航栏-->
+<div class="_lock_top">
+    <ul class="_navgation">
+        <li>导航1</li>
+        <li>导航2</li>
+        <li>导航3</li>
+        <li>导航4</li>
+        <li>导航5</li>
+    </ul>
+    <div class="clear"></div>
+</div>
+<div class="vertical-rl-con"><div class="vertical-rl">一.这些文字将坚向展示</div></div>
+<div class="liner-background-mine1">二.这里有一个渐变背景</div>
+<div class="liner-background-mine2">二.这里有一个渐变背景</div>
+<div class="clear"></div>
+<div class="bg-15adf0">
+    <div class="opacity">三.这里的文字不会透明,但是背景将是透明的.</div>
+</div>
+<div class="bg-15adf0" id="_max_min">
+    <h4>求JS数组的最大值,最小值.</h4>
+    <input type="number" name="num" value="0">
+    <input type="number" name="num" value="0">
+    <input type="number" name="num" value="0">
+    <input type="number" name="num" value="0">
+    <input type="number" name="num" value="0">
+    <div>
+         <button>计算:</button>
+         <button id="_num_clear">清空:</button>
+         最大值 <input type="number" disabled="" id="max">
+         最小值 <input type="number" disabled="" id="min">
+    </div>
+</div>
+<div class="entry_s">
+    “法者，天下之程式也，万事之仪表也。”我国现行宪法是1982年审议通过的，以国家根本法的形式，确立了一系列制度、原则和规则，制定了一系列大政方针，反映了我国各族人民共同意志和根本利益。30多年来的实践充分表明，我国宪法有力坚持了中国共产党领导，有力保障了人民当家作主，有力促进了改革开放和社会主义现代化建设，有力推动了社会主义法治国家建设进程，有力维护了国家统一、民族团结、社会稳定。
+</div>
+<!-- 简单的实现回到顶部-->
+<div class="back2top">
+    <div></div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
+<script>
+	!function($){
+        /**计算最大值,最小值*/
+        var _values=[];
+        $("#_max_min>input[name='num']").each(function(){
+            _values.push(this);
+        });
+        var _calc=function(){
+            var _nums=_values.map(function(em){
+                return em.value;
+            });
+            $("#max").val(_nums.max());
+            $("#min").val(_nums.min());
+        }
+        $("#_max_min").on("blur","input[name='num']",_calc);
+        $("#_num_clear").click(function(){
+            _values.forEach(function(em){
+                em.value=0;
+            });
+            _calc();
+        });
+         /**返回顶部*/
+        $(".back2top").click(function(){
+            $("html,body").animate({scrollTop:0},300);
+        });
+        $(window).scroll(function(){
+            var t = document.documentElement.scrollTop||document.body.scrollTop; 
+            console.info(t);
+            if(t>75){
+                setTimeout(function(){$("._lock_top").addClass("_fixed")},50);
+            }else{
+                setTimeout(function(){$("._lock_top").removeClass("_fixed")},50);
+            }
+        });
+    }(function($){
+          /**求数组中的最大值最小值*/
+        Array.prototype.max = function( ){ 
+            return Math.max.apply( {}, this );
+            };
+        Array.prototype.min = function( ){ 
+            return Math.min.apply( {}, this );
+        };  
+        return $;
+    }(jQuery));
+</script>
+</body>
+</html>

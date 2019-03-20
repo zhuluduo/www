@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="swiper.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<div id="customSwiper" class="swiper">
+			</div>
+		</div>
+	</body>
+	<script src="swiper.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var data=[
+			'https://dwz.cn/5qRU3wCi',
+			'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3823484298,1423011015&fm=26&gp=0.jpg',
+			'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2212716898,1490838723&fm=26&gp=0.jpg',
+			'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2153411489,3008090780&fm=26&gp=0.jpg',
+			'https://ss0.bdstativarc.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3277305178,3353919378&fm=26&gp=0.jpg',
+			'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3378762496,2442041872&fm=26&gp=0.jpg',
+			'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2538500229,2076027219&fm=26&gp=0.jpg',
+			'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3791010759,365201207&fm=26&gp=0.jpg'
+		];
+		parmes={
+			ParentName:'customSwiper', //最外层父盒子类名
+			ParentWidth:'500', //最外层父盒子大小
+			data:data,  //图片数据
+			speed:'.5',
+			btn:false,
+			spotState:false, //是否显示底部圆点
+			spotBottom:'20px' //圆点距离底部多少
+		}
+		main(parmes)
+	</script>
+</html>

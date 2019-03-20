@@ -1,0 +1,30 @@
+带参数跳转：
+$router.push({path:'/main/manufacturer-details',query: { 'companyId':scope.row.id,'status':scope.row.manufacturerAuditStatus}})
+不带参：
+ this.$router.push({path:'/main/manufacturer-manage'})
+
+
+@keyup.enter.native   回车执行
+
+/*打开新页面跳转*/
+    resolveTag(val){
+        let routeData = this.$router.resolve({path: '/product-detail', query: {productId: val}});
+        window.open(routeData.href, '_blank');
+    },
+
+/*打开新页面并加载js脚本*/
+           var p='<html><head><title>打印</title></head><body>'+res.data.data+'</body></html>';
+            var w=window.open('about:blank');
+            w.document.write(p);
+            w.document.close();
+
+
+    /*附件下载*/
+    downloadClick(row){
+        window.open(row.file.fileUrl);
+        // var iframe = document.createElement("iframe")
+        // iframe.style.display = "none";
+        // iframe.src = row.file.fileUrl;
+        // document.body.appendChild(iframe);
+    },
+	

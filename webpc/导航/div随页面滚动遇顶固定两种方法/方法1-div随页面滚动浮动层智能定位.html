@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>方法1-div随页面滚动浮动层智能定位</title>
+<script type="text/javascript" src="jquery.min.js"></script>
+<!-- 方法1调用的文件 -->
+<script type="text/javascript" src="float_zxx.js"></script>
+</head>
+
+<body>
+<div class="header" style=" width:1004px; height:120px; margin:0 auto; text-align:center; vertical-align:middle; font-size:16px; background:#0066FF;">
+这里是网页顶部
+</div>
+<div style="width:100%; height:50px; background:#990000; overflow:hidden;"><div style="width:1004px; line-height:50px; margin:0 auto; color:#FFFFFF; text-align:center;">好吧，我承认我无聊了弄个导航看看</div></div>
+
+<div class="main" style="margin:10px auto 0; width:1004px; height:auto;">
+<div class="content" style=" float:left; width:720px; height:1000px;">
+<p>这里很明显是用来放置内容的。</p>
+<p> 经常去浏览某些网站的时候，总是看到别人网站的侧栏或者广告跟随滚动条下拉而跟随向下浮动，上拉也跟随浮动到原位置，非常羡慕！不仅好看，美观，而且能提高浏览量，今天将为各位互联网网站长分享这样一段特效JS代码！ </p>
+<p>1.将以上代码插入网站&lt;head&gt;……&lt;/head&gt;部分，修改红色部分:#fixed为自己的侧栏或者广告DIV标签ID即可！</p>
+<p>2.请根据自己的需要修改，效果请看本站侧栏部分广告跟随滚动条上下浮动效果！</p>
+</div>
+
+
+<div class="rightside" style=" float:right; width:264px; height:auto;">
+<div class="hotarcle" style="height:200px;">这里显示的是最热门文章列表
+</div>
+
+<div id="fixed" style="width:264px;height:350px; background:#FF3300;">这里将是我放置联系方式或者广告，随着屏幕上下拉动而跟着动的广告位置，当本版块遇上顶部时自动转换为固定顶部效果，离开后又还原。
+</div>
+<!-- 这是方法1所调用的办法 -->
+<script type="text/javascript">$("#fixed").smartFloat();</script>
+
+</div>
+
+<div style=" clear:both;"></div>
+</div>
+
+
+<div class="footer"  style="width:100%; height:120px; margin:0 auto; text-align:center; padding:20px 0; background:#000000; border-top:1px solid #999999; color:#CCCCCC;">这里是底部</div>
+</body>
+</html>

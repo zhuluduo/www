@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="public_left"><label id="box1">你没选</label></div>
+		<div class="public_right"><label id="box2">你要改吗</label></div>
+		<from>
+			<input type="checkbox" name="zhao" onclick="calea()">1
+			<input type="checkbox" name="zhao" onclick="calea()">2
+			<input type="checkbox" name="zhao" onclick="calea()">3
+			<input type="checkbox" name="zhao" onclick="calea()">4
+			<input type="checkbox" name="zhao" onclick="calea()">5
+		</from>
+		<script type="text/javascript">
+		function calea(){
+			var zu=0;
+			var su=document.getElementsByName("zhao");
+			for(var i=0;i<su.length;i++){
+				if(su[i].checked){
+					zu++;
+				}
+			}
+			document.getElementById("box1").innerHTML="你选去了"+zu+"项";
+			if(zu==""){
+				document.getElementById("box1").innerHTML="你真没选！";
+			}
+		}
+		</script>
+	</body>
+</html>

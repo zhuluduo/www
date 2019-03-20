@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件流</title>
+			
+	</head>
+	<body>
+		<!--<input type="button" value="按钮" onclick="zhu()">
+		<input type="button" value="按钮1" id="zhu">
+		<input type="button" value="btn2" id="btn2">
+		<script>
+			function zhu(){
+			alert('你好');
+			}
+			var a=document.getElementById('zhu');
+			a.onclick=function(){
+				alert('对吗');
+			}
+			a.addEventListener('click',zhu,false);
+			
+//			跨浏览器事件处理程序
+var eventUtil={
+         	// 添加句柄
+         	addHandler:function(element,type,handler){
+               if(element.addEventListener){
+                 element.addEventListener(type,handler,false);
+               }else if(element.attachEvent){
+                 element.attachEvent('on'+type,handler);
+               }else{
+                 element['on'+type]=handler;
+               }
+         	},
+// 	删除句柄
+// 删除句柄
+         	removeHandler:function(element,type,handler){
+               if(element.removeEventListener){
+                 element.removeEventListener(type,handler,false);
+               }else if(element.detachEvent){
+                 element.detachEvent('on'+type,handler);
+               }else{
+                 element['on'+type]=null;
+               }
+         	}
+}
+eventutil.addHandler(btn2,'click',zhu);
+		</script>-->
+	</body>
+</html>

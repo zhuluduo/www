@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>变量</title>
+	</head>
+	<body>
+	<!-- 1.变量类型互转 -->
+	<!-- 2.scrt编程语法函数弹出框 -->
+	<!-- for in 循环遍历 -->
+	<script>
+		obj={'username':'user1','age':'20','sex':'12'};
+		for(i in obj){
+           document.write('<h1>'+obj[i]+'</h1>')
+		}
+	</script>
+
+	<!-- 乘法表 -->
+	<script>
+		for(var i=0;i<=9;i++){
+		document.write('<h3>')
+		for(var j=1;j<=i;j++){
+		document.write('<span>'+j+'X'+i+'='+(j*i)+'</span> ')
+		} 
+	}
+	document.write('</h3>')
+	</script>
+	</body>
+</html>

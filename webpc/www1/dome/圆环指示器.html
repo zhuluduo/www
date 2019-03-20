@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+ 
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        body {
+    background-color: #2C3437;
+}
+ 
+.pie {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border-radius: 100px;
+    position: absolute;
+}
+ 
+.pie1 {
+    clip: rect(0px,200px,200px,100px);
+}
+ 
+.pie2 {
+    clip: rect(0px,100px,200px,0px);
+}
+ 
+.hold {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    z-index: 1;
+}
+ 
+.hold1 {
+    clip: rect(0px,200px,200px,100px);
+}
+ 
+.hold2 {
+    clip: rect(0px,100px,200px,0px);
+}
+ 
+.bg {
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    border-radius: 100px;
+    position: absolute;
+}
+ 
+.time {
+    width: 160px;
+    height: 160px;
+    margin: 20px 0 0 20px;
+    background-color: #2C3437;
+    color: white;
+    border-radius: 100px;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    line-height: 160px;
+}
+.redP::before{
+		content: ''
+}
+    </style>
+
+</head>
+ 
+<body>
+<p class="redP">2111</p>
+    <div class="hold hold1">
+        <div class="pie pie1"></div>
+    </div>
+    <div class="hold hold2">
+        <div class="pie pie2"></div>
+    </div>
+    <div class="bg"></div>
+    <div class="time">0</div>
+ <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script>
+        i = 0;
+        j = 0;
+        count = 0;
+ 
+        function start1() {
+            i = i + 0.6;
+            count = count + 1;
+            if (count >= 300) {
+                count = 0;
+                clearInterval(t1);
+                t2 = setInterval("start2()", 10);
+            };
+            $(".time").text(Math.ceil(i*100/180));
+            $(".pie1").css("-o-transform", "rotate(" + i + "deg)");
+            $(".pie1").css("-moz-transform", "rotate(" + i + "deg)");
+            $(".pie1").css("-webkit-transform", "rotate(" + i + "deg)");
+        };
+ 
+        function start2() {
+            j = j + 0.6;
+            count = count + 1;
+            if (count >= 300) {
+                count = 0;
+                clearInterval(t2);
+            };
+            $(".time").text(Math.ceil((j+i)*100/180));
+            $(".pie2").css("-o-transform", "rotate(" + j + "deg)");
+            $(".pie2").css("-moz-transform", "rotate(" + j + "deg)");
+            $(".pie2").css("-webkit-transform", "rotate(" + j + "deg)");
+        };
+        t1 = setInterval("start1()", 10);
+    </script>
+</body>
+ 
+</html>

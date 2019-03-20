@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <meta charset="UTF-8">
+                <title></title>
+        </head>
+        <style>
+                .clearfix{}
+                .clearfix{display:block;zoom:1;}
+                
+                *{margin: 0;padding: 0;}
+                img{display: block;overflow: hidden;}
+                .max_box{width: 1100px;height: 200px;border: 1px solid #a2a2a2;margin: auto;overflow: hidden;}
+                .max_box button{width: 40px;height: 50px;float: left;outline: none;border: none;cursor: pointer;background-size: 100%;margin-top: 70px;}
+                .btn_left{background: url(css/iconss_03.png) no-repeat center;}
+                .btn_right{background: url(css/icons_05.png) no-repeat center;}
+                .box_ul{width: 1000px;height: 200px;overflow: hidden;float: left;margin: 0px 10px;position: relative;}
+                .box_ul ul{width: 30000px;height: 200px;position: absolute;left: 0px;top: 0px;}
+                .box_ul ul li{width: 225px;height: 200px;float: left;margin-right: 33px;text-align: center;line-height: 200px;overflow: hidden;background: #A2A2A2;}
+                .box_ul ul li:after{content:".";display:block;visibility:hidden;height:0;clear:both;}
+                .box_ul ul li a img{width: 225px;height: 200px;}
+        </style>
+        <body>
+                <!--最外层的盒子-->
+                <div class="max_box clearfix">
+                        <button class="btn_left"></button>
+                        <div class="box_ul">        
+                                <ul>
+                                        <li><a href="#"><img src="#" alt="这是第一张图片"/></a></li>
+                                        <li><a href="#"><img src="#" alt="这是第二张图片"/></a></li>
+                                        <li><a href="#"><img src="#" alt="这是第三张图片"/></a></li>
+                                        <li><a href="#"><img src="#" alt="这是第四张图片"/></a></li>
+                                        <li><a href="#"><img src="#" alt="这是第五张图片"/></a></li>
+                                        <li><a href="#"><img src="#" alt="这是第六张图片"/></a></li>
+                                        <li><a href="#"><img src="#" alt="这是第七张图片"/></a></li>
+                                </ul>
+                        </div>        
+                        <button class="btn_right"></button>
+                </div>
+        </body>
+        <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js" ></script>
+        <script>
+                $(function(){
+                        var objbox = $(".box_ul").children("ul");
+                        var btnleft = $(".btn_left");
+                        var btnright = $(".btn_right");
+                        //获取li 的长度
+                        var li_lgh = objbox.children().length;
+                        var liwidth = objbox.children("li").eq(0).width();
+                        //ul要一栋的距离
+                        var numi = 0;
+                        //复制节点
+                        objbox.children().clone().appendTo(objbox);
+                        //定时
+                        var timemove = setInterval(leftmove,100);
+                        //向左移动的方法
+                        var muncds = li_lgh*(liwidth +33);
+                        function leftmove(){
+                                if(!objbox.is(":animated")){
+                                        numi ++;
+                                        if(numi > muncds){
+                                            numi = numi % (liwidth +33);
+                                                objbox.css("left",-numi+"px");
+                                        }else{
+                                                objbox.css("left",-numi+"px");
+                                        }
+                                }
+                        }
+                        btnleft.click(function(){
+                                clearInterval(timemove);
+                                numi += liwidth+33;
+                                if(numi > muncds){
+                                        numi = numi % (liwidth +33);
+                                        objbox.css("left",-numi+"px");
+                                }else{
+                                        objbox.animate({"left" : -numi+"px"},100);
+                                }
+                                timemove = setInterval(leftmove,100);
+                        });
+                        btnright.click(function(){
+                                clearInterval(timemove);
+                                console.log(numi);
+                                numi -= liwidth+33;
+                                if(numi < 1){
+                                        numi = muncds + numi;
+                                        objbox.css("left",-numi+"px");
+                                }else{
+                                        objbox.animate({"left" : -numi+"px"},100);
+                                }
+                                timemove = setInterval(leftmove,100);
+                        })
+                        objbox.mouseover(function(){
+                                clearInterval(timemove);
+                        })
+                        objbox.mouseleave(function(){
+                                timemove = setInterval(leftmove,100);
+                        })
+                })
+        </script>
+</html>

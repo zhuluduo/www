@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title></title>
+        <script src="../js/jquery-1.9.0.js"></script>
+        <style>
+            .wrap{margin:0 auto;}
+            ul{overflow: hidden;width:100%;padding:0;}
+            ul li{float:left;list-style: none;width:48%;}
+            img{width:100%;height:200px;list-style: none;}
+            label{margin:0 auto;display: block;background:orange;width:200px;text-align: center;color:white;padding:7px 0;border-radius: 30px;;}
+            label:hover{background:red;}
+            input{display: none;}
+            button{display: block;width:60px;background:darkkhaki;border:none;padding:10px;color:white;border-radius: 40px;margin:0 auto;}
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <!--首先写一个可以调取本地相册的input-->
+            <form action="1.html">
+                <label for="xuan">选取图片</label>  <!--用label和input绑定一起，可以对其改变样式，隐藏丑的input，也可以触发事件-->
+                <input type="file" name="" id="xuan" value="" accept="image/*" multiple="multiple"/>
+
+                <!--再一个个可以展示图片的地方-->
+                <ul>
+                    <!--<li><img src="../img/2.jpg" alt="" /></li>-->
+                </ul>
+
+                <!--再写一个提交到后台的按钮-->
+                <button>提交</button>
+            </form>
+        </div>
+
+        <script>
+            //jquery
+            /*
+
+            $(function(){
+                //1.把选中的图片放到ul中
+                $("#xuan").change(function(){//当input发生改变时触发的事件；
+                    var inp = $("#xuan").get(0); //获取到input
+                    var files = inp.files;    //获取到input中选取的图片
+                    var urls=window.URL|| window.webkitURL; //转换接口
+                    //console.log(files[0]); 
+                    for(var i=0;i<files.length;i++){
+                        var src = urls.createObjectURL(files[i]); //把选取的文件转换成路径放到图片中；
+                        var li = '<li><img src="'+ src +'" alt="" /></li>';
+                        $("ul").append(li)
+                    };
+                })
+            })
+            */
+            //js
+            var inp = document.getElementById("xuan");
+            inp.onchange = function(){
+                var files = inp.files;    //获取到input中选取的图片
+                var urls=window.URL|| window.webkitURL; //转换接口
+                var uu = document.getElementsByTagName("ul")[0];
+                for(var i=0;i<files.length;i++){
+                        var src = urls.createObjectURL(files[i]); //把选取的文件转换成路径放到图片中；
+                        var li = '<li><img src="'+ src +'" alt="" /></li>';
+                        uu.innerHTML += li
+                    };
+            }
+        </script>
+    </body>
+</html>

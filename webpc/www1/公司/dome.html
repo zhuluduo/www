@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+<!-- 团队信息 -->
+                <div class="pane">
+                        <div class="in-btn">
+                            <input type="text" style="display: none;" />
+                        </div>
+                        <div style="clear: both;"></div>
+                        <div style="float: right; padding: 0 20px 5px 0;"><input type="button" value="新增" onclick="insertRows()"/></div>
+
+                    <table border="0" cellpadding="0" cellspacing="0"
+                        class="in-tb margin-top5" id="viewTabs">
+                        <tr class="in-opt">
+                                <th class="in-ctt" style="background-color: #f7f7f7;"
+                                    width="15%">姓名</th>
+                                <th class="in-ctt" style="background-color: #f7f7f7;"
+                                    width="15%">单位</th>
+                                <th class="in-ctt" style="background-color: #f7f7f7;"
+                                    width="40%">履历亮点</th>
+                                <th class="in-ctt" style="background-color: #f7f7f7;"
+                                    width="15%">是否是导师</th>
+                                <th class="in-ctt" style="background-color: #f7f7f7;"
+                                    width="15%">操作</th>
+                            </tr>
+                             <c:forEach items="${bean.teams}" var="team" varStatus="i">
+                                <tr id="_tr_${i.index}" class="in-opt">
+                                    <td class="in-ctt">    
+                                    <input name="teams[${i.index}].uname" value="${team.uname}" /></td>
+                                    <td class="in-ctt">
+                                    <input name="teams[${i.index}].deptname" value="${team.deptname}" /></td>
+                                    <td class="in-ctt">
+                                    <input name="teams[${i.index}].points" value="${team.points}" style="width:420px;"/></td>
+                                    <td class="in-ctt">
+                                    <c:if test="${team.leader==1}">
+                                    <input type="radio" name="teams[${i.index}].leader" value="1" checked="checked" />是&nbsp;&nbsp;
+                                    <input type="radio" name="teams[${i.index}].leader" value="2" />否
+                                    </c:if>
+                                    <c:if test="${team.leader==2}">
+                                    <input type="radio" name="teams[${i.index}].leader" value="1" />是&nbsp;&nbsp;
+                                    <input type="radio" name="teams[${i.index}].leader" value="2" checked="checked" />否
+                                    </c:if></td>    
+                                    <td class="in-ctt">
+                                    <input type="hidden" name="teams[${i.index}].busid" value="${bean.id}" />
+                                    <input type="button" value="删除"  name="del[${i.index}]" onclick="delRows(${i.index})"></input></td>            
+                                </tr>
+                            </c:forEach>
+                    </table>
+                </div>
+                <script type="text/javascript">
+                	//新增团队信息的
+function insertRows(){ 
+    //获取表格对象
+    var tb1 = $("#viewTabs");                // 找table的ID
+    var rowNum= $("#viewTabs tr").size();  //获取表格的行数
+    //var liNum=$("tr[id^='_tr_']").size();  //获取以_tr_开头测tr个数
+    var tempRow=rowNum-1;; //用于新增tr、td、属性下标 
+    var $tdName = $("<td class='in-ctt'></td>"); //创建第一个td
+    $tdName.html("<input name=\'teams["+tempRow+"].uname\' value=\'\'/>"); //html把序号放到了第一个td里面
+    
+    var $tdDept = $("<td class='in-ctt'></td>");  //第二个td
+    $tdDept.html("<input name=\'teams["+tempRow+"].deptname\' value=\'\' />");//放文本框
+    
+    var $tdPoints = $("<td class='in-ctt'></td>");  //第三个td
+    $tdPoints.html("<input style=\'width:420px;\'  name=\'teams["+tempRow+"].points\' value=\'\'/>");//放文本框
+    
+    var $tdLeader = $("<td class='in-ctt'></td>");  //第四个td
+    $tdLeader.html("<input type=\'radio\' name=\'teams["+tempRow+"].leader\' value=\'1\'  />是&nbsp;&nbsp;"
+                    +"<input type=\'radio\' name=\'teams["+tempRow+"].leader\' value=\'2\' checked=\'checked\' />否");//放文本框
+    var $tdDel = $("<td class='in-ctt'></td>"); //第五个td
+    $tdDel.html("<input hidden=\'hidden\' name=\'teams["+tempRow+"].busid\' value=\'${bean.id}\' />"
+                +"<input type=\'button\' value=\'删除\' name=\'del["+tempRow+"]\' onclick=\'delRows("+tempRow+")\'>"); //里面添加了一个超链接  超链接里面有个删除的方法
+
+    var $tr = $("<tr id=\'_tr_"+tempRow+"\' class=\'in-opt\'></tr>");// 创建tr，将3个td放置到tr中
+    $tr.append($tdName);
+    $tr.append($tdDept);
+    $tr.append($tdPoints);
+    $tr.append($tdLeader);
+    $tr.append($tdDel);
+    //在表格的最后追加新增的tr
+    tb1.append($tr);
+} 
+//删除tr和td并且移动后面的tr和td且下标要一致 
+function delRows(sub){
+    //var temp=[];  本来用于保存上移动tr中的td属性值  后来发现会自动匹配数据 所以隐藏了
+    var rowNum=sub+1;  //此处的规律是：行号为下标+1
+    var tb1 = $("#viewTabs");  //找table的ID
+    var tempRow = $("#viewTabs tr").size();//获取表格的行数
+    if (tempRow >rowNum){     
+    $("#_tr_"+sub).remove();  //删除tr
+    for (i=(parseInt(sub)+1);i<tempRow-1;i++){
+        //temp[0]=$("input[name=teams["+i+"].uname]").val();
+        //temp[1]=$("input[name=teams["+i+"].deptname]").val();
+        //temp[2]=$("input[name=teams["+i+"].points]").val();
+        //temp[3]=$("input[name=teams["+i+"].leader]").val();
+        //temp[4]=$("input[name=teams["+i+"].busid]").val();
+        $("#_tr_"+i).attr("id","_tr_"+(i-1)+"");
+        $("input[name='del["+i+"]']").attr("onclick","delRows("+(i-1)+")");
+        $("input[name='del["+i+"]']").attr("name","del["+(i-1)+"]");
+        $("input[name='teams["+i+"].uname']").attr("name","teams["+(i-1)+"].uname");
+        $("input[name='teams["+i+"].deptname']").attr("name","teams["+(i-1)+"].deptname");
+        $("input[name='teams["+i+"].points']").attr("name","teams["+(i-1)+"].points");
+        $("input[name='teams["+i+"].leader']").attr("name","teams["+(i-1)+"].leader");
+        $("input[name='teams["+i+"].busid']").attr("name","teams["+(i-1)+"].busid");
+
+         }    
+    }
+
+}
+                </script>
+	</body>
+</html>

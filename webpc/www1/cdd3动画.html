@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.hi { width: 50px; height: 72px;background-image: url("http://s.cdpn.io/79/sprite-steps.png"); animation: play .8s steps(10) infinite;}
+		@keyframes play { from { background-position: 0px; } to { background-position: -500px; }}
+
+		.time { /*display: none;*/ position: absolute; top: 2.05rem; left: 4.73rem; width: 3.22rem; height: 0.57rem; transform: scale(2);}.num { position: absolute; top: 0.2rem; width: 0.28rem; height: 0.37rem; background: url(img/2.jpg) no-repeat center; background-size: cover; background-position: 0 0;}.spot { position: absolute; top: 0.06rem; left: 1.70rem; color: #fff; font-size: 24px; line-height: 0.57rem;}.s10 { left: 0.9rem;}.s0 { left: 1.25rem; -webkit-animation: sMove 10s steps(10, start);}.ms0 { left: 2rem; -webkit-animation: sMove 1s steps(10, start) infinite;}.ms10 { left: 2.3rem; -webkit-animation: sMove 100ms steps(10, start) infinite ;}@-webkit-keyframes sMove { 0% { background-position: -2.80rem 0; } 100% { background-position: 0 0; }}
+	</style>
+</head>
+<body>
+	<div class="hi"></div>
+
+	<!-- 倒计时 -->
+	<div class="time"> <div class="s10 num"></div> <div class="s0 num"></div> <div class="spot">:</div> <div class="ms0 num"></div> <div class="ms10 num"></div></div>
+</body>
+</html>

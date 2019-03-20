@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>百科首页</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+
+<body>
+	<div id="Bk-index">
+		<div class="Box">
+			<div>
+
+			</div>
+			<header class="Bk-header pull-hidd">
+				<h3 class="header-title">百科首页</h3>
+				<div class="search-header-left fl clearfix">
+					<div class="search">
+						<img src="images/icon-search.png">
+						<input type="text" name="" placeholder="请输入关键词" id="searchInput" value="" />
+						<div class="searchBtn bk-cursor" id="searchBtn">搜索</div>
+					</div>
+				</div>
+				<!-- <div class="search-header-right fr">
+						<img src="images/button.png" id="PersonalData" class="bk-cursor" >
+					</div> -->
+			</header>
+			<main class="Bk-content">
+				<div id="NearbyBk">
+					<h3 class="content-title">附近百科</h3>
+					<ul class="contList pull-hidd" id='NearbyContList'>
+						<!-- <li>
+							<img class="itemLog fl" src="./images/img.png" alt="">
+							<div class="contItem fl">
+								<h3 class="itemTitle">深圳市市民中心</h3>
+								<p class="itemCont">深圳市政府的形象代言，深圳最具有标志性的建筑</p>
+								<span class="itemDistance">距离：888米</span>
+							</div>
+						</li> -->
+						<div class="NoData">附近还没有百科哦~~</div>
+					</ul>
+				</div>
+				<div>
+					<h3 class="content-title">
+						全部百科
+						<span class="fr more bk-cursor" id="getMoreData">查看更多</span>
+					</h3>
+					<ul class="contList pull-hidd" id='AllContList'>
+						<!-- <li>
+							<img class="itemLog fl" src="./images/img.png" alt="">
+							<div class="contItem fl">
+								<h3 class="itemTitle">深圳市市民中心</h3>
+								<p class="itemCont">深圳市政府的形象代言，深圳最具有标志性的建筑</p>
+							</div>
+						</li> -->
+					</ul>
+				</div>
+			</main>
+		</div>
+	</div>
+	<script src="./js/jquery-1.8.3.min.js"></script>
+	<script src="./js/marked.min.js"></script>
+	<script src="js/test.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function () {
+			//获取附近百科的逻辑；
+			let Request = new Object();
+			Request = GetRequest();
+			let postData
+			if (Object.keys(Request).length !== 0) {
+				let [x, y, distance] = [Request['x'], Request['z'], 500]
+				postData = {
+					"coordSystem": 3857,
+					"pos_array": [{
+							"x": x - distance,
+							"y": y,
+							"z": 0
+						},
+						{
+							"x": x,
+							"y": y + distance,
+							"z": 0
+						},
+						{
+							"x": x + distance,
+							"y": y,
+							"z": 0
+						},
+						{
+							"x": x,
+							"y": y - distance,
+							"z": 0
+						},
+						{
+							"x": x - distance,
+							"y": y,
+							"z": 0
+						},
+					]
+				};
+				//有数据制空;
+				$('.NoData').empty()
+				$.ajax({
+					url: 'http://'+Request['server_host']+'/thinkphp/home/BaiKe/scope',
+					type: 'post',
+					data: JSON.stringify(postData),
+					success: function (res) {
+						// if(res.retdata){ console.log(11111111);}
+						let [htm, getBKdataList, parseData] = ['', [],
+							[]
+						]
+						parseData = DealDatafn(res, {
+							type: 1
+						})
+						getBKdataList = getHtml(parseData[0]);
+						// console.log(getBKdataList);
+						getBKdataList.forEach(ele => {
+							htm +=
+								`<li class='${ele.Id}'>
+								${ele.imgHtml}
+								<div class="contItem fl">
+									<h3 class="itemTitle">${ele.title}</h3>
+									<p class="itemCont">${ele.content}</p>
+								</div>
+							</li>`
+						})
+						//挂载到ul上；
+						$('#NearbyContList').html(htm);
+
+						//传递参数并跳页；
+						$('#NearbyContList li').on('click', function () {
+							let parseId = $(this).attr('class')
+							let searchUrl = encodeURI("details.html?id=" + parseId+'&server_host='+Request['server_host']); //使用encodeURI编码
+							location.href = searchUrl;
+						})
+					}
+				});
+			}
+
+			//获取全部百科数据；
+			postData = {
+				"limit": 1000,
+				"search_key_item": ""
+			}
+			$.ajax({
+				type: "post",
+				url: 'http://'+Request['server_host']+'/thinkphp/home/BaiKe/BaliKeList',
+				data: JSON.stringify(postData),
+				dataType: "text",
+				success: function (res) {
+					let [htm, getBKdataList, parseData] = ['', [],
+						[]
+					];
+
+					// 获取处理的数据；
+					parseData = DealDatafn(res, {
+						type: 2
+					})
+
+					// 获取img的标签内容和conent的内容;
+					getBKdataList = getHtml(parseData[0]);
+
+					//数据处理拼接，渲染到ul标签上；
+					getBKdataList.forEach(ele => {
+						htm +=
+							`<li class='${ele.Id}'>
+							${ele.imgHtml}
+							<div class="contItem fl">
+								<h3 class="itemTitle">${ele.title}</h3>
+								<p class="itemCont">${ele.content}</p>
+							</div>
+						</li>`
+					})
+
+					//挂载到ul上；
+					$('#AllContList').html(htm);
+
+					//传递参数并跳页；
+					$('#AllContList li').on('click', function () {
+						let parseId = $(this).attr('class')
+						let searchUrl = encodeURI("details.html?id=" + parseId+'&server_host='+Request['server_host']); //使用encodeURI编码
+						location.href = searchUrl;
+					})
+				},
+				error: function () {
+
+				}
+			});
+			//获得更多；
+			$('#getMoreData').click(() => {
+				let searchUrl = encodeURI("search.html?server_host=" + Request['server_host']); //使用encodeURI编码
+				location.href = searchUrl;
+			})
+			//搜索点击跳转；
+			$('#searchBtn').on('click', function () {
+				let val = $(this).prev().val();
+				if(val){
+					let searchUrl = encodeURI("search.html?search=" + val+'&server_host='+Request['server_host']); //使用encodeURI编码
+					location.href = searchUrl;
+				}
+			})
+
+			//获取img的标签内容和conent的内容;
+			function getHtml(dataList = []) {
+				let element, i, k;
+				for (i = 0; i < dataList.length; i++) {
+					element = dataList[i];
+					for (k = 0; k < element.data.length; k++) {
+						element.content = element.data[0];
+						if (element.data[k].startsWith('<img')) {
+							// console.log(element.data[k]);
+							element.imgHtml = element.data[k];
+							break
+						}
+					}
+					//如果不含有图片默认一张图片；
+					if (!element.imgHtml) {
+						element.imgHtml = '<img src="./images/img.png" alt="">'
+					}
+				}
+				return dataList
+			}
+
+			//获取附近数据；
+			function GetRequest() {
+				var url = window.location.search; //获取url中"?"符后的字串
+				// var url ="file:///Apps/PublicWorld/html/index.html?token=b9b96c08-d229-405a-a710-be9dccaf8642&y=16.113414764404&x=12695198.679688&z=2576759.1777344"
+				var theRequest = new Object();
+				if (url.indexOf("?") != -1) {
+					var str = url.substr(1);
+					strs = str.split("&");
+					for (var i = 0; i < strs.length; i++) {
+						theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+					}
+				}
+				return theRequest;
+			}
+
+			//将数据进行处理和转换，储存数组中，
+			function DealDatafn(res, parse) {
+				let [parseData, i, resList, TotalData] = [
+					[], null, [],
+					[]
+				]
+				//附近百科多一层对其进行处理；
+				if (parse.type == 1) {
+					res.retdata.forEach(item => {
+						resList.push(item[0])
+					});
+				} else {
+					resList = JSON.parse(res).retdata;
+				}
+				if (resList.length <= 0) {
+					return
+				}
+				//处理数据储存到parseData并再上面绑定Id作为页面传递的参数；
+				for (i = 0; i < resList.length; i++) {
+					if (i == 6) {
+						break
+					}
+					let ele = resList[i];
+					let jsons = JSON.parse(ele.ext_field);
+					//数据的转换（调用test.js的方法）
+					let DealData = dateFormat(true, {
+						'baike_3d': jsons.baike_3d,
+						'ids': ele.id
+					}, resList, TotalData)
+					DealData[i].Id = ele.id;
+					DealData[i].title = ele.name;
+					parseData.push(DealData)
+				}
+				return parseData
+			}
+
+
+		})
+	</script>
+</body>
+
+</html>

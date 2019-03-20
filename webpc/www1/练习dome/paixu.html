@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>冒泡排序</title>
+</head>
+<body>
+<!-- 	<script type="text/javascript">
+ 	var arr=[1,3,5,2,7,10,4];
+ 	for (var i = 0; i < arr.length; i++) {
+ 		for (var j =arr.length-1;j>0; j--) {
+ 			if (arr[j]<arr[j-1]) {
+ 				sta=arr[j];
+ 				arr[j]=arr[j-1];
+ 				arr[j-1]=sta;
+ 			}
+ 		}
+ 	}
+ 	console.log(arr);
+	</script>
+	<script type="text/javascript">
+    var arrj=[1,3,5,2,7,10,4];
+    for (var i = 0; i < arrj.length; i++) {
+    	for (var j=arrj.length-1; j>0; j--) {
+    		if (arrj[j]<arrj[j-1]) {
+    			stw=arrj[j];
+    			arrj[j]=arrj[j-1];
+    			arrj[j-1]=stw;
+    		}
+    	}
+    }
+    console.log(arrj);
+	</script> -->
+	<script type="text/javascript">
+     var zhu=[1,3,2,6,4,10,40,20];
+     for(var i=0;i<zhu.length;i++){
+     	for(var j=zhu.length-1;j>0;j--){
+            if (zhu[j]<zhu[j-1]) {
+            	var at=zhu[j];
+            	zhu[j]=zhu[j-1];
+            	zhu[j-1]=at;
+            }
+     	}
+     }
+     console.log(zhu);
+	</script>
+	<script type="text/javascript">
+	var result=confirm('你要选择什么');
+	if (result==true) {
+		alert('你选择了确定');
+	}else{
+		alert('你选择了取消')
+	}
+	</script>
+    <script type="text/javascript">
+    var z=[1,3,2,6,4,10,40,20];
+    for (var i = 0; i < z.length; i++) {
+     for(var j=z.length-1;j>0;j--){
+         if (z[j]<z[j-1]) {
+            var tat=z[j];
+            z[j]=z[j-1];
+            z[j-1]=tat;
+         }
+     }
+    }
+    console.log(z);
+    console.log( z.join('_'));
+    </script>
+    <script type="text/javascript">
+var arr1 = ["星期一"];
+var arr2 = ["星期一"];
+var arr3 = ["星期二"];
+var arr4 = ["星期二"];
+var arr5 = ["星期二"];
+var arr6 = ["星期三"];
+var arr = [
+    arr1,arr2,arr3,arr4,arr5,arr6
+];
+var result = [], tmp = {};
+for(var i = 0; i < arr.length; i++){
+    var ai = arr[i];
+    if(!tmp[ai]){
+        result = result.concat(ai);
+        tmp[ai] = ai;
+    }
+}
+console.log(result);
+    </script>
+
+    <script type="text/javascript">
+    var arr9=[1,2,4,1,6,4,7,8,7,9];
+    var ac=[],tm={};
+    for (var i = 0; i < arr9.length; i++) {
+         var aa=arr9[i];
+         if (!tm[aa]) {
+            ac=ac.concat(aa);
+            tm[aa]=aa;
+         }
+    }
+     console.log('去除重复值:'+ac);
+    </script>
+</body>
+</html>

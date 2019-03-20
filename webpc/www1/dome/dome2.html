@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title></title>
+    <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<style>
+    .gg{
+        height: 50px;
+        width: 160px;
+        border: 1px solid #999;
+        color: #000000;
+        position: relative;
+        text-align: center;
+    }
+    .jj{
+        height: 50px;
+        width: 0;
+        background-color: #999;
+        position: absolute;
+        text-align: center;
+        overflow: hidden;
+    }
+    .text{
+        height: 50px;
+        width: 160px;
+        color: #ffffff;
+        text-align: center;
+        overflow: hidden;
+    }
+</style>
+<script>
+$(document).ready(function(){
+    var bb;//定义一下bb，就是鼠标离开的定时触发缩小的事件变量，防止鼠标经过时清除事件出错
+$(".gg").mouseover(function(){
+    //alert(5)i
+    clearInterval(bb);//清除bb，防止黑色背景条还在变小，造成一闪闪的现象
+    i=$(".jj").width();//获取背景条宽度，从这个宽度开始变大
+        aa=setInterval(function(){
+            i+=2;//自增
+            $(".jj").css("width",i);//赋值给宽度
+            if (i>=160) {//达到最大宽度，停止变大
+                clearInterval(aa);//清除setInterval
+            }
+        },3);//毫秒变一次，每次增大量就是上面的自增i
+    });
+$(".gg").mouseout(function(){
+     //var i=1;
+     //j
+     j=$(".jj").width();//获取背景条宽度，从这个宽度开始变小
+     clearInterval(aa);
+        bb=setInterval(function(){
+            j-=2;
+            $(".jj").css("width",j);
+            if (j<=0) {
+
+                clearInterval(bb);
+            }
+        },3);
+})
+})
+    </script>
+<body>
+<div class="gg">
+    <div class="jj"><div class="text">nimeide</div></div>
+nimeide 
+</div>
+</body>
+</html>

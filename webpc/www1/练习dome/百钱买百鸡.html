@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--百钱买百鸡-->
+	    <!--公鸡5元每只，母鸡3元每只，小鸡3元一只，100元可以买100只鸡-->
+		<script type="text/javascript">
+			for (var i=0;i<=20;i++) {
+				for (var j=0;j<=33;j++) {
+					for (var z=0;z<=100;z++) {
+						if((i+j+z==100)&&(5*i+3*j+z/3==100)){
+							document.write("公鸡"+i+"母鸡"+j+"小鸡"+z+"<br/>")
+						}
+					}
+				}
+			}
+			
+			document.write("<hr color='aqua'/>")
+			for (var i=0;i<20;i++) {
+				for (var j=0;j<33;j++) {
+					z=100-i-j;
+					if((z%3==0)&&(5*i+3*j+z/3==100)){
+						document.write("公鸡"+i+"母鸡"+j+"小鸡"+z+"<br/>")
+					}
+					
+				}
+			}
+		</script>
+	</body>
+</html>

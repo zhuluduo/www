@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.filx{
+			
+				height: 100px;
+				border:1px solid cornflowerblue;
+			}
+			.filx1{
+				display: flex;
+				justify-content:flex-end;
+				align-items:flex-end 
+			}
+		</style>
+	</head>
+	<body>
+		<div class="filx1 filx">
+			11111111111
+		</div>
+		<div class="filx2 filx">
+			22222222222222
+		</div>
+		<div class="filx3 filx">
+			33333333333333
+		</div>
+		<div class="filx4 filx">
+			4444444444444444
+		</div>
+		<div class="filx5 filx">
+			5555555555555555
+		</div>
+		<div class="filx6 filx">
+			666666666666
+		</div>
+		<button type="button" onclick="filters(2,5)">2-5</button>
+		<button type="button" onclick="filters(6,9)">6-9</button>
+		<button type="button" onclick="filters(10,12)">10-12</button>
+		<script type="text/javascript">
+			function filters(a,b){
+				var data=[1,2,3,4,5,6,7,8,9,10,11,12];
+				var datalist=data.filter((item,index)=>{
+					// return item>=a&&item<=b
+					if( item>=a&&item<=b){
+						console.log(index)
+						
+					}
+				})
+				// console.log(data)
+				// console.log(datalist)
+			}
+		</script>
+	</body>
+</html>

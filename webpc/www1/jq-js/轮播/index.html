@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>轮播</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var i=0;
+				var size=$(".banner .img li").size();
+				
+				$(".banner .num li").first().addClass("on");
+				$(".banner .btn_l").click(function(){
+					i++
+					if (i==size) {
+						i=0;
+					}
+					$(".banner .img").stop().animate({left:-i*550},500);
+					$(".banner .num li").eq(i).addClass("on").siblings().removeClass("on");
+				})
+				
+				$(".banner .btn_r").click(function(){
+					i--;
+					if (i==-1) {
+						i=size-1;
+					}
+					
+					$(".banner .img").stop().animate({left:-i*550},550)
+					$(".banner .num li").eq(i).addClass("on").siblings().removeClass("on");
+				})
+			})
+		</script>
+	</head>
+	<body>
+     <div class="banner">
+     	<ul class="img">
+     		<li><a href="#"><img src="img/1.jpg"/></a></li>
+     		<li><a href="#"><img src="img/2.jpg"/></a></li>
+     		<li><a href="#"><img src="img/3.jpg"/></a></li>
+     		<li><a href="#"><img src="img/4.jpg"/></a></li>
+     		<li><a href="#"><img src="img/5.jpg"/></a></li>
+     	</ul>
+     	<ul class="num">
+     		<li ></li>
+     		<li></li>
+     		<li></li>
+     		<li></li>
+     		<li></li>
+     	</ul>
+     	<div class="btn btn_l">&lt;</div>
+     	<div class="btn btn_r">&gt;</div>
+     </div>
+	</body>
+</html>

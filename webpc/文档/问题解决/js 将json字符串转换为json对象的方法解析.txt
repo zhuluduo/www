@@ -1,0 +1,44 @@
+将json字符串转换为json对象的方法。在数据传输过程中，json是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以，JSON对象和JSON字符串之间的相互转换是关键
+
+例如：
+
+JSON字符串:
+var str1 = '{ "name": "cxh", "sex": "man" }'; 
+JSON对象:
+var str2 = { "name": "cxh", "sex": "man" };
+
+一、JSON字符串转换为JSON对象
+
+要使用上面的str1，必须使用下面的方法先转化为JSON对象：
+
+//由JSON字符串转换为JSON对象
+
+var obj = eval('(' + str + ')');
+
+或者
+
+var obj = str.parseJSON(); //由JSON字符串转换为JSON对象
+
+或者
+
+var obj = JSON.parse(str); //由JSON字符串转换为JSON对象
+
+然后，就可以这样读取：
+
+Alert(obj.name);
+
+Alert(obj.sex);
+
+特别注意：如果obj本来就是一个JSON对象，那么使用eval（）函数转换后（哪怕是多次转换）还是JSON对象，但是使用parseJSON（）函数处理后会有问题（抛出语法异常）。
+
+二、可以使用toJSONString()或者全局方法JSON.stringify()将JSON对象转化为JSON字符串。
+
+例如：
+
+var last=obj.toJSONString(); //将JSON对象转化为JSON字符
+
+或者
+
+var last=JSON.stringify(obj); //将JSON对象转化为JSON字符
+
+alert(last);

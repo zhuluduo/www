@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.btn{
+				width: 400px;
+				height: 2000px;
+				margin: auto;
+				background: red;
+				position: relative;
+			}
+			#btn{
+				width: 50px;
+				height: 100px;
+				background: blue;
+				position: absolute;
+				left: 50%;
+				bottom: 20px;
+				margin-left: 200px;
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="btn">
+			<a href="javascript:;" id="btn" style="display: none;">top</a>
+		</div>
+		
+	</body>
+    <script type="text/javascript">
+    	window.onload=function(){
+    		var btinid=document.getElementById('btn');
+    		var btnHeight=document.documentElement.scrollHeight;
+//  		alert(btnHeight);
+            var time=null;
+            
+            document.onscroll=function(){
+            	var btntop=document.body.scrollTop;
+            	if(btntop<=btnHeight){
+            		btinid.style.display='block';
+            	}else{
+            		btinid.style.display='none';
+            	}
+            }
+            
+            btinid.onclick=function(){
+            	time=setInterval(function(){
+            		var btntop=document.body.scrollTop;
+            		var speend=btntop/5;
+            		document.body.scrollTop=btntop-speend;
+            		if(btntop==0){
+            			clearInterval(time);
+            		}
+            	},30);
+            }
+    	}
+    </script>
+</html>

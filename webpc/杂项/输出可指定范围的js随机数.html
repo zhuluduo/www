@@ -1,0 +1,78 @@
+<!Doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gbk2312"/>
+    <title>输出可指定范围的js随机数</title>
+</head>
+<body>
+	
+<!--1.Math.random(); 结果为0-1间的一个随机数(包括0,不包括1) 
+
+   2.Math.floor(num); 参数num为一个数值，函数结果为num的整数部分 
+
+   3.Math.round(num); 参数num为一个数值，函数结果为num四舍五入后的整数
+
+   4.Math.ceil(n); 返回大于等于n的最小整数。
+
+   5.Math.round(n); 返回n四舍五入后整数的值。
+
+下面到了用法详解，看几个例子：
+
+1.用js随机产生0-1间的一个随机数，代码如下：-->
+
+
+<script type="text/javascript">
+       var num01=Math.round(Math.random());
+       alert(num01);
+</script>
+<!--2.用js随机产生均衡获取0到10的随机整数，其中获取最小值0和最大值10的几率少一半，代码如下：-->
+
+
+<script type="text/javascript">
+       var num01=Math.round(Math.random()*10);
+       alert(num01);
+</script>
+<!--3.用js随机产生均衡获取0到9的随机整数，代码如下：-->
+
+
+<script type="text/javascript">
+       var num01=Math.floor(Math.random()*10);
+       alert(num01);
+</script>
+<!--4.用js随机产生获取1到10的随机整数，取0的几率极小，代码如下：-->
+
+
+<script type="text/javascript">
+       var num01=Math.ceil(Math.random()*10);;
+       alert(num01);
+</script>	
+	
+<h1 id="RoundNum"></h1>
+<script type="text/javascript">
+        //封装一个输出可指定范围的随机数函数
+        function GetRandomNum(Min,Max)
+        {
+            var Range = Max - Min;
+            var Rand = Math.random();
+            return(Min + Math.round(Rand * Range));
+        }
+        //调用函数，输出10到20范围的随机数
+        var num = GetRandomNum(10,20);
+        document.getElementById("RoundNum").innerHTML=num;
+</script>
+
+<script type="text/javascript">
+    var count=10; //随机数的数量
+    var arr=new Array; //定义一个arr数组
+    //给arr数组赋值
+    for (var i=0;i<count;i++){
+        arr[i]=i+1;
+    }
+    arr.sort(function(){ return 0.5 - Math.random(); });
+    for (var i=0;i<count;i++){
+        //输出随机数
+        document.write("第"+i+"个随机数：",arr[i]+" <hr> ");
+    }
+</script>
+</body>
+</html>

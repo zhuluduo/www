@@ -1,0 +1,37 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/posts/index",
+    "pages/posts/posts-detail/index",
+    "pages/movies/index",
+    "pages/movies/movie-list/index-template",
+    "pages/movies/movie/index-template",
+    "pages/movies/stars/index-template",
+    "pages/movies/more-movue/index",
+    "pages/movies/movie-grid/index-template"
+      ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#405f80",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle":"black"
+  },
+    "tabBar": {
+      "borderStyle":"white",
+      "list": [
+        {
+          "pagePath": "pages/posts/index",
+          "text": "文章",
+          "iconPath":"images/tab/yuedu.png",
+          "selectedIconPath":"images/tab/yuedu_hl.png"
+        },
+        {
+          "pagePath": "pages/movies/index",
+          "text": "电影",
+          "iconPath": "images/tab/dianying.png",
+          "selectedIconPath": "images/tab/dianying_hl.png"
+        }
+      ]
+    }
+    
+}

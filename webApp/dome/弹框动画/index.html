@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>弹框动画</title>
+	<style type="text/css">
+		*{margin: 0;}
+		.dialog-cont{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		.dialog-toggle{
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			bottom: 0;
+			background: royalblue;
+			-webkit-backface-visibility: hidden;
+    		backface-visibility: hidden;
+    		-webkit-transition: -webkit-transform 0.35s ;
+		    transition: -webkit-transform 0.35s;
+		    -o-transition: transform 0.35s;
+		    transition: transform 0.35s;
+		    transition: transform 0.35s, -webkit-transform 0.35s;
+		    word-wrap:break-word;  
+		    word-break:break-all;  
+		    overflow: hidden; 
+		}
+		
+		/*四个方向+默认值*/
+		.translateTN{
+		    -webkit-transform: translate(0, 100%);
+		    -ms-transform: translate(0, 100%);
+		    transform: translate(0, 100%);
+		}
+		.translateRN{
+		    -webkit-transform: translate(100%,0);
+		    -ms-transform: translate(100%,0);
+		    transform: translate(100%,0);
+		}
+		.translateLN{
+		    -webkit-transform: translate(-100%,0);
+		    -ms-transform: translate(-100%,0);
+		    transform: translate(-100%,0);
+		}
+		.translatePY{
+		    -webkit-transform: translate(0, 0);
+		    -ms-transform: translate(0, 0);
+		    transform: translate(0, 0);
+		}
+	</style>
+</head>
+<body>
+	<div class="dialog-cont">
+		<div id="dialogBox" class="dialogBox dialog-toggle translateTN">
+			css2的时候已经有了text-shadow这个属性，但是css2.1的又删除了这个属性，css3又重新使用了这个属性；
+			text-shadow:阴影水平偏移值（可取正负值）； 阴影垂直偏移值（可取正负值）；阴影模糊值；阴影颜色
+			Firefox,webkit内核的Safari和Chrome,Opera支持Text Shadow(文本阴影)：text-shadow:2px 2px 5px #333333
+			一个文本可以使用多个文本阴影
+			IE不支持text-shadow(阴影)
+		</div>
+	</div>
+	<input type="button" id="rightBtn" value="右按钮" />
+	<input type="button" id="leftBtn" value="左按钮" />
+	<input type="button" id="topBtn" value="上按钮" />
+	
+	<script type="text/javascript">
+		let dialogBox = document.getElementById('dialogBox');
+		let rightBtn = document.getElementById('rightBtn');
+		let leftBtn = document.getElementById('leftBtn');
+		let topBtn = document.getElementById('topBtn');
+		
+		//从右往左
+		rightBtn.addEventListener('click',function(){
+			dialogBox.className = 'dialogBox dialog-toggle translatePY';
+			dialogBox.style.width='80%';
+			dialogBox.style.right='0';
+			dialogBox.style.left='auto';
+		})
+		
+		//从左往右
+		leftBtn.addEventListener('click',function(){
+			dialogBox.className = 'dialogBox dialog-toggle translatePY';
+			dialogBox.style.width='80%';
+			dialogBox.style.left='0';
+			dialogBox.style.right='auto';
+		})
+		
+		//从下往上
+		topBtn.addEventListener('click',function(){
+			dialogBox.className = 'dialogBox dialog-toggle translatePY';
+			dialogBox.style.height='60%';
+			dialogBox.style.left='0';
+			dialogBox.style.top='auto';
+		})
+	</script>
+</body>
+</html>

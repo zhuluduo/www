@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>滚动</title>
+		<style type="text/css">
+			#meaq{width: 300px;height: 80px;overflow: hidden;border: 1px solid dodgerblue;}
+			#meaq_one li ,#meaq_two li{line-height: 30px;}
+		</style>
+	</head>
+	<body>
+		<div id="meaq">
+			<ul id="meaq_one">
+				<li><a href="#">1qweqweqwewqewqeqwe</a></li>
+				<li><a href="#">2qweqweqwewqewqeqwe</a></li>
+				<li><a href="#">3qweqweqwewqewqeqwe</a></li>
+				<li><a href="#">4qweqweqwewqewqeqwe</a></li>
+				<li><a href="#">5qweqweqwewqewqeqwe</a></li>
+			</ul>
+			<ul id="meaq_two">
+				
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oMea=document.getElementById('meaq');
+			var oMea_one=document.getElementById('meaq_one');
+			var oMea_two=document.getElementById('meaq_two');
+			var time=50;
+			oMea_two.innerHTML=oMea_one.innerHTML;
+            function smequ(){
+            if (oMea.scrollTop>=oMea_one.offsetHeight) {
+				oMea.scrollTop=0;
+			} else{
+				oMea.scrollTop++;
+			}
+            }
+			var sent=setInterval(function(){smequ()},time);
+		
+		oMea.onmousemove=function(){
+			clearInterval(sent);
+		}
+		oMea.onmouseout=function(){
+			sent=setInterval(function(){smequ()},time);
+		}
+		}
+	</script>
+</html>

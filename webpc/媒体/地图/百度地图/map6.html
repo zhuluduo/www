@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>获取百度地图可视区域范围的数据</title>
+		<style type="text/css">
+			#allmap{width: 1600px;height: 600px;margin: auto;}
+		</style>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WGisSYWHrFFynEUtR8sihaVluQ6ERp8R"></script>
+	</head>
+	<body>
+		<div id="allmap"></div>
+		
+		<script type="text/javascript">
+			// 百度地图API功能	
+	map = new BMap.Map("allmap");
+	map.centerAndZoom(new BMap.Point(116.387452,39.947302), 13);
+	map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+	map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+	
+	var data_info = [
+		[116.417854,39.921988,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
+		[116.406605,39.921585,"地址：北京市东城区东华门大街"],
+		[116.412222,39.912345,"地址：北京市东城区正义路甲5号"],
+		[116.4935302734375,40.0506591796875,"地址：北京市东城区正义路甲6号"],
+		[116.4935302734375,40.05615234375,"地址：北京市东城区正义路甲7号"],
+		[116.488037109375,40.05615234375,"地址：北京市东城区正义路甲8号"],
+		[116.488037109375,40.0616455078125,"地址：北京市东城区正义路甲9号"],
+		[116.488037109375,40.067138671875,"地址：北京市东城区正义路甲10号"],
+		[116.488037109375,40.0726318359375,"地址：北京市东城区正义路甲11号"],
+		[116.4935302734375,40.0726318359375,"地址：北京市东城区正义路甲12号"],
+		[116.279655,40.020499,"地址：北京市东城区正义路甲13号"],
+		[116.260683,39.833259,"地址：北京市东城区正义路甲14号"],
+		[116.532043,39.830599,"地址：北京市东城区正义路甲15号"],
+		[116.526869,40.021383,"地址：北京市东城区正义路甲16号"],
+		[116.279655,40.020499,"地址：北京市东城区正义路甲17号"]
+		];
+
+
+		function getBounds(map){
+			BoundsData(map)
+			//地图移动结束时触发此事件
+			map.addEventListener('moveend',(e)=>{
+				BoundsData(map)
+				
+			})
+			//地图更改缩放级别结束时触发触发此事件
+			map.addEventListener('zoomend',(e)=>{
+				BoundsData(map)
+			})
+		}
+		function BoundsData(baiduMap){
+			const Bounds=baiduMap.getBounds();// 返回地图可视区域,以地理坐标表示
+			console.log("返回整个可视区域坐标");
+			console.log(Bounds)
+// 			console.log(Bounds.Ol)
+			console.log("返回矩形中心点")
+			console.log(Bounds.getCenter())
+			console.log("返回矩形区域的西南角")
+			console.log(Bounds.getSouthWest())
+			console.log("返回矩形区域的东北角")
+			console.log(Bounds.getNorthEast())
+			console.log("返回矩形区域的跨度")
+			console.log(Bounds.toSpan())
+			
+// 			// 获取经纬度范围参数
+// 			var bs = Bounds;   //获取可视区域
+// 			var bssw = Bounds.getSouthWest();   //可视区域左下角
+// 			var bsne = Bounds.getNorthEast();   //可视区域右上角
+// 			 
+// 			var topLat = bsne.lat;
+// 			var bottomLat = bssw.lat;
+// 			var leftLng = bssw.lng;
+// 			var rightLng = bsne.lng;
+// 			console.log(topLat)
+// 			console.log(bottomLat)
+// 			console.log(leftLng)
+// 			console.log(rightLng)
+			
+			// containsPoint(point: Point)	Boolean	如果点的地理坐标位于此矩形内，则返回true
+			// var data=[]
+// 			for(var i=0;i<data_info.length;i++){
+// 				if(Bounds.containsPoint(new BMap.Point(data_info[i][0],data_info[i][1]))==true){
+// 				
+// 				var marker = new BMap.Marker(new BMap.Point(data_info[i][0],data_info[i][1]));  // 创建标注
+// 				console.log(data_info[i])
+// 				map.addOverlay(marker);   // 将标注添加到地图中
+// 				}
+// 			}
+		}
+		getBounds(map)
+		</script>
+	</body>
+</html>

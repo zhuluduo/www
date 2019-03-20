@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>焦点图</title>
+    <style>
+        #contenter {
+            width: 400px;
+            height: 270px;
+            margin: 0 auto;
+            border: 1px solid red;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .listImg {
+            width: 4000px;
+            height: 270px;
+            position: absolute;
+            left: 0;
+            cursor: pointer;
+        }
+        
+        .listImg .imgBox {
+            float: left;
+        }
+        
+        .listImg .imgBox img {
+            width: 400px;
+            height: 270px;
+        }
+        
+        .btnspan {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            background-color: red;
+            color: #fff;
+            z-index: 999;
+            cursor: pointer;
+        }
+        
+        #buttons {
+            position: absolute;
+            height: 10px;
+            width: 100px;
+            z-index: 2;
+            bottom: 20px;
+            left: 50%;
+            margin-left: -40px;
+        }
+        
+        #buttons span {
+            cursor: pointer;
+            float: left;
+            border: 1px solid #fff;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        
+        #buttons .on {
+            background: orangered;
+        }
+        
+        .btn1 {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -20px;
+        }
+        
+        .btn2 {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="contenter">
+        <div class="listImg" id="listImg" style='left: 0px;'>
+            <div class="imgBox">
+                <img src="http://g.hiphotos.baidu.com/image/pic/item/10dfa9ec8a1363278c19c3f9988fa0ec09fac700.jpg" alt="">
+            </div>
+            <div class="imgBox">
+                <img src="http://e.hiphotos.baidu.com/image/pic/item/9922720e0cf3d7ca3f58f965f81fbe096b63a973.jpg" alt="">
+            </div>
+            <div class="imgBox">
+                <img src="http://b.hiphotos.baidu.com/image/pic/item/0bd162d9f2d3572cf8579c168313632763d0c347.jpg" alt="">
+            </div>
+            <div class="imgBox">
+                <img src="http://b.hiphotos.baidu.com/image/pic/item/574e9258d109b3def5ebe5a2c5bf6c81810a4ca7.jpg" alt="">
+            </div>
+            <div class="imgBox">
+                <img src="http://g.hiphotos.baidu.com/image/pic/item/4bed2e738bd4b31c512492718ed6277f9f2ff8e4.jpg" alt="">
+            </div>
+            <div class="imgBox">
+                <img src="http://b.hiphotos.baidu.com/image/pic/item/5243fbf2b2119313999ff97a6c380cd790238d1f.jpg" alt="">
+            </div>
+        </div>
+        <div id="buttons">
+            <span index='1' class="on"></span>
+            <span index='2'></span>
+            <span index='3'></span>
+            <span index='4'></span>
+            <span index='5'></span>
+            <span index='6'></span>
+        </div>
+        <span class="btn1 btnspan" id="btn1">向左</span>
+        <span class="btn2 btnspan" id="btn2">向右</span>
+    </div>
+    <script type="text/javascript">
+        window.onload = function() {
+            var contenter = document.getElementById('contenter')
+            var listImg = document.getElementById('listImg')
+            var btnLeft = document.getElementById('btn1')
+            var btnRight = document.getElementById('btn2')
+            var buttons = document.getElementById('buttons').getElementsByTagName('span')
+            var timer;
+            var index = 1;
+
+
+            //左右移动值
+            function animat(offset) {
+                var newLeft = parseInt(listImg.style.left) + offset;
+
+                listImg.style.left = newLeft + 'px'
+                if (newLeft > 0) {
+                    listImg.style.left = -2000 + 'px'
+                }
+                if (newLeft < -2000) {
+                    listImg.style.left = 0 + 'px'
+                }
+            }
+            //点击按钮左右移动
+            btnRight.onclick = function() {
+                    if (index == 6) {
+                        index = 1;
+                    } else {
+                        index += 1
+                    }
+                    btnon()
+                    animat(-400)
+
+                }
+                //点击按钮左移动
+            btnLeft.onclick = function() {
+                if (index == 1) {
+                    index = 6
+                } else {
+                    index -= 1
+                }
+                btnon()
+                animat(400)
+
+            }
+
+            //点击圆点切换
+            function btnon() {
+                for (var i = 0; i < buttons.length; i++) {
+                    if (buttons[i].className == 'on') {
+                        buttons[i].className = '';
+                        break;
+                    }
+                }
+                buttons[index - 1].className = 'on'
+            }
+
+            function onclick() {
+                for (var i = 0; i < buttons.length; i++) {
+                    buttons[i].onclick = function() {
+                        var mxindex = parseInt(this.getAttribute('index'))
+                        var offset = -400 * (mxindex - index)
+
+                        animat(offset)
+                        index = mxindex
+                        btnon()
+                    }
+                }
+            }
+
+
+
+            //自动切换
+            function play() {
+                timer = setInterval(function() {
+                    btnRight.onclick()
+                }, 2500)
+            }
+
+            function stp() {
+                clearInterval(timer)
+            }
+            play()
+            onclick()
+
+            contenter.onmouseover = stp;
+            contenter.onmouseout = play;
+        }
+    </script>
+</body>
+
+</html>

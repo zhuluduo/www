@@ -1,0 +1,34 @@
+<import src="posts-item/posts-item-template.wxml"/> 
+<view>
+  <swiper catchtap='onSwiperTap' indicator-dots="true" autoplay="true" circular="true">
+    <swiper-item>
+    <image src='/images/wx.png' data-postID="3"></image></swiper-item>
+    <swiper-item><image  src='/images/vr.png' data-postID="4"></image></swiper-item>
+    <swiper-item><image src='/images/iqiyi.png'  data-postID="5"></image></swiper-item>
+        <!-- <swiper-item><image catchtap='onSwiperItemTap' src='/images/iqiyi.png'  data-postID="5"></image></swiper-item> -->
+  </swiper>
+</view>
+
+<block wx:for="{{posts_key}}" wx:for-item="item" wx:for-index="idx">
+<!-- <view class='post-container'>
+  <view class='post-author-date'>
+    <image class='post-author' src='{{item.avatar}}'></image>
+    <text class='post-text'>{{item.date}}</text>
+  </view>
+  <text class='post-title'>{{item.title}}</text>
+  <image class='post-img' src='{{item.imgSrc}}'></image>
+   <text class='post-cont'>{{item.content}}</text>
+   <view class='post-like'>
+    <image class='post-like-img' src='/images/icon/chat.png'></image>
+    <text class='post-like-font'>{{item.collection}}</text>
+    <image class='post-like-img' src='/images/icon/view.png'></image>
+    <text class='post-like-font'>{{item.reading}}</text>
+   </view>
+</view> -->
+
+  <!-- catchtap 阻止冒泡事件   bindtap冒泡事件 -->
+  <!-- is获取的是模板名字（name）  想要将for循环的数据进行传递（data） {{...item}}三小点表示数据平铺 数据循环就不需要加前缀了-->
+  <view catchtap="onPostTab" data-postId="{{item.postId}}">
+   <template is="postsItem" data="{{...item}}"/>
+  </view>
+</block>

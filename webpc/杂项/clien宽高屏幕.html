@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <title>测试三</title>
+        <script type = "text/javascript" src = "myUtil.js"></script>
+        <script type = "text/javascript">
+            function test() {
+                myUtil.addEvent("div2", "scroll", function() {//绑定滚动事件
+                display();
+                });
+                display();
+            }
+            function display() {
+                var div1 = myUtil.byId("div1");//获取金色背景div框的引用
+                var str1 = getAll(div1);//获取div1的相关属性字符串
+                var div2 = myUtil.byId("div2");//获取银色背景的引用
+                var str2 = getAll(div2); //获取div2的相关属性字符串
+                var div3 = myUtil.byId("div3"); //获取显示框的引用
+                div3.innerHTML = "";
+                div3.innerHTML = "div1:<br />" + str1 + "div2:<br/>" + str2; //显示
+            }
+            function getAll(element) {
+                var str = "";
+                var clientWidth = element.clientWidth;
+                var clientHeight = element.clientHeight;
+                var clientLeft = element.clientLeft;
+                var clientTop = element.clientTop;
+                var scrollWidth = element.scrollWidth;
+                var scrollHeight = element.scrollHeight;
+                var scrollLeft = element.scrollLeft;
+                var scrollTop = element.scrollTop;
+                var offsetWidth = element.offsetWidth;
+                var offsetHeight = element.offsetHeight;
+                var offsetLeft = element.offsetLeft;
+                var offsetTop = element.offsetTop;
+                str += "clientWidth: " + clientWidth + " clientHeight: " + clientHeight + " clientLeft: " + clientLeft + " clientTop: " + clientTop + "<br />"
+                    + "scrollWidth: " + scrollWidth + " scrollHeight: " + scrollHeight + " scrollLeft: " + scrollLeft + " scrollTop: " + scrollTop + "<br />"
+                    + "offsetWidth: " + offsetWidth + " offsetHeight: " + offsetHeight + " offsetLeft: " + offsetLeft + " offsetTop: " + offsetTop + "<br />"
+                return str;
+            }
+            
+                
+        </script>
+        <style type = "text/css">
+        html {
+           margin: 0;
+           border:3px solid red;
+           padding: 0;
+           
+        }
+        /*body的边框为橙色*/
+        body {
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid orange;    
+        }
+        /*蓝色边框div*/
+        #wrapper {
+            padding: 20px;
+            margin: 0;
+            border: 1px solid blue;
+            width: 700px;    
+        }
+        /*红色边框，金色背景div*/
+        #div1 {
+            border: 3px solid red;
+            padding: 20px;
+            margin: 20px;
+            width: 100px;
+            height: 100px;
+            background: gold;
+            
+        }
+        /*绿色边框，银色背景div*/
+        #div2 {
+            background: silver;
+            width: 200px;
+            height: 200px;
+            overflow: scroll;
+            
+            padding: 20px;
+            border: 1px solid green;
+            margin-bottom: 20px;
+            
+            
+        }
+        /*蓝色背景div，是银色div的子框*/
+        #div2_1 {
+            background: blue;
+            width: 400px;
+            height: 400px;
+            
+            
+        }
+        /*黑色边框div，用来显示*/
+        #div3 {
+            border: 1px solid;
+            width: 600px;
+            height: 150px;
+        }
+        </style>
+    </head>
+    <body onload = "test()">
+        <div id = "wrapper">
+            <div id = "div1"></div>
+            <div id = "div2"><div id = "div2_1"></div></div>
+            <div id = "div3"></div>
+        </div>
+    </body>
+</html>

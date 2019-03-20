@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="http://www.softwhy.com/" />
+<title>蚂蚁部落</title>
+<style type="text/css">
+* {
+  margin: 0;
+  padding: 0;
+}
+#box {
+  position: relative;
+  width: 800px;
+  margin: 100px auto;
+}
+#div1 {
+  width: 800px;
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+}
+ul {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+li {
+  float: left;
+  list-style: none;
+  width: 460px;
+  height: 120px;
+}
+a {
+  text-decoration: none;
+  position: absolute;
+  z-index: 10;
+}
+.left {
+  left: -15px;
+  top: 11px;
+}
+.right {
+  right: -15px;
+  top: 11px;
+}
+</style>
+<script type="text/javascript">
+window.onload = function () {
+  var oDiv = document.getElementById("div1");
+  var oUl = oDiv.getElementsByTagName("ul")[0];
+  var aLi = oUl.getElementsByTagName("li");
+  var speed=3;
+  oUl.innerHTML += oUl.innerHTML;
+  oUl.style.width = aLi[0].offsetWidth * aLi.length + "px";
+  function move() {
+    if (oUl.offsetLeft < -oUl.offsetWidth / 2) {
+      oUl.style.left = 0
+    }
+    if (oUl.offsetLeft > 0) {
+      oUl.style.left = oUl.offsetWidth / 2 + "px"
+    }
+    oUl.style.left = oUl.offsetLeft - speed + "px"
+  }
+  var timer = setInterval(move, 65)
+  oDiv.onmousemove = function () {
+    clearInterval(timer)
+  }
+  oDiv.onmouseout = function () {
+    timer = setInterval(move, 65)
+  }
+}
+</script>
+</head>
+<body>
+<div id="box">
+  <div id="div1">
+    <ul>
+      <li>11111111111111111111
+      <li>3333333333333333333</li>
+      <li>44444444444444444</li>
+      <li>55555555555555555555555
+      <li>66666666666666666666666666</li>
+    </ul>
+  </div>
+  <a href="javascript:;" class="left"><img src="demo/js/img/leftbt.jpg"></a>
+  <a href="javascript:;" class="right"><img src="demo/js/img/rightbt.jpg"></a>
+</div>
+</body>
+</html>

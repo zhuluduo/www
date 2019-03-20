@@ -1,0 +1,66 @@
+<!--index.wxml-->
+<import src="../../templates/footer.wxml" />
+
+<view class="main">
+    <!-- logo + 搜索框 -->
+    <view class="index_hd">
+        <view class="logo">
+            <image src="../../images/logo-white.png"></image>
+        </view>
+        <view class="search-box">
+            <input type="text" class="search" placeholder="{{searchRecommend}}" bindtap="bindKeyInput" />
+        </view>
+    </view>
+
+    <view class="index_bd">
+        <!-- 影视宣传轮播图 -->
+        <view class="drumbeating-box movie-drumbeating publicity_photo">
+            <image src="{{bigImg}}" mode="widthFix" bindtap="openDetail" data-vid="{{video_id}}" data-title="{{title}}" />
+        </view>
+
+        <view class="movie-info">
+            <swiper autoplay="{{true}}" interval="5000" bindchange="moviepicChange">
+                <block wx:for="{{imgsUrlList}}" wx:key="{{imgsUrlList}}">
+                    <swiper-item data-vid="{{item.video_id}}" data-title="{{item.title}}" bindtap="openDetail">
+                        <view class="info-box">
+                            <view class="movie-photo">
+                                <image src="{{item.thumbnail}}" class="slide-image" />
+                            </view>
+                            <view class="movie-txt">
+                                <text class="title movie-title">{{item.title}}</text>
+                                <text class="update">更新至{{item.update}}集</text>
+                                <text class="actor">主演：{{item.actor}}</text>
+                                <text class="desc">{{item.desc}}
+                            </text>
+                            </view>
+                        </view>
+                    </swiper-item>
+                </block>
+            </swiper>
+        </view>
+
+
+        <!-- 电视剧列表  -->
+        <view class="movie-list">
+            <view class="list-head">
+                <text class="slogan">电视剧</text>
+                <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/channel/channel" class="readMore" bindtap="navToMore_movie">
+                    <text>查看更多</text>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </navigator>
+            </view>
+            <view class="movie-containers">
+                <block wx:for="{{List}}" wx:if="{{index<6}}">
+                    <view class="movie-container" data-vid="{{item.video_id}}" data-title="{{item.title}}" bindtap="openDetail">
+                        <image class="movie-photo" src="{{item.thumbnail}}"></image>
+                        <text class="update">更新到第{{item.update}}集</text>
+                        <text class="title movie-title">{{item.title}}</text>
+                    </view>
+                </block>
+            </view>
+        </view>
+
+        <template is="footer" data="{{hasMore}}"></template>
+
+    </view>
+</view>

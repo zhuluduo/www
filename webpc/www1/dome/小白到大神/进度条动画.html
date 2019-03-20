@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>进度条动画</title>
+	<style>
+		.pic i{
+			display: block;float: left;width: 6px;height: 50px;background: #333;margin:0 2px;
+			transform: scaleY(0.4);animation: load 1.2s infinite;}
+			.pic i:nth-child(2){animation-delay:0.1s ;}
+			.pic i:nth-child(3){animation-delay:0.2s ;}
+			.pic i:nth-child(4){animation-delay:0.3s ;}
+			.pic i:nth-child(5){animation-delay:0.4s ;}
+		@keyframes load{
+			0%,40%,100%{transform:scaleY(0.4);}
+			20%{transform:scaleY(1);}
+		}
+	</style>
+</head>
+<body>
+	<div class="pic">
+		<i></i>
+		<i></i>
+		<i></i>
+		<i></i>
+		<i></i>
+	</div>
+</body>
+</html>

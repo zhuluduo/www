@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			#allmap{width: 100%;height: 600px;margin: auto;}
+		</style>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WGisSYWHrFFynEUtR8sihaVluQ6ERp8R"></script>
+	</head>
+	<body>
+		<div id="allmap"></div>
+		
+		<script type="text/javascript">
+			var map = new BMap.Map("allmap");
+			var point = new BMap.Point(116.331398,39.897445);
+			map.centerAndZoom(point, 12);
+			map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+			
+			var sContent =
+			"<a href='myprotocol://'>查看</a>" + 
+			"</div>";
+			var marker = new BMap.Marker(point);
+			var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
+			map.centerAndZoom(point, 15);
+			map.addOverlay(marker);
+			marker.addEventListener("click", function(){          
+			   this.openInfoWindow(infoWindow);
+			});
+		</script>
+	</body>
+</html>
+
+
+<!-- 
+
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\myprotocol]
+@="myprotocol Protocol"
+"URL Protocol"=""
+
+[HKEY_CLASSES_ROOT\myprotocol\DefaultIcon]
+@="D:\\tool\\360\\360.exe"        ////路径名(格式同样)
+
+[HKEY_CLASSES_ROOT\myprotocol\shell]
+@=""
+
+[HKEY_CLASSES_ROOT\myprotocol\shell\open]
+@=""
+
+[HKEY_CLASSES_ROOT\myprotocol\shell\open\command]
+@="\"D:\\tool\\360\\360.exe\" "    //路径名(格式同样)
+
+-->

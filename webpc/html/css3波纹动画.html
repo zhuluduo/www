@@ -1,0 +1,67 @@
+
+<!Doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk"/>
+<title>css3动画</title>
+<style type="text/css">
+        @-webkit-keyframes pan-ripple {
+            0% {-webkit-transform:scale(1);opacity:0;}
+            30% {-webkit-transform:scale(1.1);opacity:1;}
+            100% {-webkit-transform:scale(1.4);opacity:0;}
+        }
+        .wrap-ripple{z-index:99999;position:fixed;width:50px;height:50px;padding:8px;}
+        .wrap-ripple .s-ripple i {
+            position:absolute;
+            width:45px;
+            height:45px;
+            line-height:normal;
+            border-radius:50%;
+            border:1px solid #e60012;
+            box-sizing:border-box;
+        }
+        .wrap-ripple .ripple {
+            background:#e60012;
+            color:#f9e902;
+            font-size:13px;
+            text-align:center;
+            font-style:normal;
+            padding-top:13%;
+            opacity:.8;
+        }
+        .wrap-ripple .ripple-a {
+            opacity:0;
+            -webkit-transform:scale(1);
+            transform:scale(1);
+            -webkit-animation:pan-ripple 2s linear infinite;
+            animation:pan-ripple 2s linear infinite;
+        }
+        .wrap-ripple .ripple-b {
+            opacity:0;
+            -webkit-transform:scale(1);
+            transform:scale(1);
+            -webkit-animation:pan-ripple 1s linear infinite;
+            animation:pan-ripple 1s linear infinite;
+        }
+        .wrap-ripple .s-ripple {
+            z-index:99999;
+            width:50px;
+            height:50px;
+            display:block;
+            transform-origin: 0 0 0;
+            transform: scale(1, 1);
+            top: 40%;
+            right:15px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap-ripple" style="top:36%; right:0;">
+<a href="#" class="s-ripple" id="s-ripple">
+<i class="ripple-a"></i>
+<i class="ripple">点击<br>咨询</i>
+<i class="ripple-b"></i>
+</a>
+</div>
+</body>
+</html>

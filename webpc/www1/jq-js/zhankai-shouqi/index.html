@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>展开收起</title>
+		<style type="text/css">
+			#pn{background: #e8e8e8;width: 600px;display: block;
+			margin:  0 auto;padding: 5px;height: auto;}
+		 .silde{margin: 0 auto;padding: 0;width: 600px;
+		 border-top:solid 4px goldenrod ;}
+		 .btn-slide{background: gray;width: 120px;height: 30px;text-align: center;
+		 margin: 0 auto;display: block;color: #fff;}
+		 
+		</style>
+	</head>
+	<body>
+		<div id="pn">
+			<p>手机筛选</p>
+			<p>网络：移动4G,联通，电信</p>
+			<div id="hpn" style="display: none;">
+				<p> 11111111111111111111111111</p>
+				<p>12222222222222222222222222222222222</p>
+			</div>
+		</div>
+		<p class="silde"><a href="javascript:hidediv()" id="strhref" class="btn-slide">展开+</a></p>
+	 <script type="text/javascript">
+	 	function showdiv(){
+	 		document.getElementById("hpn").style.display="block";
+	 		document.getElementById("strhref").innerHTML="收起_";
+	 		document.getElementById("strhref").href="javascript:hidediv()"
+	 	}
+	 	function hidediv(){
+	 		document.getElementById("hpn").style.display="none";
+	 		document.getElementById("strhref").innerHTML="展开+";
+	 		document.getElementById("strhref").href="javascript:showdiv()"
+	 	}
+
+	 </script>
+	</body>
+</html>

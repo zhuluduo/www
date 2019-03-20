@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+</head>
+<body>
+	<canvas id="myCanvas" width="200px" height="100"  ></canvas>
+
+	<script>
+		var c=document.getElementById('myCanvas');
+		var cd=c.getContext('2d');
+		cd.lineWidth=2;
+		cd.strokStyle="red";
+		cd.strokeRect(0,0,150,75)
+		cd.font = "60px ";
+		cd.strokeText("Hello  world", 20,60);
+	</script>
+</body>
+</html>
+
+

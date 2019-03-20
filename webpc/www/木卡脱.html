@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<script src="https://unpkg.com/gcoord/dist/gcoord.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 转换GeoJSON坐标
+// 			var geojson = {
+// 			  "type": "LineString",
+// 			  "coordinates": [[[113.899718, 22.550556,0],[113.899838, 22.550697, 0],[113.899936, 22.550602, 0],[113.899979, 22.55056, 0],[113.899847, 22.550429, 0],[113.89979, 22.550484, 0],[113.899718, 22.550556, 0]]]
+// 			}
+// 			var result = gcoord.transform(geojson, gcoord.WebMercator,gcoord.BD09);
+// 			console.log(result); // [122.99395597, 44.99804071]
+			
+			
+// var geojson ={"type":"MultiPolygon","coordinates":[[[[114.121987,22.58685,0],[114.121854,22.586846,0],[114.12185,22.586961,0],[114.121983,22.586965,0],[114.121987,22.58685,0]]]]}
+// 			var result = gcoord.transform(geojson, gcoord.WebMercator,gcoord.BD09);
+// 			console.log(result)
+
+var geojson ={"type":"Polygon","coordinates":[[[113.88401, 22.58222,0]]]}
+			var result = gcoord.transform(geojson, gcoord.WebMercator,gcoord.WGS84);
+			console.log(result)
+			
+var str="0title 成都web前端交流 summary ?欢迎成都web前端开发人员,成都web前端开发爱好者,加入成都web前端交流群。大家可以一起交流技术,招聘,找工作,同时本群提供学习资料供大家学习交流????????%https://jq.qq.com/?_wv=1027&k=4BZ07yE";
+str=str.match(/[\u4e00-\u9fa5]/g).join("");
+console.log(str);
+
+		</script>
+	</body>
+</html>

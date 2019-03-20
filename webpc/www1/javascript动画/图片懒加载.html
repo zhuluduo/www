@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lazyload</title>
+    <style>
+      .image-item {
+	    display: block;
+	    margin-bottom: 50px;
+	    height: 200px;//一定记得设置图片高度
+	}
+    </style>
+</head>
+<body>
+<img src="javascript:;" class="image-item" lazyload="true"  data-original="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3502465005,4153501499&fm=200&gp=0.jpg"/>
+<img src="javascript:;" class="image-item" lazyload="true"  data-original="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2813434517,83142011&fm=200&gp=0.jpg"/>
+<img src="javascript:;" class="image-item" lazyload="true"  data-original="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2740756761,2668961157&fm=26&gp=0.jpg"/>
+<img src="javascript:;" class="image-item" lazyload="true"  data-original="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1780548327,1309426250&fm=26&gp=0.jpg"/>
+<img src="javascript:;" class="image-item" lazyload="true"  data-original="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2213621387,2193850435&fm=200&gp=0.jpg"/>
+<img src="javascript:;" class="image-item" lazyload="true"  data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2602558426,100251765&fm=26&gp=0.jpg"/>
+<img src="javascript:;" class="image-item" lazyload="true"  data-original="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538224589616&di=72ce39df8e4867e057dc3fb36f023935&imgtype=0&src=http%3A%2F%2Fd.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F9345d688d43f87942fcd46cad81b0ef41bd53a27.jpg"/>
+<img src="javascript:;" class="image-item" lazyload="true"  data-original="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3524001812,1543361664&fm=200&gp=0.jpg"/>
+<img src="javascript:;" class="image-item" lazyload="true"  data-original="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2036357379,2884458330&fm=200&gp=0.jpg"/>
+<img src="javascript:;" class="image-item" lazyload="true"  data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1845261648,868382737&fm=200&gp=0.jpg"/>
+<img src="javascript:;" class="image-item" lazyload="true"  data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1615556001,3195348572&fm=200&gp=0.jpg"/>
+<img src="javascript:;" class="image-item" lazyload="true"  data-original="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3351684873,4022356101&fm=26&gp=0.jpg"/>
+<script>
+var viewHeight =document.documentElement.clientHeight;//获取可视区高度
+function lazyload(){
+var eles=document.querySelectorAll('img[data-original][lazyload]')
+Array.prototype.forEach.call(eles,function(item,index){
+var rect
+if(item.dataset.original==="")
+   return
+rect=item.getBoundingClientRect()// 用于获得页面中某个元素的左，上，右和下分别相对浏览器视窗的位置
+if(rect.bottom>=0 && rect.top < viewHeight){
+!function(){
+  var img=new Image()
+  img.src=item.dataset.original
+  img.onload=function(){
+    item.src=img.src
+    }
+item.removeAttribute("data-original")//移除属性，下次不再遍历
+item.removeAttribute("lazyload")
+   }()
+  }
+ })
+}
+lazyload()//刚开始还没滚动屏幕时，要先触发一次函数，初始化首页的页面图片
+document.addEventListener("scroll",lazyload)
+</script>
+</body>
+</html>

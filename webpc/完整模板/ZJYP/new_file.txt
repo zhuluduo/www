@@ -1,0 +1,15 @@
+
+
+使用wow.js
+ 调用：new WOW().init();
+ 添加对象：class='wow+animate'
+ 
+ 可用属性：
+ date-wow-duration(动画持续时间)  date-wow-duration=2s
+ data-wowdelay(动画延迟时间)
+ data-wow-offset（偏移量 ，距离可视区域多远才开始）
+ data-wow-iteraction (重复次数)
+
+
+data-wow-delay="4s"
+daneden.github.io/animate.css

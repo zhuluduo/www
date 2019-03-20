@@ -1,0 +1,42 @@
+/**/
+
+*{margin: 0px;}
+.flash{
+	width: 996px;
+	height: 400px;
+/*	background: red;*/
+	border-radius: 10px;
+	margin: 100px auto;/*上下边距100px  左右居中   盒子居中*/
+	border: 1px solid blue;
+    overflow: hidden; /*当内容超出当前内容，则超出隐藏*/
+	position: relative; /*相对定位*/
+}
+.flash img{
+	border-radius: 10px;
+	
+}
+.flash ul{
+	width: 70px;
+	height: 12px;
+	/*background:#000;*/
+	background-color:rgba(0,0,0,0.5); /*控制颜色透明度,前面三个0代表颜色后面0.5代表透明度*/
+	border-radius: 14px;
+	padding: 5px  25px;
+	position: absolute;  /*绝对定位*/
+	top: 370px;
+	left: 425px;
+}
+.flash ul li{
+	width: 10px;
+	height: 12px;
+	border:1px solid  #fff;
+	float: left;
+	color: #fff;
+	list-style-type:none;/*去掉圆点*/ 
+	margin-right:2px;/*边框和边框相距距离*/    
+	border-radius: 5px;
+}
+.flash ul li.hover{
+	background: #fff;
+	
+}

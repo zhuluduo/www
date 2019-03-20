@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>Carousel Demo</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <style>
+    body {
+        margin: 0;
+    }
+    
+    .carouselWrap {
+        width: 100%;
+        height: 600px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .carouselPrev,
+    .carouselNext {
+        display: none;
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        margin-top: -50px;
+        color: #fff;
+        font-size: 80px;
+        font-weight: bold;
+        text-decoration: none;
+        -webkit-transition: all 0.35s ease-in-out;
+        -moz-transition: all 0.35s ease-in-out;
+        -ms-transition: all 0.35s ease-in-out;
+        -o-transition: all 0.35s ease-in-out;
+        transition: all 0.35s ease-in-out;
+    }
+    
+    .carouselPrev {
+        left: 0;
+        padding-right: 5px
+    }
+    
+    .carouselNext {
+        right: 0;
+        padding-left: 5px
+    }
+    
+    .carouselPrev:hover,
+    .carouselNext:hover {
+        background: #ccc;
+        background: rgba(204, 204, 204, 0.4);
+    }
+    
+    .carouselContent li {
+        position: absolute;
+        left: 0;
+        top: 0;
+        text-align: center
+    }
+    
+    .carouselContent li img {
+        width: auto;
+        height: 600px;
+    }
+    
+    .carouselList {
+        position: absolute;
+        bottom: 10px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .carouselList span {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #fff;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+    
+    .carouselList .checked {
+        background: #f60;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="carouselWrap">
+        <a href="" class="carouselPrev">&lt;</a>
+        <a href="" class="carouselNext">&gt;</a>
+        <ul class="carouselContent">
+            <li>
+                <a href="">
+                    <img src="http://www.imooc.com/static/img/index/banner2.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="http://img.mukewang.com/57216d6a0001e14720000600.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="http://img.mukewang.com/570668da0001874d20000600.jpg" alt="">
+                </a>
+            </li>
+        </ul>
+        <p class="carouselList"></p>
+    </div>
+    <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.js"></script>
+    <script>
+    $(function() {
+        var current = 1, //当前页指针（从1开始）
+            slideNum = $(".carouselContent li").length; //图片个数
+        // 每隔4秒自动轮换
+        var auto = setInterval(function() {
+            $(".carouselNext").trigger("click");
+        }, 4000);
+        // 加上小圆点导航
+        for (i = 0; i < $(".carouselContent li").length; i++) {
+            $(".carouselList").append("<span></span>")
+        }
+        $(".carouselList span:eq(0)").addClass("checked"); // 第一个小圆点导航加上选中状态
+        $(".carouselContent li:eq(0)").show().siblings().hide(); // 第一张图片出现，其他图片隐藏
+        //鼠标移入移出轮播图区域，上一页下一页按钮显现/消失，启动/停止轮播
+        $(".carouselWrap").hover(function() {
+            $(".carouselPrev,.carouselNext").stop(true, true).fadeIn(300);
+            clearInterval(auto);
+        }, function() {
+            $(".carouselPrev,.carouselNext").stop(true, true).fadeOut(300);
+            auto = setInterval(function() {
+                $(".carouselNext").trigger("click");
+            }, 4000);
+        });
+        // 下一页按钮点击事件
+        $('.carouselNext').click(function(e) {
+            e.preventDefault();
+            //判断是否是最后一页
+            if (current === slideNum) {
+                $('.carouselContent li').eq(0).fadeIn(400).siblings().fadeOut(400);
+                $(".carouselList span").eq(0).addClass("checked").siblings().removeClass();
+                current = 1;
+            } else {
+                $('.carouselContent li').eq(current).fadeIn(400).siblings().fadeOut(400);
+                $(".carouselList span").eq(current).addClass("checked").siblings().removeClass();
+                current++;
+            }
+        });
+        // 上一页按钮点击事件
+        $('.carouselPrev').click(function(e) {
+            e.preventDefault();
+            // 判断是否是第一页
+            if (current === 1) {
+                $('.carouselContent li').eq(slideNum - 1).fadeIn(400).siblings().fadeOut(400);
+                $(".carouselList span").eq(slideNum - 1).addClass("checked").siblings().removeClass();
+                current = slideNum;
+            } else {
+                $('.carouselContent li').eq(current - 2).fadeIn(400).siblings().fadeOut(400);
+                $(".carouselList span").eq(current - 2).addClass("checked").siblings().removeClass();
+                current--;
+            }
+        });
+        // 小圆点导航按钮点击切换图片
+        $(".carouselList span").click(function() {
+            current = $(this).index() + 1;
+            $(this).addClass("checked").siblings().removeClass();
+            $('.carouselContent li').eq(current - 1).fadeIn(300).siblings().fadeOut(600);
+        });
+    });
+    </script>
+</body>
+
+</html>

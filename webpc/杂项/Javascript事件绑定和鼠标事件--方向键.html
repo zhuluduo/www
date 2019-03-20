@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Javascript事件绑定和鼠标事件</title>
+	<style>
+		#img_bg{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="img_bg"></div>
+	<!-- 鼠标事件 -->
+	<!--<script>
+	 bgimg=document.getElementById("img_bg");
+	// bgimg.onclick=function(){
+	// 	bgimg.style.background='#000'
+	// }
+	document.onmousemove=function(event){
+		x=event.clientX;
+		y=event.clientY;
+	console.log('x轴'+x+'y轴'+y+'event'+event)
+		bgimg.style.left=x+'px';
+		bgimg.style.top=y+'px'
+	}
+	</script>-->
+	<!-- 键盘事件 -->
+	<script>
+	 bgimg=document.getElementById("img_bg");
+	// bgimg.onclick=function(){
+	// 	bgimg.style.background='#000'
+	// }
+	xs=0;
+	xv=30;
+
+	ys=0;
+	yv=30;
+	document.onkeydown=function(ev){
+		console.log(ev)
+		console.log(ev.code)
+		kc=ev.keyCode;
+		document.title=kc;
+		console.log(kc)
+		if (kc==38) {
+			console.log('这是'+kc)
+		};
+		switch(kc){
+			case 37:
+			xs -=xv;
+			bgimg.style.left=xs+'px';
+			break;
+			case 38:
+			ys-=yv;
+			bgimg.style.top=ys+'px'
+			break;
+			case 39:
+			xs+=xv;
+			bgimg.style.left=xs+'px';
+			break;
+			case 40:
+			ys+=yv;
+			bgimg.style.top=ys+'px'
+			break;
+		}
+	}
+	</script>
+</body>
+</html>

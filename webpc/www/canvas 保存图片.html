@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			downloadPhotos(){
+//确定图片的类型 获取到的图片格式 data:image/Png;base64,......
+let type = 'jpeg';
+let canvas = this.$refs['ent-rela-echart'].querySelector('canvas');
+let imgdata = canvas.toDataURL(type, 1.0);
+//将mime-type改为image/octet-stream,强制让浏览器下载
+let fixtype = function (type) {
+type = type.toLocaleLowerCase().replace(/jpg/i, 'jpeg');
+let r = type.match(/png|jpeg|bmp|gif/)[0];
+return 'image/' + r;
+};
+imgdata = imgdata.replace(fixtype(type), 'image/octet-stream');
+
+        let base64Img2Blob = (code) => {
+            let parts = code.split(';base64,'),
+                contentType = parts[0].split(':')[1],
+                raw = window.atob(parts[1]),
+                rawLength = raw.length,
+                uInt8Array = new Uint8Array(rawLength);
+            for (let i = 0; i < rawLength; ++i) {
+                uInt8Array[i] = raw.charCodeAt(i);
+            }
+            return new Blob([uInt8Array], { type: contentType });
+        };
+        //将图片保存到本地
+        let savaFile = function (data, filename) {
+            let isIe = navigator.msSaveOrOpenBlob;
+            let save_link = document.createElement('a');
+            if(isIe) {
+                let url = base64Img2Blob(data);
+                save_link.addEventListener('click', function () {
+                    window.navigator.msSaveOrOpenBlob(url, filename);
+                });
+                document.body.appendChild(save_link);
+                save_link.click();
+                document.body.removeChild(save_link);
+            }else{
+                save_link.href = data;
+                save_link.download = filename;
+                let event = new MouseEvent('click');
+                save_link.dispatchEvent(event);
+            }
+
+        };
+        let filename = '' + new Date().getSeconds() + '.' + type;
+        //用当前秒解决重名问题
+        savaFile(imgdata, filename);
+
+    },
+		</script>
+	</body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			html,body,h1,h2,ul,li,p {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    color: #00acff;
+}
+
+img {
+    border: none;
+    vertical-align: top;
+}
+
+input,button {
+    border: none;
+    outline: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.clearfix::before,.clearfix::after {
+    content: "";
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+[class^="icon-"],[class*=" icon-"] {
+    display: block;
+    font-style: normal;
+    background: url("../images/icon.png") no-repeat;
+}
+
+/*header styles*/
+
+.header {
+    width: 100%;
+    height: 420px;
+    background-color: #4c0608;/*背景颜色*/
+}
+
+.header-main {
+    width: 1218px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.header-top {
+    width: 1218px;
+    height: 70px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.header-logo {
+    padding: 23px 0;
+}
+
+.header-logo a {
+    display: block;
+    text-indent: -9999px;
+    width: 120px;
+    height: 24px;
+    background: url("../images/yk-logo.png") no-repeat;
+}
+
+.header-search {
+    width: 370px;
+    height: 40px;
+    margin: 15px 0 0 260px;
+    position: relative;
+}
+
+.txt-input {
+    width: 290px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, .6);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: relative;
+}
+
+.header-search input {
+    width: 234px;
+    height: 30px;
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    background-color: transparent;
+}
+
+.header-search button {
+    float: left;
+    width: 80px;
+    height: 40px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #00acff;
+    color: #fff;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.search-drop {
+    position: absolute;
+    width: 350px;
+    padding: 10px 0;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    top: 40px;
+    left: 10px;
+    display: none;
+}
+
+.search-drop div {
+    width: 330px;
+    height: 30px;
+    padding: 0 10px;
+    line-height: 30px;
+    overflow: hidden;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.search-drop div.div-hover {
+    background-color: #f5f5f5;
+}
+
+.search-drop div span,.search-drop div p {
+    float: left;
+}
+
+.search-drop div span {
+    width: 40px;
+    line-height: 30px;
+    text-align: left;
+}
+
+.search-drop div span.hot-word {
+    color: #f50;
+}
+
+.search-drop div p {
+    width: 290px;
+    height: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.header-nav {
+    margin-top: 12px;
+}
+
+.header-nav li {
+    float: left;
+    margin-right: 40px;
+    color: #fff;
+    cursor: pointer;
+
+}
+
+.header-nav li:last-child {
+    margin: 0;
+}
+
+.header-nav li span {
+    color: #999;
+}
+
+.header-nav li:hover span {
+    color: #fff;
+}
+
+.header-nav li:hover .icon-history {
+    background-position: -40px -60px;
+}
+
+.header-nav li:hover .icon-rss {
+    background-position: -40px -42px;
+}
+
+.header-nav li:hover .icon-upload {
+    background-position: -40px -101px;
+}
+
+.header-nav li:hover .icon-client {
+    background-position: -40px -82px;
+}
+
+.icon-member {
+    width: 28px;
+    height: 22px;
+    background-position: -32px -164px;
+    margin-bottom: 5px;
+}
+
+.icon-history {
+    width: 20px;
+    height: 20px;
+    background-position: -20px -60px;
+    margin: 1px 0 6px 15px;
+}
+
+.icon-rss {
+    width: 18px;
+    height: 18px;
+    background-position: -20px -42px;
+    margin: 1px 0 6px 5px;
+}
+
+.icon-upload,.icon-client {
+    width: 20px;
+    height: 18px;
+}
+
+.icon-upload {
+    background-position: -20px -101px;
+    margin: 1px 0 6px 3px;
+}
+
+.icon-client {
+    background-position: -20px -82px;
+    margin: 1px 0 6px 9px;
+}
+
+.icon-account {
+    width: 38px;
+    height: 38px;
+    background-position: right top;
+}
+
+.header-banner {
+    width: 1218px;
+    height: 420px;
+    overflow: hidden;
+}
+
+.banner-img {
+    height: 420px;
+    background: url("../images/banner0.png") no-repeat center center;
+}
+
+.header-menu {
+    width: 190px;
+    height: 310px;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,.5);
+    padding: 10px 15px;
+    position: absolute;
+    bottom: 15px;
+    right: 0;
+}
+
+.header-menu div {
+    height: 44px;
+    color: #9a9a9a;
+    cursor: pointer;
+    border-bottom: 1px solid #3c3838;
+}
+
+.header-menu div:last-child {
+    border: none;
+}
+
+.header-menu div h2,.header-menu div p {
+    font-size: 14px;
+    float: left;
+    line-height: 44px;
+}
+
+.header-menu div h2::after {
+      content: ":";
+}
+
+.header-menu .menu-active {
+    height: 70px;
+    color: #fff;
+}
+
+.header-menu .menu-active h2 ,.header-menu .menu-active p {
+    clear: both;
+}
+
+.header-menu .menu-active h2 {
+    font-size: 18px;
+    line-height: 36px;
+}
+
+.header-menu .menu-active p {
+    font-size: 14px;
+    line-height: 34px;
+}
+
+.header-menu .menu-active h2::after {
+    content: "";
+}
+
+
+		</style>
+	</head>
+	<body>
+		<div class="header" id="header" style="background-color: rgb(115, 63, 59);">
+
+    <div class="header-main">
+        <div class="header-banner">
+            <div class="banner-img" id="banner_img" style="background: url(&quot;images/banner3.png&quot;) center center no-repeat;">
+
+            </div>
+        </div>
+
+        <div class="header-top clearfix">
+            <div class="header-logo fl">
+                <h1>
+                    <a href="http://yanshi.sucaihuo.com/jquery/35/3536/demo/#">优酷,这世界很酷</a>
+                </h1>
+            </div>
+
+            <div class="header-search fl clearfix">
+                <div class="search-drop" id="search_drop" style="display: none;">
+
+                <div><span class="hot-word">01</span><p>欢乐喜剧人第三季 郭德纲</p></div><div><span class="hot-word">02</span><p>恋爱大师 靳东携手江疏影</p></div><div><span class="hot-word">03</span><p>谈判官 杨幂携新作归来</p></div><div><span>04</span><p>我是歌手第五季强势归来</p></div><div><span>05</span><p>三分钟 陈可辛催泪三分钟</p></div><div><span>06</span><p>寻秦记 小鲜肉版寻秦记</p></div></div>
+
+                <div class="txt-input fl">
+                    <input type="text" id="text_input">
+                </div>
+                <button>搜索</button>
+            </div>
+
+            <div class="header-nav fr clearfix">
+                <ul>
+                    <li>
+                        <i class="icon-member"></i>
+                        <span>会员</span>
+                    </li>
+                    <li>
+                        <i class="icon-history"></i>
+                        <span>历史记录</span>
+                    </li>
+                    <li>
+                        <i class="icon-rss"></i>
+                        <span>订阅</span>
+                    </li>
+                    <li>
+                        <i class="icon-upload"></i>
+                        <span>上传</span>
+                    </li>
+                    <li>
+                        <i class="icon-client"></i>
+                        <span>客户端</span>
+                    </li>
+                    <li>
+                        <i class="icon-account"></i>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="header-menu" id="header_menu">
+            <div class="">
+                <h2>欢乐喜剧人</h2>
+                <p>岳云鹏人气爆棚</p>
+            </div>
+            <div class="">
+                <h2>恋爱先生</h2>
+                <p>程皓大胆告白罗月</p>
+            </div>
+            <div class="">
+                <h2>谈判官</h2>
+                <p>杨幂变身霸道总裁</p>
+            </div>
+            <div class="menu-active">
+                <h2>我是歌手</h2>
+                <p>华晨宇强势登顶</p>
+            </div>
+            <div class="">
+                <h2>三分钟</h2>
+                <p>陈可辛三分钟催泪佳作</p>
+            </div>
+            <div class="">
+                <h2>寻秦记</h2>
+                <p>护嫁小分队遇危机</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+		<script type="text/javascript">
+			/**
+ * Created by wangshuo on 2018/2/2.
+ */
+
+var header_menu = document.getElementById("header_menu");
+var menu_divs = header_menu.getElementsByTagName("div");
+var header = document.getElementById("header");
+var banner_img = document.getElementById("banner_img");
+var color_arr = ["#5d0b11","#dae4e5","#54514b","#733f3b","#afa7a5","#291521"];
+//右侧菜单效果
+for (var i = 0; i < menu_divs.length; i++) {
+    var menu_div = menu_divs[i];
+    menu_div.index = i;
+    menu_div.onmouseover = function () {
+        for (var j = 0; j < menu_divs.length; j++) {
+            menu_divs[j].className = "";
+        }
+        this.className = "menu-active";
+        banner_img.style.background = "url('images/banner" + this.index + ".png') no-repeat center center";
+        header.style.backgroundColor = color_arr[this.index];
+    };
+}
+
+
+
+//搜索框聚焦 下拉显示，点击空白消失
+
+var text_input = document.getElementById("text_input");
+var search_drop = document.getElementById("search_drop");
+
+text_input.addEventListener("focus", function () {
+    search_drop.style.display = "block";
+});
+
+//点击空白 下拉消失
+document.onclick = function (event) {
+    var event = event || window.event;
+    //event.target.id 火狐谷歌支持  event.srcElement.id ie支持  如果支持event.target的话，就用前者  否则后者
+    var targetId = event.target ? event.target.id : event.srcElement.id;
+    //当点击页面的时候  只要没有点到下拉菜单和输入框 就相当于点击空白处  那么这时候下拉消失
+    if (targetId != "search_drop" && targetId != "text_input")
+    {
+        search_drop.style.display = "none";
+    }
+};
+
+
+//向下拉菜单中动态添加数据
+var num = 0;//列表序号
+var result_arr = ["欢乐喜剧人第三季 郭德纲","恋爱大师 靳东携手江疏影","谈判官 杨幂携新作归来","我是歌手第五季强势归来","三分钟 陈可辛催泪三分钟","寻秦记 小鲜肉版寻秦记"];
+for (var key in result_arr) {
+    var that  = key;//这里注意  在这里保存一下key的值  因为下边就把key变成0+key了
+    var xuhao = parseInt(key) + 1;//注意  这里的key是string
+    //console.log(xuhao);
+    num = key < 10 ? key = "0" + xuhao : xuhao;
+    var data_in = "<span>" + num + "</span><p>" + result_arr[that] + "</p>";
+    var div = document.createElement("div");
+    div.innerHTML = data_in;//注意data_in不是节点  不能用appendchild直接添加
+    search_drop.appendChild(div);
+}
+
+//下拉菜单的前三个序号 是橘红色
+var spans = search_drop.getElementsByTagName("span");
+for (var i = 0; i < 3; i++) {
+    spans[i].className = "hot-word";
+}
+//鼠标划过下拉菜单时 背景颜色变化
+var divs = search_drop.getElementsByTagName("div");
+for (var i = 0; i < divs.length; i++) {
+    var div = divs[i];
+    div.addEventListener("mouseover", function () {
+        for (var j = 0; j < divs.length; j++) {
+            divs[j].className = "";
+        }
+        this.className = "div-hover";
+    })
+
+    div.addEventListener("mouseout", function () {
+        for (var j = 0; j < divs.length; j++) {
+            divs[j].className = "";
+        }
+    })
+}
+
+
+
+
+		</script>
+	</body>
+</html>

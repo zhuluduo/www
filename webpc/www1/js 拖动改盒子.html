@@ -1,0 +1,90 @@
+<!DOCTYPE html>  
+<html>  
+    <head>  
+        <meta charset="UTF-8">  
+        <title></title>  
+        <style type="text/css">  
+             *{margin: 0;padding: 0;}
+             body{position: relative}
+             #tables{
+             	width: 100%;
+             	height: 600px;
+             	background: brown;
+             }
+             #tabind{
+             	width: 100%;
+             	height: 500px;
+             	position: relative;
+             	background: #005C5F;
+             }
+            #box{position: absolute;bottom: 0;width: 100%;height: 200px;background-color: #007AFF;} 
+            #line{width: 100%;height: 4px; background-color: #000;position: absolute; bottom: 200px;cursor: n-resize;} 
+        </style>  
+        <script type="text/javascript">  
+            window.onload=function(){  
+                var oBox=document.getElementById('box'); 
+                var oLine = document.getElementById('line');
+                var cont = document.getElementById('cont');
+                var b='';//声明两个空变量a，b；  
+                var a='';  
+                var overalDocum = document;
+                oLine.onmousedown=function(ev){  
+                    var iEvent=ev||event;  
+                    var dx=iEvent.clientX;
+                    var dy=iEvent.clientY;  
+                    var dw=oBox.offsetWidth;
+                    var dh=oBox.offsetHeight;
+                    var disright=oBox.offsetLeft+oBox.offsetWidth;
+                    var distop=oBox.offsetHeight+oBox.offsetTop; 
+                    var winHeight = cont.offsetHeight;
+                    console.log(iEvent.clientY)
+                    console.log(oBox.offsetTop+10)
+                    if(iEvent.clientY<oBox.offsetTop+10){//同理  
+                        b='top';  
+                    }  
+                    document.onmousemove=function(ev){  
+                        var iEvent=ev||event;
+                        if(b=='top'){  
+                        	console.log(77777)
+                            oBox.style.height=dh-(iEvent.clientY-dy)+'px';
+                            oBox.style.top=distop-oBox.offsetHeight+'px';
+                            oLine.style.top = distop-oBox.offsetHeight-4+'px';
+                            if(oBox.offsetTop-2<=10){
+                            	oLine.style.top='8px';
+                            	oBox.style.top='10px';
+                            	oBox.style.height=(winHeight-10)+'px';
+                            }
+                            if(oBox.offsetHeight<=100){  
+                                oBox.style.height='100px';  
+                                oBox.style.top=distop-oBox.offsetHeight+'px';//防止抖动  
+                                oLine.style.top=distop-oBox.offsetHeight-4+'px';
+                            }
+                            
+                        }  
+                          
+                    };  
+                    document.onmouseup=function(){  
+                        overalDocum.onmousedown=null;  
+                        overalDocum.onmousemove=null;  
+                    };  
+                    return false;  
+                };  
+            };  
+        </script>  
+    </head>  
+    <body style="height: 100%;">  
+		<div id="cont">
+			<div id="tables">
+	    		这是表
+	    	</div>
+	    	<div id="tabind">
+	    		<div id="line"></div>
+			        <div id="box">
+			        	<div id="sds">
+			        		123123123
+			        	</div>
+			        </div> 
+	    	</div> 
+		</div>
+    </body>  
+</html>

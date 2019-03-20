@@ -1,0 +1,14 @@
+https://juejin.im/post/5a7914386fb9a063543c0f44    vue仿今日头条
+
+从输入URL到页面加载的过程？如何由一道题完善自己的前端知识体系！
+https://zhuanlan.zhihu.com/p/34453198
+
+localhost、127.0.0.1 和 本机IP 三者的区别?（https://www.zhihu.com/question/23940717）
+
+纯CSS导航栏下划线跟随效果（http://www.cnblogs.com/coco1s/p/8657192.html）
+
+
+博客（https://bluest.me/better-boxshadow-animation.html）
+
+
+css切角（https://github.com/Jocs/jocs.github.io/issues/6）

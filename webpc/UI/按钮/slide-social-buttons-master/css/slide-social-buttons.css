@@ -1,0 +1,121 @@
+/* Slide Social Buttons are a fun way to display your social media buttons
+ * 
+ * @author Christopher Yee
+ * @author Blue Husky Studios
+ *
+ * @see https://github.com/christophery/slide-social-buttons
+ */
+
+.slide-social{
+    display: inline-block;
+    overflow: hidden;
+    margin: 0 1em 1em 0;
+    width: 9em;
+    height: 3em;
+    background: #F1F1F1;
+    background: rgba(0,0,0,.05);
+    position: relative; /* So social buttons don't align with positioned ancestor */
+}
+
+.slide-social .ss-button{
+    position: absolute;
+    top: 1em;
+    left: 35%;
+}
+
+.ss-icon{
+    padding-top: 1em; /* .slide-social{height} - .ss-icon i{height}*/
+    width: 25%;
+    height: 100%;
+    text-align: center;
+}
+
+.ss-icon i{
+    border-right: 1px solid #FFF; /* IE < 9 Fallback Colour */
+    border-right-color: rgba(255,255,255,.3);
+    color: #FFF;
+    display: block;
+    font-size: 1.2em;
+    height: 1em;
+}
+
+.ss-slide{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 75%;
+    height: 100%;
+    color: #FFF;
+    text-align: center;
+    font-weight: 600;
+    line-height: 3em; /* .slide-social{height} */
+    cursor: pointer;
+}
+
+/* Brand Colours */
+
+.facebook-bg{
+    background: #3b5998;
+}
+
+.twitter-bg{
+    background: #00acee;
+}
+
+.google-plus-bg{
+    background: #db4a39;
+}
+
+.linkedin-bg{
+    background: #0e76a8;
+}
+
+.pinterest-bg{
+    background: #c8232c;
+}
+
+.tumblr-bg{
+    background: #35465c;
+}
+
+/* Slide Animation */
+
+.slide-social:hover .ss-slide, 
+.slide-social .ss-slide:hover{
+    -webkit-transform: translate(101%, 0);
+    -moz-transform: translate(101%, 0);
+    -ms-transform: translate(101%, 0);
+    -o-transform: translate(101%, 0);
+    transform: translate(101%, 0);
+}
+
+.slide-social:hover .ss-icon i{
+    border-right-color: transparent;
+}
+
+/* Transition */
+
+.ss-slide{
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out 2s;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.slide-social:hover .ss-slide{
+    -ms-transition-delay: 0s;
+}
+
+/* Example Media Queries */
+
+@media only screen and (max-width : 30em) { /* 480px/16px = 30em */
+
+    .slide-social{
+        width: 100%;
+    }
+
+    .slide-social .ss-button{
+        left: 50%;
+    }
+}

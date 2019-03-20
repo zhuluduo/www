@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动态加载数据</title>
+		<style type="text/css">
+		*{margin: 0;padding: 0;}
+			ul li{list-style: none;}
+			li{float: left;background: #868686;color: #fff;padding: 5px;
+			 margin-right: 2px;border: 1px solid #fff;}
+			 .tabin{
+			 	background-color:#6e6e6e ;
+			 	border: 1px solid#6e6e6e;
+			 	cursor:pointer
+			 }
+			.contentfirst{
+				clear: both;
+				background-color: #6E6E6E;
+				color: #fff;
+				width: 300px;
+				height: 100px;
+				padding: 10px;
+				display: none;
+				
+			}
+			.content{display: block;}
+			/*2*/
+			.app_tab1 ,.app_tab2{margin-top: 1rem;height: auto;overflow: hidden;}
+			#tabsecond li{
+				float: left;
+				background-color: #fff;
+				color: blue;
+				padding: 10px;
+				margin-right: 2px;
+				cursor: pointer;
+			}
+			#tabsecond li.tabin{
+				background-color: #f2f6f8;
+				border: 1px solid #000;
+				border-bottom: 0;
+				z-index: 100;
+				position: relative;
+			}
+			#contensecond{width: 500px;height: 200px;padding: 10px;
+			background-color: #F2F6F8;clear: left;border: 1px solid #000;top: -2px ;position: relative;}
+		</style>
+	</head>
+	<body>
+	<div class="app_tab1">
+		<ul>
+			<li class="tabin">标签1</li>
+			<li>标签2</li>
+			<li>标签3</li>
+		</ul>
+		<div id="" class="content contentfirst">
+			内容1
+		</div>
+		<div class="contentfirst">
+			内容2
+		</div>
+		<div class="contentfirst">
+			内容3
+		</div>
+		</div>
+		<div class="app_tab2">
+			<ul id="tabsecond">
+				<li class="tabin">装载整个页面</li>
+				<li>装载部分页面</li>
+				<li >装载网络数据</li>
+			</ul>
+			<div id="contensecond">
+				<div id="realcontent"></div>
+			</div>
+		</div>
+		<script src="../JQ瀑布流/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	    <!--<script type="text/javascript">
+	    var timoutid;
+        $(document).ready(function(){
+        	$('.app_tab1 li').each(function(index){
+        		var liNode=$(this);
+        		$(this).mousemove(function(){
+        			timoutid=setTimeout(function(){
+        				$('div.content').removeClass('content');
+        				$('li.tabin').removeClass('tabin');
+        				$('div').eq(index).addClass('content');
+        				liNode.addClass('tabin');
+        			},300);
+        			
+        		}).mouseout(function(){
+        			clearTimeout(timoutid);
+        		})
+        	})
+        })
+	    </script>-->
+	    <script type="text/javascript">
+	    	$(realcontent).load('dome.txt');
+	    	$('#tabsecond li').each(function(index){
+	    		$(this).click(function(){
+	    			$('#tabsecond li.tabin').removeClass('tabin');
+	    			$(this).addClass('tabin')
+	    		})
+	    	})
+	    </script>
+	</body>
+</html>

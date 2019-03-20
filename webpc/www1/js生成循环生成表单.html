@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		//			外层循环行内层循环列
+		<table border="1" cellpadding="0" bgcolor="aqua" width="80%">
+		<script type="text/javascript">
+			for (var i=1;i<=4;i++) {
+				document.write("<tr>");
+				document.write("<td>X</td>");
+				document.write("<td>X</td>");
+				document.write("</tr>");
+			}
+			
+			
+		</script>
+		</table>
+		<hr/>
+				<table border="1" cellpadding="0" bgcolor="red" width="80%">
+		<script type="text/javascript">
+			for (var k=1;k<=4;k++) {
+				document.write("<tr>");
+				for(var j=1;j<=8;j++){
+					document.write("<td>B</td>");
+					
+				}
+				document.write("</tr>");
+			}
+			
+			
+		</script>
+		</table>
+		
+		<script type="text/javascript">
+			document.write("<hr color='blue'/ >")
+			document.write("<table border='1' cellpadding='0' cellspacing='0' width='100%'>");
+			for (var i=1;i<=9;i++) {
+				document.write("<tr>");
+				for(var j=1;j<=i;j++){
+					document.write("<td>"+i+"X"+j+"="+(i*j)+"</td>");
+				}
+				document.write("</tr>");
+			}
+			document.write("</table>");
+		</script>>
+	</body>
+
+</html>

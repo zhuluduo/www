@@ -1,0 +1,104 @@
+下面介绍JQUERY的父，子，兄弟节点查找方法
+
+jQuery.parent(expr) 找父亲节点，可以传入expr进行过滤，比如$("span").parent()或者$("span").parent(".class")
+
+jQuery.parents(expr),类似于jQuery.parents(expr),但是是查找所有祖先元素，不限于父元素
+
+jQuery.children(expr).返回所有子节点，这个方法只会返回直接的孩子节点，不会返回所有的子孙节点
+
+jQuery.contents(),返回下面的所有内容，包括节点和文本。这个方法和children()的区别就在于，包括空白文本，也会被作为一个
+
+jQuery对象返回，children()则只会返回节点
+
+jQuery.prev()，返回上一个兄弟节点，不是所有的兄弟节点
+
+jQuery.prevAll()，返回所有之前的兄弟节点
+
+jQuery.next(),返回下一个兄弟节点，不是所有的兄弟节点
+
+jQuery.nextAll()，返回所有之后的兄弟节点
+
+jQuery.siblings(),返回兄弟姐妹节点，不分前后
+
+jQuery.find(expr),跟jQuery.filter(expr)完全不一样。jQuery.filter()是从初始的jQuery对象集合中筛选出一部分，而jQuery.find()
+
+的返回结果，不会有初始集合中的内容，比如$("p"),find("span"),是从
+
+p元素开始找,等同于$("p span")
+
+ 
+
+先说一下JS的获取方法，其要比JQUERY的方法麻烦很多，后面以JQUERY的方法作对比
+
+JS的方法会比JQUERY麻烦很多，主要则是因为FF浏览器，FF浏览器会把你的换行也当最DOM元素
+
+ 
+原生的JS获取ID为test的元素下的子元素。可以用：
+
+比如：
+
+<div id="dom">
+
+    <div></div>
+
+    <div></div>
+
+    <div></div>
+
+</div>
+
+var a = docuemnt.getElementById("dom").getElementsByTagName_r("div"); 这样是没有问题的
+
+此时a.length=3；
+
+但是我们现在换一种方法获取就是我上章提到的var b = document.getElementByIdx_x("dom").childNodes;如果   这样alert(b.length)IE浏览器上没问题还是3，但是在FF浏览器上会提示是4，这就是因为FF把换行也当做一个元素了。
+所以我们必须处理一下才能用JS的那些属性。处理思想很简单就是遍历一下这些元素。把元素类型为空格而且是文本都删除。处理函数是这样的
+
+function del_space(elem){
+
+  var elem_child = elem.childNodes;//得到参数元素的所有子元素
+
+  for(var i=0;i<elem_child.length;i++){ //遍历子元素
+         if(elem_child.nodeName == "#text" && !/\S/.test(elem_child.nodeValue)) { 
+           elem.removeChild(elem_child)}
+          }
+
+   }
+
+}
+
+上述函数遍历子元素，当元素里面有节点类型是文本并且该节点的节点值是空的。就把他删除。
+
+nodeNames可以得到一个节点的节点类型，/\s/是非空字符在JS里的正则表达式。前面加！,则表示是空字符
+
+test() 方法用于检测一个字符串是否匹配某个模式.语法是： RegExpObject.test(string)
+
+如果字符串 string 中含有与 RegExpObject 匹配的文本，则返回 true，否则返回 false。
+
+nodeValue表示得到这个节点里的值。
+
+removeChild则是删除元素的子元素。
+
+下面就是重点了啊！
+
+<div id = "dom">
+          <div></div> 
+          <div></div> 
+
+     <div></div> 
+
+ </div>
+
+<script>
+   function dom(){
+      var a = document.getElementByIdx_x_x("dom");
+      del_space(a);调用清理空格的函数
+      var b = a.childNodes;获取a的全部子节点；
+      var c = a.parentNode;获取a的父节点；
+      var d = a.nextSbiling;获取a的下一个兄弟节点
+      var e = a.previousSbiling;获取a的上一个兄弟节点
+      var f = a.firstChild;获取a的第一个子节点
+      var g = a.lastChild;获取a的最后一个子节点
+
+}
+</script>

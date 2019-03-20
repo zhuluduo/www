@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Javascript 回到顶部效果</title>
+        <style type="text/css">
+            #btn {
+                width: 40px;
+                height: 40px;
+                position: fixed;
+                display: none;
+                right: 0px;
+                bottom: 30px;
+                background: red;
+            }
+             
+            #btn:hover {
+                background: red;
+            }
+             
+            .box {
+                width: 1190px;
+				height: 2000px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+ 
+    <body>
+        <div class="box">
+            <img src="1.jpg" />
+        </div>
+        <a href="javascript:;" id="btn" title="回到顶部"></a>
+                 
+        <script type="text/javascript">
+            window.onload = function() {
+                var obtn = document.getElementById('btn');
+                var timer = null; //定义一个定时器
+                var isTop = true; //定义一个布尔值，用于判断是否到达顶部
+                //获取页面的可视窗口高度
+                var clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+ 
+                //滚动条滚动时触发
+                window.onscroll = function(){
+                    //在滚动的时候增加判断
+                    var osTop = document.documentElement.scrollTop || document.body.scrollTop;//特别注意这句，忘了的话很容易出错
+                    if (osTop >= clientHeight) { //如果滚动高度大于可视区域高度，则显示回到顶部按钮
+                        obtn.style.display = 'block';
+                    }else{
+                        obtn.style.display = 'none';
+                    }
+					
+					//主要用于判断当 点击回到顶部按钮后 滚动条在回滚过程中，若手动滚动滚动条，则清除定时器
+                    if (!isTop) {
+                        clearInterval(timer);
+                    }
+                    isTop = false;
+                };
+ 
+				 //回到顶部按钮点击事件
+                btn.onclick = function(){
+ 
+                    //设置定时器
+                    timer = setInterval(function(){
+                        //获取滚动条距离顶部的高度
+                        var osTop = document.documentElement.scrollTop || document.body.scrollTop;  //同时兼容了ie和Chrome浏览器
+                         
+                        //用于设置速度差，产生缓动的效果
+                        var Speed = Math.floor(-osTop / 6);
+                        document.documentElement.scrollTop = document.body.scrollTop = osTop + Speed;
+						
+						//用于阻止滚动事件清除定时器
+                        isTop = true;
+ 
+                        //判断，然后清除定时器
+                        if (osTop == 0) {
+                            clearInterval(timer);
+                        }
+                    },30);
+                };
+// 				DOM：
+// 					1、document.getElementById()
+// 					2、document.documentElement.scrollTop
+// 					3、document.body.scrollTop
+// 				事件：
+// 					1、window.onload
+// 					2、window.onscroll
+// 					3、obtn.onclick
+// 				定时器的使用：
+// 					1、setInterval(function(){},30)
+// 					2、clearInterval(timer)
+            }
+        </script>
+    </body>
+ 
+</html>
+

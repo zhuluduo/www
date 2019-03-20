@@ -1,0 +1,90 @@
+
+
+.el-form {
+  background-color: #fff;
+
+  .el-form-item {
+    margin-bottom: 24px;
+
+    .el-form-item__content {
+      padding: 0 20px;
+
+      .el-input__inner {
+        height: 88px;
+        font-size: 28px;
+        color: #a09f9f;
+        padding: 0 28px;
+        border-radius: 0px;
+        border: solid 1.5px #d0d0d0;
+        color: #777;
+        font-weight: normal;
+        font-family: "Microsoft Yahei";
+      }
+
+      .el-input.required::before {
+        content: '*';
+        height: 88px;
+        font-size: 16px;
+        line-height: 88px;
+        color: #f56c6c;
+        position: absolute;
+        left: 12px;
+        z-index: 10;
+      }
+    }
+
+    &.is-error .el-input__inner {
+      border-color: #f56c6c;
+    }
+
+    .el-form-item__error {
+      color: #f56c6c;
+      font-size: 22px;
+      text-align: right;
+      padding-top: 0;
+      position: absolute;
+      padding-right: 28px;
+      top: 33px;
+      right: 0px;
+      left: auto;
+    }
+
+    .el-checkbox {
+      display: flex;
+      align-items: center;
+      height: 88px;
+      border-bottom: 1.5px solid #e2e2e2;
+
+      .el-checkbox__label {
+        padding-left: 10px;
+        line-height: normal;
+        font-size: 28px;
+        color: #6b6b6b;
+      }
+
+      .el-checkbox__inner {
+        border-radius: 50%;
+        width: 34px;
+        height: 34px;
+      }
+
+      .el-checkbox__inner::after {
+        color: #f56c6c;
+        top: -6px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        margin: auto;
+        border: 2px solid #fff;
+        border-left: 0;
+        border-top: 0;
+        height: 18px;
+        width: 8px;
+      }
+    }
+
+    .el-checkbox+.el-checkbox {
+      margin: 0px;
+    }
+  }
+}

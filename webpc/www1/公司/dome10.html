@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery点击缩略图切换视频播放</title>
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+/* videobox */
+.videobox{background:#ff6600;border:solid 5px #ff6600;width:408px;margin:30px auto 0 auto;}
+.video-img{width:408px;height:266px;overflow:hidden;}
+.video-list{height:78px;padding:15px 0 0 0;}
+.video-list li{width:78px;height:59px;overflow:hidden;position:relative;float:left;border:solid 2px #fff;margin:0 10px;cursor:pointer;}
+.video-list li .icon-video{position:absolute;left:22px;top:12px;width:33px;height:33px;z-index:99;}
+.video-list li.now .icon-video{display:none;}
+</style>
+</head>
+
+<body>
+<div class="videobox">
+ <div class="video-img">
+ <embed id="js_videoCon_1" class="js_videoCon"  src="http://fuck.thinksaas.cn/get/http://player.youku.com/player.php/sid/XNTMyNzE2ODk2/v.swf" allowFullScreen="true" quality="high" width="408" height="266" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+ <embed id="js_videoCon_2" class="js_videoCon" style="display:none" src="http://fuck.thinksaas.cn/get/http://player.youku.com/player.php/sid/XNTMyNzM4MzA4/v.swf" allowFullScreen="true" quality="high" width="408" height="266" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+ <embed id="js_videoCon_3" class="js_videoCon" style="display:none" src="http://fuck.thinksaas.cn/get/http://player.youku.com/player.php/sid/XNTMyNzQ1MjQw/v.swf" allowFullScreen="true" quality="high" width="408" height="266" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+ <embed id="js_videoCon_4" class="js_videoCon" style="display:none" src="http://fuck.thinksaas.cn/get/http://player.youku.com/player.php/sid/XNTMyODE3NTU2/v.swf" allowFullScreen="true" quality="high" width="408" height="266" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+ </div>
+ <div class="video-list">
+ <ul>
+  <li class="now" id="http://player.youku.com/player.php/sid/XNTMyNzE2ODk2/v.swf" video="1" vid="1">
+  <img src="images/video_1.jpg" width="78" height="59">
+  <img src="images/icon-video.png" class="icon-video">
+  </li>
+  <li id="http://player.youku.com/player.php/sid/XNTMyNzM4MzA4/v.swf" video="2" vid="2">
+  <img src="images/video_2.jpg" width="78" height="59">
+  <img src="images/icon-video.png" class="icon-video">
+  </li>
+  <li id="http://player.youku.com/player.php/sid/XNTMyNzQ1MjQw/v.swf" video="3" vid="3">
+  <img src="images/video_3.jpg" width="78" height="59">
+  <img src="images/icon-video.png" class="icon-video">
+  </li>
+  <li id="http://player.youku.com/player.php/sid/XNTMyODE3NTU2/v.swf" video="4" vid="4">
+  <img src="images/video_4.jpg" width="78" height="59">
+  <img src="images/icon-video.png" class="icon-video">
+  </li>
+ </ul>
+ </div>
+</div>
+
+<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+ // 切换视频
+ $(".video-list li").click(function(){
+ var obj = $(this);
+ var video_id = obj.attr("video");
+ var path = obj.attr("id");
+ var vid = obj.attr("vid");
+ $(".js_videoCon").hide();
+ $("#js_videoCon_"+vid).show();
+ obj.addClass("now").siblings().removeClass("now");
+ });
+});
+</script> 
+
+</div>
+<div style="text-align:center;clear:both"><br>
+</div>
+</body>
+</html>

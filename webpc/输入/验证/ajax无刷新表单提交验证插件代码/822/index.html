@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>表单验证和ajax无刷新提交插件</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.skygqCheckAjaxform.1.5.js"></script>
+<script>
+$(function(){
+	var rules = {
+		"coupon_amount" 		: [/^0.([1-9]){1,2}$/,"必须为0.85这样的数字"]
+	}
+	$.skygqCheckAjaxForm.addRules(rules);
+
+	//第二个表单验证
+	var items_array = [
+		{ name:"info[login]",type:"username",simple:"用户名",message:"搞什么飞机，好好填写用户名",focusMsg:'数字和英文及下划线和.的组合，开头为字母，4-20个字符'},
+		{ name:"info[password]",type:'password',simple:"密码",focusMsg:'最小长度:6 最大长度:16'},
+		{ name:"info[confirm_password]",type:'eq',to:'info[password]',simple:"确认密码",focusMsg:'请再输入一遍您上面填写的密码'},
+		{ name:"info[email]",type:"mail",simple:"Email",focusMsg:'请填写真实并且最常用的邮箱'},
+		{ name:"info[age]",simple:"年龄",between:[18,78],focusMsg:'年龄必须大于等于18小于等于78'},
+		{ name:"info[do_years]",simple:"工作年限",type:"gt",value:3,focusMsg:'必须大于3'},
+		{ name:"sport[]",simple:"运动",checked_limit:[2,2],focusMsg:"请选择2项运动"},
+		{ name:"favourite[]",simple:"爱好",checked_limit:[4,7],focusMsg:"请选择4到7项爱好"},
+		{ name:"sky.zhekou",type:"coupon_amount",simple:"折扣",focusMsg:"请填写折扣系数"}
+	];
+
+	$("#form").skygqCheckAjaxForm({
+		items			: items_array
+	});
+});
+
+
+
+</script>
+</head>
+<body>
+	<div style="text-align:center; font-weight:bold; font-size:24px;">查看更多素材:<a style="color:#2dbdf1;"href="http://www.100sucai.com">100sucai.com</a></div>
+<form id="form">
+	<table width="600" height="352" border="1" style="margin:0px auto; border-collapse:collapse; border:1px solid #eee;">
+       	<tr>
+       		<td></td>
+       		<td><h3 style="">100素材网表单验证</h3></td>
+   		</tr>
+        <tr>
+       		<td width="120">
+		  <div align="right">用户名： </div></td>
+       		<td>
+           		<input type="text" name="info[login]" style="width:200px;" value="100素材网"/>
+   		    </td>
+   	    </tr>
+       	<tr>
+       		<td>
+		  <div align="right">设置密码： </div></td>
+       		<td>
+           		<input type="password" name="info[password]" style="width:200px" value="123456"/>
+   		    </td>
+   	    </tr>
+       	<tr>
+       		<td>
+		  <div align="right">确认密码： </div></td>
+       		<td>
+           		<input type="password" name="info[confirm_password]" style="width:200px" value="123456"/>
+   		    </td>
+   	    </tr>
+       	<tr>
+       		<td>
+		  <div align="right">Email： </div></td>
+       		<td>
+           		<input type="text" name="info[email]" style="width:200px;" value="100sucai@hotmail.com"/>
+   		    </td>
+   	    </tr>
+       	<tr>
+       		<td width="120">
+		  <div align="right">年龄： </div></td>
+       		<td>
+           		<input type="text" name="info[age]" style="width:200px;" value="20"/>
+   		    </td>
+   	    </tr>
+       	<tr>
+       		<td width="120">
+		  <div align="right">工作年限： </div></td>
+       		<td>
+           		<input type="text" name="info[do_years]" style="width:200px;" value="6"/>
+   		    </td>
+   	    </tr>
+       	<tr>
+       		<td><div align="right">兴趣爱好：</div></td>
+       		<td>
+       			<input type="checkbox" name="favourite[]" value="1">上网
+       			<input type="checkbox" name="favourite[]" value="2">看书
+       			<input type="checkbox" name="favourite[]" value="3">书法
+       			<input type="checkbox" name="favourite[]" value="7">音乐
+       			<input type="checkbox" name="favourite[]" value="8"><span>泡妞</span>
+   		    </td>
+   	    </tr>
+       	<tr>
+       		<td><div align="right">喜欢的运动：</div></td>
+       		<td>
+       			<input type="checkbox" name="sport[]" value="1">乒乓
+       			<input type="checkbox" name="sport[]" value="2">篮球
+       			<input type="checkbox" name="sport[]" value="3">登山
+       			<input type="checkbox" name="sport[]" value="4">滑雪
+       			<input type="checkbox" name="sport[]" value="5"><span>足球</span>
+   		    </td>
+   	    </tr>
+       	<tr>
+       		<td><div align="right">QQ：</div></td>
+       		<td>
+       			<input type="text" name="sky.zhekou">
+   		    </td>
+   	    </tr>
+       	<tr>
+           	<td></td>
+       		<td>
+       			<input type="submit" class="button" value="注册"/>
+		    </td>
+   	    </tr>
+    </table>
+  </form>
+</body>
+</html>

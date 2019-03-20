@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+筛选：<input type="text" id="sea" /> 
+<table width="100%" id="se"> 
+<thead> 
+<tr><th></th><th>姓名</th><th>性别</th><th>地址</th></tr> 
+</thead> 
+<tbody> 
+<tr class="parent" id="row_01"><td colspan="3">一班</td></tr> 
+<tr class="child_row_01"><td></td><td>大爷</td><td>男10</td><td>武汉1</td></tr> 
+<tr class="child_row_01"><td></td><td>大爷</td><td>男9</td><td>武汉2</td></tr> 
+<tr class="child_row_01"><td></td><td>大爷</td><td>男8</td><td>武汉3</td></tr> 
+<tr class="parent" id="row_02"><td colspan="3">二班</td></tr> 
+<tr class="child_row_02"><td></td><td>大爷</td><td>男7</td><td>武汉4</td></tr> 
+<tr class="child_row_02"><td></td><td>大爷</td><td>男6</td><td>武汉5</td></tr> 
+<tr class="child_row_02"><td></td><td>大爷</td><td>男5</td><td>武汉6</td></tr> 
+<tr class="child_row_02"><td></td><td>大爷</td><td>男4</td><td>武汉7</td></tr> 
+<tr class="parent" id="row_03"><td colspan="3">三班</td></tr> 
+<tr class="child_row_03"><td></td><td>大爷</td><td>男3</td><td>武汉8</td></tr> 
+<tr class="child_row_03"><td></td><td>大爷</td><td>男2</td><td>武汉9</td></tr> 
+<tr class="child_row_03"><td></td><td>大爷</td><td>男1</td><td>武汉10</td></tr> 
+</tbody> 
+</table> 
+<script type="text/javascript">
+	$("#sea").keyup(function(){ 
+		$("#se").load("tbody",null,function(){alert("加载成功")})
+$("#se tbody tr").hide().filter(":contains('"+$(this).val()+"')").show(); 
+}).keyup(); 
+</script>
+	</body>
+</html>

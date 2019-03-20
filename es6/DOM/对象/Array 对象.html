@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	 <!--判断是否为数组-->
+	 var arr = [1, 2, 3];
+	 Array.isArray(arr)
+	 
+	 <!--valueOf方法是一个所有对象都拥有的方法，表示对该对象求值。不同对象的valueOf方法不尽一致，数组的valueOf方法返回数组本身。-->
+	 <!--toString方法也是对象的通用方法，数组的toString方法返回数组的字符串形式。-->
+	<script type="text/javascript">
+	var arr = [1, 2, 3];
+	arr.valueOf() // [1, 2, 3]
+	</script>
+	
+	<!--push方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。
+	pop方法用于删除数组的最后一个元素，并返回该元素。注意，该方法会改变原数组。 对空数组使用pop方法，不会报错，而是返回undefined。 [].pop() // undefined-->
+	<script type="text/javascript">
+		var arr = [];
+		arr.push(1) // 1
+		arr.push('a') // 2
+		arr.push(true, {}) // 4
+		arr // [1, 'a', true, {}]
+	</script>
+	
+	<!--shift方法用于删除数组的第一个元素，并返回该元素。注意，该方法会改变原数组。
+	shift方法可以遍历并清空一个数组。
+	unshift方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。-->
+	<script type="text/javascript">
+		var list = [1, 2, 3, 4, 5, 6];
+		var item;
+		
+		while (item = list.shift()) {
+		  console.log(item);
+		}
+		list // []
+		
+		var arr = [ 'c', 'd' ];
+		arr.unshift('a', 'b') // 4
+		arr // [ 'a', 'b', 'c', 'd' ]
+	</script>
+	
+	<!--reverse方法用于颠倒排列数组元素，返回改变后的数组。注意，该方法将改变原数组。-->
+	
+	<!--sort方法对数组成员进行排序，默认是按照字典顺序排序。-->
+	<script type="text/javascript">
+		[
+		  { name: "张三", age: 30 },
+		  { name: "李四", age: 24 },
+		  { name: "王五", age: 28  }
+		].sort(function (o1, o2) {
+		  return o1.age - o2.age;
+		})
+		// [
+		//   { name: "李四", age: 24 },
+		//   { name: "王五", age: 28  },
+		//   { name: "张三", age: 30 }
+		// ]
+	</script>
+	
+	<!--filter方法用于过滤数组成员，满足条件的成员组成一个新数组返回。-->
+	<script type="text/javascript">
+		[1, 2, 3, 4, 5].filter(function (elem) {
+		  return (elem > 3);
+		})
+	</script>
+	</body>
+</html>

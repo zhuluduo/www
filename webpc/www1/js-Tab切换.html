@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TAB切换</title>
+	<style>
+	
+	</style>
+</head>
+<body>
+	<div id="nav-tab">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</div>
+	<div id="tab_cont">
+		<div>11111111111111111111111</div>
+		<div>2222222222222222222222222</div>
+		<div>333333333333333333333333</div>
+		<div>4444444444444444444444444</div>
+	</div>
+	<script type="text/javascript">
+		var navTab=document.getElementById('nav-tab').getElementsByTagName('li');
+		var tabCont=document.getElementById('tab_cont').getElementsByTagName('div');
+
+		for(var i=0;i<navTab.length;i++){
+			navTab[i].id=i;
+			navTab[i].onclick=function  () {
+				for(var j=0;j<navTab.length;j++){
+					navTab[j].style.color=''
+					tabCont[j].style.color=''
+				}
+				this.style.color='red';
+				tabCont[this.id].style.color='#ddd'
+			
+			}
+		}
+	</script>
+</body>
+</html>

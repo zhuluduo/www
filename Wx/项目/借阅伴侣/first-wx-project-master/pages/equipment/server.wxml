@@ -1,0 +1,44 @@
+<!--server.wxml-->
+<view class="container">
+  <view class="header-area">
+    <view class="header-area-img">
+      <image src="../../img/server2.jpg" mode="aspectFit"></image>
+    </view>
+    <view class="header-area-text">
+      <view class="header-area-title">序列号：{{serialNumber}}</view>
+      <view class="header-area-subtitle">
+        {{ipAddr}}
+      </view>
+    </view>
+  </view>
+  <view class="info-body">
+    <block wx:for="{{attrList}}" wx:key="key" wx:for-item="attr">
+      <view class="info-item" bindtap="clickToEdit" data-item="{{attr}}">
+        <view class="info-item-img">
+          <image src="{{attr.logo}} "></image>
+        </view>
+        <view class="info-item-text">
+          <view class="info-item-key">{{attr.key}}</view>
+          <view class="info-item-value">
+            {{attr.value}}
+            <image src="../../img/right.png"></image>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<modal title="{{modalTitle}}" confirm-text="确认" cancel-text="取消" hidden="{{modalHidden}}" bindconfirm="confirm" bindcancel="cancel">
+    <radio-group class="radio-group" bindchange="radioChange" hidden="{{radioHidden}}">
+    <label class="radio" wx:for="{{modalList}}" wx:key="id" wx:for-item="status">
+      <radio value="{{status.id}}" checked="{{status.checked}}"></radio>
+      {{status.name}}
+    </label>
+    </radio-group>
+    <checkbox-group class="radio-group" bindchange="checkboxgroupBindchange" hidden="{{checkboxHidden}}">
+    <label class="radio" wx:for="{{modalList}}" wx:key="id" wx:for-item="status">
+      <checkbox value="{{status.id}}" checked="{{status.checked}}"></checkbox>
+      {{status.name}}
+    </label>
+    </checkbox-group>
+</modal>

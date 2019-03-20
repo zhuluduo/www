@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>函数</title>
+	</head>
+	<body>
+		<!--自定义带参数的函数-->
+		<script type="text/javascript">
+			function dom3(x,y,t){
+				sun=x+y+t;
+				document.write('sun的值'+sun);
+			}
+			
+		</script>
+		
+		<input type="button" value="点击" onclick="dom3(4,5,6)">
+		
+		<script>
+			   function add3(x,y,z)
+	{
+      var x = parseInt(prompt("请输入第一个数："));
+      var y = parseInt(prompt("请输入第二个数："));
+      var z = parseInt(prompt("请输入第三个数："));
+	  sum = x + y +z;
+	  document.write(x+"、"+y+"、"+z+"和:"+sum+"<br/>");
+	}
+		</script>
+		<input type="button" onclick="add3()">
+		
+		<!--练习-->
+		<script type="text/javascript">
+			function app2(x,y){
+				var sum,x,y
+				sum=x*y;
+				return sum;
+			}
+       var req1=app2(5,6);
+      var req2=app2(2,3);
+      var sumq=req1+req2;
+      document.write("req1的值:"+req1+"<br/>");
+document.write("req2的值:"+req2+"<br/>");
+document.write(req1+"与"+req2+"和:"+sumq);
+		</script>
+		<hr/>
+		<script>
+			function zheng(x,y){
+				var x=parseInt(prompt('请输入第一个整数'));
+				var y=parseInt(prompt('请输入第二个整数'));
+				if(x>y){
+					document.write(x+"大于"+y);
+				}
+			}
+		</script>
+		<input type="button" onclick="zheng()">
+		<hr/>
+		<script>
+			function commer(x,y){
+				if(x>y){
+					return x;
+				}else if(x<y){
+					return y;
+				}else
+				return x;
+			}
+			var zhu1=commer(5,4);
+			var zhu2=commer(6,3);
+			var zhu3=commer(4,4);
+			 document.write(" 5 和 4 的较大值是:"+zhu1+"<br>");
+             document.write(" 6 和 3 的较大值是:"+zhu2+"<br>" ); 
+             document.write('二者相等吗'+zhu3);
+		</script>
+	</body>
+</html>

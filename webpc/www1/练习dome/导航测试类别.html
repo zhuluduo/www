@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+<TITLE>导航测试类别</TITLE>
+
+<style>
+BODY {
+	FONT-SIZE: 11px; MARGIN: 0px; FONT-FAMILY: Verdana,Geneva,sans-serif
+}
+#menubox {
+	CLEAR: both; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND:#336699; FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 100%; PADDING-TOP: 0px; HEIGHT: 43px
+}
+#menubox .menu {
+	MARGIN: 0px auto; WIDTH: 960px
+}
+#menubox .menu UL.topNav {
+	Z-INDEX: 999; FLOAT: left; POSITION: relative; HEIGHT: 30px
+}
+#menubox .menu UL.topNav LI.item {
+	DISPLAY: inline; FONT-SIZE: 12px; BACKGROUND: url(images/esbg.png) no-repeat -676px -138px; FLOAT: left; FONT-FAMILY: Arial; HEIGHT: 35px; TEXT-ALIGN: center
+}
+#menubox .menu UL.topNav LI.item A {
+	PADDING-RIGHT: 15px; DISPLAY: inline; PADDING-LEFT: 3px; FONT-SIZE: 12px; Z-INDEX: 5; FLOAT: left; WIDTH: 75px; COLOR: #fff; PADDING-TOP: 3px; TEXT-ALIGN: center
+}
+#menubox .menu UL.topNav LI.item A.menulink_text {
+	LINE-HEIGHT: 28px
+}
+#menubox .menu UL.topNav LI.item A:hover {
+	PADDING-RIGHT: 15px; DISPLAY: inline; PADDING-LEFT: 3px; FONT-SIZE: 12px; BACKGROUND: url(images/m02.gif) #0092db no-repeat right top; FLOAT: left; WIDTH: 75px; COLOR: #fff; HEIGHT: 35px; TEXT-DECORATION: none
+}
+#menubox .menu UL.topNav LI.item A.classA {
+	PADDING-RIGHT: 15px; DISPLAY: inline; PADDING-LEFT: 3px; FONT-SIZE: 12px; BACKGROUND: url(images/m02.gif) #0092db no-repeat right top; FLOAT: left; WIDTH: 75px; COLOR: #fff; HEIGHT: 35px; TEXT-DECORATION: none
+}
+#menubox .menu UL.topNav LI.item .subNaviCon {
+	BORDER-RIGHT: #0092db 5px solid; PADDING-RIGHT: 5px; BORDER-TOP: #0092db 5px solid; DISPLAY: none; PADDING-LEFT: 5px; Z-INDEX: 1; BACKGROUND: #fff; LEFT: 0px; FLOAT: left; PADDING-BOTTOM: 10px; OVERFLOW: hidden; BORDER-LEFT: #0092db 5px solid; WIDTH: 940px; PADDING-TOP: 10px; BORDER-BOTTOM: #0092db 5px solid; POSITION: absolute; TOP: 38px; TEXT-ALIGN: left
+}
+#menubox .menu UL.topNav LI.item .subNaviCon .cataBox {
+	FLOAT: left; WIDTH: 185px
+}
+#menubox .menu UL.topNav LI.item .subNaviCon .cataBox DT {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; FLOAT: left; OVERFLOW: hidden; WIDTH: 185px; COLOR: #3f84c5; LINE-HEIGHT: 26px; BORDER-BOTTOM: #eee 1px solid
+}
+#menubox .menu UL.topNav LI.item .subNaviCon .cataBox DT A {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; FLOAT: left; WIDTH: 185px; COLOR: #3f84c5; LINE-HEIGHT: 26px; TEXT-ALIGN: left
+}
+#menubox .menu UL.topNav LI.item .subNaviCon .cataBox DT A:hover {
+	FONT-SIZE: 12px; BACKGROUND: none transparent scroll repeat 0% 0%; FLOAT: left; WIDTH: 185px; COLOR: #3f84c5; LINE-HEIGHT: 26px; HEIGHT: 26px; TEXT-DECORATION: underline
+}
+#menubox .menu UL.topNav LI.item .subNaviCon .cataBox DD {
+	DISPLAY: inline; FONT-SIZE: 11px; BACKGROUND: none transparent scroll repeat 0% 0%; FLOAT: left; WIDTH: 150px; COLOR: #000; TEXT-ALIGN: left
+}
+#menubox .menu UL.topNav LI.item .subNaviCon .cataBox DD A {
+	PADDING-RIGHT: 2px; DISPLAY: inline; PADDING-LEFT: 2px; FONT-WEIGHT: normal; FONT-SIZE: 11px; BACKGROUND: none transparent scroll repeat 0% 0%; FLOAT: left; PADDING-BOTTOM: 2px; MARGIN: 0px; OVERFLOW: hidden; WIDTH: 150px; COLOR: #000; PADDING-TOP: 2px; HEIGHT: 15px; TEXT-ALIGN: left
+}
+#menubox .menu UL.topNav LI.item .subNaviCon .cataBox DD A:hover {
+	PADDING-RIGHT: 2px; DISPLAY: inline; PADDING-LEFT: 2px; FONT-SIZE: 11px; BACKGROUND: #eaeef5; PADDING-BOTTOM: 2px; MARGIN: 0px; OVERFLOW: hidden; WIDTH: 150px; COLOR: #1d70c0; PADDING-TOP: 2px; HEIGHT: 15px; TEXT-ALIGN: left; TEXT-DECORATION: underline
+}
+#menubox .menu UL.topNav LI.itemR {
+	DISPLAY: block; FONT-SIZE: 12px; FLOAT: right; FONT-FAMILY: Arial; HEIGHT: 35px
+}
+#menubox .menu UL.topNav LI.itemR .subNaviConR {
+	DISPLAY: none
+}
+.subNaviConR {
+	Z-INDEX: 999; RIGHT: 0px; BACKGROUND: #fff; FLOAT: left; WIDTH: 220px; POSITION: absolute; TOP: 37px
+}
+.subNaviConR DIV {
+	BORDER-RIGHT: #d15400 3px solid; BORDER-TOP: #d15400 3px solid; BACKGROUND: #fff; FLOAT: left; BORDER-LEFT: #d15400 3px solid; WIDTH: 214px; BORDER-BOTTOM: #d15400 3px solid
+}
+.subNaviConR DD {
+	FONT-SIZE: 12px; FLOAT: left; WIDTH: 214px; COLOR: #333; LINE-HEIGHT: 20px; FONT-FAMILY: Arial
+}
+.subNaviConR DD A {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND: none transparent scroll repeat 0% 0%; FLOAT: left; PADDING-BOTTOM: 2px; WIDTH: 214px; COLOR: #333; TEXT-INDENT: 1em; PADDING-TOP: 2px; FONT-FAMILY: Arial
+}
+.subNaviConR DD A:hover {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 12px; BACKGROUND: #fdf2e8; FLOAT: left; PADDING-BOTTOM: 2px; WIDTH: 214px; COLOR: #d15400; PADDING-TOP: 2px; FONT-FAMILY: Arial
+}
+#menuimg {
+	MARGIN-TOP: -6px; FLOAT: left; WIDTH: 960px
+}
+</style>
+<script type="text/javascript" src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+</HEAD>
+<BODY>
+<!--menu start-->
+<DIV id=menubox>
+<DIV class=menu>
+<UL class=topNav id=topNav>
+  <LI class=item><A class=menulink_text  href="#">测试大类一</A>
+  <DIV class=subNaviCon><!--这里可以变为subNaviCon1-->
+  <DIV class=cataBox><!--或者这里可以变为cataBox1-->
+  <DT><A href="#">一级子类</A></DT>
+  <DD><A href="#">二级子类一</A></DD>
+  <DD><A href="#">二级子类二</A></DD>
+  </DIV></DIV>
+  <DIV class=clear></DIV>
+   </LI>
+  <LI class=item><A class=menulink_text  href="#">测试大类二</A>
+  <DIV class=subNaviCon><!---这里可以变为subNaviCon2-->
+  <DIV class=cataBox><!--或者这里可以变为cataBox2-->
+    <DT><A href="#">一级子类</A></DT>
+  <DD><A href="#">二级子类一</A></DD>
+  <DD><A href="#">二级子类二</A></DD>
+  </DIV></DIV>
+  <DIV class=clear></DIV>
+   </LI>
+  <LI class=item><A class=menulink_text  href="#">测试大类三</A>
+  <DIV class=subNaviCon><!--这里可以变为subNaviCon3-->
+  <DIV class=cataBox><!--或者这里可以变为cataBox3-->
+    <DT><A href="#">一级子类</A></DT>
+  <DD><A href="#">二级子类1</A></DD>
+  <DD><A href="#">二级子类2</A></DD>
+  <DD><A href="#">二级子类12</A></DD>
+  <DD><A href="#">二级子类13</A></DD>
+  <DT><A href="#">二级子类</A></DT>
+  <DD><A href="#">二级子类1</A></DD>
+  <DD><A href="#">二级子类2</A></DD>
+  <DT><A href="#">三级子类</A></DT>
+  <DD><A href="#">三级子类11</A></DD>
+  <DD><A href="#">三级子类12</A></DD>
+  <DD><A href="#">三级子类13</A></DD>
+  </DIV></DIV>
+  <DIV class=clear></DIV>
+   </LI>
+</UL>
+</div>
+</div>
+<!--menu end-->
+<script type="text/javascript">
+  var HOST="",firstTagLeft=$("ul#topNav li.item:first").offset().left,naviTimer,tags=[],rowNum=20,verticalNum=5;
+for(i=0;i<$("ul#topNav li.item").length;tags[i++]="");
+$("ul#topNav li.item").hover(function(){
+  $(this).addClass("focus");
+  $(this).children("a").addClass("classA");
+  var a=$(this).children("div.subNaviCon");
+  a.attr
+  ("id","nav_focus");
+  naviTimer=setTimeout("showSubNav();",50)}
+                             ,
+                             function(){
+  $(this).removeClass("focus");
+  $(this).children("a").removeClass("classA");
+  clearTimeout(naviTimer);
+  $("#nav_focus").attr("id","");
+  $(this).children("div.subNaviCon").stop(true,true).slideUp("fast")}
+                            );
+function showSubNav()
+{
+  $("#nav_focus").stop(true,true).slideDown("fast")}
+function cataNameToURL(a)
+{
+  a=a.replace(/^ +/,"").replace(/ +$/,"");
+  return a=a.replace(/[^A-Za-z0-9\.]+/g,"-").replace(/\.+$/,"")}
+$("#topNav li.itemR").hover(function()
+                            {
+  $(this).offset();
+  $(this).addClass("focus");
+  $(this).children("a").addClass("classA");
+  $(this).children("div.subNaviConR").attr
+  ("id","nav_focus");
+  naviTimer=setTimeout("showSubNav();",400)}
+                            ,function(){
+  $(this).removeClass("focus");
+  $(this).children("a").removeClass
+  ("classA");
+  clearTimeout(naviTimer);
+  $("#nav_focus").attr("id","");
+  $(this).children("div.subNaviConR").stop(true,true).slideUp("fast")}
+                           );
+</script>
+
+</body>
+</html>
+</html>

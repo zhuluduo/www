@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		#boz{
+			width: 100%;
+			height: 1500px;
+		}
+			#longin{
+			width: 60px;
+			height: 30px;
+			border: 1px salmon;
+			background: blue;
+			z-index: 1001;
+			}
+			#mask{
+				background: #000;
+				opacity: 0.75;
+				filter: alpha(opacity=75);
+				height: 1000px;
+				width: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+				
+				
+			}
+			#alogin{
+				position: fixed;
+				left: 30%;
+				top: 30%;
+				
+				
+			}
+			.loginCon{
+				width: 670px;
+				height: 380px;
+				background: blueviolet;
+				position: relative;
+			}
+			#close{
+				width: 30px;
+				height: 20px;
+				background: firebrick;
+				cursor: pointer;
+				position: absolute;
+				right: 5px;
+				top: 5px;
+				
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var vask=document.getElementById('longo');
+				vask.onclick=function(){
+//					1获取页面宽高
+                var sheight=document.documentElement.scrollHeight;
+                var swidth=document.documentElement.scrollWidth;
+//              alert(sheight);
+
+//             2.获取可视区域
+                var wheight=document.documentElement.clientHeight;
+                
+				var omask=document.createElement('div');
+				omask.id='mask';
+				omask.style.height=sheight+'px';
+				omask.style.width=swidth+'px';
+				document.body.appendChild(omask);
+				
+				var ologin=document.createElement('div');
+				ologin.id='alogin';
+				ologin.innerHTML="<div class='loginCon'><div id='close'>关闭</div></div>"
+				document.body.appendChild(ologin);
+				
+//				3.获取元素alogin的宽度和高度(只能获取已插入的)
+                var dheight=ologin.offsetHeight;
+                var dwidth=ologin.offsetWidth;
+                
+//              4.给alogin的left和top赋值
+             ologin.style.left=(swidth-dwidth)/2+'px';
+			 ologin.style.top=(wheight-dheight)/2+'px';	
+			 //			 删除
+var oclose=document.getElementById('close');
+oclose.onclick=omask.onclick=function(){
+	document.body.removeChild(ologin);
+	document.body.removeChild(omask);
+}
+			 
+
+				}
+//				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="boz">
+		<div id="longo"><button id="longin">点击</button></div>
+		
+		<!--<div id="mask">
+			<div id="alogin">
+				<div class="loginCon">
+					<div id="close">关闭</div>
+				</div>
+			</div>
+		</div>-->
+		</div>
+	</body>
+</html>

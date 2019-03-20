@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>腾讯视频点播</title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;list-style: none;text-decoration: none;	}
+			.container{width: 99.8%;height:200px;border: 1px solid seagreen;overflow: hidden;}
+			.cont-box{width: 400px;height: 400px;margin: auto;background: #ddd;border-radius:5px;}
+			.cont-left{width: 60%;height: auto;float: left;}
+			.cont-right{width: 40%;height: 100%;float: left;}
+			.box-tit{width: 40%;height: 100%;float: right;overflow: auto;overflow-x: hidden;}
+			.box-tit ul{width: 100%;height: auto;padding-left: 3rem;}
+			.box-tit ul li{padding: 10px 0;}
+			.on{display: inherit;padding: 10px;background: red;}
+			.box-cont{width: 60%;height: 100%;float: left;border-right:1px solid sandybrown ;box-sizing: border-box;overflow: auto; }  
+    .box-list{overflow: hidden;background: beige;padding: 5px;}
+    .box-list li{float: left;}
+			.box-list li img{width: 40%;float: left;padding-right: 1rem;}
+			.box-list li span{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;display: inherit;}
+			.box-list li span ,.box-list li h3{padding: 10px 0 0 0;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="cont-left">
+				<div class="cont-box" id="cont-box"></div>
+			</div>
+			<div class="cont-right">
+				<div class="box-tit" id="box-tit">
+					<ul>
+						<li><a href="#">新闻1</a></li>
+						<li><a href="#">新闻2</a></li>
+						<li><a href="#">新闻3</a></li>
+						<li><a href="#">新闻4</a></li>
+						<li><a href="#">新闻5</a></li>
+						<li><a href="#">新闻6</a></li>
+					</ul>
+				</div>
+				<div class="box-cont" id="box-cont">
+					<div class="box-list" style="display:block;" id="box-list">
+						<a href="#" >
+							<ul id="uls">
+								<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题6</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+									<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题8</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+									<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题9</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+									<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+							</ul>
+						</a>
+					</div>
+									<div class="box-list" style="display: none;" id="box-list">
+						<a href="#">
+							<ul id="uls">
+								<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题2</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+									<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题2</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+									<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题2</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+									<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题2</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+							</ul>
+						</a>
+					</div>
+									<div class="box-list" style="display: none;" id="box-list">
+						<a href="#">
+							<ul id="uls">
+								<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题3</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+									<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题3</h3>
+									<span>测3试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+									<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题3</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+									<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+							</ul>
+						</a>
+					</div>
+									<div class="box-list" style="display: none;" id="box-list">
+						<a href="#">
+							<ul id="uls">
+								<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题4</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+									<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题4</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+									<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题4</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+									<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+							</ul>
+						</a>
+					</div>
+									<div class="box-list" style="display: none;" id="box-list">
+						<a href="#">
+							<ul id="uls">
+								<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题5</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+									<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题5</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+									<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题5</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+									<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+							</ul>
+						</a>
+					</div>
+					<div class="box-list" style="display: none;" id="box-list">
+						<a href="#">
+							<ul id="uls">
+								<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题6</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+									<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题6</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+									<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+									<li>
+									<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1582593178,3329696341&fm=21&gp=0.jpg"/>
+									<h3>标题</h3>
+									<span>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+								</li>
+							</ul>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function $(id){
+				return typeof id==="string"?document.getElementById(id):id;
+			}
+			window.onload=function(){
+				var titles=$('box-tit').getElementsByTagName('li');
+				var divs=$('box-cont').getElementsByTagName('div');
+                for (var i=0;i<titles.length;i++) {
+                	titles[i].id=i;
+                	titles[i].onclick=function(){
+                		for (var j=0;j<titles.length;j++) {
+                			titles[j].className='';
+                			divs[j].style.display='none';
+                		}
+                		this.className='on';
+                		divs[this.id].style.display='block';
+                	}
+                }
+       
+			}
+			function clic(){
+				var showlist=$('box-cont').getElementsByTagName('li');
+		        for (var k=0;k<showlist.length;k++) {
+					var that=showlist[k];
+					showlist[k].onclick=(function(){
+						var info=that.innerHTML;
+						return function(){
+							document.getElementById('cont-box').innerHTML=info;
+						}
+					})(k);
+				}
+			}
+                     clic()
+		</script>
+	</body>
+</html>
